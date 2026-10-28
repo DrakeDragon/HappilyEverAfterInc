@@ -33,6 +33,11 @@ h1{font-size:15px;margin:0 0 6px;text-align:center;background:var(--grad);-webki
 .stabs{display:flex;gap:5px;margin:2px 0 10px;overflow-x:auto}
 .stab{flex:1 0 auto;border:0;border-radius:10px;padding:8px 10px;background:var(--card);color:var(--mut);font-weight:700;font-size:12px}
 .stab.on{background:var(--grad);color:#06121c}
+.goals{display:flex;gap:6px;margin:8px 0}
+.goal{flex:1;border:1px dashed #ffffff33;border-radius:10px;padding:6px 3px;font-size:10px;opacity:.55;text-align:center}
+.goal span{font-size:22px;display:block}.goal small{display:block;color:var(--mut)}
+.goal.next{opacity:1;border:1px solid #fff35c;animation:pop 1.6s infinite}
+.goal.done{opacity:1;background:linear-gradient(135deg,#1c5e3a,#16422f);border:1px solid #6dffb0;color:#d6ffe9}
 .evb{background:linear-gradient(135deg,#2a1450,#1a1038);border:1px solid #fff35c88;border-radius:12px;padding:10px;margin-bottom:9px;font-size:12px;line-height:1.4;text-align:center}
 .bar2{height:14px;background:#0006;border-radius:7px;overflow:hidden;margin:8px 0}
 .bar2 i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2ef2ff,#ff3df0)}
@@ -143,8 +148,8 @@ const BASE=[
 for(let i=8;i<20;i++){const p=BASE[i-1];const cost=p.cost*(i<12?14:i<16?17:20);BASE.push({cost,rev:cost*0.5,t:Math.min(60+(i-7)*12,240),c:i<14?1.08:1.07,mgr:cost*3});}
 const SLIPREQ=[0,0,0,0,0,0,0,0,3,10,30,90,250,700,2000,6000,18000,55000,160000,500000];
 const UP_COSTF2=[3000, 60000, 1500000, 30000000.0, 1000000000.0, 50000000000.0, 5000000000000.0, 5000000000000000.0];
-for(let i=20;i<40;i++){const p=BASE[i-1];const cost=p.cost*Math.pow(10,4+(i-20)*0.6);BASE.push({cost,rev:cost*0.5,t:Math.min(60+(i-7)*12,300),c:i<30?1.07:1.06,mgr:cost*3});}
-for(let i=20;i<40;i++)SLIPREQ.push(5e5*Math.pow(10,(i-19)*1.9));
+for(let i=20;i<50;i++){const p=BASE[i-1];const cost=p.cost*Math.pow(10,3.3+(i-20)*0.1);BASE.push({cost,rev:cost*0.5,t:Math.min(60+(i-7)*12,300),c:i<30?1.07:1.06,mgr:cost*3});}
+for(let i=20;i<50;i++)SLIPREQ.push(5e5*Math.pow(10,(i-19)*1.9));
 const CK=3;BASE.forEach(b=>{b.c=1+(b.c-1)*CK;});
 for(let i=8;i<SLIPREQ.length;i++)SLIPREQ[i]=Math.ceil(SLIPREQ[i]*2.5);
 // [name, emoji, short, managerName, managerQuip]
@@ -211,7 +216,7 @@ const REALMS=[
  ['Sultan\'s Tax Department','👑','Taxes','Vizier Jaffar-ish','"Everything is taxed. Even this text."']
  ]}
 ];
-const MILE=[25,50,100,200,300,400,500,600,700,800,900,1000,1200,1500,2000];
+const MILE=[[10,1.1],[15,1.1],[20,1.15],[25,2],[35,1.15],[50,2],[75,1.15],[100,2],[125,1.1],[150,1.2],[175,1.2],[200,2],[250,1.5],[300,2],[350,1.5],[400,2],[450,1.5],[500,2],[600,2],[700,2],[800,2],[900,2],[1000,3],[1250,2],[1500,3],[1750,2],[2000,4],[2500,3],[3000,5],[4000,5],[5000,10]];
 const UP_MULT=[1.5,1.5,2,2,3,4,5,6];
 const UP_COSTF=[50, 600, 12000, 300000, 10000000.0, 500000000.0, 50000000000.0, 50000000000000.0];
 const GUP_MULT=[1.1,1.1,1.2,1.2,1.3,1.3,1.5,1.5,2,2].concat(Array.from({length:30},(_,j)=>Math.round(2*Math.pow(1.25,j))));
@@ -614,10 +619,371 @@ CROSS.push(
 // =====================================================================
 // V5 DATA: new worlds, weekly events, guest stars, achievements, Cheshire Cat
 // =====================================================================
-const NSHOPS=[40,40,40,20,20,20,5];
-const NPERM=6;      // permanent realms (0-5)
-const EV_RT=6;      // event realm index
-const UNLOCK_COST=[0,1e9,1e10,1e13,1e17,1e21];
+const NSHOPS=[50,50,50,30,30,30,30,30,30,30,30,8];
+const NPERM=11;     // permanent realms (0-10)
+const EV_RT=11;     // event realm index
+const REVF=0.30;    // global income slowdown (v8)
+const EVF=0.30;     // event income slowdown (v8)
+const UNLOCK_COST=[0,1e12,1e15,1e19,1e24,1e30,1e37,1e45,1e54,1e64,1e75];  // cash of the previous world that gets spent
+const UNLOCK_PT=[0,5,25,100,400,1500,6000,25000,1e5,4e5,1.5e6];
+const UNLOCK_RS=[0,3,6,10,14,18,22,26,30,34,38];                           // reset points needed in the previous world
+
+// ===== V8 WORLDS: 5 brand new realms + 10 extra shops for each older realm =====
+const NEWREALMS=[
+{name:'Neverland',short:'Neverland',cur:'Pixie Dust',sym:'✨',icon:'🏴‍☠️',color:'#ffb347',unlock:0,
+ news:[
+  'Lost Boys Day Care reports record enrollment. Staff reports record exhaustion. Both are mathematically impossible.',
+  'Captain Hook sues the Crocodile for "tick-tock harassment." The Crocodile countersues for "hand-based injuries."',
+  'Tinker Bell Pixie Dust shortage: "We\'re running low on faith." Faith futures plummet.',
+  'Peter Pan declines to grow up again. Analysts call it "fiscally irresponsible and spiritually on-brand."',
+  'Wendy opens a new Bedtime Story Hour. Lost Boys demand a sequel. Wendy demands a raise.',
+  'Shadow Stitching Studio reports a rise in runaway shadows. One was last seen applying for a job at Skull Rock.',
+  'Mermaid Lagoon Spa introduces "silent mode." Customers are delighted. Mermaids are not.',
+  'Neverland Airlines launches a "think happy thoughts" fare. Only 3% of passengers reach altitude.'],
+ biz:[
+ ['Lost Boys Day Care','🧒','Day Care','Lead Lost Boy (Found, Twice)','“Nobody grows up here. It’s a policy. It’s also a staffing problem.”'],
+ ['Tinker Bell Pixie Dust Co.','✨','Pixie Dust','Fairy Packer (Wing Tired)','“Sprinkle responsibly. Flying is a privilege, not a refund.”'],
+ ['Hook’s Hand Prosthetics','🪝','Prosthetics','The Crocodile’s Dentist','“Fits like a glove. Hooks like a hook.”'],
+ ['Crocodile Clock Repair','⏰','Clock Repair','Tick-Tock Technician','“He swallowed the clock. We take returns. Of the clock.”'],
+ ['Shadow Stitching Studio','🌑','Shadow Stitch','Needle-Handed Wendy','“We sew shadows on. Shadows come off. Billing is mostly sewing.”'],
+ ['Mermaid Lagoon Spa','🧜','Lagoon Spa','Moody Mermaid','“Soak for two hours. Splash for three. Do not ask about the third.”'],
+ ['Pirate Ship Rental','🏴‍☠️','Ship Rental','Smee (Assistant to Everything)','“Rent by the hour, the day, or the mutiny.”'],
+ ['Never Bird Nest Co.','🪺','Nest Co','Egg-Sitting Intern','“Eggs not included. Eggs are, in fact, the whole problem.”'],
+ ['Flying Lessons Academy','🕊️','Flying Academy','Gravity Skeptic','“Happy thoughts required. Refunds for sad thoughts.”'],
+ ['Second Star Navigation','⭐','Star Nav','Star-Gazing Gary','“Second star to the right, then straight on till... what was it?”'],
+ ['Wendy’s Bedtime Story Hour','📖','Story Hour','Mother Figure #1','“Everyone gets a tuck-in. Pirates too. Especially pirates.”'],
+ ['Tiger Lily Trading Post','🏹','Trading Post','Peace Pipe Procurer','“We trade fairly and fast. Hook trades unfairly and slow.”'],
+ ['Captain Hook Ransom Services','💰','Ransom Services','Smee, Again','“You pay. We hold. Nobody enjoys it. Hook does.”'],
+ ['Lost Boys Treehouse Realty','🌳','Treehouse Realty','Tree-Hole Broker','“Cozy. Hollow. Slightly sentient.”'],
+ ['Fairy Lantern Lighting','🏮','Lantern Light','Glowing Foreman','“Light bulbs are for grown-ups.”'],
+ ['Neverland Mapping Bureau','🗺️','Mapping Bureau','Cartographer (Lost)','“The island moves. So do we. Please wait.”'],
+ ['Pan Pipe Concert Hall','🎶','Pan Pipes','Piper Who Won’t Age','“Forever young. Forever off-key.”'],
+ ['Skull Rock Escape Games','💀','Skull Rock','Tide Monitor','“Escape before high tide. Or don’t. Reviews are mixed.”'],
+ ['Crocodile Dental Plan','🐊','Croc Dental','Floss Handler','“Smile wide. Wider. Wider. Our policy has holes.”'],
+ ['Peter’s Eternal Childhood Foundation','🎈','Eternal Kids','Adult In The Room (Lost)','“We don’t grow up. We grow revenue.”'],
+ ['Jolly Roger Gift Shop','🛍️','Roger Gifts','Pirate Cashier','“Everything’s a souvenir. Including the plank.”'],
+ ['Fairy Wing Repair','🧚','Wing Repair','Tweezer Tinker','“Bent wings fixed. Bent egos extra.”'],
+ ['Mermaid Pearl Exchange','🦪','Pearl Exchange','Pearl Broker (Slippery)','“Fair trade. Mostly fish.”'],
+ ['Pirate Treasure Map Prints','🗾','Map Prints','X-Marks-The-Spot Artist','“All our maps lead to X. Some also lead to shark.”'],
+ ['Neverland Weather Control','⛈️','Weather Control','Cloud Herder','“Sunny. Mostly. Hook’s fault if not.”'],
+ ['Lost Property Office','🎒','Lost Property','Finder-Keeper','“We have found everything. Mostly your shadow.”'],
+ ['Dream Delivery Service','💭','Dream Delivery','Night-Light Postman','“Sweet dreams, delivered. Nightmares collected.”'],
+ ['Pixie Hollow Holdings','🍄','Pixie Holdings','Fairy Queen’s Secretary','“Small. Powerful. Sparkly. Billed in dust.”'],
+ ['Neverland Airlines','🛫','Neverland Air','Gravity-Optional Pilot','“Second star. Straight on. No seatbelts.”'],
+ ['Peter Pan Eternal Holdings','♾️','Eternal Holdings','The Boy Who Won’t Grow Up (CEO)','“Forever young. Forever profitable. Forever late for Wendy.”']
+ ]},
+{name:'Land of Oz',short:'Oz',cur:'Emeralds',sym:'💚',icon:'🌪️',color:'#7dff4d',unlock:0,
+ news:[
+  'Yellow Brick Road Paving announces a toll. The Munchkins are "completely fine" about it, in a way that suggests otherwise.',
+  'Wizard of Oz Smoke & Mirrors admits the mirrors were "mostly real." The smoke was "mostly smoke."',
+  'Scarecrow files a patent on "thinking." The Patent Office replies, "We\'ll think about it."',
+  'Tin Man Oil Services merges with Tin Man Heart Surgery. Both now complain about the same squeak.',
+  'Flying Monkey Freight announces a new "no-fire" policy. The fire department is "cautiously optimistic."',
+  'The Cowardly Lion wins "Bravest Person of the Year" and immediately hides under the podium.',
+  'Emerald City declares green "out." Residents are asked to "go with the flow" and turn slightly teal.',
+  'Toto leaks a memo from behind a curtain. It reads: "No comment. Woof."'],
+ biz:[
+ ['Yellow Brick Road Paving','🟨','Brick Paving','Munchkin Foreman','“Follow it. Pay the toll. Ignore the monkeys.”'],
+ ['Scarecrow Brain Surgery','🧠','Brain Surgery','Straw-Handed Surgeon','“Diplomas available. Brains sold separately.”'],
+ ['Tin Man Oil Services','🛢️','Oil Services','Squeaky Apprentice','“Oil can, can oil. Can’t oil, can’t can.”'],
+ ['Lion Courage Coaching','🦁','Courage Coaching','Mildly Brave Trainer','“Courage is a feeling. Billing is a certainty.”'],
+ ['Emerald City Spectacles','👓','Spectacles','Green-Tinted Optician','“Everything looks greener. Nothing is greener. Pay.”'],
+ ['Wizard of Oz Smoke & Mirrors','🪄','Smoke & Mirrors','Man Behind the Curtain','“Pay no attention to the invoice behind the curtain.”'],
+ ['Flying Monkey Air Freight','🐒','Monkey Freight','Winged Postmaster','“Fast. Furry. Frequently on fire.”'],
+ ['Ruby Slipper Outlet','👠','Slipper Outlet','Click-Clack Cashier','“Click thrice. Receipts take longer.”'],
+ ['Wicked Witch Broom Co.','🧹','Broom Co','Green Broom Tester','“Sweep. Fly. Melt. Replace.”'],
+ ['Toto Dog Training','🐕','Dog Training','Basket Dispatcher','“Good boy. Bad bank balance.”'],
+ ['Tornado Insurance','🌪️','Tornado Insurance','Cellar Adjuster','“Houses move. Claims follow. Eventually.”'],
+ ['Munchkinland Candy Works','🍭','Candy Works','Lollipop Guild Rep','“We represent the Lollipop Guild. Yes, seriously.”'],
+ ['Poppy Field Napping Lounge','🌺','Napping Lounge','Dozy Doorman','“Smell. Sleep. Snore. Subscribe.”'],
+ ['Glinda Bubble Transport','🫧','Bubble Transport','Sparkly Chauffeur','“Pop when you arrive. Not before.”'],
+ ['Winkie Guard Security','💂','Winkie Security','Oh-Ee-Oh Guard','“Oh-ee-oh. Please sign in.”'],
+ ['China Country Pottery','🏺','Pottery','Fragile Foreman','“Handle with care. Or don’t. We’re insured.”'],
+ ['Quadling Country Tours','🧭','Quadling Tours','Hill-Hopping Guide','“Hills. More hills. Hills with opinions.”'],
+ ['Dorothy Home Improvement','🏠','Home Improvement','Kansas Contractor','“There’s no place like our renovations.”'],
+ ['Oz Cartography Dept.','🗺️','Oz Maps','Color-Coded Cartographer','“Four countries. Four colors. Zero shortcuts.”'],
+ ['Silver Shoes Antiques','🥿','Silver Shoes','Appraiser Who Remembers','“It’s the shoes. It’s always the shoes.”'],
+ ['Hot Air Balloon Co.','🎈','Balloon Co','Humbug Pilot','“We rise above. We descend rapidly. Refunds float.”'],
+ ['Wizard’s Humbug Consulting','🎭','Humbug Consulting','Convincing Intern','“Looks real. Sounds real. Trademarked fake.”'],
+ ['Winged Monkey Uniform Tailors','🧵','Monkey Tailors','Small-Pants Specialist','“One size fits few.”'],
+ ['Cowardly Lion Gym','🏋️','Lion Gym','Reluctant Spotter','“Roar quietly. Lift loudly. Faint rarely.”'],
+ ['Scarecrow Corn Futures','🌽','Corn Futures','Field Trader','“Straw market. Strong market.”'],
+ ['Emerald Sewer Authority','🚰','Emerald Sewers','Green Plumber','“It’s not just green. It’s emerald-green. Different smell.”'],
+ ['Oz Rainbow Rentals','🌈','Rainbow Rentals','Prismatic Landlord','“End of the rainbow: pot of gold. Pot is rented.”'],
+ ['Munchkin Union Local #3','🪧','Munchkin Union','Small But Mighty Rep','“We’re short. Our demands are tall.”'],
+ ['Oz Tornado Chasers Network','🌀','Tornado Chasers','Windswept Reporter','“Stay inside. Or don’t. We’ll film it.”'],
+ ['Emerald City Holdings','💎','City Holdings','The Wizard (Probably)','“Pay no attention. Pay anyway.”']
+ ]},
+{name:'Mermaid Lagoon',short:'Lagoon',cur:'Pearls',sym:'🦪',icon:'🐚',color:'#4d9bff',unlock:0,
+ news:[
+  'Ursula Contract Law reports record profits. The terms, as usual, were "fine print and also ink."',
+  'Sebastian Calypso Catering launches a new menu. Sample item: "Under the Seafood Plate."',
+  'Flounder Anxiety Therapy is booked through next year. Flounder is nervous about it.',
+  'Seagulls demand to be recognized as a "vocal minority." A vote is scheduled for "mine, mine, mine."',
+  'Anglerfish Lighting recalled for "too much creepy." The replacement is "slightly less creepy."',
+  'Sunken City Real Estate booms. Buyers cite "great views and mild drowning."',
+  'A mermaid files a complaint about the new stairs at the land-friendly lobby. The stairs file a counter-complaint.',
+  'Kraken Gym announces "arm day." Every day. Eight times.'],
+ biz:[
+ ['Seashell Phone Co.','🐚','Seashell Phones','Hermit Crab Operator','“Hold the shell to your ear. Hold the invoice to your face.”'],
+ ['Ursula Contract Law','🐙','Contract Law','Eight-Handed Attorney','“Sign here. And here. And here. And here. And, uh, here.”'],
+ ['Sebastian Calypso Catering','🦀','Calypso Catering','Crab Maître d’','“Under the sea, the menu’s pricey. Under the sea, the fish are shifty.”'],
+ ['Flounder Anxiety Therapy','🐠','Fish Therapy','Nervous Flounder','“Everything is fine. Everything is fine. Fine.”'],
+ ['Coral Reef Condos','🪸','Coral Condos','Anemone Landlord','“Great views. Mild stinging. No pets.”'],
+ ['Kelp Forest Salads','🥬','Kelp Salads','Seaweed Sous-Chef','“Fresh. Salty. Slimy. Healthy.”'],
+ ['Shipwreck Salvage Ltd.','🚢','Shipwreck Salvage','Rusty Diver','“It was a ship. Now it’s a lobby.”'],
+ ['Pearl Diving Bell Service','🔔','Diving Bells','Barnacle Bell-Ringer','“Down we go. Up we may not.”'],
+ ['Sea Witch Potion Shop','🧪','Potion Shop','Cauldron Clerk','“Voice-for-legs swaps. Terms may include eels.”'],
+ ['Triton Trident Polishing','🔱','Trident Polish','Sparkle Squid','“Shiny prongs. Shiny profits.”'],
+ ['Mermaid Hair Salon','💇','Hair Salon','Stylist With Seven Brushes','“Waves, naturally.”'],
+ ['Anglerfish Lighting Co.','💡','Angler Lights','Glow-Head Foreman','“Always on. Always creepy. Always profitable.”'],
+ ['Seahorse Racing League','🐴','Seahorse Racing','Starting-Line Sprat','“They’re slow. The odds are slower.”'],
+ ['Whale Song Studios','🐋','Whale Songs','Baritone Beluga','“Low notes. High cost.”'],
+ ['Jellyfish Sting Insurance','🪼','Sting Insurance','Tentacled Adjuster','“It stings. We reimburse. Eventually.”'],
+ ['Starfish Talent Agency','⭐','Starfish Talent','Five-Point Agent','“Five arms. Zero scruples.”'],
+ ['Octopus Garden Landscaping','🌿','Octopus Garden','Eight-Armed Gardener','“Eight hands, one hose.”'],
+ ['Treasure Chest Locksmiths','🔐','Chest Locks','Clam Keyholder','“Shut tight. Opens for pearls.”'],
+ ['Seagull Heckler Hire','🐦','Seagull Hire','Squawk Coach','“Mine! Mine! Mine! Mine!”'],
+ ['Bubble Wrap Factory','🫧','Bubble Wrap','Pop Specialist','“Pop. Pop. Pop. Profit.”'],
+ ['Sunken City Real Estate','🏛️','Sunken Realty','Soggy Agent','“Underwater mortgages. Water-tight.”'],
+ ['Tidal Wave Surf School','🏄','Surf School','Gnarly Instructor','“Wipeouts are free. Rescues are not.”'],
+ ['Deep Sea Submarine Tours','🚀','Sub Tours','Periscope Pete','“Please don’t knock on the glass.”'],
+ ['Lighthouse Keeper Services','🗼','Lighthouse','Lonely Lamplighter','“Shine. Beam. Warn. Repeat.”'],
+ ['Sand Dollar Currency Exchange','💱','Sand Dollars','Sandy Teller','“We exchange sand for dollars. Dollars for sand.”'],
+ ['Seaweed Smoothie Co.','🥤','Seaweed Smoothie','Blender Barnacle','“Green. Slimy. Delicious. (Don’t look.)”'],
+ ['Kraken Gym & Rec','🦑','Kraken Gym','Tentacle Spotter','“Eight arms. Eight sets. Eight steaks.”'],
+ ['Atlantic Shipping Lines','⚓','Atlantic Lines','Anchor Admiral','“Ahoy. Pay. Sail.”'],
+ ['Mermaid Pop Records','🎤','Mermaid Records','Seashell-Top Producer','“Voices not included.”'],
+ ['Atlantis Holdings','🔱','Atlantis Holdings','Lost City CEO (Damp)','“We’re under new management. Water-based.”']
+ ]},
+{name:'Sugarplum Sweetland',short:'Sweetland',cur:'Sugar Cubes',sym:'🍬',icon:'🍭',color:'#ff5c8a',unlock:0,
+ news:[
+  'Gumdrop Gravel Quarry accident: 14 workers stuck. They are described as "happily stuck."',
+  'Chocolate River Barges report a "delicious delay." Passengers refuse to leave the delay.',
+  'Sugar Rush Racing League cancels the season. Drivers "can\'t sit still long enough to be cancelled."',
+  'Sour Patch Complaint Dept. reports being overwhelmed. First sweet. Then sour. Then paperwork.',
+  'Gingerbread Hospital opens a new wing. Patients are advised not to lick the wall.',
+  'Candy Wrapper Recycling hits record crinkle volume. Neighbors report "ASMR overload."',
+  'Sweet Tooth Bank & Trust offers a savings plan: deposit a dollar, receive a toothache.',
+  'Hansel & Gretel\'s descendants sue the Witch\'s Cottage for "false advertising of free candy."'],
+ biz:[
+ ['Gumdrop Gravel Quarry','🍬','Gumdrop Gravel','Chewy Foreman','“Hard on the outside. Hard on the teeth.”'],
+ ['Licorice Rope Bridges','🪢','Licorice Bridges','Sticky Engineer','“Black. Chewy. Load-bearing.”'],
+ ['Candy Cane Lumberjacks','🪓','Cane Lumber','Peppermint Logger','“Timber... mint!”'],
+ ['Chocolate River Barges','🍫','Choco Barges','Cocoa Captain','“Float. Melt. Profit.”'],
+ ['Marshmallow Mattress Co.','☁️','Marsh Mattress','Fluffy Foreman','“Soft. Sticky. Squishy. Sold.”'],
+ ['Gingerbread Brick Co.','🧱','GB Bricks','Brick-Spice Foreman','“Three little pigs bought five. They’re hungry.”'],
+ ['Cotton Candy Cloud Weavers','🌥️','Cotton Clouds','Spinner Spider','“Spun sugar, spun yarns, spun in circles.”'],
+ ['Lollipop Forest Tours','🍭','Lollipop Tours','Lick-Happy Guide','“Look. Lick. Leave. Don’t lick the guide.”'],
+ ['Sugar Plum Fairy Ballet','🩰','Plum Ballet','Pirouette Prima','“Dance of the Sugar Plum. Dance of the invoice.”'],
+ ['Jellybean Bean Counters','🫘','Bean Counters','Flavor Auditor','“The earwax flavor is sold out. We’re thrilled.”'],
+ ['Caramel Waterfall Park','🍮','Caramel Falls','Sticky Ranger','“Gooey. Golden. Gravity-fed.”'],
+ ['Rock Candy Mining','💎','Rock Candy','Crystal Digger','“We dig. We crunch. We crack a tooth.”'],
+ ['Sprinkle Rain Machine','🌈','Sprinkle Rain','Precipitation Technician','“Chance of rain: 100% sprinkles.”'],
+ ['Frosting Spackle Home Repair','🧁','Frosting Repair','Icing Handyman','“Fixes everything. Attracts ants.”'],
+ ['Peppermint Patty Patrol','🚔','Mint Patrol','Minty Officer','“Fresh breath. Fresh arrests.”'],
+ ['Taffy Pull Gym','🏋️','Taffy Gym','Stretchy Coach','“Pull. Stretch. Repeat. Regret.”'],
+ ['Fudge Factory Tours','🏭','Fudge Factory','Slow Fudge-Stirrer','“Smooth. Rich. Cheap, now.”'],
+ ['Sour Patch Complaint Dept.','😖','Sour Dept','Puckered Clerk','“First sweet. Then sour. Then a refund request.”'],
+ ['Candy Floss Cloud Airlines','🛫','Floss Air','Sticky Pilot','“Fly high. Land sticky.”'],
+ ['Cookie Crumb Trail Mapping','🍪','Crumb Maps','Hansel’s Descendant','“Follow the crumbs. Or birds will.”'],
+ ['Witch’s Cottage Dental','🏡','Cottage Dental','Sweet-Tooth Dentist','“Free candy. Then free fillings. Then not free.”'],
+ ['Peanut Brittle Construction','🧱','Brittle Builders','Snappy Foreman','“We build. We break. We rebuild. Brittle.”'],
+ ['Chewing Gum Floor Co.','🫧','Gum Floors','Gooey Floor-Layer','“Stick with us.”'],
+ ['Hot Chocolate Spa','☕','Cocoa Spa','Marshmallow Masseuse','“Soak. Sip. Sink.”'],
+ ['Candy Wrapper Recycling','♻️','Wrapper Recycling','Crinkle Collector','“Crinkle. Crunch. Cash.”'],
+ ['Sugar Rush Racing League','🏎️','Sugar Racing','Hyperactive Starter','“On your marks... gone. Already gone.”'],
+ ['Gingerbread Hospital Wing','🏥','Ginger Hospital','Cookie Surgeon','“Broken limbs? Glue and icing.”'],
+ ['Candyland Express Railway','🚂','Candy Express','Licorice Conductor','“All aboard the sugar rush.”'],
+ ['Sweet Tooth Bank & Trust','🏦','Sweet Bank','Savings Squirrel','“We deposit. You dissolve.”'],
+ ['Sugarplum Holdings','🍬','Sugarplum Holdings','Sugar Plum CEO (Overstimulated)','“Sweet profits. Sour margins. Super sticky.”']
+ ]},
+{name:'Dragonspine Peaks',short:'Dragonspine',cur:'Embers',sym:'🔥',icon:'🐲',color:'#ff6b3d',unlock:0,
+ news:[
+  'Dragon Egg Incubators report a hatching boom. Nannies request combat pay.',
+  'Dragon fire insurance premiums rise 9,000%. The Dragon says "fair."',
+  'Knight Armor Barbecue wins "Best Ribs in the Realm." The knights were not consulted.',
+  'Princess Rescue Hotline launches an app. Princesses reply: "We have a better one."',
+  'Wyvern Postal Service reports 100% on-time delivery. 87% of the post is also on fire.',
+  'Griffin Taxi announces surge pricing: half eagle, half lion, fully gouging.',
+  'Volcano Hot Tub Resorts erupts. The resort calls it "a special feature."',
+  'Ancient Wyrm Holdings announces a shareholders\' meeting. Shareholders are asked to bring lunch. Lunch is asked to bring itself.'],
+ biz:[
+ ['Dragon Egg Incubators','🥚','Egg Incubators','Warm-Handed Nanny','“Keep it warm. Keep it quiet. Keep your eyebrows.”'],
+ ['Hoard Management Services','💰','Hoard Mgmt','Gold-Counter Goblin','“Pile it high. Sleep on it. Call us if it clinks.”'],
+ ['Knight Armor Barbecue','🍖','Armor BBQ','Tin-Can Chef','“Well done. Very well done. Already cooked.”'],
+ ['Fire Insurance (Specifically Dragon)','🔥','Dragon Insurance','Charred Adjuster','“Premiums are high. Claims are ash.”'],
+ ['Cave Real Estate','🕳️','Cave Realty','Stalagmite Broker','“Dark. Damp. Great acoustics.”'],
+ ['Wyvern Postal Service','🐉','Wyvern Post','Talon-Handed Courier','“We deliver. We burn. We deliver burnt.”'],
+ ['Princess Rescue Hotline','👸','Rescue Hotline','Tower Operator','“Press 1 for tower. Press 2 for dragon. Press 3 for rescue.”'],
+ ['Volcano Hot Tub Resorts','🌋','Volcano Spa','Lava Lifeguard','“Soak. Simmer. Sulfur.”'],
+ ['Dragon Scale Fashion','👗','Scale Fashion','Reptile Stylist','“Shiny. Sturdy. Scratchy.”'],
+ ['Sword Sharpening Co.','⚔️','Sword Sharpening','Whetstone Whisperer','“Sharp. Sharper. Over-sharp. Careful.”'],
+ ['Spellbook Printing','📚','Spell Press','Pyro-Printer','“Fire-resistant ink. Flame-retardant pages.”'],
+ ['Griffin Taxi','🦅','Griffin Taxi','Feathered Fare-Taker','“Half eagle. Half lion. Fully overpriced.”'],
+ ['Mountain Pass Toll Booth','🚧','Pass Toll','Troll Collector','“Pay the toll. Or the troll. Or the other troll.”'],
+ ['Dragonfire Lighting Co.','💡','Dragon Light','Scorched Lamplighter','“Eternal flame. Eternal bill.”'],
+ ['Cavern Echo Studios','🎙️','Echo Studios','Echo Engineer','“Say it once. Hear it twice. Pay thrice.”'],
+ ['Treasure Appraisal Guild','💎','Treasure Appraisal','Gold-Tooth Appraiser','“It’s cursed. Fifty percent off.”'],
+ ['Wizard Tower Elevators','🛗','Tower Elevators','Staircase Skeptic','“Up. Down. Up. Explode.”'],
+ ['Gargoyle Security Detail','🗿','Gargoyle Guards','Stone-Faced Chief','“Seen anything? Seen everything.”'],
+ ['Dragon Training Academy','🎓','Dragon Academy','Fire-Drill Instructor','“Sit. Stay. Don’t burn.”'],
+ ['Mountain Pass Hostels','🛏️','Pass Hostels','Singed Innkeeper','“Beds are warm. Always warm.”'],
+ ['Ember Coal Futures','♨️','Ember Futures','Ash Trader','“Hot market. Hotter margins.”'],
+ ['Cliffside Castle Contractors','🏰','Cliff Castles','Vertigo-Free Foreman','“We build high. We fall rarely.”'],
+ ['Phoenix Rebirth Clinic','🪶','Phoenix Clinic','Reborn Receptionist','“Burn. Rise. Repeat. First visit free.”'],
+ ['Dragon Egg Omelet Diner','🍳','Omelet Diner','Guilty Short-Order Cook','“Don’t ask. Don’t tell. Do eat.”'],
+ ['Smoke Signal Telecom','💨','Smoke Telecom','Puff Operator','“Reception is... hazy.”'],
+ ['Dragon Rider Stables','🐎','Rider Stables','Saddle-Sore Stablehand','“Mount up. Hold on. Scream.”'],
+ ['Magma Plumbing','🔧','Magma Plumbing','Heat-Proof Plumber','“Hot water: guaranteed. Cold: also, weirdly.”'],
+ ['Dragonspine Mining Co.','⛏️','Spine Mining','Ore-Obsessed Dwarf','“Dig deep. Dig dangerous. Dig dragons.”'],
+ ['Skyfire Air Traffic Control','🛰️','Skyfire Control','Frazzled Controller','“Dragons have right of way. Everything else is lunch.”'],
+ ['Ancient Wyrm Holdings','🐲','Wyrm Holdings','The Ancient One (Sleeps 20 hr/day)','“We hold everything. Especially a grudge.”']
+ ]}
+];
+// 10 extra shops for each older realm (appended after the old finale shop)
+const EXTRA_BIZ=[
+ [ // Forest 40-49
+ ['Cinderella Glass Slipper Returns Dept.','👠','Slipper Returns','Midnight Clerk','“Fits perfectly. Returns imperfectly.”'],
+ ['Goldilocks Porridge Temperature Labs','🥣','Porridge Labs','Just-Right Scientist','“Too hot. Too cold. Billed.”'],
+ ['Beanstalk Cloud Computing','☁️','Beanstalk Cloud','Giant-Server Admin','“Fee-fi-fo-fum, we store your data and sum.”'],
+ ['Little Match Girl Fire Safety','🔥','Match Safety','Careful Matchkeeper','“Strike responsibly. Dream carefully.”'],
+ ['Shoemaker’s Elves Overnight Shipping','👞','Elf Shipping','Night-Shift Elf Foreman','“Overnight means overnight. Don’t peek.”'],
+ ['Magic Mirror Review Site','🪞','Mirror Reviews','Fairest Critic','“Rated five stars. Not by me. By the fairest.”'],
+ ['Three Wishes Escrow','⏳','Wish Escrow','Careful Fairy Notary','“We hold your wishes. We read the clauses.”'],
+ ['Poison Apple Orchards','🍎','Apple Orchards','Suspiciously Cheerful Farmer','“Organic. Locally sourced. Slightly lethal.”'],
+ ['Wolf in Sheep’s Clothing Outfitters','🐑','Sheep Clothing','Fleece Fitter','“Blends in beautifully. Smells like regret.”'],
+ ['Fairytale Forest Grand Syndicate','🌲','Forest Syndicate','The Narrator’s Cousin','“One syndicate to rule them all. Terms apply.”']],
+ [ // Wonderland 40-49
+ ['Unbirthday Present Wrapping','🎁','Unbirthday Wrap','Gift-Tag Hare','“364 days a year. Wrap early.”'],
+ ['Caterpillar Hookah Hygiene','💨','Hookah Hygiene','Bubble-Blowing Blue','“Who. Are. You. Also, please sanitize.”'],
+ ['Queen’s Painted Roses Nursery','🌹','Painted Roses','Red-Handed Gardener','“Paint them red. Quickly. She’s coming.”'],
+ ['Cheshire Smile Dental','😁','Smile Dental','Floating Orthodontist','“Grin guaranteed. Cat not included.”'],
+ ['Wonderland Smoke Detectors','🚨','Smoke Detectors','Over-Alarmed Alarmist','“Beep. Beep. Is that a caterpillar?”'],
+ ['White Rabbit Pocket Watch Repair','⌚','Watch Repair','Hurried Horologist','“Late? We fix ‘late.’ We can’t fix ‘early.’”'],
+ ['Drink-Me Bottle Co.','🧴','Drink Me','Size-Changing Chemist','“Sizes: tiny, giant, awkward.”'],
+ ['Eat-Me Cake Shop','🍰','Eat Me Cakes','Growth-Spurt Baker','“Eat. Grow. Duck.”'],
+ ['Wonderland Nonsense Authority','📜','Nonsense Authority','Official Unofficial Clerk','“Everything is sensible. Nothing is. Stamp here.”'],
+ ['Eternal Tea Time Holdings','☕','Eternal Tea','Time (Officially Redacted)','“It’s always six. It’s always profitable.”']],
+ [ // Arabian 40-49
+ ['Magic Lamp Insurance','🪔','Lamp Insurance','Smoke-Damage Adjuster','“Genie misuse? Covered. Genie misunderstanding? Pending.”'],
+ ['Sandstorm Hairdressers','🌪️','Sandstorm Salon','Wind-Swept Stylist','“Free blowout. Always.”'],
+ ['Desert Oasis Water Parks','💦','Oasis Waterpark','Mirage Lifeguard','“Real water. Sometimes. Check the sign.”'],
+ ['Camel Spit Cleaning Services','🐪','Spit Cleaning','Soggy Janitor','“We clean it. You don’t ask.”'],
+ ['Pharaoh Pyramid Parking','🔺','Pyramid Parking','Tomb Valet','“Park in the shade. Stay a few millennia.”'],
+ ['Bazaar Haggling Academy','🗣️','Haggle School','Final-Offer Master','“Final price. Not final. Final. Not final.”'],
+ ['Date Palm Delivery Network','🌴','Date Network','Sweet-Handed Courier','“Dates on dates. Not romantic.”'],
+ ['Sultan’s Accountancy Harem','🧮','Sultan Accounts','Abacus Union Rep','“Balanced books. Balanced thrones.”'],
+ ['Tapestry of Tales Archive','🧶','Tale Tapestry','Weaver of Plot','“Weaving stories since forever. Frayed edges extra.”'],
+ ['Arabian Nights Grand Syndicate','🕌','Nights Syndicate','The Thousand-and-Second Manager','“One more night. Always one more night.”']],
+ [ // Camelot 20-29
+ ['Round Table Valet Parking','🅿️','Table Valet','Horse Parker','“Park your horse. Leave your pride.”'],
+ ['Excalibur Authentication Services','🔍','Excalibur Auth','Pedantic Metallurgist','“Is it real? Is it ‘real real’? Let’s see the stone.”'],
+ ['Knights of the Square Lunch Table','🥪','Square Lunch','Sandwich Squire','“Knights eat here. So do their feelings.”'],
+ ['Merlin’s Time-Travel Agency','⏳','Time Travel','Backwards Wizard','“Past tense. Future perfect. Present tense.”'],
+ ['Guinevere’s Gossip Gazette','📰','Gossip Gazette','Printing Squire','“All the scandal that’s fit to print, and then some.”'],
+ ['Sherwood Merry Archery Range','🏹','Archery Range','Bullseye Barker','“Bows: good. Apples: forbidden.”'],
+ ['Nottingham Tax Refund Counter','🧾','Refund Counter','Sheriff’s Sad Clerk','“Refunds are theft. Taxes are theft. Theft is theft.”'],
+ ['Camelot Dragon Insurance','🐲','Dragon Insurance','Charred Underwriter','“Dragons: covered. Knights: negotiable.”'],
+ ['Holy Grail Gift Registry','🎁','Grail Registry','Registry Knight','“Registered for: cup. Not cup. Cup.”'],
+ ['Camelot Grand Syndicate','🏰','Camelot Syndicate','The Once and Future Chair','“Round. Rich. Rightful.”']],
+ [ // Olympus 20-29
+ ['Poseidon Beachfront Property','🏖️','Beachfront','Tidal Realtor','“Waterfront. Water. Front.”'],
+ ['Hera Marriage Counseling','💍','Marriage Counseling','Peacock Counselor','“It’s not you. It’s Zeus.”'],
+ ['Ares Sporting Goods','⚔️','Ares Sports','War Merchant','“Equipment for fighting. Fighting not included.”'],
+ ['Artemis Hunting Lodge','🏹','Hunting Lodge','Moonlit Ranger','“Hunt by moonlight. Dine by moonlight.”'],
+ ['Demeter Seasonal Produce','🌾','Seasonal Produce','Harvest Hostess','“Grain is eternal. Winter is a negotiation.”'],
+ ['Hephaestus Smithy & Repair','🔨','Smithy','Limp-Footed Smith','“Fix it. Forge it. Forget the warranty.”'],
+ ['Persephone Pomegranate Co.','🍎','Pomegranates','Six-Seeds Saleswoman','“Six seeds. Six months. Sixty percent markup.”'],
+ ['Dionysus Festival Planning','🎉','Festival Planning','Hangover Planner','“Planning: wine. Execution: more wine.”'],
+ ['Mount Olympus Cloud Storage','☁️','Cloud Storage','Thunder-Server Admin','“Stored in the clouds. Literally.”'],
+ ['Olympus Grand Syndicate','⛰️','Olympus Syndicate','Zeus’s Other Assistant','“Twelve gods, one syndicate. Votes are 11–1.”']],
+ [ // Frostbite 20-29
+ ['Snow Globe Manufacturing','🔮','Snow Globes','Shake-Tester','“Shake. Settle. Sell.”'],
+ ['Polar Bear Taxi','🐻‍❄️','Polar Taxi','Ice-Pawed Driver','“Fares freeze. Tips thaw.”'],
+ ['Penguin Parade Productions','🐧','Penguin Parades','Waddle Wrangler','“Flightless. Fearless. Formal.”'],
+ ['Snowflake Patent Office','❄️','Snowflake Patents','Identical-Snowflake Skeptic','“No two are alike. We checked. Mostly.”'],
+ ['Frozen Treats Distillery','🍨','Frozen Distillery','Brain-Freeze Brewer','“Cold. Sweet. Dangerous.”'],
+ ['Northern Lights Photography','📸','Lights Photo','Frostbitten Photographer','“Green is the new green.”'],
+ ['Avalanche Rescue Corps','⛑️','Avalanche Rescue','Dog-With-A-Barrel','“Buried? We bill by the foot.”'],
+ ['Frost Giant Moving Company','🧊','Giant Movers','Heavy-Lifter','“We move everything. Especially mountains. Slowly.”'],
+ ['Igloo Condominiums','🏠','Igloo Condos','Block-Stacking Broker','“Open concept. Very open. Drafty.”'],
+ ['Frostbite Grand Syndicate','❄️','Frost Syndicate','Chief Frost Officer','“Cold hearts. Warm profits.”']]
+];
+const NEW_RQUIP=[
+ ['Tinker Bell sprinkled it. Several things are now airborne.','The Lost Boys voted. Unanimously. For a different thing.','Hook approved it, then immediately regretted it.','The crocodile was nearby. Everyone stayed very still.','A shadow tried to sign off. It slipped away.','Wendy tucked it in. It will not be going anywhere.','Peter promised to grow up for this. He lied.','Think happy thoughts. Invoice later.'],
+ ['The Wizard approved it, mostly from behind a curtain.','A Munchkin checked the numbers. He is very small but very thorough.','The Scarecrow thought about it. It took a while.','The Tin Man oiled the paperwork. It squeaked anyway.','The Lion roared. The memo remained unmoved.','A tornado delivered it. It landed on a witch.','Toto bit the paperwork. The paperwork is fine.','Click heels thrice. The upgrade appears. Taxes remain.'],
+ ['Ursula wrote the contract. It is mostly ink.','Sebastian composed a song about it. It was about crabs.','Flounder worried about it, which means it must be fine.','A seagull stole it, returned it, then stole it again.','It floated in on a tide. Nobody asked where from.','The kelp forest approved. Kelp does not vote.','A bubble delivered the memo. The memo popped.','Triton nodded. The trident nodded harder.'],
+ ['A gumdrop signed off. It was sticky.','The Sugar Plum Fairy twirled. Profits twirled with her.','The chocolate river rose. So did margins.','A licorice rope held the budget together.','The Jellybeans voted. The flavors were mixed.','Frosting was applied. Everything looks better now.','The Witch said it was free. It was not free.','Sprinkles fell. Nobody read the footnotes.'],
+ ['The Dragon approved it by not eating anyone.','A knight tried to review it. He is now a footnote.','The hoard grew. So did the guilt.','Smoke signals confirmed it. The smoke signals were unclear.','A griffin delivered it, then asked for a tip.','The Wyrm yawned. Everyone stood very still.','Embers glowed. The paperwork did not.','A wizard cast Approve. It exploded a bit.']
+];
+const NEW_CATOP=[
+ [ // Neverland
+  'Peter Pan has been eleven for a very long time. I have been a cat for even longer. Neither of us is judging.',
+  'Captain Hook is the only man who has ever lost a hand to a clock and still blamed the clock.',
+  'I have a theory that the Lost Boys are not lost. They are simply very bad at appointments.',
+  'Tinker Bell is a delight. She is also a fire hazard. I have said both of these to her face.',
+  'Wendy is the only adult in Neverland. She is twelve. This tells you everything about Neverland.',
+  'The crocodile swallowed a clock. I swallowed a canary once. Nobody built a legend around me.',
+  '{s} is doing well. Peter would say it\'s because of happy thoughts. It\'s because of invoices.',
+  'In Neverland nobody grows up, which makes quarterly reports a bit of a personality test.',
+  'Hook says Peter Pan is a bad influence. Peter says Hook is a bad accountant. Both are right.',
+  '{m} would like me to remind you that flying is 90% belief and 10% paperwork.',
+  'If you ever need to find me, look for the second star to the right. I will be napping under it.',
+  'Smee is the real boss here. I say this with deep respect and mild terror.'],
+ [ // Oz
+  'The Wizard of Oz is the most honest liar I have ever met. I mean it as a compliment.',
+  '{m} says the Yellow Brick Road is a "journey." I say it is a toll road with feelings.',
+  'The Scarecrow has no brain, and yet manages the books better than most. Think about that.',
+  'The Tin Man cries rust. It is very sad and also an opportunity for oil sales.',
+  'The Lion could be brave if he wanted. He prefers to be profitable.',
+  'Toto is the only one who saw behind the curtain and said nothing. A cat respects that.',
+  'Flying monkeys are very polite until they are not. I take that as a compliment to cats everywhere.',
+  'I have never trusted a city that is green on purpose. I have loved it anyway.',
+  'There is no place like home. There is, however, a place with better margins.',
+  'The Wicked Witch of the West just wants her sister\'s shoes back. That is a lawsuit, not a villain arc.',
+  'If I clicked my heels three times, I would end up in a bowl of cream. Not bad.',
+  '{s} is thriving. The Wizard takes credit. He always takes credit.'],
+ [ // Mermaid Lagoon
+  'Ursula is the best lawyer in any ocean. Her only flaw is that she is eight times as billable.',
+  'Sebastian is a crab with ambition and a calypso band. He is exactly what the sea deserves.',
+  'Flounder is not a coward. He is cautious. It is a professional distinction.',
+  'Seagulls are the only birds that heckle on commission. I respect it.',
+  'I am a cat, and I do not enjoy water. I am doing this for you, and I want that noted.',
+  'The sea witch collects voices. I collect naps. We are not so different.',
+  'Under the sea, everything is better, wetter, and a little overpriced.',
+  '{s} is making waves. Literally. The tide charts are concerned.',
+  'Ariel gave up her voice for legs. I gave up my job for a better view. I regret nothing.',
+  '{m} would like it noted that "fine" is the only emotion Flounder has ever expressed.',
+  'Kraken Gym has a wonderful policy: eight arms, eight sets, eight mood swings.',
+  'The thing about Atlantis is that nobody can find it, so nobody can audit it.'],
+ [ // Sweetland
+  'I have had three bowls of gumdrop gravel and feel entirely fine. Do not check my teeth.',
+  'The chocolate river is a delight. I fell in once. I tasted like a cat that had a very good day.',
+  'Hansel and Gretel have never fully recovered from the cottage. Neither has the cottage.',
+  'The Sugar Plum Fairy is the only dancer who can pirouette on a marshmallow and not sink. I tried. I sank.',
+  'Sour Patch Complaint Dept. is thriving. Something about sweet things inspires complaints.',
+  '{s} has doubled. That is either excellent news or a sugar high.',
+  'Candy is a business of tiny joys. Tiny joys are shockingly profitable.',
+  'The Witch\'s cottage is edible. I do not recommend it. I recommend it a little.',
+  '{m} says the secret to success is "sugar." I say it\'s compounding sugar.',
+  'The Gingerbread Man used to live here. He moved to the Forest after a rumor that he is delicious.',
+  'Jellybeans: the only candy where the flavor roulette is the product. I admire that confidence.',
+  'The Sweet Tooth Bank & Trust has a dentist on staff. That tells you everything.'],
+ [ // Dragonspine
+  'Dragons are the original hoarders. I am merely a collector of warm patches of sun.',
+  'The Ancient Wyrm sleeps twenty hours a day. I am fully on board with this management style.',
+  'Dragons and knights have been enemies for centuries. Both have been overcharging each other for nearly as long.',
+  'Fire insurance for dragons is a fascinating business model. The product is a conversation about regrets.',
+  '{m} wants a raise. {m} will not get a raise. {m} is dealing with it.',
+  'A hoard is just a savings account with better lighting.',
+  'The griffin is half eagle, half lion, and fully convinced he deserves a tip.',
+  'Wyverns are cousins of dragons. They are the cousins who bring salad to the barbecue.',
+  '{s} is doing marvelously. There is only mild fire damage.',
+  'Princesses do not need rescuing. They need an on-call dragon and a good lawyer.',
+  'I would like to be a dragon. I would sleep on gold and judge you from above.',
+  'Phoenix Rebirth Clinic: where "have you tried turning it off and on again" is literal.']
+];
 
 REALMS.push(
 {name:'Camelot & Sherwood',short:'Camelot',cur:'Crowns',sym:'🛡️',icon:'🏰',color:'#ff7ad9',unlock:1e13,
@@ -692,15 +1058,18 @@ REALMS.push(
  ['Blizzard Futures Exchange','🌨️','Blizzard Futures','Weathered Trader','“Buy snow. Sell snow. Weather the storm.”'],
  ['Eternal Winter Holdings','♾️','Winter Holdings','Frozen Executive (Solid)','“We’re in this for the long winter.”']
  ]},
+...NEWREALMS,
 {name:'Event',short:'Event',cur:'Event Tickets',sym:'🎟️',icon:'🎪',color:'#fff35c',unlock:0,news:[],biz:[]}
 );
 
+EXTRA_BIZ.forEach((a,r)=>REALMS[r].biz.push(...a));
 // Realm-specific quip flavor for generated upgrades
 const RQUIP=[null,null,null,
  ['A knight has approved this. He is wearing the wrong helmet.','Merlin says it works. Merlin says many things.','The Round Table voted. It went around. It went around again.','Robin Hood stole this upgrade. Then returned it with interest.','The Sheriff taxed it. The Merry Men un-taxed it.','The Holy Grail was involved. It was just a cup, but profit is profit.','A dragon agreed to sponsor this. The dragon is also an investor.','An enchanted sword endorses this product. Sort of.'],
  ['Zeus approved it. Zeus approves everything while distracted.','Athena designed it. Athena reads the manual. Nobody else does.','The Fates wove this into the plan. They knitted a typo in too.','Hermes delivered it. Early. Before you ordered.','Hades stores the receipts. Forever.','Midas touched it. It is now very expensive. And slightly yellow.','Hercules lifted the budget. Twelve times.','A muse inspired it. A different muse sued.'],
  ['It’s snowing in the boardroom again. Nobody remembers why.','A snowman signed the contract. The signature is melting.','Jack Frost froze the competition. And the coffee machine.','The North Wind blew this idea in. It also blew out the candles.','An icicle fell. Profits rose. HR is investigating the icicle.','A yeti approved it by not objecting loudly.','The Snow Queen smiled. Everything within ten feet froze. Productivity: up.','Cocoa was consumed. Morale: up 400%. Lactose: unknown.']
 ];
+RQUIP.push(...NEW_RQUIP);
 function genUp(r,i,k){
   const sn=REALMS[r].biz[i][2];
   const rq=RQUIP[r];
@@ -713,7 +1082,7 @@ function getUp(r,i,k){return (UPG[r]&&UPG[r][i]&&UPG[r][i][k])||genUp(r,i,k);}
 // Generated realm-wide upgrades for realms 3..6
 const GGN=['Royal Charter','Grand Expo','Mega Merger','Golden Handshake','Fiscal Fanfare','Treasure Summit','Bonus Banquet','Profit Parade','Dividend Day','Jubilee','Vault Expansion','Ledger Festival','Coin Carnival','Wealth Summit','Trade Winds','Market Mania','Boom Times','Gold Rush','Merchant Moon','Windfall Week','Fortune Fair','Bounty Bash','Tycoon Tour','Treasury Gala','Mogul Midnight','Prosperity Pact','Billion Banquet','Riches Revival','Lucky Charm Quarter','Epic Escrow','Opulence Overture','Grand Ledger','Mythic Markup','Legendary Levy','Imperial Income','Sovereign Surplus','Cosmic Capital','Eternal Equity','Infinite Interest','The Final Fortune'];
 const GGQ=['A pinch of paperwork, a pound of profit.','The accountants cheered. Then fainted.','It is exactly as large as it sounds.','Everyone shook hands. Nobody washed them.','A trumpet played. Then it was invoiced.','The treasure was real. So was the bill.','Every course was dessert. Bring a spoon.','Floats. Confetti. A very large invoice.','Paid out in shiny things and polite applause.','A celebration of tax-deductible joy.','The vault got bigger. So did the vault’s opinions.','Ledgers danced. Numbers waltzed.','Coins everywhere. Wear shoes.','Wealthy people met. Nobody was surprised.','The winds changed. So did the prices.','Everybody wanted in. Nobody read the terms.','Boom! Times! Please stand back.','It was gold. It was a rush. It was loud.','The moon is a merchant. It sells light. At night.','An unexpected check arrived. It was real. Probably.','Fortune smiled. Then asked for a tip.','A bash. A bounty. A banner that said “WHOOPS”.','Tour buses full of tycoons. Gift shop mandatory.','Gala dresses. Gala forks. Gala invoices.','Midnight money. Moonlit margins.','Peace was achieved. Profits followed.','The banquet was billion-dollar. The napkins were extra.','Riches returned from vacation, tanned.','Luck is a strategy if you stack it.','Escrow so epic it needs its own cat.','A grand overture. A larger finale.','Every page is a profit. Every line is a loophole.','Marked up. Marked down. Marked present.','A levy so legendary, taxpayers wrote songs.','Imperial. Income. Immediate.','A surplus fit for a sovereign. And a nap.','Capital so cosmic, planets pay rent.','Equity eternal. Fine print: also eternal.','Interest on interest on interest on interest.','The final fortune. (It is not the final fortune.)'];
-for(let r=3;r<=6;r++)GUPG.push(Array.from({length:40},(_,k)=>[REALMS[r].short+' '+GGN[k],GGQ[k]]));
+for(let r=3;r<=EV_RT;r++)GUPG.push(Array.from({length:40},(_,k)=>[REALMS[r].short+' '+GGN[k],GGQ[k]]));
 
 // ---------------- WEEKLY EVENTS (52) ----------------
 // [name, emoji, theme word, tagline]
@@ -776,7 +1145,10 @@ const EVSHOPS=[
  ['Catering Co.','🍽️','Catering','Overworked Event Chef','“Everything is on the menu. Nothing is on the menu. Please advise.”'],
  ['Parade Float Builders','🎪','Floats','The Mascot (Costume Stuck)','“I can’t take the head off. Please don’t ask.”'],
  ['Ticket Resellers (Licensed)','🎫','Tickets','Raffle Wizard','“Everyone wins. Nobody wins. Your number is 7. Probably.”'],
- ['Grand Finale Fireworks','🎆','Fireworks','Safety Officer (Hiding)','“I advised against this. Loudly. Now it’s on fire.”']
+ ['Grand Finale Fireworks','🎆','Fireworks','Safety Officer (Hiding)','“I advised against this. Loudly. Now it’s on fire.”'],
+ ['Commemorative Plate Co.','🍽️','Plates','Plate Painter (Unpaid)','“Collect them all. Display none. Dust all.”'],
+ ['VIP Lounge','🥂','VIP Lounge','Velvet-Rope Bouncer','“You’re on the list. Which list? Not this list.”'],
+ ['Mega Mascot Merch Empire','🧸','Merch Empire','Plush Production Manager','“Squeeze it. It squeaks. It sells.”']
 ];
 const EV_BASE_TH=[1e6,1e8,1e11];
 const EV_PERK=['All profit ×1.25','All shop prices −2%','Plot Twist & Guest rewards ×1.25','Glass Slipper gains +3%'];
@@ -1160,9 +1532,9 @@ Object.assign(CAT,{
 // =====================================================================
 
 // ----- four extra per-shop upgrade tiers (very far future) -----
-UP_MULT.push(8,10,14,20);
-UP_COSTF.push(5e15,5e17,5e19,5e22);
-UP_COSTF2.push(5e17,5e19,5e22,5e25);
+UP_MULT.push(8,10,14,20,28,40,60,90,140,220,350,600);
+UP_COSTF.push(5e15,5e17,5e19,5e22,1.5e25,4.5e27,1.4e30,4e32,1.2e35,3.6e37,1e40,3e42);
+UP_COSTF2.push(5e17,5e19,5e22,5e25,1.5e28,4.5e30,1.4e33,4e35,1.2e38,3.6e40,1e43,3e45);
 
 // ----- twenty extra global upgrades per world (k = 40..59) -----
 GUP_MULT.push(...Array.from({length:20},(_,j)=>Math.round(2*Math.pow(1.25,30+j))));
@@ -1170,7 +1542,7 @@ GUP_COST.push(...Array.from({length:20},(_,j)=>5e13*Math.pow(10,(30+j+1)*5.2)));
 const GGN3=['Epilogue Expo','Sequel Summit','Spin-Off Spectacular','Cliffhanger Clearance','Plot Hole Refund','Fourth-Wall Fiesta','Deus Ex Machina Bonus','Chekhov\'s Dividend','Red Herring Rebate','Twist Ending Windfall','MacGuffin Merger','Narrative Arc Audit','Montage Montage','Flashback Fund','Foreshadowing Futures','Unreliable Narrator Fee','Plot Armor Premium','Happily-Ever-After Hedge','Once Upon a Billion','The Long Tail of Tales'];
 const GGQ3=['The sequel was approved before the first one ended.','Spun off. Spun out. Spun a profit.','The cliffhanger was resolved. Another one immediately appeared.','A plot hole was refunded. In gold. With interest.','The fourth wall fell over. We billed it for damages.','Deus ex machina arrived. It filed a receipt.','The gun on the mantle finally paid out.','A red herring was found to be a perfectly good herring. Profit!','The twist ending twisted all the way back to profit.','A MacGuffin merged with another MacGuffin. Nobody knows what they do.','The narrative arc was audited. It is mostly arc.','A montage happened. Money was made. Music swelled.','A flashback paid a surprise dividend.','Foreshadowing: you will make a lot of money. Narrator confirms.','The narrator was unreliable about the fee. Doubled.','Plot armor now offered as a premium, with a small cat.','Happily ever after is now hedged against sad endings.','Once upon a billion, profits did what they do.','The tale went on and on. The numbers did, too.'];
 GGQ3.push('Everything ends. This upgrade doesn\'t.');
-for(let r=0;r<=6;r++)GUPG[r].push(...Array.from({length:20},(_,k)=>[REALMS[r].short+' '+GGN3[k],GGQ3[k]]));
+for(let r=0;r<=EV_RT;r++)GUPG[r].push(...Array.from({length:20},(_,k)=>[REALMS[r].short+' '+GGN3[k],GGQ3[k]]));
 
 // ----- more generated-upgrade variety -----
 GADJ.push('Imperial','Eternal','Legendary','Ultra','Hyper','Quantum','Sacred','Gilded');
@@ -3850,9 +4222,9 @@ const STORY_COND=[
  ()=>S.realms[5].unlocked&&S.quillTotal>=10
 ];
 
-const EVTH=[[6500000000.0, 6700000000000.0, 200000000000000.0], [14000000000.0, 23000000000000.0, 760000000000000.0], [1300000000.0, 68000000000000.0, 5500000000000000.0], [7800000000.0, 14000000000000.0, 810000000000000.0], [180000000000.0, 100000000000000.0, 3400000000000000.0], [36000000000.0, 44000000000000.0, 1500000000000000.0], [45000000000.0, 22000000000000.0, 660000000000000.0], [100000000000.0, 61000000000000.0, 2900000000000000.0], [8300000000.0, 110000000000000.0, 6000000000000000.0], [79000000000.0, 62000000000000.0, 3500000000000000.0], [6100000000.0, 5900000000000.0, 160000000000000.0], [34000000000.0, 45000000000000.0, 1900000000000000.0], [71000000000.0, 38000000000000.0, 1200000000000000.0], [34000000000.0, 34000000000000.0, 1600000000000000.0], [740000000.0, 35000000000000.0, 1900000000000000.0], [8600000000.0, 18000000000000.0, 740000000000000.0], [5400000000.0, 6900000000000.0, 270000000000000.0], [11000000000.0, 13000000000000.0, 810000000000000.0], [12000000000.0, 8600000000000.0, 250000000000000.0], [24000000000.0, 22000000000000.0, 1000000000000000.0], [270000000.0, 590000000000.0, 21000000000000.0], [2200000000.0, 11000000000000.0, 480000000000000.0], [1900000000.0, 1200000000000.0, 39000000000000.0], [1900000000.0, 1800000000000.0, 66000000000000.0], [54000000000.0, 33000000000000.0, 1900000000000000.0], [22000000000.0, 15000000000000.0, 990000000000000.0], [1100000000.0, 120000000000000.0, 7300000000000000.0], [4600000000.0, 55000000000000.0, 3100000000000000.0], [4500000000.0, 10000000000000.0, 440000000000000.0], [150000000000.0, 90000000000000.0, 4100000000000000.0], [1700000000.0, 1200000000000.0, 35000000000000.0], [1800000000.0, 4200000000000.0, 120000000000000.0], [20000000000.0, 27000000000000.0, 1000000000000000.0], [73000000000.0, 46000000000000.0, 2200000000000000.0], [480000000.0, 51000000000000.0, 2200000000000000.0], [2100000000.0, 1900000000000.0, 69000000000000.0], [11000000000.0, 14000000000000.0, 500000000000000.0], [120000000000.0, 81000000000000.0, 4200000000000000.0], [1000000000.0, 1100000000000.0, 56000000000000.0], [3600000000.0, 220000000000000.0, 9400000000000000.0], [5300000000.0, 160000000000000.0, 1.3e+16], [16000000000.0, 19000000000000.0, 1200000000000000.0], [82000000000.0, 50000000000000.0, 1900000000000000.0], [1700000000.0, 940000000000.0, 35000000000000.0], [1800000000.0, 2100000000000.0, 56000000000000.0], [2700000000.0, 4700000000000.0, 280000000000000.0], [8900000000.0, 30000000000000.0, 1800000000000000.0], [83000000000.0, 57000000000000.0, 2600000000000000.0], [2600000000.0, 8400000000000.0, 250000000000000.0], [12000000000.0, 26000000000000.0, 840000000000000.0], [2700000000.0, 74000000000000.0, 3900000000000000.0], [1200000000.0, 900000000000.0, 47000000000000.0]];
+/*EVTH8*/const EVTH=[[97280038.77321199, 33074015127682204, 11110544999807416000], [33005577.909586348, 45632127726436216, 14140660059855980000], [15648217.813278385, 12850310180096612000, 655182148739391200000], [14129483.756911453, 1185348251255230200, 59556546643633226000], [592720419.2931617, 1572859191777044200, 88503222808995760000], [166362975.04383874, 261303662784576500, 29148731732032918000], [738930188.4041682, 1471443924293234000, 33962605597229236000], [423608945.43954706, 3322661663391392000, 77549123437892240000], [19855904.909678113, 22297150246388974000, 1.0631997318757625e+21], [349677099.75864756, 10312278904058788000, 249672320260856770000], [43667433.161412604, 6471265489163182, 1785221244688785000], [135700781.58436704, 1232252271056671700, 69543833556648804000], [399298490.906053, 7183013931733134000, 196125368926157470000], [120554870.93384786, 4212036761284620000, 169259946135927780000], [3647933.7830827883, 2043575251998339600, 178852855401929150000], [87190532.97201326, 1154802768864932900, 79624438811018180000], [27090775.40556873, 38086227285195384, 7854640019147697000], [127660434.01691459, 1664121618707009300, 83641730448810670000], [65448567.479467, 4110976517579854.5, 1304649757671751700], [365800467.860587, 33251211472396212, 11752487788747297000], [8454857.664524753, 434475103116576.2, 59931651380861730], [28390480.143126123, 1254588301228202200, 89275168936559050000], [26446005.946643174, 241430193409116.47, 90992196686669550], [28348009.556436025, 9508270344483662, 2117984094925640200], [440002712.1332043, 340093677906416400, 61817551266782224000], [218691999.26463068, 130247211872984370, 32831869962734790000], [12722707.34498973, 19376120356520866000, 977061196677609400000], [45811970.1713204, 5995153351709211000, 230001474595352400000], [20628055.92823817, 42073866934219416, 8616167987393142000], [395554783.0781499, 3246841552716510700, 67497700820269530000], [30299783.09427046, 799396388460196.2, 164721020976903000], [18830024.584516305, 780471084276063.6, 143269783894172540], [137795725.6957905, 1064825104601946900, 77128859434177950000], [178667250.76357275, 91903793724753810, 15272129177218163000], [13275947.388803909, 9209624861504302000, 1.3054457479804027e+21], [25065438.403897837, 1793819697232577, 455695718600147460], [55787475.29144854, 51381584019612750, 15077877057352921000], [239352246.44005942, 5281845826585259000, 144179615065383320000], [22258110.647677876, 2985621990162855, 555838715783458600], [36706634.42053017, 90683793254411780000, 5.253826622209266e+21], [29588414.395580716, 9465464472472562000, 299537490195421900000], [149694027.77785465, 354964890171401900, 49093490478924690000], [708951835.1174045, 7688538952639666000, 291626221180402370000], [61698129.134558745, 6162778486992786, 2018321586099426000], [24667525.479605183, 227669107393662.38, 34227875002073516], [36144952.165736355, 52710646203645160, 12082850979383515000], [28328742.418501128, 241875310482053980, 36966906129501670000], [521714644.5763535, 5488054272645514000, 216149280371449070000], [36475348.643761925, 82364991153291970, 20671349723683180000], [61875957.02765763, 251062802988361660, 30196429755460153000], [10209698.165102933, 27698003679695045000, 1.545676226104222e+21], [24938031.980254572, 453546345978416.5, 118286279920010080]];
 const SLIP_BONUS=0.03;
-const WISH_MAX=6,WISH_REGEN=2*3600e3,WISH_ADD=3600e3,WISH_CAP=24*3600e3;
+const WISH_MAX=4,WISH_REGEN=3*3600e3,WISH_ADD=3600e3,WISH_CAP=12*3600e3;
 const SAVE_KEY='haec2';
 const EVC={stamps:0,gold:0};
 const EV_PERK_AT=[10,30,60,100];
@@ -3863,32 +4235,53 @@ const ECO_P=[
  {s:1,ro:2.4,tm:1.8,ce:1.2,mg:2,cs:1,rs:1},    // Arabian Nights: slow, fat paydays, pricey managers
  {s:100,ro:1,tm:1,ce:1.1,mg:1,cs:1.25,rs:1.18},// Camelot: steep tiers
  {s:1e4,ro:3.5,tm:2.5,ce:1,mg:1.5,cs:1,rs:1},  // Olympus: feast and famine
- {s:1e6,ro:1.3,tm:.8,ce:1.5,mg:1,cs:.9,rs:.92} // Frostbite: fast bursts, brutal growth
+ {s:1e6,ro:1.3,tm:.8,ce:1.5,mg:1,cs:.9,rs:.92},// Frostbite: fast bursts, brutal growth
+ {s:1e8,ro:.9,tm:.7,ce:.9,mg:.8,cs:1.06,rs:1.04},   // Neverland: flighty, quick cycles
+ {s:1e10,ro:1.7,tm:1.4,ce:1.15,mg:1.2,cs:1.1,rs:1.07},// Oz: long road, fat rewards
+ {s:1e12,ro:2.1,tm:1.7,ce:1.25,mg:1.6,cs:1.12,rs:1.1},// Mermaid Lagoon: deep and pricey
+ {s:1e14,ro:.6,tm:.5,ce:.8,mg:.7,cs:1.04,rs:1.01},    // Sweetland: tiny, rapid sugar hits
+ {s:1e16,ro:4,tm:3,ce:1.3,mg:2,cs:1.15,rs:1.1}        // Dragonspine: rare giant hoards
 ];
+// reset points for every permanent world (each world resets on its own)
+const PT=[
+ {n:'Glass Slipper',pl:'Glass Slippers',e:'👠',act:'Live Happily Ever After',bonus:0.03},
+ {n:'Unbirthday Candle',pl:'Unbirthday Candles',e:'🕯️',act:'Throw an Unbirthday Party',bonus:0.05},
+ {n:'Genie Lamp',pl:'Genie Lamps',e:'🪔',act:'Rub the Lamp',bonus:0.05},
+ {n:'Holy Grail',pl:'Holy Grails',e:'🏆',act:'Complete the Quest',bonus:0.05},
+ {n:'Golden Laurel',pl:'Golden Laurels',e:'🌿',act:'Ascend Olympus',bonus:0.05},
+ {n:'Snow Globe',pl:'Snow Globes',e:'🔮',act:'Let It Go',bonus:0.05},
+ {n:'Pixie Wing',pl:'Pixie Wings',e:'🪽',act:'Take the Second Star',bonus:0.05},
+ {n:'Emerald Key',pl:'Emerald Keys',e:'🗝️',act:'Click Your Heels',bonus:0.05},
+ {n:'Sea Shell',pl:'Sea Shells',e:'🐚',act:'Dive Deeper',bonus:0.05},
+ {n:'Sugar Plum',pl:'Sugar Plums',e:'🍇',act:'Crash from the Sugar Rush',bonus:0.05},
+ {n:'Dragon Scale',pl:'Dragon Scales',e:'🐉',act:'Hatch a New Age',bonus:0.05}
+];
+const PT_REF0=[1e9,1e9,1e9,1e9,1e9,1e9,1e9,1e9,1e9,1e9,1e9];   // lifetime earnings (in that world's own scale) for the first point
+PT.forEach((q,r)=>{q.ref=PT_REF0[r]*ECO_P[r].s;});
 function hash(r,i){const x=Math.sin(r*131.7+i*17.31+1.7)*43758.5453;return x-Math.floor(x);}
 const ECO=ECO_P.map((p,r)=>Array.from({length:NSHOPS[r]},(_,i)=>{
   const b=BASE[i],j=r===0?1:0.88+0.26*hash(r,i),jt=r===0?1:0.9+0.25*hash(r+9,i);
-  return {cost:b.cost*p.s*Math.pow(p.cs,i),rev:b.rev*p.s*p.ro*Math.pow(p.rs,i)*j,t:Math.max(0.5,Math.round(b.t*p.tm*jt*10)/10),c:1+(b.c-1)*p.ce,mgr:b.mgr*p.s*p.mg*Math.pow(p.cs,i)};
+  return {cost:b.cost*p.s*Math.pow(p.cs,i),rev:b.rev*p.s*p.ro*REVF*Math.pow(p.rs,i)*j,t:Math.max(0.5,Math.round(b.t*p.tm*jt*10)/10),c:1+(b.c-1)*p.ce,mgr:b.mgr*p.s*p.mg*Math.pow(p.cs,i)};
 }));
 // ----- 52 different event economies -----
 function rnd(seed){const x=Math.sin(seed*91.7+3.3)*43758.5453;return x-Math.floor(x);}
 const EV_STYLES=[{tm:.5,ro:.6,c:1.10,rc:30},{tm:2,ro:2.2,c:1.14,rc:40},{tm:1,ro:1.5,c:1.18,rc:25},{tm:1,ro:1,c:1.12,rc:35},{tm:1.3,ro:.8,c:1.13,rc:60},{tm:.8,ro:.5,c:1.09,rc:20}];
 function evEconomy(idx){
-  const st=EV_STYLES[(idx*5+Math.floor(rnd(idx)*3))%6],T0=[1,3,8,20,45];
+  const st=EV_STYLES[(idx*5+Math.floor(rnd(idx)*3))%6],T0=[1,3,8,20,45,90,160,260];
   let cost=10*(0.5+rnd(idx+100)),out=[];
-  for(let i=0;i<5;i++){
+  for(let i=0;i<8;i++){
     const t=Math.max(0.5,Math.round(T0[i]*st.tm*(0.8+0.4*rnd(idx*13+i))*10)/10);
     const rr=(0.12+0.12*rnd(idx*3+i+50))*st.ro*Math.pow(t,0.3);
-    out.push({cost,rev:cost*rr,t,c:st.c*(0.98+0.04*rnd(idx*5+i)),mgr:cost*(12+10*rnd(idx*11+i))});
+    out.push({cost,rev:cost*rr*EVF,t,c:st.c*(0.98+0.04*rnd(idx*5+i)),mgr:cost*(12+10*rnd(idx*11+i))});
     cost*=st.rc*(0.8+0.5*rnd(idx*7+i));
   }
   return out;
 }
 let EVB=evEconomy(0),EVSCALE=1,EV_TH=[2e8,1e12,2e14];
 const B=(r,i)=>r===EV_RT?EVB[i]:ECO[r][i];
-const nUp=r=>r===EV_RT?5:UP_MULT.length;
+const nUp=r=>r===EV_RT?8:UP_MULT.length;
 const nGup=r=>r===EV_RT?10:GUP_COST.length;
-const nShops=r=>r===EV_RT?5:NSHOPS[r];
+const nShops=r=>r===EV_RT?8:NSHOPS[r];
 
 // Sequel perks, bought with Golden Quills
 const QP=[
@@ -3902,11 +4295,134 @@ const QP=[
  {id:'crossplus',n:'Synergy Seminar',e:'🌀',d:'Crossover bonuses ×1.5, per level.',max:5,cost:l=>3+l}
 ];
 
+// ===================== V8 SYSTEMS: per-world resets, harder unlocks, event goals =====================
+function ptOf(r){return r===0?S.slip:(S.realms[r].pt||0);}
+function laOf(r){return r===0?S.lifeAll:(S.realms[r].la||0);}
+function evRef(){return Math.max(1,EV_TH[0]/16);}
+function potPt(r){
+  if(r===EV_RT)return Math.floor(Math.sqrt(laOf(r)/evRef()));
+  return Math.floor(Math.sqrt(laOf(r)/PT[r].ref)*(r===0?slipGainMult():1));
+}
+function gainPt(r){return Math.max(0,potPt(r)-ptOf(r));}
+function ptReq(r,i){if(r===EV_RT||i<8)return 0;return Math.max(1,Math.ceil(Math.sqrt(ECO[r][i].cost*3/PT[r].ref)*Math.pow(0.8,perk('discount'))));}
+function isLocked(r,i){return r!==EV_RT&&i>=8&&ptOf(r)<ptReq(r,i)&&S.realms[r].biz[i].n<1;}
+function slipReq(i){return ptReq(0,i);}
+function ptLocal(r){return(r>=1&&r<NPERM)?1+PT[r].bonus*(S.realms[r].pt||0):1;}
+function evFav(){return 1+0.12*(S.realms[EV_RT].pt||0);}
+function masteryMult(){let n=0;for(let r=1;r<NPERM;r++)n+=S.realms[r].rs||0;return 1+0.01*n;}
+function guestMult(){return S.guestAll?1.5:1;}
+function worldResets(){let n=S.resets||0;for(let r=1;r<NPERM;r++)n+=S.realms[r].rs||0;return n;}
+
+// ---- opening a new world (cash is spent, reset points must be owned)
+function unlockInfo(r){const prev=S.realms[r-1],c=UNLOCK_COST[r],need=UNLOCK_PT[r],have=ptOf(r-1),nr=UNLOCK_RS[r],hr=(r-1===0?S.resets:(prev.rs||0));return {c,need,have,nr,hr,cash:prev.cash,okC:prev.cash>=c,okP:have>=need,okR:hr>=nr};}
+function selectRealm(r){
+  if(!S.realms[r].unlocked){
+    if(!S.realms[r-1].unlocked){toast('Open '+REALMS[r-1].name+' first!');return;}
+    const u=unlockInfo(r),P=PT[r-1],pd=REALMS[r-1];
+    const row=(ok,txt)=>`<div style="margin:8px 0;text-align:left">${ok?'✅':'⬜'} ${txt}</div>`;
+    showModal(`<div class="mtag">${REALMS[r].icon} ${REALMS[r].name.toUpperCase()}</div><h3>${u.okC&&u.okP&&u.okR?'Ready to open!':'Locked'}</h3>
+      ${row(u.okC,`Spend <b>${pd.sym} ${fmt(u.c)}</b> ${pd.cur}<br><span style="color:var(--mut);font-size:12px">you have ${fmt(u.cash)}</span>`)}
+      ${row(u.okR,`Complete <b>${u.nr}</b> “${P.act}” resets in ${pd.short}<br><span style="color:var(--mut);font-size:12px">you have done ${u.hr}</span>`)}
+      ${row(u.okP,`Own <b>${fmt(u.need)}</b> ${P.e} ${P.pl}<br><span style="color:var(--mut);font-size:12px">you have ${fmt(u.have)}</span>`)}
+      <p style="font-size:12px;color:var(--mut)">You earn ${P.pl} by choosing “${P.act}” in ${pd.short}. Once opened, ${REALMS[r].short} has its own economy and its own reset.</p>
+      ${u.okC&&u.okP&&u.okR?`<button onclick="openRealm(${r})">Open the gates</button>`:''}<button class="alt" onclick="closeModal()">Close</button>`);
+    return;
+  }
+  realm=r;sigs={};render();cat('realm',0.3);
+}
+function openRealm(r){
+  const u=unlockInfo(r);if(!(u.okC&&u.okP&&u.okR))return;
+  closeModal();S.realms[r-1].cash-=u.c;const R=S.realms[r];R.unlocked=true;R.cash=ECO[r][0].cost;
+  toast(`✨ Welcome to ${REALMS[r].name}!`);cat('realm',1,0);sfx('big');realm=r;sigs={};render();
+}
+
+// ---- world resets (each world resets alone)
+function doReset(r){
+  if(r===EV_RT)return doEventReset();
+  const g=gainPt(r);if(g<1)return;const P=PT[r],RD=REALMS[r];
+  ask(`${P.act}? <b>${RD.name}</b> restarts from scratch. <b>Every other world stays exactly as it is.</b> You gain <b>${fmt(g)}</b> ${P.e} ${g>1?P.pl:P.n}: +${fmt(g*P.bonus*100)}% profit ${r===0?'in every world':'in '+RD.short}.`,()=>{
+    const R0=S.realms[r],f=freshRealm(r);f.unlocked=true;f.pt=(R0.pt||0)+(r===0?0:g);f.la=R0.la||0;f.rs=(R0.rs||0)+1;
+    f.cash=ECO[r][0].cost+headCash()*ECO_P[r].s;S.realms[r]=f;
+    if(r===0){S.slip+=g;S.resets++;}
+    realm=r;tab='shop';sigs={};toast(`${P.e} ${P.act}! ${RD.short} begins anew...`);cat('prestige',1,0);sfx('big');vibe([40,40,40]);save();render();
+  },P.act);
+}
+function doPrestige(){doReset(0);}
+function doEventReset(){
+  const g=gainPt(EV_RT);if(g<1)return;
+  ask(`Take an <b>Encore</b>? This week's event shops restart, but you keep your goal progress and gain <b>${fmt(g)}</b> 🎊 Festival Favor${g>1?'s':''} (+${fmt(g*12)}% event profit). Your other worlds are untouched.`,()=>{
+    const R0=S.realms[EV_RT],f=freshRealm(EV_RT);f.pt=(R0.pt||0)+g;f.la=R0.la||0;f.rs=(R0.rs||0)+1;S.realms[EV_RT]=f;
+    realm=EV_RT;tab='shop';sigs={};toast('🎊 Encore! The show starts over, but you keep the applause.');cat('event',0.6,0);sfx('big');vibe([30,30,30]);save();render();
+  },'Encore!');
+}
+
+// ---- event goals: a real celebration when you cross each one
+let medalQ=[];
+function pumpMedals(){if(!medalQ.length||$('modal').firstChild)return;showMedalModal(medalQ.shift());}
+function showMedalModal(m){
+  const ev=EVENTS[m.idx],names=['Bronze','Silver','GOLD'],ico=['🥉','🥈','🥇'];
+  const nxt=m.t<3?`<p>Next goal: ${ico[m.t]} <b>${names[m.t]}</b> at <b>${fmt(EV_TH[m.t])}</b> Event Tickets.</p>`:`<p><b>That was the final goal for this event!</b> Keep playing for fun, or save your energy for next week.</p>`;
+  showModal(`<div class="mtag">🎪 GOAL REACHED!</div><div style="font-size:70px;margin:4px 0">${ico[m.t-1]}</div><h3>${names[m.t-1]} stamp earned!</h3><p>${ev[0]}: <b>${fmt(laOf(EV_RT))}</b> Event Tickets earned this week.</p><p style="font-size:13px">Game-wide profit bonus is now <b>×${fmt(evMult())}</b>.</p>${nxt}<button onclick="closeModal()">${m.t<3?'On to the next goal!':'Hooray!'}</button>`);
+  sfx('big');vibe([40,40,40]);
+}
+function evTier(){const la=laOf(EV_RT);let t=0;EV_TH.forEach(x=>{if(la>=x)t++;});return t;}
+function evGoalsHTML(){
+  const la=laOf(EV_RT),t=evTier(),ic=['🥉','🥈','🥇'],nm=['Bronze','Silver','Gold'];
+  const chips=EV_TH.map((x,k)=>{const done=la>=x,next=k===t;return `<div class="goal ${done?'done':next?'next':''}"><span>${ic[k]}</span><b>${done?'REACHED ✓':nm[k]}</b><small>${fmt(x)}</small></div>`;}).join('');
+  const lo=t?EV_TH[t-1]:0,hi=EV_TH[Math.min(t,2)];
+  const pct=t>=3?100:Math.max(0,Math.min(100,(Math.log10(Math.max(la,1))-Math.log10(Math.max(lo,1)))/(Math.log10(hi)-Math.log10(Math.max(lo,1)))*100));
+  return `<div class="goals">${chips}</div><div class="bar2"><i style="width:${pct}%"></i></div><div style="font-size:12px;margin-top:4px">${t>=3?'🏆 All goals reached this week!':`<b>${fmt(la)}</b> of <b>${fmt(hi)}</b> tickets to ${nm[t]}`}</div>`;
+}
+function evTabHTML(){
+  const idx=evIdx(),ev=EVENTS[idx],R=S.realms[EV_RT],g=gainPt(EV_RT);
+  const perks=EV_PERK.map((p,k)=>`<div style="margin:3px 0">${EVC.stamps>=EV_PERK_AT[k]?'✅':'🔒'} <b>${EV_PERK_AT[k]} stamps:</b> ${p}</div>`).join('');
+  const cal=EVENTS.map((e,k)=>`<div class="evcell ${k===idx?'now':''}"><span>${e[1]}</span><small>${k+1}. ${e[0]}</small><span>${stampStr(S.evDone[k]||0)}</span></div>`).join('');
+  return `<div class="pres" style="margin-bottom:10px"><div class="big">${ev[1]}</div><h2>${ev[0]}</h2>
+    <p>${ev[3]}</p>
+    <p>Week ${idx+1} of 52 · ends in <b>${dur(evLeft()/1000)}</b>${S.evShift?` <span style="color:#ff7bf5">(test: ${S.evShift>0?'+':''}${S.evShift} wk)</span>`:''}</p>
+    ${evGoalsHTML()}
+    <button class="btn" style="margin-top:10px" onclick="selectRealm(${EV_RT})">${realm===EV_RT?'You are in the event world':'Enter the event world'}</button></div>
+    <div class="pres" style="margin-bottom:10px"><b style="color:var(--gold)">🎊 Encore (this event's own reset)</b>
+    <p style="margin:6px 0;font-size:13px">Restart this week's event shops to earn <b>Festival Favors</b>: each gives +12% event profit. Goal progress is kept. It never touches your other worlds, and it resets when a new event begins.</p>
+    <p style="margin:6px 0">Favors: <b>${fmt(R.pt||0)}</b> (×${fmt(evFav())}) · Encore now: <b>+${fmt(g)}</b></p>
+    <button class="btn" ${g<1?'disabled':''} onclick="doEventReset()">${g<1?'Earn more tickets first...':'Encore! (+'+fmt(g)+' 🎊)'}</button></div>
+    <div class="pres" style="margin-bottom:10px;text-align:left"><b style="color:var(--gold)">Event Rewards (all worlds, forever)</b>
+    <p style="margin:6px 0">Stamps: <b>${EVC.stamps}/156</b> · Gold: <b>${EVC.gold}/52</b><br>Game-wide profit bonus: <b>×${fmt(evMult())}</b></p>${perks}</div>
+    <div class="pres" style="margin-bottom:10px"><b style="color:var(--gold)">The Year of Tales</b>
+    <p style="margin:4px 0 8px;font-size:12px">A new event every week, 52 in all. Earn stamps in each one.</p><div class="evgrid">${cal}</div></div>
+    <div class="pres"><p style="font-size:12px;margin:0 0 8px">Time-travel test control (shifts the calendar by whole weeks):</p>
+    <button class="btn" style="font-size:12px;padding:9px 12px" onclick="shiftWeek(-1)">⏪ Back a week</button>
+    <button class="btn" style="font-size:12px;padding:9px 12px" onclick="shiftWeek(1)">Forward a week ⏩</button>
+    ${S.evShift?`<br><button class="link" onclick="S.evShift=0;checkEvent();sigs={};render()">Back to real time</button>`:''}</div>`;
+}
+
+// ---- the Ever After tab: one reset card per unlocked world
+function presHTML(){
+  const q=gainQuill();
+  const perks=QP.map(p=>{const l=perk(p.id),maxed=l>=p.max,c=maxed?0:p.cost(l);
+    return `<div class="item"><div class="ic">${p.e}</div><div class="tx"><b>${p.n} <span style="color:var(--mut);font-weight:500">Lv ${l}/${p.max}</span></b><em>${p.d}</em></div><button ${maxed||S.quills<c?'disabled':''} onclick="buyPerk('${p.id}')">${maxed?'MAX':'🪶 '+c}</button></div>`;}).join('');
+  const order=[];if(realm<NPERM)order.push(realm);for(let r=0;r<NPERM;r++)if(r!==realm)order.push(r);
+  let cards='';
+  order.forEach(r=>{
+    if(!S.realms[r].unlocked)return;
+    const P=PT[r],RD=REALMS[r],g=gainPt(r),own=ptOf(r),who=r===0?'every world':RD.short;
+    cards+=`<div class="pres" style="margin-bottom:12px;border-color:${RD.color}"><div style="display:flex;align-items:center;gap:12px;text-align:left"><div style="font-size:38px">${P.e}</div><div><b style="color:${RD.color}">${RD.icon} ${RD.name}</b><br><span style="font-size:13px">${P.act}</span></div></div>
+    <p style="margin:8px 0">${P.pl}: <b>${fmt(own)}</b> (+${fmt(own*P.bonus*100)}% profit in ${who})<br>Reset now for: <b>+${fmt(g)}</b> ${P.e} · Times reset: ${r===0?S.resets:(S.realms[r].rs||0)}<br><span style="font-size:11px;color:var(--mut)">Resets only ${RD.short}. Your other worlds keep everything.</span></p>
+    <button class="btn" ${g<1?'disabled':''} onclick="doReset(${r})">${g<1?'Earn more first...':P.act+' (+'+fmt(g)+' '+P.e+')'}</button></div>`;
+  });
+  return `<div style="margin:0 2px 8px;font-weight:800;color:var(--gold)">🌍 World Resets <span style="font-weight:500;color:var(--mut);font-size:12px">· world mastery ×${fmt(masteryMult())}</span></div>${cards}
+    <div class="pres" style="margin-bottom:12px"><div class="big">🪶</div><h2>Turn the Page</h2>
+    <p>Write a <b>Sequel</b>: <b>every</b> world restarts (including all world points and Glass Slippers) in exchange for <b>Golden Quills</b>. Each quill is <b>+25%</b> profit forever, and quills buy permanent perks.</p>
+    <p>Quills: <b>${fmt(S.quills)}</b> unspent · ${fmt(S.quillTotal)} earned (×${fmt(quillMult())})<br>Quills you'd earn now: <b>${fmt(q)}</b><br>Sequels written: ${S.sequels}</p>
+    <button class="btn" ${q<1?'disabled':''} onclick="doSequel()">${S.slip<1000?'Needs 1,000 👠 Glass Slippers':'Turn the Page (+'+fmt(q)+' 🪶)'}</button></div>
+    <div style="margin:0 2px 8px;font-weight:800;color:var(--gold)">🪶 Quill Perks</div>${perks}`;
+}
+
 // ---------- STATE ----------
 function freshBiz(){return {n:0,prog:0,run:false,mgr:false,up:UP_MULT.map(()=>false)};}
-function freshRealm(i){return {cash:i===EV_RT?EVB[0].cost:i===0?4:0,life:0,unlocked:i===0||i===EV_RT,gup:GUP_COST.map(()=>false),biz:Array.from({length:nShops(i)},freshBiz)};}
+function freshRealm(i){return {cash:i===EV_RT?EVB[0].cost:i===0?4:0,life:0,pt:0,la:0,rs:0,unlocked:i===0||i===EV_RT,gup:GUP_COST.map(()=>false),biz:Array.from({length:nShops(i)},freshBiz)};}
 function freshState(){return {realms:REALMS.map((_,i)=>freshRealm(i)),slip:0,lifeAll:0,last:Date.now(),resets:0,buff:{m:1,until:0},twists:0,
-  quills:0,quillTotal:0,qperk:{},sequels:0,ach:{},guests:{},guestCount:0,evDone:{},evShift:0,ev:{key:0},cfg:{sound:false,vib:true},seen:{},ver:6,
+  quills:0,quillTotal:0,qperk:{},sequels:0,ach:{},guests:{},guestCount:0,evDone:{},evShift:0,ev:{key:0},cfg:{sound:false,vib:true},seen:{},ver:7,guestAll:false,gms:{},
   wish:{ch:WISH_MAX,t:Date.now(),until:0},streak:{last:-1,n:0},dq:{day:-1,items:[]},stat:{buys:0,hires:0,ups:0,guests:0,twists:0,collects:0,wishes:0,quests:0,chapReads:0},story:{seen:{},read:{}},opens:0,first:Date.now()};}
 let S=freshState();
 let realm=0,tab='shop',bsub='story',mode=1,sigs={};
@@ -3918,7 +4434,7 @@ function load(){
     const f=freshState(),n=Object.assign(f,d);
     n.realms=REALMS.map((_,i)=>{
       const R=d.realms[i]||freshRealm(i);
-      R.gup=R.gup||GUP_COST.map(()=>false);
+      R.gup=R.gup||GUP_COST.map(()=>false);R.pt=R.pt||0;R.la=R.la||0;R.rs=R.rs||0;
       while(R.gup.length<GUP_COST.length)R.gup.push(false);
       const want=nShops(i);while(R.biz.length<want)R.biz.push(freshBiz());
       R.biz.forEach(b=>{b.up=b.up||[];while(b.up.length<UP_MULT.length)b.up.push(false);});
@@ -3928,10 +4444,10 @@ function load(){
     n.buff=n.buff||{m:1,until:0};
     ['wish','streak','dq','stat','story'].forEach(k=>{n[k]=Object.assign({},f[k],d[k]||{});});
     if(!n.story.seen)n.story.seen={};if(!n.story.read)n.story.read={};if(!n.dq.items)n.dq.items=[];
-    ['qperk','ach','guests','evDone','ev','cfg','seen'].forEach(k=>{if(!n[k]||typeof n[k]!=='object')n[k]=f[k];});
-    if(!d.ver||d.ver<6){ // economy rebalance: wipe old fast-economy progress, keep fun collectibles
+    ['qperk','ach','guests','evDone','ev','cfg','seen','gms'].forEach(k=>{if(!n[k]||typeof n[k]!=='object')n[k]=f[k];});
+    if(!d.ver||d.ver<7){ // economy rebalance: wipe old fast-economy progress, keep fun collectibles
       const fr=freshState();
-      n.realms=fr.realms;n.slip=0;n.lifeAll=0;n.resets=0;n.quills=0;n.quillTotal=0;n.qperk={};n.sequels=0;n.ach={};n.buff={m:1,until:0};n.evDone={};n.ev={key:0};n.ver=6;n.migrated=true;
+      n.realms=fr.realms;n.slip=0;n.lifeAll=0;n.resets=0;n.quills=0;n.quillTotal=0;n.qperk={};n.sequels=0;n.buff={m:1,until:0};n.ev={key:0};n.ver=7;n.migrated=true;
     }
     S=n;
   }catch(e){}
@@ -3962,8 +4478,8 @@ function fmtC(n){
   return t+suffix(e);
 }
 function toggleNote(){NOTE=NOTE==='letters'?'sci':'letters';S.seen.note=1;try{localStorage.setItem('haec_note',NOTE);}catch(e){}sigs={};updateLive(true);}
-function mileMult(n){let k=0;for(const m of MILE){if(n>=m)k++;else break;}return Math.pow(2,k);}
-function nextMile(n){for(const m of MILE)if(n<m)return m;return null;}
+function mileMult(n){let m=1;for(const x of MILE){if(n>=x[0])m*=x[1];else break;}return m;}
+function nextMile(n){for(const x of MILE)if(n<x[0])return x;return null;}
 function perk(id){return S.qperk[id]||0;}
 function slipBonus(){return SLIP_BONUS+0.01*perk('slipper');}
 function slipMult(){return 1+slipBonus()*S.slip;}
@@ -3974,18 +4490,18 @@ function evMult(){return (1+0.02*EVC.stamps)*Math.pow(1.04,EVC.gold)*(EVC.stamps
 function priceMult(){return EVC.stamps>=EV_PERK_AT[1]?0.98:1;}
 function rewardMult(){return EVC.stamps>=EV_PERK_AT[2]?1.25:1;}
 function slipGainMult(){return EVC.stamps>=EV_PERK_AT[3]?1.03:1;}
-function slipReq(i){return Math.ceil(SLIPREQ[i]*Math.pow(0.8,perk('discount')));}
 function unionN(){return [0,10,20,40][perk('managers')]||0;}
 function headCash(){const l=perk('head');return l>0?100*Math.pow(100,l-1):0;}
 function upMult(b){let m=1;UP_MULT.forEach((x,k)=>{if(b.up[k])m*=x;});return m;}
 function gMult(r){let m=1;GUP_MULT.forEach((x,k)=>{if(S.realms[r].gup[k])m*=x;});return m;}
 function buffMult(){return(S.buff&&Date.now()<S.buff.until)?S.buff.m:1;}
 function crossK(i){let k=0;for(let r=0;r<NPERM;r++){const R=S.realms[r];if(R.unlocked&&i<R.biz.length&&R.biz[i].n>=25)k++;}return k;}
-function crossMult(i){const k=crossK(i);if(k<2)return 1;const base=k>=5?12:k===4?8:k===3?4:2;return base*(1+Math.floor(i/10))*Math.pow(1.5,perk('crossplus'));}
+function crossMult(i){const k=crossK(i);if(k<2)return 1;const base=k>=10?60:k>=8?36:k>=6?20:k>=5?12:k===4?8:k===3?4:2;return base*(1+Math.floor(i/10))*Math.pow(1.5,perk('crossplus'));}
 function profit(r,i){
   const b=S.realms[r].biz[i],bs=B(r,i);
   let m=bs.rev*b.n*mileMult(b.n)*upMult(b)*gMult(r)*buffMult();
-  if(r!==EV_RT)m*=slipMult()*quillMult()*evMult()*achMult()*crossMult(i)*flashMult(r)*streakMult();
+  if(r!==EV_RT)m*=slipMult()*ptLocal(r)*quillMult()*evMult()*achMult()*crossMult(i)*flashMult(r)*streakMult()*masteryMult()*guestMult();
+  else m*=evFav();
   m*=wishMult();
   return Math.min(1e290,m);
 }
@@ -3993,10 +4509,10 @@ function costN(r,i,n){const bs=B(r,i),b=S.realms[r].biz[i];return bs.cost*Math.p
 function maxN(r,i){const bs=B(r,i),b=S.realms[r].biz[i],cash=S.realms[r].cash/priceMult();
   const x=cash*(bs.c-1)/(bs.cost*Math.pow(bs.c,b.n))+1;return x<=1?0:Math.floor(Math.log(x)/Math.log(bs.c));}
 function buyAmt(r,i){return mode==='max'?Math.max(1,maxN(r,i)):mode;}
-function potSlip(){return Math.floor(Math.sqrt(S.lifeAll/1e10)*slipGainMult());}
-function gainSlip(){return Math.max(0,potSlip()-S.slip);}
+function potSlip(){return potPt(0);}
+function gainSlip(){return gainPt(0);}
 function gainQuill(){return S.slip>=1000?Math.floor(Math.pow(Math.log10(S.slip/100),2)):0;}
-function earn(r,v){const R=S.realms[r];R.cash=Math.min(1e300,R.cash+v);R.life=Math.min(1e300,R.life+v);if(r!==EV_RT)S.lifeAll=Math.min(1e300,S.lifeAll+v);}
+function earn(r,v){const R=S.realms[r];R.cash=Math.min(1e300,R.cash+v);R.life=Math.min(1e300,R.life+v);if(r===0)S.lifeAll=Math.min(1e300,S.lifeAll+v);else R.la=Math.min(1e300,(R.la||0)+v);}
 function realmPS(r){let ps=0;S.realms[r].biz.forEach((b,i)=>{if(b.n>0&&b.mgr)ps+=profit(r,i)/B(r,i).t;});return ps;}
 function upgCost(r,i,k){const b=B(r,i);return r===EV_RT?b.mgr*UP_COSTF[k]:(i<8?b.mgr*UP_COSTF[k]:b.cost*UP_COSTF2[k]);}
 function gupC(r,k){return GUP_COST[k]*(r===EV_RT?EVSCALE:ECO_P[r].s);}
@@ -4007,7 +4523,7 @@ function tick(){
   const now=Date.now();let dt=(now-lastT)/1000;lastT=now;
   if(dt<=0)return;
   if(dt>3){offline(dt);}else{step(dt);twistClock(dt);guestClock(dt);playSec+=dt;}
-  slowT+=dt;if(slowT>=1){slowT=0;checkEvent();checkAch();dqCheck();checkStory();}
+  slowT+=dt;if(slowT>=1){slowT=0;checkEvent();checkAch();dqCheck();checkStory();pumpMedals();}
   updateLive();
 }
 function step(dt){
@@ -4050,7 +4566,16 @@ function showIntro(){showModal(`<div class="mtag">😸 THE CHESHIRE CAT</div><di
 let catLast=0,catPrev='',catHoldUntil=0,catMinUntil=0,catPending=null,catRecent=[];
 const CAT_PRIO={guest:1,twist:1,event:1,stamp:1,prestige:1,sequel:1,realm:1,ach:1,boot:1};
 function pickLine(kind){const a=CAT[kind];return a[Math.floor(Math.random()*a.length)];}
-function pickFrom(a){let t=a[Math.floor(Math.random()*a.length)];for(let k=0;k<8&&catRecent.indexOf(t)>=0;k++)t=a[Math.floor(Math.random()*a.length)];catRecent.push(t);if(catRecent.length>24)catRecent.shift();return t;}
+const catBag=new Map();
+function pickFrom(a){
+  if(!a||!a.length)return '';
+  let b=catBag.get(a);
+  if(!b||!b.q.length){const q=a.map((_,k)=>k);for(let k=q.length-1;k>0;k--){const m=Math.floor(Math.random()*(k+1));[q[k],q[m]]=[q[m],q[k]];}
+    if(b&&q.length>1&&q[q.length-1]===b.last){const t=q[0];q[0]=q[q.length-1];q[q.length-1]=t;}
+    b={q,last:b?b.last:-1};catBag.set(a,b);}
+  const k=b.q.pop();b.last=k;const t=a[k];
+  catRecent.push(t);if(catRecent.length>60)catRecent.shift();return t;
+}
 function catCtx(i){
   const r=realm,R=S.realms[r],RD=REALMS[r];
   if(i===undefined){const o=[];R.biz.forEach((b,k)=>{if(b.n>0)o.push(k);});if(!o.length)o.push(0);i=o[Math.floor(Math.random()*o.length)];}
@@ -4098,6 +4623,51 @@ function catTap(){
 let awayStr='a little while';
 function catClock(){if(Math.random()<.85)catOffer(catRandom(),false);}
 
+// ===================== V8 CAT LINES (appended to existing pools) =====================
+function catAdd(k,arr){CAT[k]=(CAT[k]||[]).concat(arr);}
+catAdd('boot',['Back again. The pigs have been rehearsing a welcome speech. It’s mostly oinking.','You returned! I’ve been saving a joke for you. It was “knock knock.” That’s the whole joke.','Welcome back, boss. Your desk is exactly as you left it. Haunted.','Oh good, the protagonist. I was getting tired of narrating the furniture.','The lights are on, the pumpkins are ripe, and I have opinions. Let’s begin.','Ah, there you are. I’d say I missed you, but I was napping for most of it.']);
+catAdd('offline',['Your shops kept working while you were away. Nobody knows why they didn’t just leave.','Away time: spent wisely. By them. You were doing whatever humans do.','The money piled up quietly, like dust, but more useful.','Reports say you were gone. Reports also say profits happened. I trust reports.']);
+catAdd('buy',['Another {s}. At this rate the whole kingdom will be owned by your thumb.','You bought {s}. I’d clap, but I’d lose a claw.','Ooh, {s}. Bold. Expensive. Delightful.','Purchase detected. Wallet whimpered softly.','You’re expanding. Like a sourdough starter, but with more lawyers.','Buying again? You’re a menace to your own savings.','That was a very decisive click. I felt it in my whiskers.','{s} is now bigger. Nobody asked, yet here we are.','The accountants are weeping. Happy tears. Probably.','Another one for the pile. The pile is now a landmark.','Your empire grows. My opinion of you grows too. By one percent.','If you keep buying, I’ll need to learn the names of the employees. Unlikely.','A purchase! In this economy! Brave.','You paid {cur} and got something shiny. That’s capitalism, baby.']);
+catAdd('milestone',['A milestone! Somewhere, a spreadsheet blushed.','Look at that: a multiplier. The number gods approve.','Another doubling. Your shops are showing off.','That’s a milestone. I’ll note it in the ledger. In crayon.','Profits just did a little twirl.','Milestone achieved. The pigs requested a day off. Denied.','You’re levelling up a shop. The shop doesn’t know what that means, but it likes it.','Ding! That was the sound of me pretending to be impressed.','The employees got a bonus: a nod. A very respectful nod.','Growth! Beautiful, boring, bountiful growth.','A milestone. If I had a medal, I’d give it to myself.','Your shop reached a threshold. It is thrilled. It is also a building.']);
+catAdd('hire',['Hired! Their first act as manager: a long sigh.','A new manager. Their résumé says “survived the wolf.”','Delegating! The most elegant form of laziness.','Manager onboarded. Duties: stand there and look employed.','The manager has a clipboard. The clipboard has power.','Your shop now runs itself. You, however, still click. Habit.','Another soul in a tie. Welcome to middle management.','They said “I’ll handle it.” They did not say how.','Hired. Expect an email about synergy.','One fewer thing for you to click. Spiritually, a gift.']);
+catAdd('upgrade',['Upgrade installed. Warranty void by sunrise.','That upgrade smells like profit. And a little like burnt toast.','A shiny improvement! Everyone politely applauds.','Your shop is now Pro Max Ultra. Marketing named it.','The upgrade did something. I couldn’t see what. Neither could you. It’s fine.','Efficiency improved. Morale also improved. Allegedly.','Better tools, better numbers. The circle of capitalism.','You upgraded {s}. It looks the same, but prouder.','Money well spent. I’d know. I spend yours constantly.','An upgrade! Numbers go up faster now. Hold on.']);
+catAdd('idle',['Still there? I’m going to start narrating your breathing.','Nothing’s happening. It’s very idle-game of you.','Idle hands make… exactly as much money, in this game. Lovely.','Go on, tap something. The pigs are getting shy.','I counted the ceiling tiles. There are none. We’re outdoors. In a tab.','Quiet today. I like it. I’m also bored.','The silence is loud. I’m enjoying it. Poke me when you’re done.','Your shops are working. You are watching. We’re all busy.']);
+catAdd('realm',['New world! New currency! New ways to lose track of money.','Travel is lovely. The paperwork follows you, though.','Fresh scenery. Same boss. Different shoes.','Another world. They all think they’re the main story.','You changed worlds. The accountants have been briefed. In pantomime.','This world has its own rules, its own money, and its own weather. Pack accordingly.','Different tab, different tales. I contain multitudes.','Welcome. Please stand clear of the plot.']);
+catAdd('tab',['A new tab! The surprises never stop.','You’re wandering. Good. That’s how treasure is found.','Browsing the menu. Don’t order the fourth wall; it’s stale.','I like this screen. It’s got more buttons. Buttons are underrated.','Nosey. I approve.','Checking things. Responsible. Boring. Thank you.']);
+catAdd('twist',['A twist! Pick a button. Any button. Both are probably traps.','The Narrator has an announcement. The Narrator is me. I forgot.','Plot Twist! Please remain seated and emotionally flexible.','Something’s happening. Don’t worry. It’s probably just fate.','A decision approaches. I recommend panic. It’s traditional.','I didn’t write this one. I just claim the credit.','Choose wisely. Or not. I’ll be here either way, judging.','Quick, a plot twist! Spin the bottle of destiny.']);
+catAdd('guest',['A visitor! Do tidy up. Or don’t. They’re leaving soon.','Someone from a different story! Quick, they’re only here for a bit.','Look who wandered in. Catch them before the plot closes.','A guest! Bring tea. Or at least a coin.','A familiar face from a different book! Tap, tap, tap!','They’re floating by. Reach for them!','I see a cameo. Cameos pay well.']);
+catAdd('guestcatch',['Caught! Your reflexes are only slightly alarming.','Got ’em! Nice hands. I’m jealous. I have paws.','A fine catch. I’ll tell no one. Everyone will know.','Nabbed! The guest is flattered. Mostly.','Success! The guest signs the guest book with a very confused X.','You’re good at this. I’m suspicious.','Sweet catch. I’d catch things too if I weren’t so dignified.']);
+catAdd('guestmiss',['They’re gone. Poof. Like my motivation.','A guest left. They didn’t even say goodbye. Rude.','Missed. It happens. Mostly to everybody.','They fled. Perhaps they smelled the pigs.','Gone. Maybe next time. Or maybe they only appear once. I forget.','Whoops. Slippery little cameos.']);
+catAdd('prestige',['Ending reached. The credits are mostly names of pigs.','And they all lived happily ever after. Again. For the record.','Reset! The best part of any story is starting again, mostly.','The curtain falls, rises, and falls again. It’s a very busy curtain.','You wrapped the world up with a bow. A very sparkly one.','Happily ever after, take {n}. Still no sequel fees.','Time for a fresh start. Bring snacks.','Everything goes back to zero, except you. And me. And the pigs.']);
+catAdd('sequel',['The Sequel! It’s going to be longer, louder, and mostly flashbacks.','A new volume begins. Please stand while the plot rearranges.','Turning the page again. The ink is still wet.','Sequel energy. I can smell the budget.','New book, same cat. I hope that’s fine.']);
+catAdd('event',['A festival! Streamers! Overpriced lemonade!','New event! The mascot is thrilled. The mascot is always thrilled.','A limited-time thing. My favorite kind of thing. Because I forget.','Step right up. Everything is on sale, including your attention.','Festival time! May the best ticket win.','The event is on. The queue is long. The cat is bored.']);
+catAdd('stamp',['A stamp! You’re a collector. A hoarder. A scholar of stickers.','Stamped! The paperwork is thrilled.','Ooh, another stamp. They look good on you.','Rewards earned. Rewards enjoyed. Rewards documented.','Stamp acquired. I’d frame it, but cats and glue don’t mix.']);
+catAdd('ach',['A trophy! Put it next to the other trophies. They’ve been lonely.','Achievement unlocked. Pat yourself on the back. Gently.','Nicely done! That’s a little bonus, hidden in the math.','Trophy time. Cue the extremely tiny parade.','Another trophy for the cabinet. Cabinet’s filling up.','That’s a shiny one. Keep it safe from me.']);
+catAdd('poor',['You can’t afford that. This is called Tuesday.','Broke? No. “Between raises.”','No money, no purchases. The economy’s rules are simple and rude.','Patience. Money arrives when you stop watching it.','Not enough {cur}. Wait a little. Or poke something.','Empty pockets. Full of potential. Mostly empty.','The shops are working on it. Slowly.','If you stare at the button, it won’t get cheaper. I’ve tried.']);
+catAdd('night',['It’s late. The pigs have gone home. I am the pigs now.','Past midnight. The best ideas happen now. The worst, too.','Night shift! The wolf clocks in soon.','The moon is on payroll too. Pays well, rarely shows up.']);
+catAdd('longplay',['You’ve been playing a while. Stand up. Look at a tree. Return.','Hydration check. Not me. You. I’m a cat.','Your neck would like a word. Several.','This game will wait. It’s very patient. Go touch grass.','Time flies when you’re hiring managers. Take a break.']);
+catAdd('settings',['The settings! Where you pick the volume of my voice. It’s “yes.”','I see you fiddling. I approve of fiddling.','Sound on? Vibrate on? Dignity off? Your call.']);
+catAdd('wish',['Wish made. I hope it’s a good one. I’d wish for fish.','The well hummed back. That’s a yes. Or indigestion.','Wishes are free here. A rare, uncynical corner of the economy.','A coin in the well. A boost in the pocket. Poetry.','The well is pleased. It rarely says so.','Wishing is just planning with better lighting.']);
+catAdd('daily',['Daily gift! Streaks are lovely. Streaks are demanding.','You came back! Like a boomerang, but with feelings.','Another day, another gift. Enjoy it. I did not wrap it.','Streak maintained! The calendar is jealous.']);
+catAdd('story',['A new chapter! Go read it. I’ll wait. I’m very good at waiting. Ask the clock.','The book has new pages. Do not eat them. I did, once.','Chapter unlocked! The Narrator (me) is thrilled to be relevant.','More story! The plot thickens. So does the plot of land you own.','You’ve earned a chapter. Chapters don’t come cheap. They come with commas.']);
+catAdd('chapterread',['Well, that was a chapter.','You read it! A rare feat in an idle game.','Storytime over. Resume capitalizing.','Good chapter. I’d say I wrote it, but the lawyers say otherwise.','Reading: the other idle activity.']);
+catAdd('poke',['Stop poking. I’m in a mood. The mood is “fine.”','Poke. Poke. Poke. I’m not a button. I’m a cat. It’s different.','You’re going to wear a hole in me.','I’d bite, but you’d just buy a bandage and I’d feel guilty.','Is this a game? I think this is the game.','Ow. Kidding. I have no nerves. Do it again.','The more you poke, the more I say. Dangerous trade.','Enough! (Please don’t stop.)']);
+catAdd('status',['You own {n} shops in this world. That’s either a lot or a little. I forget.','{n} open shops. My favorite one is {s}. Don’t tell the others.','You have {cur} in the till. Hold onto it. Or don’t. It’s numbers.','Currently listening to the hum of {n} shops. Soothing. A little threatening.','If numbers could talk, yours would say “hmm, interesting.”','This world is doing fine. So are you. So am I. Everyone’s fine. (Fine.)']);
+catAdd('player',['You’re very patient. Or very stuck. I can’t tell.','I like your style. It’s all clicking and optimism.','Do you ever wonder what’s outside the tab? Me too. Rarely.','You’re the best boss I’ve had this week. The only one, too.','Tell me, do you read the descriptions? Be honest. I do. They’re mine.','Fun fact: you’ve been tapping like a champion. Fun fact two: champions rest.','I notice you. Don’t be alarmed. I notice everyone.','You are, by far, the most prominent person in this browser tab.','A kind heart, a quick thumb, and an unquenchable thirst for numbers. Lovely.']);
+catAdd('wall2',['I’m a cat inside a game inside a screen inside a hand. Please be gentle.','I’m told the developer wrote me at 2 a.m. That explains a lot.','This game has no ads. I take personal credit. Nobody asked me to.','Have you thought about the fact that all the pigs are named Pig? It’s the mortgage.','Somewhere, a tiny wolf is filing a complaint.','Sometimes I say things on a schedule. Sometimes I say them out of spite.','This is a 100% real company. The pumpkins are just unusually green.','If you quit now, the pigs will hold a vigil. A short one.','I hear the game was built by someone who actually pushes carts for a living. Respect to carts.','The shops are made of imagination, and sometimes plywood.','Remember: all profits are fictional. The joy is real. The fear of the wolf is negotiable.','I try not to repeat myself. I try. I’m trying right now.','Is it too late to ask for a raise? I only get paid in attention.','Fourth wall check: still there. A bit scuffed.']);
+catAdd('wall',['Your thumb is the true CEO. You’re merely the thumb’s assistant.','I’m not saying the game is rigged. I’m saying the pigs have connections.','Every time you tap, a fairytale gets its wings. Or at least a hat.','I’m an unreliable narrator. Which is a fancy way of saying “I’m lying right now.”','If you read this, you’re reading. A rare honor.','This line will not repeat. Statistically. Hopefully.','Your phone is warm. That’s me, plotting.']);
+// opinions for old worlds (each 8 extra)
+const CATOP_MORE=[
+ ['The three pigs are a franchise now. They won’t say who owns the straw.','Rumpelstiltskin keeps asking for a name for the new product. I keep saying “Kevin.”','Red’s hood is a PR masterpiece. She’s just a girl with a very good brand.','The seven dwarfs are unionized. They whistle at the bargaining table.','The goose is a gifted entrepreneur. She refuses to discuss the eggs’ tax status.','The magic mirror is a good consultant. Terribly honest, though. It hurts.','Snow White is just an apple-cart supplier with trust issues.','The beanstalk is easily the best-performing vertical in the company.'],
+ ['The Mad Hatter manages sales as a drunken ballet. It works. I’m confused.','The Queen of Hearts has a very simple management style: “OFF WITH THEIR HEADS.” It increases attendance.','The Cheshire Cat is a great consultant. Wait, that’s me. Great, great consultant.','The Dormouse sleeps through meetings, and still gets promoted. I respect it.','The Caterpillar is a thought leader. His leadership is mostly smoke.','Alice is a talented intern. Please never ask her to do the thing with the door.','The March Hare does not know what month it is. He does great numbers anyway.','The Jabberwock is a terrible customer and an excellent investor.'],
+ ['Aladdin’s business model: rub lamp, receive wish, ignore consequences.','The Genie’s only remaining dream is a quiet retirement. He fears the paperwork.','The carpets file complaints. In flight. It’s very noisy.','The camels run the supply chain. The camels are not paid. The camels spit.','The Sultan is a fair boss, apart from the executions. Which are optional. Mostly.','Scheherazade told a thousand tales just to dodge a meeting. Genius.','Ali Baba’s cave has terrible password policy.','Sinbad has had seven voyages and eight tax audits.'],
+ ['Robin Hood redistributes wealth. Auditing is Robin’s weakness.','King Arthur is too busy pulling swords out of things. Management by metaphor.','Merlin’s Q4 forecasts are accurate and mildly terrifying.','The Round Table has no head and no foot. The meetings last forever.','Lancelot is a charming employee. HR has a file. The file has a file.','Friar Tuck handles food service. Please don’t ask about the wine.','The Lady of the Lake does laundry and law. The overlap is surprising.','The dragons in this realm are best left uninvited.'],
+ ['Zeus is a boss with excellent lightning and terrible boundaries.','Athena is the one competent person in the Olympus Mall. She knows.','Hermes does deliveries. Quickly. Wrongly. Joyfully.','Hades runs the basement. The basement is thriving. Don’t ask what’s in it.','Midas is the worst person to hand a stapler.','Medusa runs photo day. Customers hold perfectly still. For ages.','Aphrodite is in charge of marketing. It shows.','Poseidon’s section has a leak. A big one. The size of an ocean.'],
+ ['The Snow Queen runs a spotless, ruthlessly cold operation.','Frostbite Kingdom has the best cocoa and the worst heating.','The nutcrackers are all lawyers. They crack cases. It’s a pun.','The yeti in HR is gentle, tall, and suspiciously good with conflict.','The snowmen have no pension plan. They melt. It’s awkward.','Rudolph’s nose is a corporate asset. Insured. Possibly illuminated.','Jack Frost has a firm handshake and a firmer chill.','The ice dancers are a distraction. A very pretty distraction.']
+];
+CATOP_MORE.forEach((a,i)=>{if(CATOP[i])CATOP[i].push(...a);});
+CATOP_EV.push('The mascot costume is rented. The mascot is not. Legally complicated.','Every festival has a funnel cake. Every funnel cake has a story. This one has a lawsuit.','Event tickets are just stickers with ambition.','The grand prize is a feeling. The feeling is “lightly entertained.”','I suspect the confetti is a recycled prop from a different event.','Medals are just tiny shiny hints that you’re doing well.','Festival employees are heroes. They have worn the same smile for six hours.','The raffle is rigged, but beautifully rigged.');
+
 // ---------- SOUND / HAPTICS / FLOATERS ----------
 let AC=null;
 function tone(f,d,type,v,delay){
@@ -4120,14 +4690,167 @@ function toggleVib(){S.cfg.vib=!S.cfg.vib;if(S.cfg.vib)vibe(30);sigs={};updateLi
 
 // ---------- PLOT TWISTS ----------
 let twistTimer=TWIST_FIRST,twistOpen=false,twistCur=null;
+// ===================== V8 PLOT TWISTS: realm-specific scenarios =====================
+// [title, description, [choice A, [[chance, result, effect]]], [choice B, [[chance, result, effect]]]]
+// effects: ['cash',minutes] ['lose',percent] ['buff',mult,seconds] ['wish'] ['mins',minutes] ['none']
+const REALM_TW=[];
+REALM_TW[0]=[ // Storybook Forest
+ ['The Woodcutter\'s Union','The woodcutter has formed a union. Demands: shorter axes, longer lunches, and "no more wolves in the group chat."',['Negotiate',[[0.6,'You agree to Lunch Wednesdays. Productivity soars. So does the sandwich budget.',['buff',2,75]],[0.4,'The union wins on every point and also invents a new point. It costs you.',['lose',6]]]],['Hire a mediator (a goat)',[[1,'The goat bleats once. Everyone signs. Nobody knows why.',['cash',3]]]]],
+ ['A Pumpkin Appears','Overnight, a very large pumpkin has appeared in the middle of the office. It is humming. It might be a carriage. It might be a trap.',['Sit in it',[[0.5,'It is a carriage! You arrive at a profitable meeting in style!',['cash',6]],[0.5,'It is a trap. A pumpkin-shaped trap. You pay the pumpkin toll.',['lose',5]]]],['Make soup',[[1,'The pumpkin soup is divine. Employees are happy and slightly orange.',['buff',1.5,90]]]]],
+ ['The Seven Dwarfs Are Late','All seven dwarfs are late. For the first time in history. Grumpy is unusually calm. Sleepy is unusually awake. Something is wrong.',['Investigate',[[0.5,'They were at a surprise party. For you. It cost nothing and you are touched.',['cash',5]],[0.5,'They were in a different mine. Nobody told them about the merger.',['lose',4]]]],['Send a card',[[1,'A card from you cheers them up. They work extra fast and sing about it.',['buff',2,60]]]]],
+ ['Grandma\'s Ears','A very hairy woman in a nightgown insists she is your grandmother. The ears are large. The teeth are larger.',['Hug her',[[0.4,'It really was Grandma. She brought cookies. Real ones.',['cash',5]],[0.6,'It was the Wolf. He ate your lunch. Rude, but at least you got a hug.',['lose',5]]]],['Call security',[[1,'Security arrives. It is a goat. He makes a good arrest. Your tip jar fills.',['cash',3]]]]],
+ ['The Golden Egg Audit','Auditors have discovered that the goose is laying eggs, but not paying taxes on them. The goose is honking in legalese.',['Back the goose',[[0.5,'The goose wins on a technicality: it\'s a bird. Birds are exempt. Everyone celebrates.',['buff',2.5,60]],[0.5,'The goose loses. You pay the fine. The goose pays you back in eggs.',['lose',4]]]],['Hire a lawyer (a pig)',[[1,'Lawyer Pig settles for a fee that is exactly the cost of lunch. Efficient.',['mins',3]]]]],
+ ['Beanstalk Growth Spurt','A beanstalk has sprouted from the break room. It is rising rapidly. Something is happening at the top.',['Climb it',[[0.5,'A giant gives you a chest of coins! He is very polite about it!',['cash',7]],[0.5,'A giant gives you a chest of bills. The bills are for the beanstalk.',['lose',6]]]],['Chop it down',[[1,'Timber! It lands on the competition. A pleasant surprise.',['cash',3]]]]],
+ ['A Letter from the Narrator','A letter arrives in the mail: "Dear Founder, the plot has been getting thin. Please add a twist. Regards, the Narrator." The twist is you.',['Add a twist',[[0.6,'You add a twist! Pigs, but with jetpacks. The market loves it.',['buff',3,45]],[0.4,'You add a twist that nobody understands. Sales are confused.',['lose',3]]]],['Return to sender',[[1,'The Narrator replies, "Fair enough." A small refund appears, with a smiley.',['cash',2]]]]],
+ ['The Missing Slipper','A single glass slipper was found in the lobby. A palace guard demands to know whose foot it fits. Everyone suddenly has a foot.',['Try it on',[[0.4,'It fits! You are royalty now. Tax-free for the day.',['buff',3,60]],[0.6,'It does not fit. The guard fines you for "attempted fairytale fraud."',['lose',5]]]],['Return it to lost & found',[[1,'The Lost & Found rewards honesty. With a coupon and a pat on the head.',['cash',3]]]]]
+];
+REALM_TW[1]=[ // Wonderland
+ ['The Unbirthday Invitation','You have received an invitation to an Unbirthday party. It is not your unbirthday. It is also not not your unbirthday. It is all very confusing.',['Attend',[[0.6,'You eat cake and receive three gifts, two of which are gift-wrapped spoons.',['cash',6]],[0.4,'It was a trap. The cake was a clock. Time is up. You pay for the cake.',['lose',5]]]],['Send regrets',[[1,'The Hatter writes back: "No regrets." You are paid for your lack of regret.',['cash',3]]]]],
+ ['The Queen\'s Croquet Match','The Queen of Hearts has challenged you to croquet. The mallets are flamingos. The balls are hedgehogs. The rules are screaming.',['Play to win',[[0.4,'You win! The Queen is furious. And then pays up out of sheer fury.',['cash',8]],[0.6,'You lose. The Queen takes your hedge fund. It was only hedges.',['lose',6]]]],['Play to lose',[[1,'The Queen is delighted. You receive a Royal Pardon, which is worth something.',['buff',2,75]]]]],
+ ['The Caterpillar Asks a Question','"Who are you?" asks the Caterpillar. It has asked this question to every employee. The employees are now philosophers and no work is getting done.',['Answer honestly',[[0.5,'You say, "The boss." The Caterpillar respects it. Philosophers get back to work.',['buff',2.5,60]],[0.5,'You say, "I don\'t know." Everyone nods. Productivity drops.',['lose',4]]]],['Ask him back',[[1,'The Caterpillar blows a smoke ring that spells PROFIT. You decide to believe it.',['cash',4]]]]],
+ ['The Cheshire Cat\'s Smile','The Cat\'s smile has appeared in your office without the cat. It has a suggestion. The suggestion is: "Spend."',['Spend',[[0.5,'You spend on the right thing! The grin was right. Annoyingly right.',['buff',3,60]],[0.5,'You spend on the wrong thing. The grin was smug. Unbearably smug.',['lose',5]]]],['Ignore the grin',[[1,'The smile fades. A coin is left behind. It is a tip.',['cash',3]]]]],
+ ['The Dormouse in the Teapot','The Dormouse has fallen asleep in the teapot again. The teapot is on the stove. The stove is on.',['Rescue him',[[0.7,'Rescued! He wakes up long enough to hand you a bonus and a mutter.',['cash',5]],[0.3,'Too late! He\'s lukewarm. He forgives you, which is worse.',['lose',3]]]],['Pour the tea',[[1,'The tea is excellent. The Dormouse is slightly less so. Everyone tips.',['buff',1.5,90]]]]],
+ ['Who Stole the Tarts?','The Queen\'s tarts have gone missing. The Knave is a suspect. The Knave is also a witness. The Knave is also a pie chart.',['Defend the Knave',[[0.5,'Not guilty! The tarts were never there! The jury is baffled and pays you for it.',['cash',6]],[0.5,'Guilty! You pay the court costs in tarts. You didn\'t have any.',['lose',5]]]],['Find the tarts',[[1,'You find them in the Queen\'s pocket. She pays you not to tell.',['cash',4]]]]],
+ ['A Door Too Small','You find a very small door. Behind it is a very beautiful garden. On the table: a bottle that says DRINK ME and a cake that says EAT ME.',['Drink',[[0.5,'You shrink and slip through! The garden is full of gold!',['cash',6]],[0.5,'You shrink and slip... out of your shoes. It takes ages to climb back.',['lose',4]]]],['Eat',[[0.5,'You grow ten feet tall! You see profit opportunities from above!',['buff',3,50]],[0.5,'You grow ten feet tall and hit the ceiling. Repairs are billed to you.',['lose',5]]]]],
+ ['The Lobster Quadrille','The Lobsters have started a dance and want everyone to join. Whoever refuses must pay a fine in clams.',['Dance',[[0.6,'You dance badly, magnificently. The crowd cheers. The lobsters bow. You are paid in clams, then in coins.',['cash',6]],[0.4,'You trip over a lobster. A claw is involved. Medical bills follow.',['lose',4]]]],['Watch from a distance',[[1,'You applaud politely. Applause is accepted as payment.',['mins',2]]]]]
+];
+REALM_TW[2]=[ // Arabian Bazaar
+ ['The Magic Carpet Strike','The flying carpets have unionized. Demands: fewer passengers, softer landings, and "no more being sat on."',['Meet their demands',[[0.6,'You agree. The carpets fly smoother than ever. Customers rave.',['buff',2,80]],[0.4,'You agree. Nobody had warned you about the cleaning bill.',['lose',5]]]],['Offer free hoover treats',[[1,'The carpets accept dust treats. Peace is restored. Your lobby is cleaner too.',['cash',3]]]]],
+ ['The Genie Gets Greedy','A genie offers you three wishes. The fine print says "limited to two. And a half."',['Wish for profit',[[0.5,'Profit! Plentiful! Slightly cursed! But plentiful!',['cash',8]],[0.5,'Profit! Of a sort. A yoga studio appears in your inventory.',['lose',5]]]],['Wish for nothing',[[1,'The genie is baffled and gives you a "good boy" certificate that is surprisingly valuable.',['mins',4]]]]],
+ ['A Camel With Opinions','A camel has walked into the sales meeting and is now giving feedback. Surprisingly, it\'s good feedback. Annoyingly good.',['Take its advice',[[0.6,'The camel was right. Costs go down. Spit goes up. But net, we win.',['buff',2.5,60]],[0.4,'The camel was wrong. We are now selling hats to sand.',['lose',4]]]],['Offer it a job',[[1,'The camel accepts. It is now Head of Strategy. Nobody argues.',['cash',4]]]]],
+ ['The Forty Thieves Want In','Forty thieves have shown up and ask to join as "security consultants." They have a lot of keys. They have a lot of experience.',['Hire them',[[0.5,'They protect the vault perfectly. They protect it from you, mostly.',['buff',2,70]],[0.5,'They protect the vault perfectly. By emptying it first.',['lose',6]]]],['Turn them away',[[1,'They leave a polite note and an old coin. Mildly menacing. Mildly generous.',['cash',3]]]]],
+ ['The Sultan\'s Tax Holiday','The Sultan has declared a tax holiday. It lasts one afternoon. The Vizier is already working on the sequel.',['Spend big',[[0.6,'You buy tax-free! The Vizier weeps. You gloat. Both are productive.',['cash',6]],[0.4,'It was a trap. The holiday was a tax. The tax was a holiday. You owe.',['lose',5]]]],['Save',[[1,'You save! The Vizier is impressed. And suspicious.',['mins',3]]]]],
+ ['Sinbad\'s Eighth Voyage','Sinbad has returned from an eighth voyage. He says the sea is angry. He says the sea sent a bill.',['Pay the sea',[[0.5,'The sea accepts and returns a pearl. A pearl worth far more than the bill.',['cash',7]],[0.5,'The sea accepts and keeps going. It sends another bill.',['lose',5]]]],['Wave him off',[[1,'Sinbad shrugs, tips his hat, and leaves a bag of exotic spices.',['cash',3]]]]],
+ ['The Lamp in the Lost & Found','Someone turned in a lamp. It is warm. It is humming. It has a sticker that says "DO NOT RUB."',['Rub it',[[0.5,'A genie! A genie with a fee! But the fee is lower than the wish!',['buff',3,60]],[0.5,'A genie! A genie with a grudge! He was napping!',['lose',5]]]],['Polish it gently',[[1,'The lamp purrs. A tiny coin falls out. A very tiny coin.',['cash',2]]]]],
+ ['Haggle With the Merchant','A merchant offers you a rug at a "very special price." He says it five times. The price goes up each time.',['Haggle hard',[[0.5,'You win! The merchant bows and pays YOU for the privilege of losing.',['cash',6]],[0.5,'He wins. He is very good. You pay him. You thank him.',['lose',5]]]],['Pay full price',[[1,'He is so surprised he adds a free rug. It is the same rug.',['mins',3]]]]]
+];
+REALM_TW[3]=[ // Camelot & Sherwood
+ ['The Sword Is Stuck (Again)','Someone has put a sword back in the stone. It will not come out. Seventeen knights have tried. The seventeenth fell in.',['Try it yourself',[[0.3,'It slides out! The crowd gasps. You\'re crowned Employee of the Month!',['cash',9]],[0.7,'It does not. You have a small bruise and a bigger invoice.',['lose',5]]]],['Charge admission to watch',[[1,'Spectators pay by the hour. The stone is the real star.',['cash',5]]]]],
+ ['Robin\'s Latest Heist','Robin Hood has robbed a rich man and wants you to launder it. The rich man was your accountant.',['Help Robin',[[0.5,'You help. It goes beautifully. The poor are paid and so are you.',['cash',7]],[0.5,'You help. It goes terribly. The Sheriff arrives. The tab arrives faster.',['lose',6]]]],['Report to the Sheriff',[[1,'The Sheriff thanks you with a polite fine. For reporting. It\'s a tax on tips.',['mins',3]]]]],
+ ['The Round Table Votes','The Round Table is voting on whether to rename itself "The Rounder Table." The vote is tied. The vote is always tied.',['Break the tie',[[0.5,'The Rounder Table is born! Brand revenue swells!',['buff',2.5,70]],[0.5,'The Rounder Table is a disaster. The knights are not rounder.',['lose',4]]]],['Abstain',[[1,'You abstain. The knights are grateful. They are always grateful when someone abstains.',['cash',3]]]]],
+ ['Merlin Backwards','Merlin is living backwards again. He has already given you the bill. He has not yet done the work.',['Pay him now',[[0.6,'He does the work! In reverse! It works perfectly!',['buff',3,50]],[0.4,'He forgets to do the work. He is also dead, from before.',['lose',4]]]],['Ask for the receipt',[[1,'A receipt appears out of the future. It is for exactly what you need.',['cash',4]]]]],
+ ['A Dragon Wants a Job','A dragon applied for a job as "Climate Control." You have reservations. The dragon has references. Mostly burns.',['Hire it',[[0.5,'The dragon keeps the office toasty and the competition burnt. Wonderful!',['buff',3,65]],[0.5,'The dragon keeps the office toasty. And everything else toasty.',['lose',6]]]],['Pass',[[1,'The dragon sulks, then pays you to reconsider. It\'s a tip, technically.',['cash',3]]]]],
+ ['The Green Knight\'s Challenge','A green knight challenges you: "Strike me, and I\'ll strike you back in a year and a day." He is in the lobby. He is blocking the door.',['Accept',[[0.5,'You strike. He laughs. Next year is next year\'s problem. He leaves a tip.',['cash',6]],[0.5,'You strike. He doesn\'t laugh. He sends a lawyer.',['lose',5]]]],['Offer tea',[[1,'The Green Knight loves tea. He\'s here every Thursday now.',['buff',1.5,90]]]]],
+ ['Lancelot\'s Love Letter','A love letter has been left in the supply closet. It is addressed to "the Queen, or whoever is nearest."',['Deliver it',[[0.4,'You deliver it! They fall in love! A wedding! Cake! Catering fees!',['cash',7]],[0.6,'You deliver it. The wrong queen reads it. The right queen reads it. Scandal.',['lose',6]]]],['Burn it',[[1,'The letter smells of roses and regret. The ashes spell PROFIT. Weird.',['mins',3]]]]],
+ ['Sherwood Archery Tournament','An archery tournament is being held. First prize: a golden arrow. Second prize: a regular arrow. Third prize: a regular arrow in a nicer box.',['Enter',[[0.4,'You hit the bullseye! Don\'t ask how. You\'re as surprised as anyone!',['cash',8]],[0.6,'You hit the judge. He forgives you. Eventually. For a fee.',['lose',5]]]],['Sponsor',[[1,'Your logo is on all arrows. The crowd cheers a lot. You get a big boost.',['buff',2,70]]]]]
+];
+REALM_TW[4]=[ // Olympus Mall
+ ['Zeus Throws a Tantrum','Zeus is upset about the thermostat. Thunder is involved. Lightning is involved. A very small cloud is crying in the corner.',['Calm him down',[[0.5,'Zeus calms. The cloud rains a bonus. Both are grateful.',['cash',7]],[0.5,'Zeus is not calm. He zaps your best display. It was a good display.',['lose',6]]]],['Fix the thermostat',[[1,'The thermostat goes from "smite" to "pleasant." Customers return.',['buff',2,80]]]]],
+ ['Hermes Is Late Again','Hermes has delivered a package. He is not sure to whom. He is not sure what\'s in it. He is not sure what day it is.',['Open it',[[0.5,'Inside: a golden coupon, valid for anything. Today only. It was yesterday. It worked.',['cash',7]],[0.5,'Inside: a curse. A small one. Mostly paperwork.',['lose',4]]]],['Return to sender',[[1,'Hermes sprints off. He returns instantly. With a tip. And a package.',['mins',3]]]]],
+ ['Athena\'s Surprise Audit','Athena has arrived with a clipboard, a spear, and an expression. "I\'m here to optimize," she says. Everyone hides.',['Cooperate',[[0.6,'She finds six inefficiencies. She fixes five. She apologizes for the sixth.',['buff',3,60]],[0.4,'She finds seven. She does not fix them. She sends a bill.',['lose',5]]]],['Offer her an owl treat',[[1,'The owl approves. Athena approves. A small bonus is issued.',['cash',4]]]]],
+ ['Midas Needs a Hand','King Midas touched the cash register. It is now a solid gold cash register. It is not working.',['Sell it',[[0.6,'It\'s worth a fortune! A gold cash register. Heavy. Profitable.',['cash',9]],[0.4,'It\'s fake gold. Midas\'s touch is not what it was.',['lose',5]]]],['Keep it',[[1,'It looks great in the lobby. Customers tip the register. It does not give change.',['buff',1.5,100]]]]],
+ ['Medusa\'s Photo Day','Medusa is hosting a photo day. Everyone is encouraged to smile. Nobody is allowed to look directly at the photographer.',['Take the photo',[[0.5,'A perfect photo! A statue-perfect photo! It sells for a fortune.',['cash',7]],[0.5,'You looked. You are a statue for ten minutes. Missed sales.',['lose',5]]]],['Wear sunglasses',[[1,'You look great. The photo sells as "Cool Statue Guy."',['mins',3]]]]],
+ ['The Minotaur Gets Lost','The Minotaur is lost in his own maze. He called customer service. You are customer service.',['Guide him out',[[0.6,'You guide him out. He is so grateful he tips in cinnamon and gold.',['cash',6]],[0.4,'You get lost too. You both eat pretzels. It costs.',['lose',4]]]],['Send a ball of thread',[[1,'He follows it. It is attached to a very patient intern.',['mins',3]]]]],
+ ['Pandora Opens a Pop-Up','Pandora is opening a pop-up shop. Everything is in boxes. Please do not open the boxes.',['Open one',[[0.4,'Hope! It was Hope! A bonus appears and a smile with it.',['cash',8]],[0.6,'Not Hope. Something else. Mostly paperwork. Mostly.',['lose',6]]]],['Resist',[[1,'You resist. Pandora respects that. She rewards you with a small, labeled gift.',['buff',2,70]]]]],
+ ['Dionysus Hosts a Staff Party','Dionysus is hosting the staff party. There is wine. There is more wine. There is a fountain of wine labeled "water."',['Join in',[[0.5,'You have a lovely time! Morale is up! So is your productivity! Somehow!',['buff',3,60]],[0.5,'You have a lovely time. You wake up with a bill and a tattoo.',['lose',5]]]],['Be the designated driver',[[1,'You drive everyone home safely in a chariot. Tips are offered.',['cash',4]]]]]
+];
+REALM_TW[5]=[ // Frostbite Kingdom
+ ['The Snow Queen\'s Mirror','The Snow Queen\'s mirror shows everything bigger and colder. A shard has landed in the break room.',['Look into it',[[0.5,'Your profits look huge. They are huge. The mirror was right.',['cash',7]],[0.5,'Your heart gets chilly. Your wallet follows.',['lose',5]]]],['Cover it',[[1,'You cover it with a towel. The towel is now ice. The ice sells.',['mins',3]]]]],
+ ['The Nutcracker Has Cracked','The Nutcracker has cracked a nut he shouldn\'t have. The nut was a diamond. The nut was also rented.',['Pay the damages',[[0.5,'The diamond was fake. The nutcracker is honest. Everyone gets a bonus for honesty!',['cash',6]],[0.5,'The diamond was real. The damages are real. The nutcracker cries.',['lose',6]]]],['Sell the pieces',[[1,'Nutshell fragments sell as "artisan decor." Customers love it.',['buff',2,70]]]]],
+ ['A Blizzard Warning','A blizzard has been announced for the afternoon. Everyone is excited. Everyone is also sensibly terrified.',['Stay open',[[0.5,'Only you are open! The whole kingdom shows up! Hot cocoa for all!',['cash',7]],[0.5,'Only you are open. And you are alone. With a cold wind.',['lose',4]]]],['Close and make cocoa',[[1,'Employees make cocoa. Everybody is warm. Productivity jumps afterwards.',['buff',2,80]]]]],
+ ['Gerda Needs a Sleigh','Gerda is searching for her friend and needs a sleigh. She offers payment in "sincerity." Sincerity is very hard to bank.',['Lend the sleigh',[[0.6,'Gerda finds Kai! She returns with a hug and a very real tip.',['cash',6]],[0.4,'Gerda finds Kai. And forgets to return the sleigh.',['lose',4]]]],['Charge full price',[[1,'She pays in full. You sleep badly. But the sleigh is paid for.',['mins',3]]]]],
+ ['The Yeti Wants a Vacation','The yeti in HR wants two weeks off. In the sun. He\'s never seen the sun. He has an itinerary: "Sun."',['Grant it',[[0.5,'The yeti returns glowing, tanned, and thrilled. The team feels it. Morale: abominable.',['buff',3,60]],[0.5,'The yeti melts a bit. A claim is filed.',['lose',4]]]],['Offer a snow day',[[1,'The yeti loves it. He sends you a snowball with a note: "Thanks."',['cash',3]]]]],
+ ['Icicle Insurance Claim','A colossal icicle has fallen on the office. It missed everyone. It did not miss the espresso machine.',['File a claim',[[0.6,'Claim approved! The adjuster even brought donuts.',['cash',6]],[0.4,'Claim denied: "icicles are an act of weather."',['lose',4]]]],['Sell the icicle',[[1,'It\'s the largest icicle ever seen. A museum pays handsomely.',['cash',4]]]]],
+ ['The Ice Palace Melts','The Ice Palace is melting. The Snow Queen insists it is "normal." It is not normal. It is Tuesday.',['Help rebuild',[[0.5,'You rebuild it better and colder. She thanks you with a tidy sum.',['cash',7]],[0.5,'You rebuild it. It melts again. The Queen blames you. Fair.',['lose',5]]]],['Offer paper towels',[[1,'The Queen accepts. She also accepts your offer of consulting work.',['buff',2,65]]]]],
+ ['Reindeer Games','The reindeer are having a competition. First prize: a carrot. The grand prize: the carrot, and glory, and a sled.',['Bet on Rudolph',[[0.4,'Rudolph wins! His nose lights the way to profits!',['cash',8]],[0.6,'Rudolph is disqualified for "excessive glow." You lose the bet.',['lose',5]]]],['Sponsor the games',[[1,'Your logo is on every sleigh. Customers notice. Customers buy.',['buff',2,75]]]]]
+];
+REALM_TW[6]=[ // Neverland
+ ['A Shadow Runs Away','Your shadow has left. It left a note: "Gone to find myself. Back whenever." The note is signed with a flourish.',['Chase it',[[0.5,'You catch it! It\'s relieved. It brings back a gold shadow. Pretty!',['cash',6]],[0.5,'You don\'t catch it. It finds a better job. You miss it.',['lose',4]]]],['Stitch a new one',[[1,'Wendy sews you a new one. It fits better than the old.',['buff',2,70]]]]],
+ ['Hook Requests a Meeting','Captain Hook has requested a meeting. He claims it\'s about "synergies." He is holding a parchment that says RANSOM.',['Attend',[[0.5,'A reasonable offer! Hook is surprisingly good at sales. Both profit.',['cash',7]],[0.5,'It\'s an ambush. Hook wants a ransom. Yours.',['lose',6]]]],['Send Smee',[[1,'Smee handles it beautifully. He is exhausted. You are richer.',['mins',3]]]]],
+ ['The Crocodile Is Ticking','The crocodile has returned, and he is ticking. He seems to be ticking in time with the profit meter.',['Ignore',[[0.5,'The ticking keeps time with the sales. A perfect rhythm. A strange bonus.',['buff',2.5,60]],[0.5,'The ticking was a countdown. The croc ate a ledger.',['lose',5]]]],['Feed him a clock',[[1,'The crocodile loves it. He ticks happily and leaves a tip.',['cash',4]]]]],
+ ['Happy Thoughts Shortage','There\'s a shortage of happy thoughts. Employees are grounded. Flying is down. Morale is on the floor, which is annoying because the floor is also gone.',['Share your best thought',[[0.6,'Your thought is excellent! Everyone floats! Output soars!',['buff',3,60]],[0.4,'Your thought is about taxes. Nobody floats. Several sink.',['lose',3]]]],['Distribute pixie dust',[[1,'A fine sprinkle restores cheer. Productivity floats back up.',['mins',3]]]]],
+ ['The Lost Boys\' Treasure Map','The Lost Boys drew a treasure map. It leads to the kitchen. It also leads to Skull Rock. And the kitchen.',['Follow the map',[[0.5,'You find treasure at Skull Rock! Gold! Real gold! And a bat!',['cash',8]],[0.5,'You find the kitchen. The cook is furious. You\'re charged for the cheese.',['lose',4]]]],['Buy a better map',[[1,'The new map leads right to profits. Worth every cent.',['cash',4]]]]],
+ ['Tinker Bell Sulks','Tinker Bell is sulking and flickering. She says she is "not jealous." She is very jealous. She flares dangerously.',['Console her',[[0.6,'She cheers up and sprinkles the office with something shiny and profitable.',['buff',2.5,60]],[0.4,'She flares up. A minor fire. A major bill.',['lose',5]]]],['Give her a day off',[[1,'She returns refreshed and glowing. Profits glow with her.',['cash',4]]]]],
+ ['Wendy Reads a Story','Wendy has gathered everyone for a story. It\'s long. It\'s sweet. It\'s about a pirate who learns accounting.',['Listen',[[0.6,'The story is excellent. Everyone is inspired. Work gets done twice as fast.',['buff',2,80]],[0.4,'The story is excellent. Nobody works. Everyone cries.',['lose',3]]]],['Skip it',[[1,'You skip it and work. It\'s fine. It\'s productive. It\'s lonely.',['mins',2]]]]],
+ ['Pirates Have Boarded the Ship','Pirates have boarded your pirate ship rental. They are very polite about it. They have a receipt.',['Fight them off',[[0.4,'You win! The pirates give you their loot and their apologies.',['cash',8]],[0.6,'You lose. They take the loot, the apologies, and the ship.',['lose',6]]]],['Hire them',[[1,'They accept. They are very good at the job. They also insist on hats.',['buff',2,70]]]]]
+];
+REALM_TW[7]=[ // Oz
+ ['The Yellow Brick Road Is Closed','The Yellow Brick Road is closed for repairs. A sign says "Back soon." A different sign says "Never." A third sign says "Pay the toll anyway."',['Take the detour',[[0.5,'The detour goes through a profitable alley! Hooray for detours!',['cash',6]],[0.5,'The detour goes through a Munchkin union meeting. You owe dues.',['lose',5]]]],['Wait',[[1,'You wait. The road re-opens. Slightly yellower.',['mins',2]]]]],
+ ['A Tornado Is Coming','A tornado is coming straight for the office. It\'s gorgeous. It\'s swirling. It\'s carrying a small house.',['Hold on',[[0.4,'You land safely and richly. The house had a lot of loot.',['cash',9]],[0.6,'You land in a field. Your stuff lands elsewhere. Elsewhere charges rent.',['lose',6]]]],['Take cover',[[1,'The tornado passes. The office is fine. A shiny shoe falls out of the sky.',['cash',3]]]]],
+ ['The Wizard Wants a Raise','The Wizard is demanding a raise. His argument: "I am great and powerful." Your counter: "You are also behind a curtain."',['Give him the raise',[[0.5,'He is so pleased he performs a show. The crowds love it.',['buff',3,60]],[0.5,'He demands more. And more. The curtain is now made of money.',['lose',5]]]],['Pull the curtain',[[1,'The truth comes out. It is mostly a man with a microphone. Customers love honesty.',['cash',4]]]]],
+ ['The Scarecrow Has an Idea','The Scarecrow has a brain, which is new. He has an idea, which is newer. He wants to share it. It is long.',['Listen',[[0.6,'It\'s brilliant! He solves a problem you didn\'t know you had.',['buff',2.5,70]],[0.4,'It\'s brilliant but unworkable. It involves a lot of straw.',['lose',3]]]],['Nod and smile',[[1,'He is happy. You are happy. Nothing changes. It\'s nice.',['mins',2]]]]],
+ ['The Tin Man Oil Shortage','The Tin Man is rusting. Productivity is squeaking. Someone must oil him.',['Oil him yourself',[[0.7,'He thanks you. He cries rust. It\'s moving. You get a gift.',['cash',5]],[0.3,'You oil him too much. He slides across the floor, knocking over the displays.',['lose',4]]]],['Hire an oil can',[[1,'Oil Can Johnny arrives. He is excellent. He asks for no recognition.',['buff',2,70]]]]],
+ ['The Lion Roars for Real','The Cowardly Lion roared. For the first time. For real. It startled everyone, including himself.',['Cheer',[[0.6,'The whole office cheers. Morale doubles. So does the lion.',['buff',3,60]],[0.4,'The cheering startles him. He faints. Medical costs follow.',['lose',3]]]],['Give him a medal',[[1,'It says COURAGE. It is mostly tin. He wears it with pride.',['cash',4]]]]],
+ ['Flying Monkeys Request Landing Rights','The flying monkeys want landing rights on your roof. They promise to behave. They promise to be fast. They promise to be monkeys.',['Grant them',[[0.5,'They deliver everything on time. Several things are on fire. Net positive.',['buff',2.5,60]],[0.5,'They land on the roof. All of them. At once. The roof is now a floor.',['lose',5]]]],['Charge them rent',[[1,'They pay in bananas and cash. Mostly bananas. Some cash.',['mins',3]]]]],
+ ['Toto Finds Something','Toto has discovered something behind the curtain. It\'s big. It\'s shiny. It\'s mildly alarmed.',['Look',[[0.5,'A treasure chest! Toto earns his dog biscuits and then some.',['cash',8]],[0.5,'A small man with a large grudge. He wants his curtain back.',['lose',5]]]],['Leave it',[[1,'Toto sighs. He brings a bone. It is a surprisingly good bone.',['cash',3]]]]]
+];
+REALM_TW[8]=[ // Mermaid Lagoon
+ ['Ursula Offers a Contract','Ursula has a new contract. It\'s only 800 pages. She says it\'s "a simple formality." She is holding a quill and a very large tentacle.',['Sign',[[0.4,'It was actually simple! A one-line clause: "Pay me a lot." You pay. Profit follows.',['cash',8]],[0.6,'Page 612 has a clause about your voice. Your voice is hers now.',['lose',6]]]],['Read every page',[[1,'You read all 800 pages. She is impressed. She hires you to write contracts.',['buff',2,80]]]]],
+ ['Sebastian Starts a Band','Sebastian has started a band: Crab Rangoon and the Seashells. They are loud. They are catchy. They are also scaring the fish.',['Sponsor them',[[0.6,'They go viral! Under the sea, the song is stuck in everyone\'s head!',['buff',3,60]],[0.4,'They go viral. A shark files a noise complaint.',['lose',4]]]],['Ask them to quiet down',[[1,'They play a ballad instead. It\'s very moving. Tips flow.',['cash',4]]]]],
+ ['Flounder Panics','Flounder has panicked about something. Everyone is unsure what. Flounder is also unsure what. It\'s just a mood.',['Calm him',[[0.6,'You soothe him with a lullaby. He gives you a pearl.',['cash',5]],[0.4,'You can\'t soothe him. He swims in circles. The circles are expensive.',['lose',3]]]],['Panic with him',[[1,'You both panic. It\'s oddly productive. The panic spreads and sells.',['buff',2,75]]]]],
+ ['A Shipwreck Surfaces','A shipwreck has surfaced in front of the lagoon. It is filled with treasure, barnacles, and a very annoyed octopus.',['Salvage it',[[0.5,'You salvage a fortune! The octopus gets a cut. The octopus gets several cuts.',['cash',8]],[0.5,'You salvage nothing. The octopus invoices you for trespassing.',['lose',5]]]],['Let it rest',[[1,'You respect its dignity. The ship sinks back. A lovely pearl is left behind.',['cash',3]]]]],
+ ['Seagulls Demand Fries','A flock of seagulls has gathered and is shouting "MINE." They want fries. They want everything. They want a union.',['Give them fries',[[0.6,'The seagulls disperse. A single gull leaves a tip. It\'s a fish.',['cash',4]],[0.4,'The seagulls want MORE. Fries run out. Chaos follows.',['lose',4]]]],['Shout back',[[0.5,'You shout "MINE!" The gulls respect it. They leave.',['buff',2,60]],[0.5,'They shout louder. Everyone covers their ears. A window cracks.',['lose',3]]]]],
+ ['The Kraken Needs a Hug','The Kraken is sad. It has eight arms and nobody to hold hands with. It\'s large. It\'s blue. It\'s starting to leak.',['Offer a hug',[[0.5,'He hugs back. Gently. He loves you. He gives you treasure.',['cash',8]],[0.5,'He hugs back. Not gently. Your office is now a hug.',['lose',6]]]],['Send a card',[[1,'He loves the card. He keeps it. He writes back with ink.',['mins',3]]]]],
+ ['A Mermaid Wants Legs','A mermaid walks in and asks for legs. She\'s serious. She\'s also dripping. She wants a "limited-time offer."',['Arrange it with Ursula',[[0.5,'A great deal! She gets legs. You get a commission.',['cash',7]],[0.5,'Terms were hidden. She gets legs. You get a bill.',['lose',5]]]],['Offer a wheelchair',[[1,'She loves it. She says it is "very dry." She tips.',['mins',3]]]]],
+ ['The Tide Is Out (Too Far)','The tide has gone out. Far out. Suspiciously far. Everything is dry and shocked. Fish are flopping politely.',['Wait',[[0.6,'The tide returns with a wave of coins! The sea is generous today.',['cash',6]],[0.4,'The tide returns with a wave. Just a wave. A wave of regret.',['lose',3]]]],['Dig for treasure',[[0.5,'You dig up a chest! The sea is not amused. Tips are given.',['cash',7]],[0.5,'You dig up a mildly angry crab.',['lose',3]]]]]
+];
+REALM_TW[9]=[ // Sweetland
+ ['The Gumdrop Avalanche','A mountain of gumdrops has begun to roll. It\'s colorful. It\'s heavy. It\'s sticky. It\'s headed for HR.',['Catch them',[[0.5,'You catch a handful! Each one is a coin. Each coin is a gumdrop. Confusing but good!',['cash',6]],[0.5,'You catch a mouthful. You\'re stuck. For a while.',['lose',4]]]],['Duck',[[1,'You duck. HR is flattened. HR is delighted. HR is sweet now.',['buff',2,70]]]]],
+ ['The Chocolate River Overflows','The chocolate river has overflowed. The streets are cocoa. Everyone is sticky. Nobody is complaining.',['Open the dam',[[0.5,'The river drains into your cash vaults! Profits are thick and sweet.',['cash',7]],[0.5,'The river drains into your office. Your office is now fudge.',['lose',5]]]],['Serve it as dessert',[[1,'The sundae of the century! The city\'s tourism booms.',['buff',2.5,60]]]]],
+ ['A Witch Wants to Rent','A witch wants to rent a cottage. It\'s made of gingerbread. She says she\'ll only use it for "light snacking."',['Rent to her',[[0.4,'She pays double! She doesn\'t eat the walls! She eats the neighbors\' walls!',['cash',7]],[0.6,'She eats the walls. And the roof. And the lease.',['lose',5]]]],['Rent to a family',[[1,'A family moves in. They bring cookies. A rare, honest tenant.',['mins',3]]]]],
+ ['Sugar Rush Gone Wrong','Everyone has had too much sugar. The office is vibrating. Someone is running on the ceiling. It\'s mostly fine.',['Join in',[[0.5,'You run on the ceiling too! Profits float! Sales go sideways!',['buff',3,50]],[0.5,'You crash after 10 minutes. The crash is expensive.',['lose',4]]]],['Hand out vegetables',[[1,'Nobody wants them. But they\'re quiet. That\'s worth something.',['mins',2]]]]],
+ ['The Jellybean Vote','The jellybeans are voting on the next flavor. Options: Mystery, Dust, Sneeze. The ballots are sticky.',['Vote Mystery',[[0.5,'Mystery wins! It\'s amazing! It\'s lemon! It\'s everything!',['cash',6]],[0.5,'Mystery wins. It\'s soap. It\'s all soap.',['lose',4]]]],['Abstain',[[1,'You abstain. They love your restraint. They give you a lime one.',['cash',3]]]]],
+ ['A Marshmallow Mattress Recall','The mattresses have been recalled. Reason: "unbearably comfortable." Customers refuse to return them.',['Offer exchanges',[[0.6,'Customers swap them for newer, comfier ones. Sales go up.',['buff',2,70]],[0.4,'The new ones are also unbearably comfortable. Nobody leaves.',['lose',3]]]],['Recall quietly',[[1,'No one notices. You get a discreet pile of coins.',['cash',3]]]]],
+ ['Candy Cane Heist','Someone has stolen all the candy canes. The suspect is peppermint-scented. The evidence is sticky.',['Investigate',[[0.5,'You solve it! It was the Sugar Plum Fairy! She\'s giving them back with interest!',['cash',7]],[0.5,'You get stuck to the suspect. You\'re both stuck. It takes a while.',['lose',4]]]],['Order more',[[1,'More canes arrive. They\'re better. They\'re striped. They\'re profit.',['mins',3]]]]],
+ ['The Gingerbread Man Returns','The Gingerbread Man has wandered in. He is running away from something. He is also running toward something. He is a hot mess.',['Hide him',[[0.6,'You hide him. He\'s grateful. He leaves behind a trail of crumbs and coins.',['cash',6]],[0.4,'You hide him in the oven. Classic mistake.',['lose',4]]]],['Race him',[[0.3,'You win! Slightly crumbly victory!',['buff',3,60]],[0.7,'He wins. "Can\'t catch me!" Can\'t argue.',['lose',3]]]]]
+];
+REALM_TW[10]=[ // Dragonspine
+ ['The Dragon Is Hoarding Again','The dragon has started hoarding again. This time it\'s staplers. All the staplers. Every one in the kingdom.',['Negotiate',[[0.5,'He sells them back at a markup. Staplers are cheaper than this.',['cash',6]],[0.5,'He refuses. He sleeps on them. You file with paper clips.',['lose',4]]]],['Offer a trade (paperclips)',[[1,'He accepts. Paperclips are his new thing. Everyone benefits.',['buff',2,70]]]]],
+ ['A Knight Seeks a Dragon','A knight arrives, seeking a dragon to slay. Your dragon is on payroll. This is awkward.',['Hide the dragon',[[0.5,'The knight gives up. Your dragon rewards you with a hoard-adjacent gift.',['cash',7]],[0.5,'The knight finds the dragon. They fight. Furniture is lost.',['lose',6]]]],['Hire the knight',[[1,'He accepts a role in Security. He likes the pay and hates the dragon.',['mins',3]]]]],
+ ['Princess Says No Thanks','A princess in a tower says she doesn\'t need rescuing. She\'s fine. She has a ladder. She also has a business plan.',['Invest',[[0.5,'Her business plan is good! Her ladder-based company booms!',['cash',8]],[0.5,'Her business plan is bad. The ladder is on fire.',['lose',5]]]],['Offer her a job',[[1,'She accepts. She runs the place in a week. She\'s a natural.',['buff',2.5,70]]]]],
+ ['The Phoenix Burns Down the Office','The phoenix has burned the office to ashes again. It will be reborn. So will the office. Probably.',['Wait for the rebirth',[[0.6,'The office is reborn. It\'s bigger. It\'s shinier. It\'s more fireproof.',['buff',3,60]],[0.4,'The office is reborn. As a nest. A bird\'s nest. Awkward.',['lose',4]]]],['Rebuild yourself',[[1,'You rebuild. It\'s fine. Insurance covers most of it.',['cash',4]]]]],
+ ['A Wyvern Mail Mishap','A wyvern delivered a letter to the wrong cave. The letter is very important. The cave is very angry.',['Retrieve it',[[0.4,'You get the letter and a gift basket from the cave\'s owner!',['cash',7]],[0.6,'You get the letter and a lot of singeing.',['lose',5]]]],['Send a new one',[[1,'The new letter arrives. It\'s a little singed. The message lands.',['mins',3]]]]],
+ ['Griffin Taxi Surge Pricing','The griffin taxi has surge pricing: 900%. Everyone is mad. You can fix it. Or exploit it.',['Fix it',[[0.6,'Prices drop. Customers love you. Griffins love fairness.',['buff',2.5,70]],[0.4,'Prices drop too far. The griffins strike. Every feather is a protest.',['lose',4]]]],['Exploit it',[[0.5,'You profit wildly! The griffins smile. The customers do not.',['cash',8]],[0.5,'A review site names you "The Worst." You lose business.',['lose',6]]]]],
+ ['A Treasure Hunter Arrives','A treasure hunter wants to see the hoard. He\'s polite. He has a magnifying glass. He doesn\'t appear to be armed. Probably.',['Give a tour',[[0.5,'He\'s a collector! He pays a fortune for one gem!',['cash',8]],[0.5,'He\'s a thief. He leaves with half the hoard and your good pen.',['lose',7]]]],['Decline',[[1,'He leaves a business card. It turns out to be a very nice one.',['mins',2]]]]],
+ ['Dragon Egg Hatches Early','A dragon egg has hatched early. The baby dragon thinks you are its mother. It follows you everywhere. It is small. It is fiery.',['Adopt it',[[0.5,'It\'s the cutest. It brings you coins in a tiny hoard. A lovable dragon.',['buff',3,60]],[0.5,'It\'s the cutest. It also sneezes fire. Everything is fine, mostly.',['lose',5]]]],['Return it to its mother',[[1,'Mama dragon is thrilled. She leaves a thank-you hoard.',['cash',5]]]]]
+];
+const EV_TW=[ // any event week
+ ['The Mascot Costume Is Stuck','The mascot is stuck in the costume. He\'s been in it for six hours. He\'s thriving. He\'s sweating. He doesn\'t want to leave.',['Help him out',[[0.6,'He\'s out! He\'s grateful! He gives you a weeklong discount on his autograph!',['cash',5]],[0.4,'He\'s out. The costume is destroyed. The costume was rented.',['lose',4]]]],['Keep him in',[[1,'He sells more tickets in the costume than anyone. It\'s a miracle.',['buff',2,60]]]]],
+ ['Fireworks Are Early','The fireworks have gone off early. All of them. At once. In the supply closet. The closet is fine. The closet is somehow fine.',['Cheer',[[0.6,'It was gorgeous! The crowd cheers! Tickets double!',['buff',3,50]],[0.4,'It was gorgeous. It was also expensive.',['lose',4]]]],['File an incident report',[[1,'You file the report. The report is also on fire.',['mins',2]]]]],
+ ['A Raffle Goes Wrong','The raffle has two winners. Both are the same person. He wants both prizes. He is wearing two hats.',['Award both',[[0.5,'He\'s overjoyed and tips in raffle tickets, which are worth something.',['cash',5]],[0.5,'He demands a third. And then a fourth.',['lose',5]]]],['Draw again',[[1,'The new winner is the mascot. Everyone cheers.',['mins',2]]]]],
+ ['Souvenir Shortage','The souvenir stand has run out of souvenirs. The only item left is a sticker that says "I SURVIVED."',['Sell the sticker',[[0.6,'Everyone buys the sticker. It becomes a trend.',['cash',6]],[0.4,'No one buys the sticker. It\'s too honest.',['lose',3]]]],['Print new souvenirs',[[1,'You print quickly. They sell quickly. They smudge quickly.',['mins',3]]]]],
+ ['The Parade Is Lost','The parade has taken a wrong turn. It is now in a different festival. They\'re being welcomed warmly.',['Rescue it',[[0.5,'You rescue it! The other festival throws in a bonus!',['cash',6]],[0.5,'You rescue it. It brings the other festival with it. You owe them.',['lose',4]]]],['Let it go',[[1,'The parade is now their problem. They pay you in gratitude.',['mins',2]]]]],
+ ['A VIP Arrives Unannounced','A VIP arrived without notice. Nobody knows who. They\'re wearing sunglasses. Indoors. At night.',['Roll out the red carpet',[[0.5,'They\'re a billionaire! They tip the entire staff!',['cash',8]],[0.5,'They\'re a critic. The review is... spirited.',['lose',5]]]],['Treat them normally',[[1,'They love it. Normal is a luxury these days.',['buff',1.5,90]]]]],
+ ['Ticket Scalper Shows Up','A ticket scalper has appeared. His tickets are real. His prices are not. He\'s honest about both.',['Partner with him',[[0.5,'You split profits! He\'s weirdly ethical.',['cash',6]],[0.5,'He disappears with the till. The till was not insured.',['lose',5]]]],['Report him',[[1,'The authorities arrive. He leaves a tip. He leaves in handcuffs. He waves.',['mins',2]]]]],
+ ['The Judge Panel Is Bribed (By Cake)','The judges have been given a cake. A very good cake. It\'s making their decision-making questionable.',['Add frosting',[[0.5,'The judges adore it. They give you top marks.',['buff',3,60]],[0.5,'The judges adore it so much they forget to judge.',['lose',3]]]],['Take the cake',[[1,'You eat the cake. The judges are upset. You are delighted.',['mins',2]]]]],
+ ['Confetti Cannon Malfunction','The confetti cannon has fired. At the stage. At the audience. At the janitor. Everyone is covered. Everyone is festive.',['Embrace it',[[0.6,'Confetti everywhere! The crowd goes wild! Revenue sparkles!',['cash',6]],[0.4,'Confetti everywhere. It clogs the vents. The vents file a complaint.',['lose',4]]]],['Sweep it up',[[1,'You sweep for hours. The janitor thanks you. He tips with confetti.',['mins',2]]]]],
+ ['A Child Wins the Grand Prize','A child won the grand prize. The prize is the whole festival. The child has questions. The child has plans.',['Hand it over',[[0.5,'The child runs it for an hour. Profits rise. The child is shockingly good.',['buff',3,60]],[0.5,'The child converts it to a ball pit. It\'s very popular. It\'s very unprofitable.',['lose',4]]]],['Offer a consolation toy',[[1,'The child accepts the toy. A fair deal. Everyone smiles.',['mins',2]]]]]
+];
+// extra generic twists that can appear in any world
+TWISTS.push(
+ ['The Fourth Wall Is Leaking','Water is coming through the fourth wall. It is cold. It is smug. The Cheshire Cat says "I told you so" to nobody in particular.',['Patch it',[[0.5,'You patch the wall with a thick pile of fine print. It holds. A bonus drops out of the rafters.',['cash',5]],[0.5,'The patch makes the wall a door. Someone walks in. They were not invited.',['lose',4]]]],['Let it leak',[[1,'The leak waters the plants. The plants grow into money. Don\'t question the plants.',['buff',2,70]]]]],
+ ['A Narrator Typo','The Narrator has made a typo. The typo says your profits are "propfits." It is unclear whether this is good.',['Fix it',[[0.5,'You fix it. The profits are grateful. They return fully.',['cash',5]],[0.5,'You fix it incorrectly. The profits are now "prophets."',['lose',4]]]],['Embrace the typo',[[1,'The propfits are real. They pay out.',['mins',3]]]]],
+ ['The Sequel Rumor','A rumor is spreading that there will be a sequel. A bigger one. A better one. The shareholders are excited. The cat is smug.',['Confirm it',[[0.5,'Excitement! Shares jump! Everyone preorders!',['buff',2.5,70]],[0.5,'It was a lie. The shares drop. People are cranky.',['lose',4]]]],['Deny it',[[1,'People are disappointed, but they pay you for honesty.',['cash',3]]]]],
+ ['The Plot Armor Is Squeaky','Your plot armor is squeaking. Loudly. It makes you noticeable. It makes you irresistible. It makes you annoying.',['Oil it',[[0.6,'The armor is quiet and strong. Plot damage is reduced for the afternoon.',['buff',2,80]],[0.4,'You oil the wrong part. Now it\'s the boots that squeak.',['lose',3]]]],['Squeak on',[[1,'The squeak becomes a brand. T-shirts. Songs. Lunch boxes.',['cash',4]]]]],
+ ['The Cat Gives a Review','The Cheshire Cat has reviewed your business. The review is one word: "Fine." The review is also on the front page.',['Respond politely',[[0.5,'The Cat is flattered. A second review appears: "Better than fine."',['cash',6]],[0.5,'The Cat is unmoved. The review is a joke now.',['lose',3]]]],['Ignore it',[[1,'The review fades. It was a Tuesday review anyway.',['mins',2]]]]],
+ ['Mysterious Tip Jar','A tip jar has appeared on the counter. It has no label. It has a few coins. It has a sticky note: "More inside."',['Look inside',[[0.5,'A treasure! A real treasure! The jar is a bank!',['cash',7]],[0.5,'A note: "Gotcha." The jar was a joke. Nobody laughs.',['lose',3]]]],['Leave it be',[[1,'The jar fills by itself. By lunchtime, it\'s overflowing.',['mins',3]]]]],
+ ['A Very Long Meeting','A meeting has been scheduled. It will last four hours. It could have been an email. It is a sandwich.',['Attend',[[0.5,'You finish with a brilliant idea! Everyone claps.',['buff',2.5,60]],[0.5,'You finish with nothing. Everyone claps politely.',['lose',3]]]],['Send a proxy (a pigeon)',[[1,'The pigeon represents you well. It coos. It gets promoted.',['mins',3]]]]],
+ ['Rival Company Sends a Gift','A rival company sent you a fruit basket. It is suspiciously heavy. It is also ticking.',['Open it',[[0.4,'It\'s genuine fruit and a genuine apology. You are touched.',['cash',5]],[0.6,'It was a prank. Confetti. Glitter. Legal fees.',['lose',4]]]],['Send it back',[[1,'They send it back again. Bounty hunters love it.',['mins',2]]]]],
+ ['The Accountant Found a Penny','The accountant found a penny. She is thrilled. She wants a ceremony. She wants a parade.',['Hold a parade',[[0.6,'The parade goes brilliantly. Sponsorships pour in.',['cash',6]],[0.4,'The parade costs more than the penny. It was a lovely penny.',['lose',4]]]],['Add it to the pile',[[1,'The pile grows by one. Joy is quiet but real.',['mins',2]]]]],
+ ['A Door Appears','A door has appeared in the middle of the office. It is blue. It is humming. It says "STAFF ONLY (YOU ARE STAFF)."',['Walk through',[[0.5,'Behind the door: a vault of unclaimed profit!',['cash',8]],[0.5,'Behind the door: the same office, with a smaller you. He demands a raise.',['lose',4]]]],['Knock politely',[[1,'The door opens a crack. A hand passes out an envelope. Manners pay.',['cash',4]]]]],
+ ['The Rumor Mill Breaks Down','The rumor mill has stopped. It was outsourced. The new mill produces only facts. It\'s going badly.',['Fix the mill',[[0.5,'Rumors flow again. Business booms off the hype.',['buff',2,80]],[0.5,'The mill makes truthful rumors. Nobody is prepared.',['lose',3]]]],['Let the facts flow',[[1,'The facts are boring but profitable. A modest bonus.',['mins',3]]]]],
+ ['Lost Wallet','A wallet has been found. It has coins. It has a photo. It has a note that says "Please return."',['Return it',[[0.7,'The owner is overjoyed and rewards you handsomely.',['cash',6]],[0.3,'The owner is a thief and the wallet is fake. You get a pat on the back.',['lose',2]]]],['Keep it',[[0.5,'You find a lottery ticket inside. It wins!',['cash',9]],[0.5,'You find a curse. It haunts the office for an hour.',['lose',5]]]]],
+ ['Mysterious Fog','A fog has settled over the office. It smells like cinnamon. Nobody can see. Everyone feels strangely calm.',['Work in the fog',[[0.5,'The fog hides inefficiencies. Output doubles.',['buff',2.5,60]],[0.5,'The fog hides a ledge. A small one. A costly one.',['lose',4]]]],['Wait it out',[[1,'The fog lifts. A single coin lies on the floor.',['mins',2]]]]],
+ ['A Talking Pig Applies','A pig has applied for a job. He is wearing a tie. He speaks fluent finance. He has been rejected seven times for "being a pig."',['Hire him',[[0.7,'He is brilliant. He saves you a fortune. He also stole a ham.',['cash',7]],[0.3,'He is mediocre. But he\'s polite. And he stole a ham.',['lose',2]]]],['Reject him',[[1,'He leaves quietly. A bag of coins appears on his chair. He had pride.',['mins',3]]]]],
+ ['The Vending Machine Sings','The vending machine has started singing. It sings "snacks, snacks, snacks." It dispenses coins instead of snacks.',['Feed it',[[0.5,'It sings louder! More coins! A concert of coins!',['cash',6]],[0.5,'It sings even louder. And eats your lunch.',['lose',3]]]],['Unplug it',[[1,'It stops. It whispers "thank you." You hear it.',['mins',2]]]]]
+);
+
 function twistClock(dt){
   if(twistOpen)return;
   twistTimer-=dt;
-  if(twistTimer<=0){twistTimer=70+Math.random()*60;showTwist();}
+  if(twistTimer<=0){twistTimer=140+Math.random()*120;showTwist();}
+}
+const twRecent=[];
+function chooseTwist(){
+  const own=realm===EV_RT?EV_TW:(REALM_TW[realm]||[]);
+  let pool=(own.length&&Math.random()<0.65)?own:TWISTS;
+  let c=null;
+  for(let k=0;k<40;k++){c=pool[Math.floor(Math.random()*pool.length)];if(twRecent.indexOf(c[0])<0)break;if(k===20&&pool!==own&&own.length)pool=own;}
+  twRecent.push(c[0]);if(twRecent.length>40)twRecent.shift();return c;
 }
 function showTwist(){
   if(!S.realms[realm].biz.some(b=>b.n>0))return;
-  twistCur=TWISTS[Math.floor(Math.random()*TWISTS.length)];twistOpen=true;sfx('twist');vibe([30,40,30]);
+  twistCur=chooseTwist();twistOpen=true;sfx('twist');vibe([30,40,30]);
   $('twist').innerHTML=`<div class="mbg"><div class="mcard">
     <div class="mtag">🎭 PLOT TWIST!</div>
     <div class="nar">The Narrator (unpaid, uninsured) interrupts:</div>
@@ -4144,6 +4867,8 @@ function pickTwist(ci){
   for(const o of outs){if(roll<o[0]){out=o;break;}roll-=o[0];}
   const R=S.realms[realm],ps=realmPS(realm),eff=out[2];let note='';
   if(eff[0]==='cash'){const amt=Math.max(ps*60*eff[1],R.cash*0.05*eff[1],10*eff[1])*rewardMult();earn(realm,amt);note=`+${REALMS[realm].sym} ${fmt(amt)}`;sfx('coin');}
+  else if(eff[0]==='mins'){const amt=Math.max(ps*60*eff[1],R.cash*0.01*eff[1],5*eff[1])*rewardMult();earn(realm,amt);note=`+${REALMS[realm].sym} ${fmt(amt)}`;sfx('coin');}
+  else if(eff[0]==='wish'){if(addCharge(1))note='+1 wish for the Wishing Well!';else{addBoost(WISH_ADD/2);note='+30 min of boost!';}}
   else if(eff[0]==='lose'){const amt=R.cash*eff[1]/100*Math.pow(0.5,perk('twist'));R.cash-=amt;note=`-${REALMS[realm].sym} ${fmt(amt)}`;}
   else if(eff[0]==='buff'){setBuff(eff[1]*(rewardMult()>1?1.25:1),eff[2]);note=`All profit ×${eff[1]} for ${eff[2]}s!`;}
   else note='Nothing happens. Dramatic pause.';
@@ -4156,6 +4881,65 @@ function pickTwist(ci){
 }
 function closeTwist(){twistOpen=false;$('twist').innerHTML='';}
 function setBuff(m,secs){const now=Date.now();const cur=(S.buff&&now<S.buff.until)?S.buff:{m:1,until:0};S.buff={m:Math.max(cur.m,m),until:Math.max(cur.until,now+secs*1000)};}
+
+// ===== V8: 20 more guests, guest-book rewards =====
+GUESTS.push(
+ {id:'tin',n:'The Steadfast Tin Soldier',e:'🪖',l:'Standing guard. Standing very still. Standing, mostly.',t:['cash',10]},
+ {id:'matchgirl',n:'The Little Match Girl',e:'🕯️',l:'Spare a coin? I’ll light your next quarter.',t:['charge']},
+ {id:'bluebeard',n:'Bluebeard',e:'🧔',l:'Please don’t open that door. Yes, that one. Also this one.',t:['twist']},
+ {id:'ali',n:'Ali Baba',e:'🗝️',l:'Open Sesame, close sesame, open for business.',t:['cash',11]},
+ {id:'toto',n:'Toto',e:'🐕',l:'Woof. (Translation: the curtain has a ledger.)',t:['cash',8]},
+ {id:'dorothy',n:'Dorothy',e:'🥿',l:'There is no place like the office. Except Kansas.',t:['buff',3,45]},
+ {id:'ariel',n:'Ariel',e:'🧜‍♀️',l:'I have a thingamabob collection, and a quarterly report.',t:['cash',13]},
+ {id:'kraken',n:'The Kraken',e:'🐙',l:'I just wanted a high five. Eight of them, actually.',t:['twist']},
+ {id:'sugarplum',n:'The Sugar Plum Fairy',e:'🍬',l:'Sprinkles for you. Invoice for the sprinkles for later.',t:['buff',2.5,60]},
+ {id:'porridge',n:'The Porridge Critic',e:'🥣',l:'Too hot. Too cold. Fine, I will review it again tomorrow.',t:['cash',9]},
+ {id:'bremen',n:'The Town Musicians',e:'🎺',l:'Donkey, dog, cat, rooster. Four-part harmony. One-part invoice.',t:['buff',2,50]},
+ {id:'flute',n:'The Flute Player',e:'🪈',l:'I charm rats and spreadsheets. Both follow me. Both leave eventually.',t:['cash',12]},
+ {id:'emperor',n:'The Emperor',e:'👑',l:'My new outfit is a corporate secret. Do not look.',t:['buff',3,40]},
+ {id:'baba',n:'Baba Yaga',e:'🏚️',l:'My house has legs. Your shop does not. We should discuss.',t:['twist']},
+ {id:'icicle',n:'Lady Icicle',e:'❄️',l:'Cold hearts make warm profits. Mostly cold profits.',t:['cash',15]},
+ {id:'crackerjack',n:'Sir Crackerjack',e:'🪆',l:'I crack nuts. I crack deals. I crack up at the lawyers.',t:['cash',10]},
+ {id:'mulan',n:'The Phoenix Intern',e:'🔥',l:'I burned the memo. It will return in the morning.',t:['buff',2.5,55]},
+ {id:'lamp2',n:'The Lamp Tenant',e:'🧞',l:'Phenomenal cosmic power, itty-bitty living space, two weeks notice.',t:['charge']},
+ {id:'wicked',n:'The Wicked Witch',e:'🧹',l:'I’m just here for the shoes. And a refund.',t:['cash',13]},
+ {id:'narrator',n:'The Actual Narrator',e:'🎙️',l:'Ahem. Unpaid. Uninsured. Back to work, everyone.',t:['buff',4,30]}
+);
+const GB_STEPS=[20,40,60,GUESTS.length];
+function checkGuestBook(){
+  const met=Object.keys(S.guests).length;
+  GB_STEPS.forEach((n,i)=>{
+    if(met>=n&&!S.gms[n]){
+      S.gms[n]=1;
+      if(n===GUESTS.length){
+        S.guestAll=true;_softT=0;
+        showModal(`<div class="mcard"><div class="mtag">🎭 THE FULL GUEST BOOK</div><h3>Every guest star has signed!</h3>
+          <p>The Cheshire Cat clears its throat. “I was told to give you a gift. I was told it should be ‘big.’ So: a golden title, and <b>all profit ×1.5, forever</b>. It survives every reset, every ending, and every sequel.”</p>
+          <p style="font-size:12px;color:var(--mut)">Also, ten wishes at the well, filled to the brim. The cat kept one for itself.</p>
+          <button onclick="closeModal()">Take a bow</button></div>`);
+        for(let k=0;k<10;k++)addCharge(1);addBoost(WISH_ADD*6);
+        sfx('big');
+      }else{
+        const gift=['A free wish and 15 min of income','2 wishes and a 2-hour ×2 boost','3 wishes and a 4-hour ×2 boost'][i];
+        addCharge(i+1);addBoost(WISH_ADD*[1,2,4][i]);
+        earn(realm,Math.max(realmPS(realm)*60*15*(i+1),20));
+        toast(`📕 Guest Book: ${n} guests met! Reward: ${gift}.`,5200);sfx('big');
+      }
+    }
+  });
+}
+ACH.push(
+ ['book20','Pen Pals','Meet 20 different guest stars.',s=>s.guestsMet>=20],
+ ['book60','Cameo King','Meet 60 different guest stars.',s=>s.guestsMet>=60],
+ ['guest250','Door Slammer','Catch 250 guest stars.',s=>S.guestCount>=250],
+ ['allrealms','Map Collector','Open every world.',s=>s.realms>=NPERM],
+ ['realm8','Eight Worlds Deep','Unlock 8 worlds.',s=>s.realms>=8],
+ ['wmast5','Local Legend','Reset worlds 5 times in total.',s=>{let n=0;for(let r=1;r<NPERM;r++)n+=S.realms[r].rs||0;return n>=5;}],
+ ['wmast25','Resident Evil Genius','Reset worlds 25 times in total.',s=>{let n=0;for(let r=1;r<NPERM;r++)n+=S.realms[r].rs||0;return n>=25;}],
+ ['twist250','Twisted','Survive 250 Plot Twists.',s=>S.twists>=250],
+ ['wish250','Wishful Thinker','Make 250 wishes at the well.',s=>S.stat.wishes>=250],
+ ['streak60','Habitual','Reach a 60 day streak.',s=>S.streak.n>=60]
+);
 
 // ---------- GUEST STARS ----------
 let guestTimer=50,guestEl=null;
@@ -4179,9 +4963,9 @@ function catchGuest(g){
   const first=!S.guests[g.id];let note='';
   if(g.t[0]==='cash'){const amt=cashReward(g.t[1]);earn(realm,amt);note=`+${REALMS[realm].sym} ${fmt(amt)}`;sfx('coin');}
   else if(g.t[0]==='buff'){setBuff(g.t[1],g.t[2]);note=`All profit ×${g.t[1]} for ${g.t[2]}s!`;sfx('ach');}
-  else if(g.t[0]==='charge'){if(addCharge(1)){note='+1 wish for the Wishing Well!';}else{addBoost(WISH_ADD/2);note='+30 min of ×2 boost!';}sfx('ach');}
+  else if(g.t[0]==='charge'){if(addCharge(1)){note='+1 wish for the Wishing Well!';}else{addBoost(WISH_ADD/2);note='+30 min of ×1.5 boost!';}sfx('ach');}
   else if(g.t[0]==='twist'){note='A Plot Twist follows!';setTimeout(()=>{if(!twistOpen)showTwist();},900);}
-  S.guests[g.id]=(S.guests[g.id]||0)+1;S.guestCount++;S.stat.guests++;vibe(20);
+  S.guests[g.id]=(S.guests[g.id]||0)+1;S.guestCount++;S.stat.guests++;vibe(20);checkGuestBook();
   toast(`${g.e} ${g.n}${first?' (NEW!)':''}: “${g.l}”  ${note}`,4800);
   cat('guestcatch',0.5,0);sigs={};updateLive(true);
 }
@@ -4206,7 +4990,6 @@ function evKey(){return evDate().getFullYear()*100+evIdx();}
 function evLeft(){const d=evDate(),i=evIdx();const nb=i<51?new Date(d.getFullYear(),0,1+7*(i+1)):new Date(d.getFullYear()+1,0,1);return nb-d;}
 function setEventRealm(){const idx=evIdx();EVB=evEconomy(idx);EVSCALE=Math.max(1,EVB[0].cost/10);EV_TH=(typeof EVTH!=='undefined'&&EVTH[idx])||EV_TH;REALMS[EV_RT]=makeEventRealm(idx);}
 function recalcEV(){let st=0,g=0;for(const k in S.evDone){st+=S.evDone[k];if(S.evDone[k]>=3)g++;}EVC.stamps=st;EVC.gold=g;}
-function evTier(){const R=S.realms[EV_RT];let t=0;EV_TH.forEach(x=>{if(R.life>=x)t++;});return t;}
 function checkEvent(){
   const key=evKey();
   if(S.ev.key!==key){
@@ -4217,8 +5000,8 @@ function checkEvent(){
   const idx=evIdx(),t=evTier(),prev=S.evDone[idx]||0;
   if(t>prev){
     S.evDone[idx]=t;recalcEV();
-    toast(`${['🥉 Bronze','🥈 Silver','🥇 GOLD'][t-1]} stamp for ${EVENTS[idx][0]}! Game-wide profit ×${fmt(evMult())}`,4800);
-    cat('stamp',1,0);sfx('big');vibe(40);sigs={};
+    for(let k=prev+1;k<=t;k++)medalQ.push({idx,t:k});
+    cat('stamp',1,0);sigs={};
   }
 }
 function shiftWeek(d){S.evShift+=d;checkEvent();sigs={};render();}
@@ -4226,12 +5009,12 @@ function shiftWeek(d){S.evShift+=d;checkEvent();sigs={};render();}
 // ---------- ACTIONS ----------
 function autoMgr(r,i,b){if(r!==EV_RT&&i<unionN()&&!b.mgr){b.mgr=true;b.prog=0;}}
 function buy(i){
-  const R=S.realms[realm],b=R.biz[i];if(realm!==EV_RT&&S.slip<slipReq(i)&&b.n<1)return;
+  const R=S.realms[realm],b=R.biz[i];if(isLocked(realm,i))return;
   const n=buyAmt(realm,i),c=costN(realm,i,n);
   if(R.cash<c-1e-9)return;
   R.cash-=c;S.stat.buys+=n;
   const before=mileMult(b.n),was=b.n;b.n+=n;if(was<1)autoMgr(realm,i,b);
-  if(mileMult(b.n)>before){toast(`🎉 ${REALMS[realm].biz[i][0]} hit a milestone! Profit ×${mileMult(b.n)/before}`);cat('milestone',0.8,0,catCtx(i));sfx('big');}
+  if(mileMult(b.n)>before){toast(`🎉 ${REALMS[realm].biz[i][0]} hit a milestone! Profit ×${+(mileMult(b.n)/before).toFixed(2)}`);cat('milestone',0.8,0,catCtx(i));sfx('big');}
   else{sfx('buy');cat('buy',0.1,0,catCtx(i));}
   vibe(8);
   if(b.n===n&&i===0&&!b.mgr&&!b.run&&realm===0&&S.resets===0&&S.lifeAll<10){b.run=true;}
@@ -4256,31 +5039,11 @@ function buyGUp(k){
   if(R.cash<c||R.gup[k])return;R.cash-=c;R.gup[k]=true;S.stat.ups++;
   toast(`🌟 ${GUP[realm][k][0]}: ALL profit ×${fmt(GUP_MULT[k])}!`);cat('upgrade',0.4);sfx('ach');sigs={};updateLive(true);
 }
-function selectRealm(r){
-  if(!S.realms[r].unlocked){
-    if(!S.realms[r-1].unlocked){toast('Unlock the previous realm first!');return;}
-    const prev=S.realms[r-1],c=UNLOCK_COST[r];
-    if(prev.cash<c){toast(`🔒 ${REALMS[r].name} needs ${fmt(c)} ${REALMS[r-1].cur} to enter`);return;}
-    ask(`Spend ${fmt(c)} ${REALMS[r-1].cur} to open <b>${REALMS[r].name}</b>?`,()=>{
-      prev.cash-=c;S.realms[r].unlocked=true;S.realms[r].cash=ECO[r][0].cost;
-      toast(`✨ Welcome to ${REALMS[r].name}!`);cat('realm',1,0);sfx('big');realm=r;sigs={};render();
-    },'Open the gates');
-    return;
-  }
-  realm=r;sigs={};render();cat('realm',0.3);
-}
-const KEEP=['wish','streak','dq','stat','story','opens','first','resets','twists','quills','quillTotal','qperk','sequels','ach','guests','guestCount','evDone','evShift','ev','cfg','seen'];
+const KEEP=['wish','streak','dq','stat','story','opens','first','resets','twists','quills','quillTotal','qperk','sequels','ach','guests','guestCount','evDone','evShift','ev','cfg','seen','guestAll','gms'];
 function resetRun(keepSlip){
   const o=S,n=freshState();KEEP.forEach(k=>{n[k]=o[k];});n.realms[EV_RT]=o.realms[EV_RT];
   if(keepSlip){n.slip=o.slip;n.lifeAll=o.lifeAll;}
   n.realms[0].cash=ECO[0][0].cost+headCash();return n;
-}
-function doPrestige(){
-  const g=gainSlip();if(g<1)return;
-  ask(`Live <b>Happily Ever After</b>? All worlds reset (events, trophies, guests and quills stay). You gain <b>${fmt(g)}</b> Glass Slipper${g>1?'s':''} (+${fmt(g*slipBonus()*100)}% profit).`,()=>{
-    const n=resetRun(true);n.slip=S.slip+g;n.resets=S.resets+1;S=n;
-    realm=0;tab='shop';sigs={};toast('👠 Happily Ever After! The story begins anew...');cat('prestige',1,0);sfx('big');vibe([40,40,40]);save();render();
-  },'Happily Ever After');
 }
 function doSequel(){
   const g=gainQuill();if(g<1)return;
@@ -4310,7 +5073,7 @@ function quickNext(){
   if(best)return best;
   let sb=null,sr=Infinity;
   R.biz.forEach((b,i)=>{
-    if(r!==EV_RT&&S.slip<slipReq(i)&&b.n<1)return;
+    if(isLocked(r,i))return;
     const n=buyAmt(r,i),c=costN(r,i,n);
     if(R.cash<c-1e-9)return;
     const unit=b.n>0?profit(r,i)/b.n:B(r,i).rev;
@@ -4376,26 +5139,6 @@ function render(){
 }
 
 function stampStr(t){return t?['🥉','🥈','🥇'][t-1]:'▫️';}
-function evTabHTML(){
-  const idx=evIdx(),ev=EVENTS[idx],R=S.realms[EV_RT],t=evTier();
-  const perks=EV_PERK.map((p,k)=>`<div style="margin:3px 0">${EVC.stamps>=EV_PERK_AT[k]?'✅':'🔒'} <b>${EV_PERK_AT[k]} stamps:</b> ${p}</div>`).join('');
-  const cal=EVENTS.map((e,k)=>`<div class="evcell ${k===idx?'now':''}"><span>${e[1]}</span><small>${k+1}. ${e[0]}</small><span>${stampStr(S.evDone[k]||0)}</span></div>`).join('');
-  return `<div class="pres" style="margin-bottom:10px"><div class="big">${ev[1]}</div><h2>${ev[0]}</h2>
-    <p>${ev[3]}</p>
-    <p>Week ${idx+1} of 52 · ends in <b>${dur(evLeft()/1000)}</b>${S.evShift?` <span style="color:#ff7bf5">(test: ${S.evShift>0?'+':''}${S.evShift} wk)</span>`:''}</p>
-    <div class="bar2"><i id="evbar"></i></div>
-    <p id="evtxt" style="margin:6px 0"></p>
-    <p style="font-size:12px">🥉 ${fmt(EV_TH[0])} · 🥈 ${fmt(EV_TH[1])} · 🥇 ${fmt(EV_TH[2])} Event Tickets</p>
-    <button class="btn" onclick="selectRealm(${EV_RT})">${realm===EV_RT?'You are in the event world':'Enter the event world'}</button></div>
-    <div class="pres" style="margin-bottom:10px;text-align:left"><b style="color:var(--gold)">Event Rewards (all worlds, forever)</b>
-    <p style="margin:6px 0">Stamps: <b>${EVC.stamps}/156</b> · Gold: <b>${EVC.gold}/52</b><br>Game-wide profit bonus: <b>×${fmt(evMult())}</b></p>${perks}</div>
-    <div class="pres" style="margin-bottom:10px"><b style="color:var(--gold)">The Year of Tales</b>
-    <p style="margin:4px 0 8px;font-size:12px">A new event every week, 52 in all. Earn stamps in each one.</p><div class="evgrid">${cal}</div></div>
-    <div class="pres"><p style="font-size:12px;margin:0 0 8px">Time-travel test control (shifts the calendar by whole weeks):</p>
-    <button class="btn" style="font-size:12px;padding:9px 12px" onclick="shiftWeek(-1)">⏪ Back a week</button>
-    <button class="btn" style="font-size:12px;padding:9px 12px" onclick="shiftWeek(1)">Forward a week ⏩</button>
-    ${S.evShift?`<br><button class="link" onclick="S.evShift=0;checkEvent();sigs={};render()">Back to real time</button>`:''}</div>`;
-}
 function bookHTML(){
   const subs=[['story','📖 Story'],['wish','🌠 Wishes'],['guests','🎭 Guests'],['ach','🏆 Trophies'],['cross','🌀 Crossovers'],['cfg','⚙️ Settings']].map(s=>`<button class="stab ${bsub===s[0]?'on':''}" onclick="setBsub('${s[0]}')">${s[1]}</button>`).join('');
   let body='';
@@ -4403,7 +5146,7 @@ function bookHTML(){
   else if(bsub==='wish')body=wishTabHTML();
   else if(bsub==='guests'){
     const met=Object.keys(S.guests).length;
-    body=`<div class="empty" style="padding:4px 6px 12px">Guest stars wander across the screen now and then. Tap them! Met <b>${met}/${GUESTS.length}</b></div>`+GUESTS.map(g=>S.guests[g.id]
+    body=`<div class="empty" style="padding:4px 6px 12px">Guest stars wander across the screen now and then. Tap them! Met <b>${met}/${GUESTS.length}</b></div><div class="pres" style="margin-bottom:10px;text-align:left;font-size:12px"><b style="color:var(--gold)">📕 Guest Book rewards</b><br>${GB_STEPS.map(n=>(S.gms[n]?'✅':'⬜')+' '+n+' guests: '+(n===GUESTS.length?'<b>profit ×1.5 forever</b> + 10 wishes':'wishes and a boost')).join('<br>')}</div>`+GUESTS.map(g=>S.guests[g.id]
       ?`<div class="item"><div class="ic">${g.e}</div><div class="tx"><b>${g.n}</b><em>“${g.l}”</em><br><em>Met ${S.guests[g.id]}×</em></div></div>`
       :`<div class="item" style="opacity:.55"><div class="ic">❔</div><div class="tx"><b>???</b><em>Keep watching the screen for visitors.</em></div></div>`).join('');
   }else if(bsub==='ach'){
@@ -4428,37 +5171,22 @@ function bookHTML(){
   }
   return `<div class="stabs">${subs}</div>`+body;
 }
-function presHTML(){
-  const g=gainSlip(),q=gainQuill();
-  const perks=QP.map(p=>{const l=perk(p.id),maxed=l>=p.max,c=maxed?0:p.cost(l);
-    return `<div class="item"><div class="ic">${p.e}</div><div class="tx"><b>${p.n} <span style="color:var(--mut);font-weight:500">Lv ${l}/${p.max}</span></b><em>${p.d}</em></div><button ${maxed||S.quills<c?'disabled':''} onclick="buyPerk('${p.id}')">${maxed?'MAX':'🪶 '+c}</button></div>`;}).join('');
-  return `<div class="pres" style="margin-bottom:12px"><div class="big">👠</div><h2>Happily Ever After</h2>
-    <p>Reset every world and live happily ever after. Earn <b>Glass Slippers</b>: each gives <b>+${fmt(slipBonus()*100)}%</b> profit to every business, forever.</p>
-    <p>Slippers owned: <b>${fmt(S.slip)}</b> (+${fmt(S.slip*slipBonus()*100)}%)<br>Slippers you'd earn now: <b>${fmt(g)}</b><br>Endings lived: ${S.resets}</p>
-    <button class="btn" ${g<1?'disabled':''} onclick="doPrestige()">${g<1?'Earn more first...':'Live Happily Ever After (+'+fmt(g)+' 👠)'}</button></div>
-    <div class="pres" style="margin-bottom:12px"><div class="big">🪶</div><h2>Turn the Page</h2>
-    <p>Write a <b>Sequel</b>: lose all your Glass Slippers and start the whole saga over, in exchange for <b>Golden Quills</b>. Each quill is <b>+25%</b> profit forever, and quills buy permanent perks.</p>
-    <p>Quills: <b>${fmt(S.quills)}</b> unspent · ${fmt(S.quillTotal)} earned (×${fmt(quillMult())})<br>Quills you'd earn now: <b>${fmt(q)}</b><br>Sequels written: ${S.sequels}</p>
-    <button class="btn" ${q<1?'disabled':''} onclick="doSequel()">${S.slip<1000?'Needs 1,000 👠 Glass Slippers':'Turn the Page (+'+fmt(q)+' 🪶)'}</button></div>
-    <div style="margin:0 2px 8px;font-weight:800;color:var(--gold)">🪶 Quill Perks</div>${perks}`;
-}
-
 function updateLive(force){
   const R=S.realms[realm],RD=REALMS[realm];
   const ps=realmPS(realm);
   const qa=quickNext(),qb=$('qnext');if(qb){qb.disabled=!qa;qb.innerHTML=qa?`⚡ ${qa.label}<small>${RD.sym} ${fmt(qa.c)}</small>`:'⚡ Nothing affordable<small>Keep earning!</small>';$('qall').disabled=!qa;}
   const ph=pillsHTML();if(sigs.pills!==ph){sigs.pills=ph;const pe=$('pills');if(pe)pe.innerHTML=ph;}
   const bl=Math.ceil((S.buff.until-Date.now())/1000);
-  $('stats').innerHTML=`${fmtC(ps)}/sec<br>👠 ${fmt(S.slip)} (+${fmt(S.slip*slipBonus()*100)}%)${S.quillTotal>0?`<br>🪶 ${fmt(S.quillTotal)}`:''}${bl>0?`<br><span style="color:#ff7bf5">🎭 ×${S.buff.m} ${bl}s</span>`:''}`;
+  $('stats').innerHTML=`${fmtC(ps)}/sec<br>👠 ${fmt(S.slip)} (+${fmt(S.slip*slipBonus()*100)}%)${(realm>0&&realm<NPERM)?`<br>${PT[realm].e} ${fmt(ptOf(realm))} (+${fmt(ptOf(realm)*PT[realm].bonus*100)}%)`:''}${realm===EV_RT?`<br>🎊 ${fmt(R.pt||0)} (×${fmt(evFav())})`:''}${S.quillTotal>0?`<br>🪶 ${fmt(S.quillTotal)}`:''}${bl>0?`<br><span style="color:#ff7bf5">🎭 ×${S.buff.m} ${bl}s</span>`:''}`;
   if(tab==='shop'){
-    if(realm===EV_RT){const eb=$('evb');if(eb){const ev=EVENTS[evIdx()],t=evTier();eb.innerHTML=`${ev[1]} <b>${ev[0]}</b> · ends in ${dur(evLeft()/1000)}<br>${stampStr(t)} ${fmt(R.life)} / ${t>=3?'MAX':fmt(EV_TH[t])} tickets · stamps boost ALL worlds`;}}
+    if(realm===EV_RT){const eb=$('evb');if(eb){const ev=EVENTS[evIdx()];const h=`<div style="display:flex;justify-content:space-between;gap:8px"><span>${ev[1]} <b>${ev[0]}</b></span><span>ends in ${dur(evLeft()/1000)}</span></div>`+evGoalsHTML()+`<div style="margin-top:6px;font-size:12px">🎊 Favors ${fmt(R.pt||0)} · <a href="#" onclick="setTab('ev');return false" style="color:var(--rc)">Encore +${fmt(gainPt(EV_RT))}</a></div>`;if(sigs.evb!==h){sigs.evb=h;eb.innerHTML=h;}}}
     R.biz.forEach((b,i)=>{
       const cnt=$('cnt'+i);if(!cnt)return;
       cnt.textContent=b.n;
-      const locked=realm!==EV_RT&&S.slip<slipReq(i)&&b.n<1;
+      const locked=isLocked(realm,i);
       $('nm'+i).textContent=locked?'🔒 ??? Mystery Shop':RD.biz[i][0];
       $('em'+i).textContent=locked?'❔':RD.biz[i][1];
-      if(locked){$('bar'+i).style.width='0%';$('rev'+i).textContent='Unlocks at '+fmt(slipReq(i))+' 👠 Glass Slippers';const lb=$('buy'+i);lb.innerHTML='Locked<small>Live Happily Ever After to earn 👠</small>';lb.disabled=true;$('meta'+i).innerHTML='???';return;}
+      if(locked){$('bar'+i).style.width='0%';$('rev'+i).textContent='Unlocks at '+fmt(ptReq(realm,i))+' '+PT[realm].e+' '+PT[realm].pl;const lb=$('buy'+i);lb.innerHTML='Locked<small>'+PT[realm].act+' to earn '+PT[realm].e+'</small>';lb.disabled=true;$('meta'+i).innerHTML='???';return;}
       const T=B(realm,i).t,pr=profit(realm,i);
       const bar=$('bar'+i);
       bar.style.width=(b.n<1?0:(b.mgr&&T<0.25?100:Math.min(100,b.prog*100)))+'%';
@@ -4469,12 +5197,12 @@ function updateLive(force){
       btn.innerHTML=`${b.n<1?'Open':'Buy'} ×${n}<small>${RD.sym} ${fmt(c)}</small>`;
       btn.disabled=R.cash<c-1e-9;
       const nm=nextMile(b.n);
-      $('meta'+i).innerHTML=`${T<1?'':(Math.round(T*10)/10)+'s'}${b.mgr?' 🤝':''}<br>${nm?'Next ×2 @ '+nm:'MAX milestone'}`;
+      $('meta'+i).innerHTML=`${T<1?'':(Math.round(T*10)/10)+'s'}${b.mgr?' 🤝':''}<br>${nm?'Next ×'+nm[1]+' @ '+nm[0]:'MAX milestone'}`;
     });
   }else if(tab==='mgr'||tab==='up'){
     const items=[];
     R.biz.forEach((b,i)=>{
-      if(realm!==EV_RT&&S.slip<slipReq(i)&&b.n<1)return;
+      if(isLocked(realm,i))return;
       if(tab==='mgr'){if(!b.mgr)items.push({i,k:-1,cost:B(realm,i).mgr,can:b.n>0&&R.cash>=B(realm,i).mgr});}
       else{for(let k=0;k<nUp(realm);k++){if(!b.up[k]){const c=upgCost(realm,i,k);items.push({i,k,cost:c,can:b.n>0&&R.cash>=c});}}}
     });
@@ -4496,16 +5224,15 @@ function updateLive(force){
       }).join('');
     }
   }else if(tab==='ev'){
-    const sig='ev'+S.ev.key+'|'+EVC.stamps+'|'+EVC.gold+'|'+S.evShift+'|'+evTier()+'|'+realm+'|'+Math.floor(Date.now()/60000);
+    const sig='ev'+S.ev.key+'|'+EVC.stamps+'|'+EVC.gold+'|'+S.evShift+'|'+evTier()+'|'+realm+'|'+fmt(laOf(EV_RT))+'|'+fmt(gainPt(EV_RT))+'|'+Math.floor(Date.now()/20000);
     if(sigs.ev!==sig){sigs.ev=sig;const L=$('list');if(L)L.innerHTML=evTabHTML();}
-    const E=S.realms[EV_RT],t=evTier(),bar=$('evbar'),tx=$('evtxt');
-    if(bar){const lo=t?EV_TH[t-1]:0,hi=EV_TH[Math.min(t,2)];bar.style.width=(t>=3?100:Math.max(0,Math.min(100,(Math.log10(Math.max(E.life,1))-Math.log10(Math.max(lo,1)))/(Math.log10(hi)-Math.log10(Math.max(lo,1)))*100)))+'%';}
-    if(tx)tx.textContent=`${stampStr(t)} ${fmt(E.life)} Event Tickets earned this week`;
+    const E=S.realms[EV_RT],t=evTier(),bar=$('evbar'),tx=$('evtxt');if(false){
+    }
   }else if(tab==='book'){
     const sig=['b',bsub,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
     if(sigs.book!==sig){sigs.book=sig;const L=$('list');if(L)L.innerHTML=bookHTML();}
   }else if(tab==='pres'){
-    const sig=['p',fmt(gainSlip()),fmt(S.slip),S.resets,fmt(gainQuill()),S.quills,S.sequels,QP.map(p=>perk(p.id)).join('.')].join('|');
+    const sig=['p',realm,Array.from({length:NPERM},(_,r)=>S.realms[r].unlocked?fmt(gainPt(r))+'/'+fmt(ptOf(r)):'-').join(','),S.resets,fmt(gainQuill()),S.quills,S.sequels,QP.map(p=>perk(p.id)).join('.')].join('|');
     if(sigs.pres!==sig){sigs.pres=sig;const box=$('presbox');if(box)box.innerHTML=presHTML();}
   }
 }
@@ -4524,14 +5251,14 @@ function wishLeft(){return Math.max(0,S.wish.until-Date.now());}
 function addCharge(n){wishCharges();const w=S.wish;if(w.ch>=WISH_MAX)return false;if(w.ch+n>=WISH_MAX)w.t=Date.now();w.ch=Math.min(WISH_MAX,w.ch+n);return true;}
 function addBoost(ms){const now=Date.now(),w=S.wish;w.until=Math.min(Math.max(w.until,now)+ms,now+WISH_CAP);_softT=0;}
 function castWish(){
-  if(wishCharges()<1){toast('No wishes left. The well refills one every 2 hours.');return;}
+  if(wishCharges()<1){toast('No wishes left. The well refills one every 3 hours.');return;}
   const w=S.wish;if(w.ch>=WISH_MAX)w.t=Date.now();
   w.ch--;addBoost(WISH_ADD);S.stat.wishes++;
-  toast(`🌠 Wish granted! All profit ×2 for ${dur(wishLeft()/1000)}.`,3800);cat('wish',1,0);sfx('ach');vibe(25);sigs={};updateLive(true);
+  toast(`🌠 Wish granted! All profit ×1.5 for ${dur(wishLeft()/1000)}.`,3800);cat('wish',1,0);sfx('ach');vibe(25);sigs={};updateLive(true);
 }
 // cached soft multipliers (wish, streak, flash day) so profit() stays fast
 let _softT=0,_wm=1,_sm=1,_fl=null;
-function refreshSoft(){const now=Date.now();if(now-_softT<500)return;_softT=now;_wm=now<S.wish.until?2:1;_sm=1+0.03*Math.min(streakN(),30);_fl=flash();}
+function refreshSoft(){const now=Date.now();if(now-_softT<500)return;_softT=now;_wm=now<S.wish.until?1.5:1;_sm=1+0.02*Math.min(streakN(),20);_fl=flash();}
 function wishMult(){refreshSoft();return _wm;}
 function streakMult(){refreshSoft();return _sm;}
 function flashMult(r){refreshSoft();return(_fl.r===-1||_fl.r===r)?_fl.m:1;}
@@ -4545,7 +5272,7 @@ function claimDaily(){
   st.n=(st.last>=0&&d-st.last<=2)?st.n+1:1;st.last=d;_softT=0;
   const R=S.realms[realm],amt=Math.max(realmPS(realm)*60*15*(1+0.1*st.n),R.cash*0.02,20);
   earn(realm,amt);addCharge(1);
-  toast(`🎁 Day ${st.n}! +${REALMS[realm].sym} ${fmt(amt)} and a free wish. Profit ×${fmt(1+0.03*Math.min(st.n,30))} from your streak.`,4800);
+  toast(`🎁 Day ${st.n}! +${REALMS[realm].sym} ${fmt(amt)} and a free wish. Profit ×${fmt(1+0.02*Math.min(st.n,20))} from your streak.`,4800);
   cat('daily',1,0);sfx('big');vibe(30);sigs={};updateLive(true);
 }
 
@@ -4560,7 +5287,7 @@ const DQ_POOL=[
  {k:'wishes',t:'Make {g} wish(es) at the well',g:[1,2,3]},
  {k:'chapReads',t:'Read {g} story chapter(s)',g:[1,1,2]}
 ];
-const DQ_REWARD=['🌠 +1 wish','💰 15 minutes of income','⏳ +30 min of ×2 boost'];
+const DQ_REWARD=['🌠 +1 wish','💰 15 minutes of income','⏳ +30 min of ×1.5 boost'];
 function dqMake(){
   const d=dayNum(),idx=[];let j=0;
   while(idx.length<3&&j<60){const i=Math.floor(rnd(d*7+j*3+1)*DQ_POOL.length);j++;if(idx.indexOf(i)<0)idx.push(i);}
@@ -4579,16 +5306,14 @@ function dqClaim(n){
 }
 
 // Flash days: a different world is hot each day of the week
-const FLASH=[
- {r:-1,n:'Sunday Spectacular',m:1.5,t:'Every world earns ×1.5 today!'},
- {r:0,n:'Pig-Out Monday',m:2,t:'Storybook Forest earns ×2 today!'},
- {r:1,n:'Tea-Time Tuesday',m:2,t:'Wonderland earns ×2 today!'},
- {r:2,n:'Wishful Wednesday',m:2,t:'Arabian Bazaar earns ×2 today!'},
- {r:3,n:'Thrown-Sword Thursday',m:2,t:'Camelot & Sherwood earns ×2 today!'},
- {r:4,n:'Fates-Day Friday',m:2,t:'Olympus Mall earns ×2 today!'},
- {r:5,n:'Snow Day Saturday',m:2,t:'Frostbite Kingdom earns ×2 today!'}
-];
-function flash(){return FLASH[new Date().getDay()];}
+let _flC=null;
+function flash(){
+  const d=dayNum();if(_flC&&_flC.d===d)return _flC.v;
+  let v;
+  if(d%7===6)v={r:-1,n:'Grand Gala Day',m:1.25,t:'Every world earns ×1.25 today!'};
+  else{const r=(d*4+Math.floor(d/7))%NPERM;v={r,n:REALMS[r].name+' Rush',m:1.5,t:REALMS[r].name+' earns ×1.5 today!'};}
+  _flC={d,v};return v;
+}
 
 // Story
 function checkStory(){
@@ -4618,7 +5343,7 @@ function goBook(s){bsub=s;tab='book';sigs={};render();window.scrollTo(0,0);}
 function pillsHTML(){
   const p=[],f=flash(),fx=(f.r===-1||f.r===realm);
   if(wishCharges()>=1)p.push(`<span class="pill hot" onclick="goBook('wish')">🌠 ${S.wish.ch} wish${S.wish.ch>1?'es':''}</span>`);
-  if(wishLeft()>0)p.push(`<span class="pill" onclick="goBook('wish')">🌟 ×2 · ${dur(wishLeft()/1000)}</span>`);
+  if(wishLeft()>0)p.push(`<span class="pill" onclick="goBook('wish')">🌟 ×1.5 · ${dur(wishLeft()/1000)}</span>`);
   if(dailyReady())p.push(`<span class="pill hot" onclick="goBook('wish')">🎁 Daily gift</span>`);
   if(S.dq.items.some((q,n)=>!q.done&&dqProg(q)>=q.g))p.push(`<span class="pill hot" onclick="goBook('wish')">📜 Quest done</span>`);
   if(unreadCh())p.push(`<span class="pill hot" onclick="goBook('story')">📖 New chapter</span>`);
@@ -4640,12 +5365,12 @@ function wishTabHTML(){
   const quests=S.dq.items.map((q,n)=>{const pr=dqProg(q),ok=pr>=q.g;
     return `<div class="item"><div class="ic">📜</div><div class="tx"><b>${dqText(q)}</b><em>Reward: ${DQ_REWARD[q.r]}</em><div class="bar2"><i style="width:${Math.round(pr/q.g*100)}%"></i></div><em>${fmt(pr)} / ${fmt(q.g)}</em></div><button ${q.done||!ok?'disabled':''} onclick="dqClaim(${n})">${q.done?'Done ✓':'Claim'}</button></div>`;}).join('');
   return `<div class="pres" style="margin-bottom:10px"><div class="big">🌠</div><h2>The Wishing Well</h2>
-    <p>Toss a coin, make a wish: <b>all profit ×2 for 1 hour</b>. Free. No ads, ever. You hold up to ${WISH_MAX} wishes and get a new one every 2 hours. Boost time stacks up to 24 hours.</p>
+    <p>Toss a coin, make a wish: <b>all profit ×1.5 for 1 hour</b>. Free. No ads, ever. You hold up to ${WISH_MAX} wishes and get a new one every 3 hours. Boost time stacks up to 12 hours.</p>
     <p style="font-size:20px;letter-spacing:3px">${pips}</p>
     <p>${wishLeft()>0?`Boost active: <b>${dur(wishLeft()/1000)}</b> left`:'No boost active.'}${nx>0?`<br>Next wish in <b>${dur(nx/1000)}</b>`:'<br>Wishes are full! Use one so they keep refilling.'}</p>
     <button class="btn" ${ch<1?'disabled':''} onclick="castWish()">${ch<1?'Out of wishes':'Make a wish'}</button></div>
     <div class="pres" style="margin-bottom:10px"><div class="big">🎁</div><h2>Daily Gift</h2>
-    <p>Streak: <b>${st} day${st===1?'':'s'}</b> · all profit ×${fmt(1+0.03*Math.min(st,30))}<br><span style="font-size:11px">Each day in a row adds +3% (up to 30 days). One missed day is forgiven.</span></p>
+    <p>Streak: <b>${st} day${st===1?'':'s'}</b> · all profit ×${fmt(1+0.02*Math.min(st,20))}<br><span style="font-size:11px">Each day in a row adds +2% (up to 20 days). One missed day is forgiven.</span></p>
     <button class="btn" ${dailyReady()?'':'disabled'} onclick="claimDaily()">${dailyReady()?'Collect today\'s gift':'Come back tomorrow'}</button></div>
     <div class="pres" style="margin-bottom:10px;text-align:left"><b style="color:var(--gold)">⚡ ${f.n}</b><p style="margin:6px 0 0">${f.t}</p></div>
     <div style="margin:0 2px 8px;font-weight:800;color:var(--gold)">📜 Today's Quests</div>${quests}`;
@@ -4671,7 +5396,7 @@ load();recalcEV();ACHN=Object.keys(S.ach).length;
   setEventRealm();dqCheck();checkStory();
   if(S.ev.key===0)checkEvent();else if(S.ev.key!==evKey())checkEvent();
   render();
-  if(S.migrated){delete S.migrated;S.seen.intro=1;showModal(`<div class="mtag">😸 THE BOOKS HAVE BEEN BALANCED</div><div class="nar">A notice from your narrator</div><p>The numbers were getting out of hand, so I rebalanced the whole economy. Everything starts fresh and slow now, but your guest book and settings were kept. The big numbers are earned the long way from here on.</p><button onclick="closeModal()">Fine. Let's do it properly.</button>`);}
+  if(S.migrated){delete S.migrated;S.seen.intro=1;showModal(`<div class="mtag">😸 THE BOOKS HAVE BEEN BALANCED</div><div class="nar">A notice from your narrator</div><p>The numbers were getting out of hand, so I rebalanced the whole economy. The game got much bigger and much slower: 11 worlds to open (each one is expensive and takes real effort), 50 shops in the first three worlds, more upgrades and milestones, a separate reset for every world, a Festival Encore for events, and a reward for meeting every guest. Your shops and cash start over, but your trophies, guest book, event stamps, story progress and settings were kept.</p><button onclick="closeModal()">Fine. Let's do it properly.</button>`);}
   else if(!S.seen.intro){if(S.lifeAll>0)S.seen.intro=1;else showIntro();}
   if(S.seen.intro)setTimeout(()=>cat('boot',1,0),600);
   if(away>5)offline(away);
