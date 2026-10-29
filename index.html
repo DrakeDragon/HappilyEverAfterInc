@@ -227,12 +227,64 @@ html[data-w="11"]{--g1:#e0a93f3c;--g2:#9b7bff3c;--g3:#e0527a28;--pat:radial-grad
 .bktx b{display:block;font-family:var(--serif);font-size:15px;color:#ffe3a1;line-height:1.2}
 .bktx em{display:block;font-size:11px;color:var(--mut);margin-top:2px;line-height:1.3}
 .bktx small{font-size:10px;color:#c9b98a}
+
+#lf{position:fixed;left:0;right:0;bottom:calc(142px + env(safe-area-inset-bottom));z-index:9;display:flex;justify-content:center;padding:0 12px;pointer-events:none;transform:translateY(30px);opacity:0;transition:.35s}
+#lf.show{transform:none;opacity:1}
+.lfcard{pointer-events:auto;max-width:420px;width:100%;background:linear-gradient(180deg,#232052,#171840);border:1px solid #f2c75ccc;border-radius:16px;padding:12px 14px;box-shadow:0 0 0 3px #f2c75c18,0 0 28px #f2c75c40,0 14px 40px #000c;animation:lfpop .5s cubic-bezier(.2,1.5,.4,1)}
+.lftag{font-family:var(--serif);font-size:11px;letter-spacing:3px;color:#f2c75c;font-weight:700;margin-bottom:5px}
+.lftx{font-family:var(--serif);font-size:14px;line-height:1.45;color:#f7f1e3;margin-bottom:9px}
+.lfcard button{display:block;width:100%;border:0;border-radius:11px;padding:10px;font-weight:800;font-size:13px;background:var(--grad);color:#1a1204;box-shadow:inset 0 1px 0 #fff6}
+.lfcard button.lfx{background:none;color:#8d8aae;font-size:11px;font-weight:600;padding:6px;box-shadow:none;margin-top:3px}
+@keyframes lfpop{0%{transform:scale(.8) translateY(20px);opacity:0}100%{transform:none;opacity:1}}
+/* ===== v13 difficulty badge ===== */
+.diffb{display:flex;gap:8px;align-items:baseline;margin:0 2px 8px;padding:6px 10px;border-radius:10px;background:#ffffff08;border:1px solid #ffffff12;font-size:11.5px;font-family:var(--serif)}
+.diffb span{color:var(--mut);font-style:italic}
+/* ===== v11 title banner ===== */
+header{background:radial-gradient(120% 140% at 50% -30%,color-mix(in srgb,var(--g1,#9b7bff) 38%,#0d0e26) 0%,#0b0c22 62%),#0b0c22}
+header::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;background-image:radial-gradient(1px 1px at 12% 30%,#fff9 50%,transparent 51%),radial-gradient(1px 1px at 28% 70%,#ffe08aaa 50%,transparent 51%),radial-gradient(1.2px 1.2px at 47% 22%,#fff8 50%,transparent 51%),radial-gradient(1px 1px at 66% 62%,#fff9 50%,transparent 51%),radial-gradient(1.2px 1.2px at 83% 28%,#ffe08aaa 50%,transparent 51%),radial-gradient(1px 1px at 93% 74%,#fff8 50%,transparent 51%);animation:twk 5s ease-in-out infinite alternate}
+@keyframes twk{from{opacity:.25}to{opacity:.75}}
+.brand{position:relative;display:flex;align-items:center;justify-content:center;gap:10px;padding:6px 0 3px}
+.crest{width:46px;height:46px;flex:0 0 46px;filter:drop-shadow(0 0 10px color-mix(in srgb,var(--g1,#f2c75c) 70%,transparent)) drop-shadow(0 2px 3px #000a)}
+.crest .spin{transform-origin:32px 32px;animation:cspin 40s linear infinite}
+@keyframes cspin{to{transform:rotate(360deg)}}
+.crest .tw{animation:ctw 2.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.crest .t2{animation-delay:.9s}.crest .t3{animation-delay:1.7s}
+@keyframes ctw{0%,100%{opacity:.25;transform:scale(.6)}50%{opacity:1;transform:scale(1.1)}}
+.bt{display:flex;flex-direction:column;align-items:center;min-width:0}
+header h1{display:flex;flex-direction:column;align-items:center;margin:0;line-height:1;letter-spacing:0;text-transform:none;background:none;color:inherit;filter:none}
+h1 .t1{font-family:var(--serif);font-size:clamp(17px,5.4vw,25px);font-weight:700;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;background:linear-gradient(180deg,#fffbe0 0%,#f7d56e 40%,#e0a43c 62%,#a9731f 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 1px 0 #3a2508) drop-shadow(0 0 12px #f2c75c55);background-size:100% 100%}
+h1 .t2{display:flex;align-items:center;gap:8px;margin-top:3px;font-family:var(--serif);font-style:italic;font-size:13px;font-weight:700;letter-spacing:.35em;color:#ffe08a;text-shadow:0 0 8px #f2c75c66}
+h1 .t2 i{display:block;width:clamp(26px,12vw,64px);height:1px;background:linear-gradient(90deg,transparent,#f2c75c)}
+h1 .t2 i:last-child{background:linear-gradient(270deg,transparent,#f2c75c)}
+.bt .tagline{margin:2px 0 4px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#c9b98a}
+header h1::after{content:none}
+@media (prefers-reduced-motion:reduce){.crest .spin,.crest .tw,header::before{animation:none}}
 </style>
 </head>
 <body>
 <header>
-  <h1><span class="orn">✦</span>Happily Ever After, Inc.<span class="orn">✦</span></h1>
-  <div class="tagline">A Chronicle of Twelve Worlds</div>
+  <div class="brand">
+    <svg class="crest" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff4c4"/><stop offset=".55" stop-color="#f2c75c"/><stop offset="1" stop-color="#b9822f"/></linearGradient>
+        <radialGradient id="gb" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#3a2f78"/><stop offset="1" stop-color="#14153a"/></radialGradient>
+      </defs>
+      <circle class="spin" cx="32" cy="32" r="30.5" fill="none" stroke="url(#gg)" stroke-width="1" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
+      <circle cx="32" cy="32" r="26" fill="url(#gb)" stroke="url(#gg)" stroke-width="2"/>
+      <path d="M32 44 C26 40 18 40 13 42 L13 28 C18 26 26 26 32 30 C38 26 46 26 51 28 L51 42 C46 40 38 40 32 44 Z" fill="#f7f1e3" stroke="url(#gg)" stroke-width="1.3" stroke-linejoin="round"/>
+      <path d="M32 30 L32 44" stroke="#b9822f" stroke-width="1"/>
+      <path d="M17 31 C21 30 25 31 29 33 M17 35 C21 34 25 35 29 37 M35 33 C39 31 43 30 47 31 M35 37 C39 35 43 34 47 35" stroke="#b9822f66" stroke-width=".8" fill="none"/>
+      <path d="M21 25 L23 15 L28 21 L32 12 L36 21 L41 15 L43 25 Z" fill="url(#gg)" stroke="#8a5b1c" stroke-width=".8" stroke-linejoin="round"/>
+      <circle cx="23" cy="15" r="1.5" fill="#ffe08a"/><circle cx="32" cy="12" r="1.7" fill="#ffe08a"/><circle cx="41" cy="15" r="1.5" fill="#ffe08a"/>
+      <path class="tw" d="M10 14 L11 17 L14 18 L11 19 L10 22 L9 19 L6 18 L9 17Z" fill="#ffe08a"/>
+      <path class="tw t2" d="M54 20 L55 22.5 L57.5 23.5 L55 24.5 L54 27 L53 24.5 L50.5 23.5 L53 22.5Z" fill="#ffe08a"/>
+      <path class="tw t3" d="M52 48 L52.8 50 L55 50.8 L52.8 51.6 L52 54 L51.2 51.6 L49 50.8 L51.2 50Z" fill="#ffe08a"/>
+    </svg>
+    <div class="bt">
+      <h1><span class="t1">Happily Ever After</span><span class="t2"><i></i>Inc.<i></i></span></h1>
+      <div class="tagline">A Chronicle of Twelve Worlds</div>
+    </div>
+  </div>
   <div class="realms" id="realms"></div>
   <div class="cashrow">
     <div class="cash" id="cash">0<small id="cur"></small></div>
@@ -246,6 +298,7 @@ html[data-w="11"]{--g1:#e0a93f3c;--g2:#9b7bff3c;--g3:#e0527a28;--pat:radial-grad
 <div class="quick" id="quick"><button class="side" id="qwork" onclick="workAll()">👆<small>Work</small></button><button id="qnext" onclick="quickBuy(false)">⚡</button><button class="side" id="qall" onclick="quickBuy(true)">🛒<small>Buy All</small></button></div>
 <nav id="nav"></nav>
 <div id="fx"></div>
+<div id="lf"></div>
 <div id="toast"></div>
 <div id="twist"></div>
 <div id="modal"></div>
@@ -739,7 +792,7 @@ CROSS.push(
 const NSHOPS=[50,50,50,30,30,30,30,30,30,30,30,8];
 const NPERM=11;     // permanent realms (0-10)
 const EV_RT=11;     // event realm index
-const DAMP_M0=25,DAMP_B=0.55,SAT_REF=1e3,SAT_G=0.18;
+const DAMP_M0=25,DAMP_B=0.55,SAT_REF=1e4,SAT_G=0.18;
 const REVF=0.20;    // global income slowdown (v8)
 const EVF=0.30;     // event income slowdown (v8)
 const UNLOCK_COST=[0,1e12,1e15,1e19,1e24,1e30,1e37,1e45,1e54,1e64,1e75];  // cash of the previous world that gets spent
@@ -1767,6 +1820,8 @@ ACH.push(
  ['charm20','Charm School','Collect 20 different charms.',s=>Object.keys(S.charms).length>=20],
  ['charm45','Charm Offensive','Collect 45 different charms.',s=>Object.keys(S.charms).length>=45],
  ['charm66','Full Album','Collect every charm.',s=>Object.keys(S.charms).length>=66],
+ ['chap100','Library Card','Read 100 story installments.',s=>Object.keys(S.story.read).length>=100],
+ ['chap200','Resident Bookworm','Read 200 story installments.',s=>Object.keys(S.story.read).length>=200],
  ['chap25','Long Weekend','Read 25 story installments.',s=>Object.keys(S.story.read).length>=25],
  ['chap50','Doorstopper','Read 50 story installments.',s=>Object.keys(S.story.read).length>=50],
  ['chap14','The Whole Tale','Read every story installment.',s=>Object.keys(S.story.read).length>=STORY.length],
@@ -1788,7 +1843,7 @@ ACH.push(
  ['book30','Autograph Collector','Meet 30 different guest stars.',s=>s.guestsMet>=30],
  ['twist100','Plot Twist Addict','Survive 100 Plot Twists.',s=>S.twists>=100],
  ['slip1e18','Shoe Dynasty','Own 1e18 Glass Slippers.',s=>S.slip>=1e18],
- ['quill50','Master Novelist','Own 50 Golden Quills.',s=>S.quillTotal>=50],
+ ['warp1','Skipping Ahead','Use your first Time Warp.',s=>(S.stat.warps||0)>=1],['warp10','Chronic Skipper','Use 10 Time Warps.',s=>(S.stat.warps||0)>=10],['warp40','Time Is Money','Use 40 Time Warps.',s=>(S.stat.warps||0)>=40],['sand500','Sandman','Earn 500 Hourglass Sand.',s=>S.warp.tot>=500],['quill50','Master Novelist','Own 50 Golden Quills.',s=>S.quillTotal>=50],
  ['quill500','Literary Legend','Own 500 Golden Quills.',s=>S.quillTotal>=500],
  ['seq5','Series Author','Write 5 Sequels.',s=>S.sequels>=5],
  ['stamp40','Year of Tales','Earn 40 event stamps.',s=>EVC.stamps>=40],
@@ -7457,7 +7512,7 @@ const STORY_V2_IDS=(()=>{const a=[];for(let i=1;i<=14;i++)for(let k=1;k<=3;k++)a
  const add=(...x)=>x.forEach(v=>a.push(v));
  add('pro1','pro2','int0','int1','nev1','nev2','nev3','nev4','nev5','int2','int3','oz1','oz2','oz3','oz4','oz5','int4','int5','lag1','lag2','lag3','lag4','lag5','int6','int7','swt1','swt2','swt3','swt4','swt5','int8','int9','dra1','dra2','dra3','dra4','dra5','int10','int11','epi1','epi2','epi3');
  return a;})();
-const STORY=[],STORY_NEED=[],STORY_COND=[],SIDX={};
+const STORY=[],STORY_NEED=[],STORY_COND=[],SIDX={},STORY_SUBS={};
 (function(){
   const wc=s=>s.split(/\s+/).filter(Boolean).length;
   const ROM=['One','Two','Three'];
@@ -7498,12 +7553,29 @@ const STORY=[],STORY_NEED=[],STORY_COND=[],SIDX={};
    [...ch(8),'int6','ev2','ev3','ev4'],
    ['int0','int1','int2','int3','int4','int5','int7','int8','int9','int10','int11']
   ];
+  const MAXW=300;
+  function chunk(body){
+    const paras=body.split('\n\n'),out=[];let cur=[],w=0;
+    paras.forEach(p=>{const pw=wc(p);if(cur.length&&w+pw>MAXW){out.push(cur.join('\n\n'));cur=[];w=0;}cur.push(p);w+=pw;});
+    if(cur.length)out.push(cur.join('\n\n'));
+    if(out.length>1&&wc(out[out.length-1])<110){const t=out.pop();out[out.length-1]+='\n\n'+t;}
+    return out;
+  }
   shelf.forEach((ids,bi)=>{
     ids.forEach(id=>{
       const c=bank[id];if(!c)throw new Error('missing story id '+id);
-      SIDX[id]=STORY.length;
-      STORY.push({id,bi,lab:c.lab,t:c.t,s:c.s,cat:c.cat,body:c.body});
-      STORY_NEED.push(c.need);STORY_COND.push(c.c);
+      const ch2=chunk(c.body),n=ch2.length;
+      STORY_SUBS[id]=[];
+      ch2.forEach((txt,k)=>{
+        const cid=k?id+'~'+(k+1):id,prev=k?(k>1?id+'~'+k:id):null;
+        if(k)STORY_SUBS[id].push(cid);
+        SIDX[cid]=STORY.length;
+        const first=(txt.replace(/\*/g,'').split(/(?<=[.!?])\s/)[0]||'').slice(0,110);
+        STORY.push({id:cid,bi,lab:c.lab+(n>1?' · '+(k+1)+'/'+n:''),t:c.t+(n>1?' ('+(k+1)+'/'+n+')':''),
+          s:k?'“'+first+(first.length>=110?'…':'')+'”':c.s,cat:k?PART_CAT[(STORY.length+k)%PART_CAT.length]:c.cat,body:txt});
+        STORY_NEED.push(k?'Read the previous part.':c.need);
+        STORY_COND.push(k?(()=>!!S.story.read[prev]):c.c);
+      });
     });
   });
 })();
@@ -7529,6 +7601,21 @@ const ECO_P=[
  {s:1e14,ro:.6,tm:.5,ce:.8,mg:.7,cs:1.04,rs:1.01},    // Sweetland: tiny, rapid sugar hits
  {s:1e16,ro:4,tm:3,ce:1.3,mg:2,cs:1.15,rs:1.1}        // Dragonspine: rare giant hoards
 ];
+// ----- v13: each world has its own difficulty -----
+// ez: income multiplier, sg: how hard late-game slowdown bites (higher = harder), db: dampening exponent (higher = gentler), pr: how much lifetime gold the first reset point needs
+const ECO_D=[
+ {k:'Gentle',ez:1.05,sg:.17,db:.56,pr:.9, t:'A friendly start. Forgiving numbers, quick resets.'},
+ {k:'Easy',ez:1.25,sg:.15,db:.58,pr:.8, t:'Cheap, quick and generous. A breather.'},
+ {k:'Normal',ez:1.0,sg:.18,db:.55,pr:1, t:'Slow, fat paydays. Fair, if you are patient.'},
+ {k:'Hard',ez:.9,sg:.20,db:.53,pr:1.15, t:'Steep tiers and a stern Round Table. Earn it.'},
+ {k:'Hard',ez:.75,sg:.22,db:.52,pr:1.3, t:'Feast and famine. The gods are not generous.'},
+ {k:'Brutal',ez:.8,sg:.24,db:.51,pr:1.4, t:'Fast bursts, but the growth is cruel. Bring a coat.'},
+ {k:'Easy',ez:1.3,sg:.14,db:.60,pr:.75, t:'Flighty and quick. Second star to the right.'},
+ {k:'Normal',ez:1.0,sg:.18,db:.55,pr:1, t:'A long road with fat rewards.'},
+ {k:'Hard',ez:.85,sg:.21,db:.52,pr:1.3, t:'Deep and pricey. The tide is against you.'},
+ {k:'Easy',ez:1.2,sg:.16,db:.58,pr:.85, t:'Tiny, rapid sugar hits. Mind the crash.'},
+ {k:'Brutal',ez:.8,sg:.25,db:.50,pr:1.6, t:'Rare giant hoards. The final boss of patience.'}
+];
 // reset points for every permanent world (each world resets on its own)
 const PT=[
  {n:'Glass Slipper',pl:'Glass Slippers',e:'👠',act:'Live Happily Ever After',bonus:0.03},
@@ -7544,11 +7631,11 @@ const PT=[
  {n:'Dragon Scale',pl:'Dragon Scales',e:'🐉',act:'Hatch a New Age',bonus:0.05}
 ];
 const PT_REF0=[3e7,3e7,3e7,3e7,3e7,3e7,3e7,3e7,3e7,3e7,3e7];   // lifetime earnings (in that world's own scale) for the first point
-PT.forEach((q,r)=>{q.ref=PT_REF0[r]*ECO_P[r].s;});
+PT.forEach((q,r)=>{q.ref=PT_REF0[r]*ECO_P[r].s*ECO_D[r].pr;});
 function hash(r,i){const x=Math.sin(r*131.7+i*17.31+1.7)*43758.5453;return x-Math.floor(x);}
 const ECO=ECO_P.map((p,r)=>Array.from({length:NSHOPS[r]},(_,i)=>{
   const b=BASE[i],j=r===0?1:0.88+0.26*hash(r,i),jt=r===0?1:0.9+0.25*hash(r+9,i);
-  return {cost:b.cost*p.s*Math.pow(p.cs,i),rev:b.rev*p.s*p.ro*REVF*Math.pow(p.rs,i)*j,t:Math.max(0.5,Math.round(b.t*p.tm*jt*10)/10),c:1+(b.c-1)*p.ce,mgr:b.mgr*p.s*p.mg*Math.pow(p.cs,i)};
+  return {cost:b.cost*p.s*Math.pow(p.cs,i),rev:b.rev*p.s*p.ro*REVF*Math.pow(p.rs,i)*j*ECO_D[r].ez,t:Math.max(0.5,Math.round(b.t*p.tm*jt*10)/10),c:1+(b.c-1)*p.ce,mgr:b.mgr*p.s*p.mg*Math.pow(p.cs,i)};
 }));
 // ----- 52 different event economies -----
 function rnd(seed){const x=Math.sin(seed*91.7+3.3)*43758.5453;return x-Math.floor(x);}
@@ -7566,6 +7653,10 @@ function evEconomy(idx){
 }
 let EVB=evEconomy(0),EVSCALE=1,EV_TH=[2e8,1e12,2e14];
 const B=(r,i)=>r===EV_RT?EVB[i]:ECO[r][i];
+const SPD_AT=[25,50,75,100];
+function spdMult(n){let m=1;for(const x of SPD_AT)if(n>=x)m*=2;return m;}
+function nextSpd(n){for(const x of SPD_AT)if(n<x)return x;return 0;}
+const cyc=(r,i)=>B(r,i).t/spdMult(S.realms[r].biz[i].n);
 const nUp=r=>r===EV_RT?8:UP_MULT.length;
 const nGup=r=>r===EV_RT?10:GUP_COST.length;
 const nShops=r=>r===EV_RT?8:NSHOPS[r];
@@ -7629,7 +7720,7 @@ function doReset(r){
   ask(`${P.act}? <b>${RD.name}</b> restarts from scratch. <b>Every other world stays exactly as it is.</b> You gain <b>${fmt(g)}</b> ${P.e} ${g>1?P.pl:P.n}: +${fmt(g*P.bonus*100)}% profit ${r===0?'in every world':'in '+RD.short}.`,()=>{
     const R0=S.realms[r],f=freshRealm(r);f.unlocked=true;f.pt=(R0.pt||0)+(r===0?0:g);f.la=R0.la||0;f.rs=(R0.rs||0)+1;
     f.cash=ECO[r][0].cost*1.02+headCash()*ECO_P[r].s;S.realms[r]=f;
-    if(r===0){S.slip+=g;S.resets++;}
+    if(r===0){S.slip+=g;S.resets++;}addSand(10+Math.min(30,Math.floor(g)));
     realm=r;tab='shop';sigs={};toast(`${P.e} ${P.act}! ${RD.short} begins anew...`);cat('prestige',1,0);sfx('big');vibe([40,40,40]);save();render();
   },P.act);
 }
@@ -7709,7 +7800,7 @@ UP_MULT.splice(0,UP_MULT.length,1.5,1.5,2,2,2,3,3,3,4,4,5,5,6,6,8,8,10,10,12,12)
 GUP_MULT.splice(0,GUP_MULT.length,1.1,1.1,1.2,1.2,1.3,1.3,1.5,1.5,2,2,...Array.from({length:50},(_,j)=>(j%5===4)?3:2));
 // diminishing returns: the permanent multiplier stack is compressed above DM0 (power DB).
 const DM0=DAMP_M0,DB=DAMP_B;
-function damp(M){return M<=DM0?M:DM0*Math.pow(M/DM0,DB);}
+function damp(M,r){const b=(r===undefined||!ECO_D[r])?DB:ECO_D[r].db;return M<=DM0?M:DM0*Math.pow(M/DM0,b);}
 // unlock cash scales with the points asked for: cost = 0.3 * pts^2 * ref * (previous world's scale)
 for(let r=1;r<=10;r++)UNLOCK_COST[r]=0.3*UNLOCK_PT[r]*UNLOCK_PT[r]*PT_REF0[r-1]*ECO_P[r-1].s;
 // ---------- STATE ----------
@@ -7717,7 +7808,7 @@ function freshBiz(){return {n:0,prog:0,run:false,mgr:false,up:UP_MULT.map(()=>fa
 function freshRealm(i){return {cash:i===EV_RT?EVB[0].cost*1.02:i===0?4:0,life:0,pt:0,la:0,rs:0,unlocked:i===0||i===EV_RT,gup:GUP_COST.map(()=>false),biz:Array.from({length:nShops(i)},freshBiz)};}
 function freshState(){return {realms:REALMS.map((_,i)=>freshRealm(i)),slip:0,lifeAll:0,last:Date.now(),resets:0,buff:{m:1,until:0},twists:0,
   quills:0,quillTotal:0,qperk:{},sequels:0,ach:{},guests:{},guestCount:0,evDone:{},evShift:0,ev:{key:0},cfg:{sound:false,vib:true},seen:{},ver:8,guestAll:false,gms:{},
-  wish:{ch:WISH_MAX,t:Date.now(),until:0},streak:{last:-1,n:0},dq:{day:-1,items:[]},stat:{buys:0,hires:0,ups:0,guests:0,twists:0,collects:0,wishes:0,quests:0,chapReads:0},story:{seen:{},read:{},v:3},charms:{},pack:{ch:0,t:Date.now(),n:0,guar:0,v:2},opens:0,first:Date.now()};}
+  wish:{ch:WISH_MAX,t:Date.now(),until:0},streak:{last:-1,n:0},dq:{day:-1,items:[]},stat:{buys:0,hires:0,ups:0,guests:0,twists:0,collects:0,wishes:0,quests:0,chapReads:0},story:{seen:{},read:{},v:4},charms:{},pack:{ch:0,t:Date.now(),n:0,guar:0,v:2},warp:{sand:0,inv:{},tot:0},opens:0,first:Date.now()};}
 let S=freshState();
 let realm=0,tab='shop',bsub='story',mode=1,sigs={};
 
@@ -7725,6 +7816,7 @@ function load(){
   try{
     const raw=localStorage.getItem(SAVE_KEY);if(!raw)return;
     const d=JSON.parse(raw);if(!d||!d.realms)return;
+    REV=d.rev||0;
     const f=freshState(),n=Object.assign(f,d);
     n.realms=REALMS.map((_,i)=>{
       const R=d.realms[i]||freshRealm(i);
@@ -7740,6 +7832,7 @@ function load(){
     if(!n.story.seen)n.story.seen={};if(!n.story.read)n.story.read={};if(!n.dq.items)n.dq.items=[];
     ['qperk','ach','guests','evDone','ev','cfg','seen','gms','charms'].forEach(k=>{if(!n[k]||typeof n[k]!=='object')n[k]=f[k];});
     n.pack=Object.assign({},f.pack,d.pack||{});
+    n.warp=Object.assign({},f.warp,d.warp||{});n.warp.inv=Object.assign({},n.warp.inv||{});
     if(!n.pack.v){n.pack={ch:0,t:Date.now(),n:0,guar:0,v:2};n.charms={};} // charms v2: slower drops, one-time reset
     if(!n.story.v){ // story v2: Book One chapters were split into 3 parts each
       const os=n.story.seen||{},or=n.story.read||{},ns={},nr={};
@@ -7752,6 +7845,10 @@ function load(){
       Object.keys(n.story.read).forEach(k=>{if(ids[k])nr[ids[k]]=1;});
       n.story={seen:ns,read:nr,v:3};
     }
+    if(n.story.v===3){ // story v4: long pieces were split into shorter parts
+      Object.keys(STORY_SUBS).forEach(b=>{STORY_SUBS[b].forEach(id=>{if(n.story.seen[b])n.story.seen[id]=1;if(n.story.read[b])n.story.read[id]=1;});});
+      n.story.v=4;
+    }
     if(!d.ver||d.ver<8){ // economy rebalance (dampening + saturation): wipe old fast-economy progress, keep fun collectibles
       const fr=freshState();
       n.realms=fr.realms;n.slip=0;n.lifeAll=0;n.resets=0;n.quills=0;n.quillTotal=0;n.qperk={};n.sequels=0;n.buff={m:1,until:0};n.ev={key:0};n.ver=8;n.migrated=true;
@@ -7759,7 +7856,27 @@ function load(){
     S=n;
   }catch(e){}
 }
-function save(){S.last=Date.now();try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
+const TAB_ID=Math.random().toString(36).slice(2);let REV=0;
+function save(){
+  try{
+    const raw=localStorage.getItem(SAVE_KEY);
+    if(raw){
+      const d=JSON.parse(raw);
+      // another open copy of the game saved newer progress: adopt it instead of overwriting it with older numbers
+      if(d&&d.tabId&&d.tabId!==TAB_ID&&(d.rev||0)>REV){syncFromStorage();return;}
+    }
+    REV++;S.rev=REV;S.tabId=TAB_ID;S.last=Date.now();
+    localStorage.setItem(SAVE_KEY,JSON.stringify(S));
+  }catch(e){}
+}
+function syncFromStorage(){
+  try{
+    const keepRealm=realm;
+    load();REV=S.rev||0;
+    realm=Math.min(keepRealm,REALMS.length-1);if(!S.realms[realm]||!S.realms[realm].unlocked)realm=0;
+    lastT=Date.now();sigs={};render();toast('Synced with your other open copy of the game.',3000);
+  }catch(e){}
+}
 
 // ---------- MATH ----------
 const SUF=['','K','M','B','T','Qa','Qi','Sx','Sp','Oc','No','Dc'];
@@ -7811,11 +7928,11 @@ function permStack(r,i){
   else m*=evFav();
   return m;
 }
-function satur(r){const sc=(r===EV_RT?EVSCALE:ECO_P[r].s),x=S.realms[r].life/(SAT_REF*sc);return x<=1?1:Math.pow(x,-SAT_G);}
-function dampFactor(r,i){const m=permStack(r,i);return damp(m)/m;}
+function satur(r){const sc=(r===EV_RT?EVSCALE:ECO_P[r].s),x=S.realms[r].life/(SAT_REF*sc);return x<=1?1:Math.pow(x,-((r===EV_RT||!ECO_D[r])?SAT_G:ECO_D[r].sg));}
+function dampFactor(r,i){const m=permStack(r,i);return damp(m,r)/m;}
 function profit(r,i){
   const b=S.realms[r].biz[i],bs=B(r,i);
-  let m=bs.rev*b.n*damp(permStack(r,i))*buffMult();
+  let m=bs.rev*b.n*damp(permStack(r,i),r)*buffMult();
   if(r!==EV_RT)m*=flashMult(r)*streakMult();
   m*=satur(r)*wishMult()*charmMult(r);
   return Math.min(1e290,m);
@@ -7828,7 +7945,7 @@ function potSlip(){return potPt(0);}
 function gainSlip(){return gainPt(0);}
 function gainQuill(){return S.slip>=1000?Math.floor(Math.pow(Math.log10(S.slip/100),2)):0;}
 function earn(r,v){const R=S.realms[r];R.cash=Math.min(1e300,R.cash+v);R.life=Math.min(1e300,R.life+v);if(r===0)S.lifeAll=Math.min(1e300,S.lifeAll+v);else R.la=Math.min(1e300,(R.la||0)+v);}
-function realmPS(r){let ps=0;S.realms[r].biz.forEach((b,i)=>{if(b.n>0&&b.mgr)ps+=profit(r,i)/B(r,i).t;});return ps;}
+function realmPS(r){let ps=0;S.realms[r].biz.forEach((b,i)=>{if(b.n>0&&b.mgr)ps+=profit(r,i)/cyc(r,i);});return ps;}
 function upgCost(r,i,k){const b=B(r,i);return r===EV_RT?b.mgr*UP_COSTF[k]:(i<8?b.mgr*UP_COSTF[k]:b.cost*UP_COSTF2[k]);}
 function gupC(r,k){return GUP_COST[k]*(r===EV_RT?EVSCALE:ECO_P[r].s);}
 
@@ -7837,13 +7954,13 @@ let lastT=Date.now(),slowT=0,lastAct=Date.now(),playSec=0;
 function tick(){
   const now=Date.now();let dt=(now-lastT)/1000;lastT=now;
   if(dt<=0)return;
-  if(dt>3){offline(dt);}else{step(dt);twistClock(dt);guestClock(dt);playSec+=dt;}
+  if(dt>3){offline(dt);}else{step(dt);twistClock(dt);guestClock(dt);lfClock(dt);playSec+=dt;}
   slowT+=dt;if(slowT>=1){slowT=0;checkEvent();checkAch();dqCheck();checkStory();pumpMedals();}
   updateLive();
 }
 function step(dt){
   S.realms.forEach((R,r)=>{if(!R.unlocked)return;
-    R.biz.forEach((b,i)=>{if(b.n<1)return;const T=B(r,i).t;
+    R.biz.forEach((b,i)=>{if(b.n<1)return;const T=cyc(r,i);
       if(b.mgr){
         if(T<0.25){earn(r,profit(r,i)*dt/T);b.prog=1;}
         else{b.prog+=dt/T;let g=0;while(b.prog>=1&&g<50){earn(r,profit(r,i));b.prog-=1;g++;}if(g>=50)b.prog=0;}
@@ -7857,7 +7974,7 @@ function dur(sec){sec=Math.floor(sec);const d=Math.floor(sec/86400),h=Math.floor
 function offline(sec){
   sec=Math.min(sec,86400*3);const om=1+0.5*perk('offline');const gain=REALMS.map(()=>0);
   S.realms.forEach((R,r)=>{if(!R.unlocked)return;
-    R.biz.forEach((b,i)=>{if(b.n<1)return;const T=B(r,i).t;
+    R.biz.forEach((b,i)=>{if(b.n<1)return;const T=cyc(r,i);
       if(b.mgr){const g=profit(r,i)/T*sec*om;earn(r,g);gain[r]+=g;}
       else if(b.run){const g=profit(r,i);earn(r,g);gain[r]+=g;b.run=false;b.prog=0;}
     });
@@ -7936,7 +8053,8 @@ function catTap(){
   catPending=null;catSay(catTaps.length>=4?pickFrom(CAT.poke):catFill(catRandom()));
 }
 let awayStr='a little while';
-function catClock(){if(Math.random()<.85)catOffer(catRandom(),false);}
+function catClock(){if(Math.random()<.9)catOffer(catRandom(),false);}
+function catLoop(){catClock();setTimeout(catLoop,22000+Math.random()*(Math.random()<.2?90000:45000));}
 
 // ===================== V8 CAT LINES (appended to existing pools) =====================
 function catAdd(k,arr){CAT[k]=(CAT[k]||[]).concat(arr);}
@@ -8153,7 +8271,7 @@ TWISTS.push(
 function twistClock(dt){
   if(twistOpen)return;
   twistTimer-=dt;
-  if(twistTimer<=0){twistTimer=140+Math.random()*120;showTwist();}
+  if(twistTimer<=0){twistTimer=360+Math.random()*(Math.random()<.3?1100:600);showTwist();}
 }
 const twRecent=[];
 function chooseTwist(){
@@ -8261,7 +8379,7 @@ let guestTimer=50,guestEl=null;
 function guestClock(dt){
   if(guestEl||twistOpen||document.hidden||$('modal').firstChild)return;
   guestTimer-=dt;
-  if(guestTimer<=0){guestTimer=(90+Math.random()*110)*Math.pow(0.85,perk('guest'));spawnGuest();}
+  if(guestTimer<=0){guestTimer=(150+Math.random()*(Math.random()<.25?500:260))*Math.pow(0.85,perk('guest'));spawnGuest();}
 }
 function spawnGuest(){
   if(!S.realms[realm].biz.some(b=>b.n>0))return;
@@ -8280,7 +8398,7 @@ function catchGuest(g){
   else if(g.t[0]==='buff'){setBuff(g.t[1],g.t[2]);note=`All profit ×${g.t[1]} for ${g.t[2]}s!`;sfx('ach');}
   else if(g.t[0]==='charge'){if(addCharge(1)){note='+1 wish for the Wishing Well!';}else{addBoost(WISH_ADD/2);note='+30 min of ×1.5 boost!';}sfx('ach');}
   else if(g.t[0]==='twist'){note='A Plot Twist follows!';setTimeout(()=>{if(!twistOpen)showTwist();},900);}
-  S.guests[g.id]=(S.guests[g.id]||0)+1;S.guestCount++;S.stat.guests++;vibe(20);checkGuestBook();
+  S.guests[g.id]=(S.guests[g.id]||0)+1;S.guestCount++;S.stat.guests++;vibe(20);checkGuestBook();{const sg=1+(Math.random()<.3?1:0);addSand(sg);note+=` (+${sg} ⏳)`;}
   toast(`${g.e} ${g.n}${first?' (NEW!)':''}: “${g.l}”  ${note}`,4800);
   cat('guestcatch',0.5,0);sigs={};updateLive(true);
 }
@@ -8294,7 +8412,7 @@ function achStats(){
 }
 function checkAch(){
   const s=achStats();
-  ACH.forEach(a=>{if(!S.ach[a[0]]&&a[3](s)){S.ach[a[0]]=1;ACHN=Object.keys(S.ach).length;toast('🏆 '+a[1]+' — '+a[2],4200);cat('ach',0.8,0);sfx('ach');sigs={};}});
+  ACH.forEach(a=>{if(!S.ach[a[0]]&&a[3](s)){S.ach[a[0]]=1;addSand(3);ACHN=Object.keys(S.ach).length;toast('🏆 '+a[1]+' — '+a[2],4200);cat('ach',0.8,0);sfx('ach');sigs={};}});
   ACHN=Object.keys(S.ach).length;
 }
 
@@ -8354,7 +8472,7 @@ function buyGUp(k){
   if(R.cash<c||R.gup[k])return;R.cash-=c;R.gup[k]=true;S.stat.ups++;
   toast(`🌟 ${GUP[realm][k][0]}: ALL profit ×${fmt(GUP_MULT[k])}!`);cat('upgrade',0.4);sfx('ach');sigs={};updateLive(true);
 }
-const KEEP=['wish','streak','dq','stat','story','charms','pack','opens','first','resets','twists','quills','quillTotal','qperk','sequels','ach','guests','guestCount','evDone','evShift','ev','cfg','seen','guestAll','gms'];
+const KEEP=['wish','streak','dq','stat','story','charms','pack','warp','opens','first','resets','twists','quills','quillTotal','qperk','sequels','ach','guests','guestCount','evDone','evShift','ev','cfg','seen','guestAll','gms'];
 function resetRun(keepSlip){
   const o=S,n=freshState();KEEP.forEach(k=>{n[k]=o[k];});n.realms[EV_RT]=o.realms[EV_RT];
   if(keepSlip){n.slip=o.slip;n.lifeAll=o.lifeAll;}
@@ -8392,7 +8510,7 @@ function quickNext(){
     const n=buyAmt(r,i),c=costN(r,i,n);
     if(R.cash<c-1e-9)return;
     const unit=b.n>0?profit(r,i)/b.n:B(r,i).rev;
-    const payback=c/(n*unit/B(r,i).t);
+    const payback=c/(n*unit/cyc(r,i));
     if(payback<sr){sr=payback;sb={c,label:(b.n<1?'Open ':'Buy ×'+n+' ')+RD.biz[i][2],run:()=>{R.cash-=c;const was=b.n;b.n+=n;S.stat.buys+=n;if(was<1)autoMgr(r,i,b);}};}
   });
   return sb;
@@ -8443,7 +8561,7 @@ function render(){
   setTheme();renderHeader();
   const m=$('main');
   if(tab==='shop'){
-    m.innerHTML=(realm===EV_RT?'<div class="evb" id="evb"></div>':'')+REALMS[realm].biz.map((d,i)=>`
+    m.innerHTML=(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
       <div class="biz" id="biz${i}">
         <div class="ic"><span id="em${i}">${d[1]}</span><span class="cnt" id="cnt${i}">0</span></div>
         <div>
@@ -8465,11 +8583,12 @@ function render(){
 
 function stampStr(t){return t?['🥉','🥈','🥇'][t-1]:'▫️';}
 function bookHTML(){
-  const subs=[['story','📖 Story'],['wish','🌠 Wishes'],['charms','🎴 Charms'],['guests','🎭 Guests'],['ach','🏆 Trophies'],['cross','🌀 Crossovers'],['cfg','⚙️ Settings']].map(s=>`<button class="stab ${bsub===s[0]?'on':''}" onclick="setBsub('${s[0]}')">${s[1]}</button>`).join('');
+  const subs=[['story','📖 Story'],['wish','🌠 Wishes'],['charms','🎴 Charms'],['warp','⏳ Time Warp'],['guests','🎭 Guests'],['ach','🏆 Trophies'],['cross','🌀 Crossovers'],['cfg','⚙️ Settings']].map(s=>`<button class="stab ${bsub===s[0]?'on':''}" onclick="setBsub('${s[0]}')">${s[1]}</button>`).join('');
   let body='';
   if(bsub==='story')body=storyTabHTML();
   else if(bsub==='wish')body=wishTabHTML();
   else if(bsub==='charms')body=charmTabHTML();
+  else if(bsub==='warp')body=warpTabHTML();
   else if(bsub==='guests'){
     const met=Object.keys(S.guests).length;
     body=`<div class="empty" style="padding:4px 6px 12px">Guest stars wander across the screen now and then. Tap them! Met <b>${met}/${GUESTS.length}</b></div><div class="pres" style="margin-bottom:10px;text-align:left;font-size:12px"><b style="color:var(--gold)">📕 Guest Book rewards</b><br>${GB_STEPS.map(n=>(S.gms[n]?'✅':'⬜')+' '+n+' guests: '+(n===GUESTS.length?'<b>profit ×1.5 forever</b> + 10 wishes':'wishes and a boost')).join('<br>')}</div>`+GUESTS.map(g=>S.guests[g.id]
@@ -8513,7 +8632,7 @@ function updateLive(force){
       $('nm'+i).textContent=locked?'🔒 ??? Mystery Shop':RD.biz[i][0];
       $('em'+i).textContent=locked?'❔':RD.biz[i][1];
       if(locked){$('bar'+i).style.width='0%';$('rev'+i).textContent='Unlocks at '+fmt(ptReq(realm,i))+' '+PT[realm].e+' '+PT[realm].pl;const lb=$('buy'+i);lb.innerHTML='Locked<small>'+PT[realm].act+' to earn '+PT[realm].e+'</small>';lb.disabled=true;$('meta'+i).innerHTML='???';return;}
-      const T=B(realm,i).t,pr=profit(realm,i);
+      const T=cyc(realm,i),pr=profit(realm,i);
       const bar=$('bar'+i);
       bar.style.width=(b.n<1?0:(b.mgr&&T<0.25?100:Math.min(100,b.prog*100)))+'%';
       const rev=$('rev'+i);
@@ -8522,8 +8641,9 @@ function updateLive(force){
       const btn=$('buy'+i);
       btn.innerHTML=`${b.n<1?'Open':'Buy'} ×${n}<small>${RD.sym} ${fmt(c)}</small>`;
       btn.disabled=R.cash<c-1e-9;
-      const nm=nextMile(b.n);
-      $('meta'+i).innerHTML=`${T<1?'':(Math.round(T*10)/10)+'s'}${b.mgr?' 🤝':''}<br>${nm?'Next ×'+nm[1]+' @ '+nm[0]:'MAX milestone'}`;
+      const nm=nextMile(b.n),ns=nextSpd(b.n),sm=spdMult(b.n);
+      const nxt=(ns&&(!nm||ns<=nm[0]))?'Next ⚡×2 speed @ '+ns:(nm?'Next ×'+nm[1]+' @ '+nm[0]:'MAX milestone');
+      $('meta'+i).innerHTML=`${sm>1?'⚡×'+sm+' ':''}${T<1?'':(Math.round(T*10)/10)+'s'}${b.mgr?' 🤝':''}<br>${nxt}`;
     });
   }else if(tab==='mgr'||tab==='up'){
     const items=[];
@@ -8555,7 +8675,7 @@ function updateLive(force){
     const E=S.realms[EV_RT],t=evTier(),bar=$('evbar'),tx=$('evtxt');if(false){
     }
   }else if(tab==='book'){
-    const sig=['b',bsub,packCharges(),charmCount(),S.stat.packs||0,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,Object.keys(S.story.seen).length,storyShowRead,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
+    const sig=['b',bsub,S.warp.sand,JSON.stringify(S.warp.inv),Math.floor(realmPS(realm)/1+0),packCharges(),charmCount(),S.stat.packs||0,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,Object.keys(S.story.seen).length,storyShowRead,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
     if(sigs.book!==sig){sigs.book=sig;const L=$('list');if(L)L.innerHTML=bookHTML();}
   }else if(tab==='pres'){
     const sig=['p',realm,Array.from({length:NPERM},(_,r)=>S.realms[r].unlocked?fmt(gainPt(r))+'/'+fmt(ptOf(r)):'-').join(','),S.resets,fmt(gainQuill()),S.quills,S.sequels,QP.map(p=>perk(p.id)).join('.')].join('|');
@@ -8648,6 +8768,47 @@ function charmTabHTML(){
   return h;
 }
 
+
+// ===================== v11: TIME WARPS (Hourglass Sand) =====================
+const WARPS=[[1,'🕰️','Pocket Watch',12],[4,'⏳','Hourglass',42],[6,'🕛','Mantel Clock',60],[8,'🛎️','Grandfather Clock',78],[12,'🐦','Cuckoo Tower',110],[24,'🗼','Clock Tower',200]];
+const WARP_INV_MAX=9;
+function addSand(n){if(!(n>0))return;S.warp.sand+=n;S.warp.tot=(S.warp.tot||0)+n;}
+function warpGain(i){return realmPS(realm)*WARPS[i][0]*3600;}
+function diffBadge(r){const d=ECO_D[r];if(!d)return '';const c={Easy:'#6fe3a0',Gentle:'#9be07a',Normal:'#ffd86b',Hard:'#ff9a5c',Brutal:'#ff5c6c'}[d.k];return `<div class="diffb"><b style="color:${c}">🎚️ ${d.k}</b><span>${d.t}</span></div>`;}
+function warpBuy(i){
+  const w=WARPS[i],W=S.warp;
+  if(W.sand<w[3]){toast(`Not enough sand. A ${w[2]} costs ${w[3]} ⏳ Sand.`);return;}
+  if((W.inv[i]||0)>=WARP_INV_MAX){toast('Your pockets are full of those. Use one first.');return;}
+  W.sand-=w[3];W.inv[i]=(W.inv[i]||0)+1;S.stat.warpBuys=(S.stat.warpBuys||0)+1;
+  toast(`${w[1]} ${w[2]} added to your pockets.`);sfx('coin');vibe(15);sigs={};render();
+}
+function warpUse(i){
+  const w=WARPS[i],W=S.warp;
+  if(!(W.inv[i]>0))return;
+  if(realm===EV_RT){toast('The Festival frowns on time travel. Use it in a regular world.');return;}
+  const g=warpGain(i);
+  if(!(g>0)){toast('This world earns nothing yet. Buy a shop, then warp.');return;}
+  const go=()=>{
+    if(!(W.inv[i]>0))return;
+    W.inv[i]--;earn(realm,g);S.stat.warps=(S.stat.warps||0)+1;
+    toast(`${w[1]} Time Warp! ${w[0]} hour${w[0]>1?'s':''} of ${REALMS[realm].short} earnings: +${REALMS[realm].sym} ${fmt(g)}`,4200);
+    cat('daily',0.6,0);sfx('big');vibe([30,30,30]);sigs={};updateLive(true);render();
+  };
+  if(w[0]>=6)ask(`Spend a <b>${w[2]}</b> to skip <b>${w[0]} hours</b> forward in <b>${REALMS[realm].name}</b>? You will gain about <b>${REALMS[realm].sym} ${fmt(g)}</b>.`,go,'Warp!');
+  else go();
+}
+function warpTabHTML(){
+  const W=S.warp,ps=realmPS(realm),RD=REALMS[realm];
+  const cards=WARPS.map((w,i)=>{
+    const have=W.inv[i]||0,g=ps*w[0]*3600;
+    return `<div class="item"><div class="ic">${w[1]}</div><div class="tx"><b>${w[2]} · ${w[0]} hour${w[0]>1?'s':''}</b><em>${ps>0?`≈ +${RD.sym} ${fmt(g)} in ${RD.short}`:'Open a shop to see the payout'}</em><em>Owned: <b>${have}</b> / ${WARP_INV_MAX}</em></div><div style="display:flex;flex-direction:column;gap:5px;min-width:92px"><button ${have<1?'disabled':''} onclick="warpUse(${i})">Use${have?' ('+have+')':''}</button><button class="alt" ${W.sand<w[3]||have>=WARP_INV_MAX?'disabled':''} onclick="warpBuy(${i})" style="background:#27245a;color:#ffe3a1;border:1px solid #9b7bff88">⏳ ${w[3]}</button></div></div>`;
+  }).join('');
+  return `<div class="pres" style="margin-bottom:10px"><div class="big">⏳</div><h2>Time Warps</h2>
+    <p>Skip ahead and instantly collect hours of earnings from the world you are in. No ads, no real money. You pay in <b>Hourglass Sand</b>, which you earn by playing.</p>
+    <p style="font-size:22px;color:var(--gold);font-family:var(--serif)"><b>${fmt(W.sand)}</b> ⏳ Sand</p>
+    <p style="font-size:12px">Earn sand from: the Daily Gift, quests, guest stars, trophies, reading story installments, Little Fortunes, and every Happily Ever After.<br>Warps apply to the world you are currently in (not Festival worlds).</p></div>${cards}`;
+}
+
 function wishCharges(){
   const w=S.wish,now=Date.now();
   if(w.ch>=WISH_MAX){w.t=now;return w.ch;}
@@ -8681,7 +8842,8 @@ function claimDaily(){
   st.n=(st.last>=0&&d-st.last<=2)?st.n+1:1;st.last=d;_softT=0;
   const R=S.realms[realm],amt=Math.max(realmPS(realm)*60*15*(1+0.1*st.n),R.cash*0.02,20);
   earn(realm,amt);addCharge(1);if(st.n%3===0)addPack(1);if(st.n%7===0){addPack(1);S.pack.guar=1;}
-  toast(`🎁 Day ${st.n}! +${REALMS[realm].sym} ${fmt(amt)} and a free wish${st.n%3===0?' and a story pack':''}. Profit ×${fmt(1+0.02*Math.min(st.n,20))} from your streak.`,4800);
+  const sd=6+Math.min(st.n,14);addSand(sd);let wx='';if(st.n%5===0&&(S.warp.inv[1]||0)<WARP_INV_MAX){S.warp.inv[1]=(S.warp.inv[1]||0)+1;wx=' and a free Hourglass';}if(st.n%7===0&&(S.warp.inv[4]||0)<WARP_INV_MAX){S.warp.inv[4]=(S.warp.inv[4]||0)+1;wx=' and a free Cuckoo Tower warp';}
+  toast(`🎁 Day ${st.n}! +${REALMS[realm].sym} ${fmt(amt)} and a free wish${st.n%3===0?' and a story pack':''}, ${sd} ⏳ sand${wx}. Profit ×${fmt(1+0.02*Math.min(st.n,20))} from your streak.`,4800);
   cat('daily',1,0);sfx('big');vibe(30);sigs={};updateLive(true);
 }
 
@@ -8696,7 +8858,7 @@ const DQ_POOL=[
  {k:'wishes',t:'Make {g} wish(es) at the well',g:[1,2,3]},
  {k:'chapReads',t:'Read {g} story installment(s)',g:[1,1,2]}
 ];
-const DQ_REWARD=['🌠 +1 wish','💰 15 minutes of income','⏳ +30 min of ×1.5 boost'];
+const DQ_REWARD=['🌠 +1 wish and 5 ⏳ sand','💰 15 minutes of income and 8 ⏳ sand','🌟 +30 min of ×1.5 boost and 12 ⏳ sand'];const DQ_SAND=[5,8,12];
 function dqMake(){
   const d=dayNum(),idx=[];let j=0;
   while(idx.length<3&&j<60){const i=Math.floor(rnd(d*7+j*3+1)*DQ_POOL.length);j++;if(idx.indexOf(i)<0)idx.push(i);}
@@ -8707,7 +8869,7 @@ function dqProg(q){return Math.max(0,Math.min(q.g,(S.stat[q.k]||0)-q.base));}
 function dqText(q){return DQ_POOL.find(p=>p.k===q.k).t.replace('{g}',q.g);}
 function dqClaim(n){
   const q=S.dq.items[n];if(!q||q.done||dqProg(q)<q.g)return;
-  q.done=true;S.stat.quests++;
+  q.done=true;S.stat.quests++;addSand(DQ_SAND[q.r]||5);
   if(q.r===0){if(!addCharge(1))addBoost(WISH_ADD/2);}
   else if(q.r===1){earn(realm,Math.max(realmPS(realm)*60*15,10));}
   else addBoost(WISH_ADD/2);
@@ -8740,7 +8902,7 @@ function unreadCh(){let n=0;STORY.forEach(c=>{if(S.story.seen[c.id]&&!S.story.re
 function fmtBody(b){return b.split('\n\n').map(p=>'<p>'+p.replace(/\*(.+?)\*/g,'<em>$1</em>')+'</p>').join('');}
 function readChapter(i){
   const c=STORY[i];if(!c||!S.story.seen[c.id])return;
-  if(!S.story.read[c.id]){S.story.read[c.id]=1;S.stat.chapReads++;}
+  if(!S.story.read[c.id]){S.story.read[c.id]=1;S.stat.chapReads++;addSand(1);}
   const bk=BOOKS[c.bi];
   showModal(`<div class="mtag">${bk.title.split(':')[0].toUpperCase()} · ${c.lab.toUpperCase()}</div><h3>${c.t}</h3><div class="sbody">${fmtBody(c.body)}</div><button onclick="closeStory()">Close the Book</button>`,'story');
   const m=$('modal').querySelector('.mcard');if(m)m.scrollTop=0;
@@ -8757,6 +8919,7 @@ function pillsHTML(){
   if(wishLeft()>0)p.push(`<span class="pill" onclick="goBook('wish')">🌟 ×1.5 · ${dur(wishLeft()/1000)}</span>`);
   if(dailyReady())p.push(`<span class="pill hot" onclick="goBook('wish')">🎁 Daily gift</span>`);
   if(S.dq.items.some((q,n)=>!q.done&&dqProg(q)>=q.g))p.push(`<span class="pill hot" onclick="goBook('wish')">📜 Quest done</span>`);
+  if(S.warp.sand>=12||WARPS.some((w,i)=>(S.warp.inv[i]||0)>0))p.push(`<span class="pill ${WARPS.some((w,i)=>(S.warp.inv[i]||0)>0)?'hot':''}" onclick="goBook('warp')">⏳ ${fmt(S.warp.sand)}${WARPS.reduce((a,w,i)=>a+(S.warp.inv[i]||0),0)?' · '+WARPS.reduce((a,w,i)=>a+(S.warp.inv[i]||0),0)+' warp':''}</span>`);
   if(unreadCh())p.push(`<span class="pill hot" onclick="goBook('story')">📖 New story</span>`);
   p.push(`<span class="pill ${fx?'on':''}" onclick="goBook('wish')">⚡ ${f.n}</span>`);
   return p.join('');
@@ -8815,6 +8978,58 @@ function frame(now){
 }
 if(window.requestAnimationFrame)requestAnimationFrame(frame);else setInterval(()=>frame(Date.now()),100);
 
+// ===================== v11: LITTLE FORTUNES (random pop-ups) + MORE CAT LINES =====================
+const LF_WHO=['A pigeon in a tiny hat','Mrs. Pennywhistle','A very polite goblin','The Second Mouse on the Left','A cloud with opinions','A confused knight','Gerald the dragon (small, green)','A talking teapot','The ghost of a coupon','A lost wizard','Three pigs in a trench coat','An enthusiastic snail','A hedgehog with a clipboard','The ledger itself','A very small giant','A passing elf','The mayor of a nearby mushroom','A raven carrying paperwork','A sleepy troll','A toad with a violin','A fairy on her lunch break','An accountant gargoyle','A cat that is not me','A wandering bard','The Moon (on a visit)','A sentient doormat','A retired hero','A lantern that gossips','An apprentice witch','A dignified goose','The wind, wearing a scarf','A baker made of toast','An elderly dragon in slippers','A lighthouse keeper from nowhere','Bernard the pig','A crow selling maps','A very tired pumpkin','The tooth fairy (off duty)','A harp with stage fright','A sheep counting itself'];
+const LF_DOES=['left','dropped','found','mailed you','handed you','tripped over','slid under your door','polished','delivered','accidentally returned','whispered about','traded you','lent you','forgot','buried','gift-wrapped','sneezed on','baked','mislabeled','donated','painted','taught you about','rolled past you with','shone a light on','sewed','tuned','crowned','adopted','winked at','stamped'];
+const LF_THING=['a shiny coin that was not yours','a map to a slightly better map','a perfectly ordinary acorn','a receipt for something you will buy later','a jar of lukewarm applause','a sack marked "probably gold"','an invoice that pays you','a four-leaf clover with a fifth leaf','a candle that smells like Tuesday','a pamphlet titled "How To Be Lucky (Draft)"','a tiny crown, size: thumb','a ticket to nowhere in particular','a bag of slightly enchanted lentils','a tooth with a very good story','a suspiciously heavy envelope','a lantern full of fireflies','a very small sword','a clock that is five minutes kind','a slice of pie of unknown origin','a coupon good for one dragon','a glass shoe, left foot, never worn','a bottle labeled "Ask Later"','a wish that was already used (mostly)','a scroll with one word: BUY','a pocketful of moon dust','a gold-plated button','a basket of cheerful eggs','a ledger page with your name on it','a ring that fits no one','a feather that writes in cursive','a leaf with directions on it','a cookie fortune that is just a number','a stack of tidy crowns','a rolled-up rainbow','a lucky pebble (rated 4 stars)','a ribbon from a very old parade','a very good rumor','a kettle full of coins','a tiny trumpet','a velvet bag of nothing, which weighs a lot'];
+const LF_AFTER=['"No refunds," it says, and vanishes.','It is gone before you can say thank you. Thank you.','The Cat pretends not to have seen. He saw.','You feel luckier. This is statistically unfounded.','It smells faintly of cinnamon.','A small fanfare plays, then apologises.','The ledger blushes.','A passing duck nods in approval.','Nobody asked for this. Everybody is pleased.','It hums a little tune and goes quiet.','A single bell rings somewhere, for no reason.','The Mouse writes it down in the minutes.','It was not on the schedule. It is welcome anyway.','Someone, somewhere, is laughing about it.','You decide not to ask where it came from.','The pigs applaud politely, in a coordinated oink.','It is slightly warm. That is nice.','The wind carries off the wrapping paper.','It comes with a note: "Spend wisely (or don\'t)."','This is the nicest thing to happen to a Tuesday.','The lamp flickers, once, approvingly.','It lands in your palm like it had been waiting.','You will tell this story at parties. You do not attend parties.','The air smells like a fresh page.','Calla Dar would call this "an unscheduled kindness."'];
+const LF_FULL=['A snail finishes a marathon. It took eleven years. He gives you his medal, because he "needs the space".','The Wishing Well hiccups and coughs up a coin. It was yours. It apologises.','A gust of wind blows a forgotten purse against your leg. It has no owner. It has a lot of gold.','A tiny dragon sneezes and a small, warm pile of coins appears. He is mortified.','An old woman at the bus stop is very proud of you. She does not say why. She hands over a crown.','Somebody left a basket of gold on the doorstep marked "FOR THE BRAVE OR THE OVERDUE".','A pig sells you a brick for double. Then, guilty, gives you triple back.','A songbird lands on your shoulder and drops a ring into your hand. It does not stay for a review.','The moon waves. It has never done that. It leaves a silver coin on the sill.','A giant sneezes in the distance. Gold rains from his pocket. He is unaware. You are not.','Three fairies argue over a coin and decide you can have it.','A well-dressed rat bows and pays an old debt. You had no idea it existed.','A broom sweeps by, hesitates, and sweeps a pile of cash toward you.','A cloud rains coins for exactly four seconds, then looks embarrassed.','A knight loses a bet with a sorcerer and the prize rolls to your feet.','A mailman made of leaves delivers a letter that is just money and a smiley.','A wizard pays you for a recipe you never gave him. It was a good recipe.','The ledger finds a rounding error in your favour and refuses to fix it.','A fortune cookie falls from the sky. It says: "You will be given gold." It is accurate.','A raven delivers a stolen crown. "Finders keepers," it explains, "but I can\'t carry it."','A group of squirrels hold a small and very professional auction. You win something by accident.','The Bakery sends over leftover profits. It is a lot of leftovers.','An out-of-office genie leaves a tip. "For services not yet rendered."','The Mouse found a coupon behind the radiator. It was for money, apparently.','A traveling circus sells you a balloon, then realizes it was a diamond. Oops.','A lighthouse flashes your name in Morse. It spells "RICH". It is mostly a joke. Mostly.','A hundred ducks form a perfect line and each drops a single coin. You thank them individually.','Someone paid you back for the nice thing you did last month. You had forgotten. They had not.','A tiny parade passes through the office. The grand marshal throws you a bag of confetti and coins.','An enormous cat that is not me rubs against your leg and leaves a coin. I am a little jealous.','A cuckoo clock cuckoos your name and pays out like a slot machine.'];
+let lfTimer=240+Math.random()*180,lfOpen=false,lfData=null,lfHide=0;
+function lfMake(){
+  const r=Math.random();let txt;
+  if(r<0.32)txt=LF_FULL[Math.random()*LF_FULL.length|0];
+  else txt=`${LF_WHO[Math.random()*LF_WHO.length|0]} ${LF_DOES[Math.random()*LF_DOES.length|0]} ${LF_THING[Math.random()*LF_THING.length|0]}. ${LF_AFTER[Math.random()*LF_AFTER.length|0]}`;
+  const x=Math.random();
+  const kind=x<.56?'cash':x<.76?'buff':x<.9?'sand':'wish';
+  return {txt,kind};
+}
+function lfShow(){
+  if(lfOpen||twistOpen||document.hidden||$('modal').firstChild||!S.seen.intro)return false;
+  if(!S.realms[realm].biz.some(b=>b.n>0))return false;
+  lfData=lfMake();lfOpen=true;
+  const el=$('lf');if(!el)return false;
+  const lab=lfData.kind==='cash'?'Take the money':lfData.kind==='sand'?'Take the sand (for Time Warps)':lfData.kind==='buff'?'Take the luck (×2 profit, briefly)':'Take the wish (×1.5 profit, 10 min)';
+  el.innerHTML=`<div class="lfcard"><div class="lftag">✨ A LITTLE FORTUNE</div><div class="lftx">${lfData.txt}</div><button onclick="lfTake()">${lab}</button><button class="lfx" onclick="lfClose()">Not now</button></div>`;
+  el.classList.add('show');sfx('ach');vibe(15);
+  lfHide=Date.now()+30000;
+  return true;
+}
+function lfClose(){lfOpen=false;lfData=null;const el=$('lf');if(el){el.classList.remove('show');setTimeout(()=>{if(!lfOpen)el.innerHTML='';},400);}}
+function lfTake(){
+  if(!lfData)return;const R=S.realms[realm];
+  if(lfData.kind==='cash'){
+    const amt=Math.max(realmPS(realm)*60*(6+Math.random()*10),R.cash*0.01,5);earn(realm,amt);
+    toast(`💰 +${REALMS[realm].sym} ${fmt(amt)}`,2600);
+  }else if(lfData.kind==='sand'){
+    const sn=8+Math.floor(Math.random()*13);addSand(sn);toast(`⏳ +${sn} Hourglass Sand`,2800);
+  }else if(lfData.kind==='buff'){
+    const secs=60+Math.random()*60;S.buff={m:Math.max(2,S.buff.until>Date.now()?S.buff.m:1),until:Math.max(S.buff.until,Date.now())+secs*1000};
+    toast(`🍀 All profit ×${S.buff.m} for ${dur(secs)}`,3000);
+  }else{addBoost(600e3);toast('🌠 A free wish! Profit ×1.5 for 10 minutes.',3200);}
+  S.stat.lf=(S.stat.lf||0)+1;sfx('big');vibe(20);lfClose();sigs={};updateLive(true);
+}
+function lfClock(dt){
+  if(lfOpen){if(Date.now()>lfHide)lfClose();return;}
+  lfTimer-=dt;
+  if(lfTimer<=0){if(lfShow())lfTimer=300+Math.random()*540;else lfTimer=20;}
+}
+// more variety for the Cat: new lines are mixed into the existing pools
+catAdd('wall2',['I am a cat. I have four legs and zero deadlines.','Somewhere a pig is building something. It will not be sticks.','If you listen very carefully, you can hear the ledger digesting.','Today feels like a Tuesday. Today is a Thursday. The Tuesday feeling is a lie told by the clouds.','I have been sitting in this corner so long that the corner has started to lean toward me.','Fun fact: I made that fact up. Fun anyway.','The Mouse says he has a "very good feeling" about this quarter. He says that every quarter. He is occasionally right.','I tried to take a nap. The nap took me.','A grin without a cat is a smile. A cat without a grin is just a cat. I am neither today. I am merely smug.','It is very quiet. That usually means someone is plotting. I hope it is us.','Is it just me, or is the screen a little warmer when you are here?','I counted the stars. There were eleven. Nine of them were lamps.','My tail has opinions today. I am ignoring them.','The Narrator would like it noted that he is not tired. The Narrator is tired.','They say a watched pot never boils. They have never watched a ledger.','A butterfly just sat on the screen. We are now, technically, a habitat.','Somebody should write a book about all this. Oh. Right.','You know that feeling when you walk into a room and forget why? I live there.','I am not saying I orchestrated the weather. I am saying it behaved.','There is a very small door behind the ledger. I do not recommend knocking.','I am 90% grin and 10% bad decisions. The ratio is stable.','The pigs have named their new shop "Hammer Time". We have not told them why that is funny.','I looked for my keys. I do not have keys. I looked anyway. It was calming.','A story is just a rumor that got a good editor.','Every number you see was once a very small number. Be kind to the small ones.','If the Ever After had weather, today would be "light drizzle of coins".','The lamp flickered. It does that when it has a thought. A small thought, but its own.','I once saw a clock tell the truth. We do not speak of it.','Remember to blink. Not for you. For me. I worry.','There is a slight chance that this is all a dream. In which case, please keep buying shops. It is a very good dream.','The ledger sighed. I think it likes you.','A spider crossed the screen. I let her. She was clearly on a deadline.','I am feeling philosophical. Why do we call it a rat race? There are no rats. There is only a mouse. And he is winning.','The news came in. The news is mostly good. The rest is gossip.','Somebody left a pie on the windowsill. It was not me. I just ate it.','This is the part of the day where I pretend to be working.','Not all who wander are lost. Some are just checking the ledger.','The wind has changed. This is not a metaphor. It literally went north.','I like it when you tap things. It reminds me that we are in this together.','Keep going. The next number is a good one. I peeked.','The sky has a lot to say today. Mostly it says "cloud".','Did you know a cat can be happy in three languages? I am only fluent in one: smug.','Nobody tells you how many hats a pigeon owns. It is eleven.','A distant gong rang. No one knows who rang it. It was tasteful.','I would like a medal for sitting still. Do not give me one. It would ruin the effect.','Somewhere, a very small bell is being polished. I like that.','Time is a wheel. Today it is a bicycle wheel. It squeaks.','My whiskers are tingling. This either means rain or a bargain.','You remind me of someone who is going to do very well. I say that to everyone. It is true of you.','I wonder what the pigs dream about. Probably better insulation.','The Cat Report for the day: smug (steady), nap (overdue), tail (moody).','Is a hat just a head with ambitions? Asking for a friend. He is a hat.','Every shop has a story. Most are about money. Some are about a really good sandwich.','The lamp said "good morning." It was evening. I let it have that.','When in doubt, buy one more. That is not financial advice. I am a cat.','I think the pigs are running a pyramid scheme. It is a very small pyramid. It is actually just a triangle.','Someone should tell the ledger it is allowed to take a day off. Not today though.','There is a rumor that the Moon owes us money. I am looking into it.','What do you call a cat with no tail? Reasonable. It is still me.','I found a coin behind the cushion. I am keeping it. You may have it back if you ask nicely.','The screen is a window. You are the view. I hope that is flattering.','I like the sound of numbers going up. It is like rain on a tin roof, but financial.','A leaf blew by with a note on it. The note said "hi". I said "hi" back. We are pen pals now.']);
+catAdd('status',['{n} shops open and the vibes are good. I checked.','You have {cash} {cur} in hand. It looks good on you.','{ch} chapters read. The Mouse is keeping a chart. He is very proud, in a small squeaky way.','You have opened this game {opens} times. I am not saying you are a regular. I am saying I reserved a cushion.','{streak} days in a row. The calendar blushes.','You have made {wishes} wishes. The Well has opinions, mostly warm.','It is {tod}. A fine time for tycoon-ing.','The {s} is doing great. I do not know what a {s} does, but it is great at it.','Your manager at {s} is named {m}. He wants a raise. He always wants a raise.','You are {n} shops deep. That is deeper than I am willing to be in anything.']);
+catAdd('player',['You seem like someone who reads the fine print. Good. It is the only fun part.','I have a theory that you are secretly brilliant. I have no evidence. Do not provide any.','You tap with such confidence. It is inspiring, in a mildly concerning way.','You are very good at this. Do not let it go to your head. Let it go to your wallet.','I like how you do not rush. Rushing is for rabbits.','You always check the pigs first. They notice. They are touched.','Please stay hydrated. I cannot drink for you. I have tried.','You are kind to the Mouse. He tells everyone.','There is nothing wrong with taking a break. The shops will be here. So will I. I am always here.','You are the only person who has ever read the ledger footnotes. The ledger is flustered.','When you laugh at my jokes, a small star is born. It is a bit much, honestly.','You have good taste in worlds. I can tell. I am biased, because I am in all of them.','If you are tired, rest. The numbers will politely wait.','You are doing fine. The pigs say so. The pigs are not known for their reliability, but today they are right.','Honestly? I like having you around. Do not tell the Mouse. He will want it in writing.']);
+catAdd('idle',['Still there? I will sit here. I am excellent at sitting.','No rush. The shops are running. The pigs are smug. All is well.','If you are taking a break, I will take a nap. The nap will be unsupervised and magnificent.','Tap whenever. I will be here, narrating the ceiling.','I am going to count the pixels. There are a lot. I will lose track. That is the charm.','Hm. It has gone quiet. Somewhere a pig is whispering.','Take your time. The Ever After does not have a clock. Calla Dar has a calendar. That is different.','I am practicing my yawn. It is going well. It is, I am told, "a bit much".']);
+const LF_CSS_DONE=1;
+
 // ---------- BOOT ----------
 load();recalcEV();ACHN=Object.keys(S.ach).length;
 (function boot(){
@@ -8830,9 +9045,9 @@ load();recalcEV();ACHN=Object.keys(S.ach).length;
   lastT=Date.now();
   setInterval(tick,100);
   setInterval(save,5000);
-  setInterval(catClock,8000);setInterval(catPump,500);
+  setTimeout(catLoop,20000);setInterval(catPump,500);
   document.addEventListener('pointerdown',()=>{lastAct=Date.now();});
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){save();}else{tick();}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){save();}else{try{const d=JSON.parse(localStorage.getItem(SAVE_KEY)||'null');if(d&&d.tabId&&d.tabId!==TAB_ID&&(d.rev||0)>REV)syncFromStorage();}catch(e){}tick();}});
   window.addEventListener('pagehide',save);
   document.addEventListener('dblclick',e=>e.preventDefault());
 })();

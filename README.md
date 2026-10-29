@@ -43,7 +43,7 @@ What makes it different:
 - **Per-world resets** (every world has its own, so resetting one never touches the others), a Sequel layer on top, **Plot Twists** (over 120 risky random scenarios where you choose) and **Crossovers** (cross-world synergy bonuses).
 - **A 52-week event calendar** with a different festival world every week of the year, and rewards that help the whole game.
 - **A narrator who knows he is in a game.** The Cheshire Cat comments on your progress, the news, the characters, and you.
-- **A real story.** 99 story installments in twelve books, one per world (about 62,000 words), unlock as you play.
+- **A real story.** 233 short story installments (about 275 words each) in twelve books, one per world, plus the Cat's Appendix, unlock as you play.
 - **Long-term hooks without ads:** Wishing Well, Daily Gift streak, Daily Quests and Flash Days.
 
 Theme: "Gilded Midnight" (and a different look for every world: its own backdrop, pattern, floating particles and shop-panel colours), a deep midnight-indigo base with antique gold, serif titles, and a jewel-toned accent colour for each world, tuned for phones.
@@ -179,13 +179,13 @@ The current week is chosen from the date, so the calendar rolls on its own.
 
 ## Guest stars
 
-**80 guest stars** wander by, each with a joke and a reward when you tap them. Rewards include cash, temporary profit boosts, Plot Twists, and Wishing Well charges. The Guest List perk makes them appear more often.
+**80 guest stars** wander by (every few minutes, at random), each with a joke and a reward when you tap them. Rewards include cash, temporary profit boosts, Plot Twists, and Wishing Well charges. The Guest List perk makes them appear more often.
 
 **The Guest Book pays out.** Meet 20, 40 and 60 different guests for wishes and boosts. **Meet every single guest and you get a golden title, 10 wishes and all profit ×1.5 forever**, which survives every reset, ending and sequel.
 
 ## Trophies
 
-**76 trophies** track milestones across every system: shops owned, money earned, worlds opened, world resets, guests met, slippers, quills, twists survived, chapters read, streak days, and more. Each has a funny description and adds a small permanent profit bonus.
+**82 trophies** track milestones across every system: shops owned, money earned, worlds opened, world resets, guests met, slippers, quills, twists survived, chapters read, streak days, and more. Each has a funny description and adds a small permanent profit bonus.
 
 ## The Cheshire Cat
 
@@ -238,7 +238,7 @@ These stack with the other multipliers, so check back often. If you ever find th
 
 ## The Story: twelve books, one per world
 
-*Happily Ever After, Inc.* is a full-length story hidden in the **Storybook → Story** tab: **99 installments, about 62,000 words**, narrated in the first person by the Cheshire Cat. **Every world has its own book**, and a book opens when you open its world:
+*Happily Ever After, Inc.* is a full-length story hidden in the **Storybook → Story** tab: **233 short installments (about 275 words each, so no long reads)**, narrated in the first person by the Cheshire Cat. **Every world has its own book**, and a book opens when you open its world:
 
 | Book | World | Title |
 |------|-------|-------|
@@ -256,7 +256,7 @@ These stack with the other multipliers, so check back often. If you ever find th
 | Twelve | The Weekly Event World | Fifty-Two Weeks of Trouble (a calendar, a mascot, a pumpkin) |
 | Appendix | (your play style) | The Cat's Appendix: short interludes unlocked by wishes, streaks, guests, twists, quills and trophies |
 
-Each book is split into installments that unlock as you play (a milestone in that world, then more by keeping busy). The Story tab shows each book as a shelf with a progress bar, hides installments you have already read (with a button to show them), and tells you what unlocks the next one. A "New story" pill appears when something is ready. Old saves are converted automatically, so everything you had read stays read.
+Each book is split into many small installments that unlock as you play (a milestone in that world, then more by keeping busy). The Story tab shows each book as a shelf with a progress bar, hides installments you have already read (with a button to show them), and tells you what unlocks the next one. A "New story" pill appears when something is ready. Old saves are converted automatically, so everything you had read stays read.
 
 ## Why the numbers slow down (the math)
 
@@ -333,3 +333,52 @@ Search the file for these names. The first run is designed to be slow: the first
 ## License
 
 MIT. See [LICENSE](LICENSE). Fairytale characters used here come from public-domain folklore and classic literature; all jokes and story text are original to this project.
+
+
+## Version 11 notes
+
+- **Speed doubling.** Every shop doubles its speed at 25, 50, 75 and 100 owned. The shop panel shows the current speed and the next milestone.
+- **Gentler diminishing returns.** The late-game saturation curve was eased (reference raised to 1e4), so the first reset arrives sooner.
+- **Multi-tab guard.** Each browser tab tags its saves with a revision. A stale tab or old copy of the game can no longer overwrite newer progress (this was the likely cause of shop counts appearing to drop). Close any other open copies of the game.
+- **Little Fortunes.** Hundreds of random pop-ups (thousands of combinations) arrive every 5 to 14 minutes with a cash gift, a short luck buff, or a free wish boost. Take it or dismiss it.
+- **Calmer, more random pacing.** The Cat speaks every ~20 to 70 seconds (sometimes longer), Plot Twists every ~6 to 25 minutes, and guest stars every ~2.5 to 12 minutes. Pop-ups never interrupt an open window and pause while the tab is hidden.
+- **Many more Cat lines** for the wall, status, player and idle pools.
+
+
+## Version 12 notes
+
+- **New title banner.** A gilded crest (open storybook under a crown, with twinkling stars and a slowly turning ring) sits beside a larger, embossed gold title. The header glow takes on the colour of the world you are in.
+- **Time Warps (Storybook → ⏳ Time Warp).** Instantly collect 1, 4, 6, 8, 12 or 24 hours of earnings from the world you are in. Warps are bought with **Hourglass Sand**, a currency you only earn by playing (no ads, no real money):
+
+| Warp | Sand cost |
+|---|---|
+| 🕰️ Pocket Watch, 1 hour | 12 |
+| ⏳ Hourglass, 4 hours | 42 |
+| 🕛 Mantel Clock, 6 hours | 60 |
+| 🛎️ Grandfather Clock, 8 hours | 78 |
+| 🐦 Cuckoo Tower, 12 hours | 110 |
+| 🗼 Clock Tower, 1 day | 200 |
+
+- **Where sand comes from:** the Daily Gift (6 plus streak days, up to 20), daily quests (5 / 8 / 12), guest stars (1 to 2 each), every trophy (3), every story installment read (1), Little Fortunes (8 to 20), and every Happily Ever After (10 and up). A 5-day streak also gifts a free 1-hour warp and a 7-day streak a free 4-hour warp.
+- You can hold up to 9 of each size. Warps of 6 hours or more ask for confirmation, and they do not work in the weekly Festival world, so events stay fair.
+- Four new trophies: Skipping Ahead, Chronic Skipper, Time Is Money, Sandman.
+
+## Version 13 notes: every world has its own difficulty
+
+Each world already had its own prices, speeds and payouts. Now each also has its own **difficulty**, shown as a badge at the top of its shop list. It changes income, how hard the late-game slowdown bites, how gentle the multiplier dampening is, and how much lifetime gold the first reset point needs.
+
+| World | Difficulty | Feel |
+|---|---|---|
+| Storybook Forest | Gentle | Friendly start, quick resets |
+| Wonderland | Easy | Cheap, quick and generous |
+| Arabian Bazaar | Normal | Slow, fat paydays |
+| Camelot | Hard | Steep tiers |
+| Olympus | Hard | Feast and famine |
+| Frostbite | Brutal | Fast bursts, cruel growth |
+| Neverland | Easy | Flighty and quick |
+| Oz | Normal | Long road, fat rewards |
+| Mermaid Lagoon | Hard | Deep and pricey |
+| Sweetland | Easy | Tiny, rapid sugar hits |
+| Dragonspine | Brutal | Rare giant hoards |
+
+In a 3-hour test with the same bot, lifetime earnings (relative to each world's own scale) ranged from about 0.35× the Forest in the Brutal worlds to about 3× in the Easy ones. Existing saves keep their progress; the new numbers apply immediately.
