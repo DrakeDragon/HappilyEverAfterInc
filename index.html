@@ -268,6 +268,53 @@ h1 .t2 i:last-child{background:linear-gradient(270deg,transparent,#f2c75c)}
 .bt .tagline{margin:2px 0 4px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#c9b98a}
 header h1::after{content:none}
 @media (prefers-reduced-motion:reduce){.crest .spin,.crest .tw,header::before{animation:none}}
+
+/* ===== v16: friendlier + popups that stand out ===== */
+.mbg{background:#0a0620e6!important;backdrop-filter:blur(3px)}
+.mcard{background:linear-gradient(180deg,#fff9e6,#f3e1b0)!important;color:#3b2412!important;border:4px double #b07a1e!important;box-shadow:0 0 0 3px #3b1d6e,0 0 40px #ffd86b66,0 22px 70px #000!important;border-radius:22px!important;padding:22px 20px!important;font-family:var(--serif)}
+.mcard h3{color:#7a1f3d!important;font-size:21px!important;text-shadow:none!important;letter-spacing:.3px!important}
+.mcard p{color:#3b2412!important;font-size:16.5px!important;line-height:1.5!important}
+.mcard .mtag{color:#8a4b00!important;letter-spacing:2px!important;font-size:12.5px!important}
+.mcard .nar{color:#7a5a3a!important;font-size:12.5px!important}
+.mcard .sbody p{color:#3b2412!important;font-size:17.5px!important;line-height:1.7!important}
+.mcard .sbody em,.mcard em{color:#7a1f3d!important}
+.mcard b{color:#5b1230}
+.mcard small{color:#7a5a3a!important}
+.mcard button{background:linear-gradient(#7a4fd6,#4a2790)!important;color:#fff!important;font-size:17px!important;padding:15px!important;border-radius:14px!important;border:0!important;box-shadow:0 4px 0 #2c1860,0 6px 14px #0006!important;text-shadow:0 1px 0 #0006}
+.mcard button.alt{background:#fff3cf!important;color:#4a2790!important;border:2px solid #b07a1e!important;box-shadow:0 3px 0 #b07a1e55!important;text-shadow:none}
+.mcard button:active{transform:translateY(2px)}
+.mcard .twbtn,.mcard .opt{color:#fff}
+#toast{background:#fff6d6!important;color:#3b2412!important;border:3px solid #b07a1e!important;box-shadow:0 0 0 2px #3b1d6e,0 10px 30px #000a!important;font-size:15px!important;font-weight:700;font-family:var(--serif);padding:12px 18px!important;border-radius:16px!important}
+.lfcard{background:linear-gradient(180deg,#fff9e6,#f3e1b0)!important;border:4px double #b07a1e!important;box-shadow:0 0 0 3px #3b1d6e,0 0 30px #ffd86b88,0 14px 40px #000c!important}
+.lftag{color:#8a4b00!important}.lftx{color:#3b2412!important;font-size:16px!important}
+.lfcard button{background:linear-gradient(#7a4fd6,#4a2790)!important;color:#fff!important;font-size:16px!important;padding:13px!important;box-shadow:0 3px 0 #2c1860!important}
+.lfcard button.lfx{background:none!important;color:#7a5a3a!important;box-shadow:none!important;font-size:13px!important}
+/* shops: whole card is tappable */
+.biz{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.biz:active .ic{transform:scale(.94)}
+.biz .ic{transition:transform .08s}
+/* nav and pills bigger */
+nav button{font-size:11px!important;padding:8px 1px!important}
+nav button b{font-size:23px!important}
+.pill{font-size:13.5px!important;padding:8px 13px!important;margin:6px 6px 0 0!important}
+/* goodies hub */
+.hubcard{display:flex;gap:12px;align-items:center;width:100%;text-align:left;margin:0 0 10px;padding:13px 14px;border-radius:16px;border:1px solid #f2c75c55;background:linear-gradient(135deg,#1c1b45,#262361);color:#fff;position:relative}
+.hubcard .hi{font-size:34px;flex:none;width:46px;text-align:center}
+.hubcard b{display:block;font-size:17px;color:#ffe08a;font-family:var(--serif)}
+.hubcard span.hd{display:block;font-size:13.5px;line-height:1.35;color:#d9d3ee;margin-top:2px}
+.hubcard .bdg{position:absolute;top:8px;right:10px;background:var(--grad);color:#1a1204;font-weight:900;font-size:11px;padding:3px 9px;border-radius:10px;animation:pop 1.6s infinite}
+.hubcard:active{transform:scale(.99)}
+.backbtn{display:block;width:100%;margin:0 0 12px;padding:13px;border-radius:14px;border:1px solid #f2c75c88;background:#27245a;color:#ffe3a1;font-weight:800;font-size:15px}
+.coach{display:flex;gap:10px;align-items:center;margin:0 2px 10px;padding:11px 13px;border-radius:14px;background:linear-gradient(135deg,#fff4cf,#f6dd9a);color:#3b2412;border:3px solid #b07a1e;font-family:var(--serif);font-size:15.5px;line-height:1.35;font-weight:700;cursor:pointer;box-shadow:0 0 18px #ffd86b44}
+.coach .ci{font-size:28px;flex:none}
+.coach:empty{display:none}
+.helpstep{display:flex;gap:12px;margin:0 0 12px;align-items:flex-start}
+.helpstep i{flex:none;width:32px;height:32px;border-radius:50%;background:var(--grad);color:#1a1204;font-style:normal;font-weight:900;display:flex;align-items:center;justify-content:center;font-size:16px}
+.helpstep div{font-size:15.5px;line-height:1.45;color:#efe8d8}
+.readnext{display:block;width:100%;margin:0 0 12px;padding:15px;border-radius:15px;border:0;background:var(--grad);color:#1a1204;font-weight:900;font-size:17px;box-shadow:0 4px 0 #8a5b1c,0 8px 16px #0006}
+html.big{zoom:1.12}
+html.big h1 .t1{font-size:clamp(14px,4.2vw,21px)!important;letter-spacing:.07em!important}
+html.big h1 .t2{letter-spacing:.2em!important;font-size:12px!important}
 </style>
 </head>
 <body>
@@ -10144,12 +10191,12 @@ const STORY=[],STORY_NEED=[],STORY_COND=[],SIDX={},STORY_SUBS={};
    [...ch(8),'int6','ev2','ev3','ev4'],
    ['int0','int1','int2','int3','int4','int5','int7','int8','int9','int10','int11']
   ];
-  const MAXW=300;
+  const MAXW=130;
   function chunk(body){
-    const paras=body.split('\n\n'),out=[];let cur=[],w=0;
+    const paras=body.split('\n\n').flatMap(p=>{if(wc(p)<=MAXW*1.3)return [p];const sn=p.split(/(?<=[.!?”"])\s+/),r=[];let a=[],aw=0;sn.forEach(t=>{const tw=wc(t);if(a.length&&aw+tw>MAXW){r.push(a.join(' '));a=[];aw=0;}a.push(t);aw+=tw;});if(a.length)r.push(a.join(' '));return r;}),out=[];let cur=[],w=0;
     paras.forEach(p=>{const pw=wc(p);if(cur.length&&w+pw>MAXW){out.push(cur.join('\n\n'));cur=[];w=0;}cur.push(p);w+=pw;});
     if(cur.length)out.push(cur.join('\n\n'));
-    if(out.length>1&&wc(out[out.length-1])<110){const t=out.pop();out[out.length-1]+='\n\n'+t;}
+    if(out.length>1&&wc(out[out.length-1])<50){const t=out.pop();out[out.length-1]+='\n\n'+t;}
     return out;
   }
   shelf.forEach((ids,bi)=>{
@@ -10417,7 +10464,7 @@ function freshState(){return {realms:REALMS.map((_,i)=>freshRealm(i)),slip:0,lif
   quills:0,quillTotal:0,qperk:{},sequels:0,ach:{},guests:{},guestCount:0,evDone:{},evShift:0,ev:{key:0},cfg:{sound:false,vib:true},seen:{},ver:8,guestAll:false,gms:{},
   wish:{ch:WISH_MAX,t:Date.now(),until:0},streak:{last:-1,n:0},dq:{day:-1,items:[]},stat:{buys:0,hires:0,ups:0,guests:0,twists:0,collects:0,wishes:0,quests:0,chapReads:0},story:{seen:{},read:{},v:4},charms:{},pack:{ch:0,t:Date.now(),n:0,guar:0,v:2},warp:{sand:0,inv:{},tot:0},opens:0,first:Date.now()};}
 let S=freshState();
-let realm=0,tab='shop',bsub='story',mode=1,sigs={};
+let realm=0,tab='shop',bsub='menu',mode=1,sigs={};
 
 function load(){
   try{
@@ -10457,6 +10504,7 @@ function load(){
       Object.keys(STORY_SUBS).forEach(b=>{STORY_SUBS[b].forEach(id=>{if(n.story.seen[b])n.story.seen[id]=1;if(n.story.read[b])n.story.read[id]=1;});});
       n.story.v=4;
     }
+    if(!n.story.v5){Object.keys(STORY_SUBS).forEach(b=>{STORY_SUBS[b].forEach(id=>{if(n.story.seen[b])n.story.seen[id]=1;});});n.story.v5=1;}
     if(!d.ver||d.ver<8){ // economy rebalance (dampening + saturation): wipe old fast-economy progress, keep fun collectibles
       const fr=freshState();
       n.realms=fr.realms;n.slip=0;n.lifeAll=0;n.resets=0;n.quills=0;n.quillTotal=0;n.qperk={};n.sequels=0;n.buff={m:1,until:0};n.ev={key:0};n.ver=8;n.migrated=true;
@@ -11071,6 +11119,7 @@ function collect(i,e){
   const b=S.realms[realm].biz[i];
   if(b.n>0&&!b.mgr&&!b.run){b.run=true;b.prog=0;S.stat.collects++;vibe(5);if(e&&e.clientX!==undefined)floater('+'+fmt(profit(realm,i)),e.clientX,e.clientY);}
 }
+function bizTap(i,e){if(e&&e.target&&e.target.closest&&e.target.closest('button'))return;collect(i,e);}
 function hire(i){
   const R=S.realms[realm],b=R.biz[i],c=B(realm,i).mgr;
   if(R.cash<c||b.n<1||b.mgr)return;R.cash-=c;b.mgr=true;b.prog=0;S.stat.hires++;
@@ -11163,24 +11212,24 @@ function renderHeader(){
     return `<div class="realm ${r===realm?'on':''} ${un?'':'lock'}" style="--rc:${R.color}" onclick="selectRealm(${r})">${un?R.icon:'🔒'}<br>${R.short}${un?'':`<br><span style="font-size:9px">${fmt(UNLOCK_COST[r])} ${REALMS[r-1].sym}</span>`}</div>`;
   }).join('');
   $('modes').innerHTML=[1,10,100,'max'].map(m=>`<button class="${m===mode?'on':''}" onclick="setMode('${m}')">${m==='max'?'MAX':'×'+m}</button>`).join('');
-  $('nav').innerHTML=[['shop','🏰','Shops'],['mgr','🧑‍💼','Managers'],['up','⚡','Upgrades'],['ev','🎪','Events'],['book','📖','Storybook'],['pres','👠','Ever After']].map(t=>
-    `<button class="${tab===t[0]?'on':''}" onclick="setTab('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('');
+  $('nav').innerHTML=[['shop','🏰','Shops'],['mgr','🧑‍💼','Managers'],['up','⚡','Upgrades'],['pres','👠','Ever After'],['book','🎁','Goodies'],['story','📖','Stories']].map(t=>
+    `<button class="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'on':''}" onclick="setTab('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('');
   $('cur').textContent=REALMS[realm].cur;
 }
 function setMode(m){mode=m==='max'?'max':+m;renderHeader();}
-function setTab(t){tab=t;sigs={};render();if(t==='book'||t==='ev')cat('tab',0.4);window.scrollTo(0,0);}
+function setTab(t){tab=t;if(t==='book')bsub='menu';sigs={};render();if(t==='book'||t==='ev'||t==='story')cat('tab',0.4);window.scrollTo(0,0);}
 function setBsub(s){bsub=s;sigs={};render();}
 
 function render(){
-  setTheme();renderHeader();
+  applyBig();setTheme();renderHeader();
   const m=$('main');
   if(tab==='shop'){
-    m.innerHTML=(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
-      <div class="biz" id="biz${i}">
+    m.innerHTML='<div class="coach" id="coach" onclick="coachGo()"></div>'+(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
+      <div class="biz" id="biz${i}" onclick="bizTap(${i},event)">
         <div class="ic"><span id="em${i}">${d[1]}</span><span class="cnt" id="cnt${i}">0</span></div>
         <div>
           <div class="nm" id="nm${i}">${d[0]}</div>
-          <div class="bar" onclick="collect(${i},event)"><i id="bar${i}"></i><span id="rev${i}"></span></div>
+          <div class="bar"><i id="bar${i}"></i><span id="rev${i}"></span></div>
           <div class="brow">
             <button class="buy" id="buy${i}" onclick="buy(${i})"></button>
             <div class="meta" id="meta${i}"></div>
@@ -11196,10 +11245,34 @@ function render(){
 }
 
 function stampStr(t){return t?['🥉','🥈','🥇'][t-1]:'▫️';}
+function hubHTML(){
+  const warpReady=WARPS.some((w,i)=>(S.warp.inv[i]||0)>0),qDone=S.dq.items.some(q=>!q.done&&dqProg(q)>=q.g);
+  const C=[
+   ['wish','🌠','Wishes & Daily Gift','Make a wish to earn more money for a while. Get a free gift every day. Do easy little quests.',(dailyReady()||wishCharges()>0||qDone)?'READY':''],
+   ['warp','⏳','Time Warp','Skip ahead and instantly collect hours of money.',warpReady?'READY':''],
+   ['charms','🎴','Lucky Charms','Open packs and collect charms. Each one helps you earn more.',packCharges()>0?'READY':''],
+   ['ev','🎪','Weekly Event','A special world that changes every week, with its own shops.',''],
+   ['guests','🎭','Guest Book','Visitors wander across the screen. Tap them for treats!',''],
+   ['ach','🏆','Trophies','Little goals to reach. Every trophy makes you earn a bit more.',''],
+   ['cross','🌀','Crossovers','Own the same shop in several worlds for a big bonus.',''],
+   ['help','❓','How to Play','A quick guide in plain words. Start here if you are unsure!',''],
+   ['cfg','⚙️','Settings','Bigger text, sound, tips and more.','']
+  ];
+  return `<div class="empty" style="padding:2px 6px 12px;font-size:15px">Everything extra lives here. Tap any card to open it.</div>`+C.map(c=>`<button class="hubcard" onclick="${c[0]==='ev'?"setTab('ev')":`setBsub('${c[0]}')`}"><div class="hi">${c[1]}</div><div><b>${c[2]}</b><span class="hd">${c[3]}</span></div>${c[5]?`<span class="bdg">${c[5]}</span>`:''}</button>`).join('');
+}
+function helpHTML(){
+  const st=[['👆','<b>Tap a shop</b> (its picture or the bar) to put it to work. When the bar fills, you get money.'],['🛒','Tap the gold <b>Buy</b> button to buy more of a shop. More shops means more money.'],['🧑‍💼','Open <b>Managers</b> and hire one. A manager runs the shop <b>by himself</b>, even when you close the game.'],['⚡','Open <b>Upgrades</b> to make your shops earn much more.'],['🌍','Tap the little <b>world pictures</b> at the top to travel to other worlds. New worlds open as you earn.'],['👠','<b>Ever After</b> lets you start over with a big bonus. Do it when the game feels slow. You never lose your stories or trophies.'],['🎁','<b>Goodies</b> has free gifts, wishes and time warps. They are all free. There are no ads and nothing to buy.'],['📖','<b>Stories</b> has short little tales, about a minute each. They unlock as you play.'],['😸','The Cat will chat with you at the top. Tap him if you like. He loves it.']];
+  return `<div class="pres" style="text-align:left">${st.map((x,n)=>`<div class="helpstep"><i>${n+1}</i><div>${x[0]} ${x[1]}</div></div>`).join('')}<button class="btn" style="font-size:15px;padding:13px 14px;width:100%" onclick="replayIntro()">Meet the Cat again 😸</button></div>`;
+}
+function toggleBig(){S.cfg.big=!S.cfg.big;applyBig();sigs={};updateLive(true);}
+function toggleTips(){S.cfg.tips=(S.cfg.tips===false);sigs={};updateLive(true);}
+function applyBig(){document.documentElement.classList.toggle('big',!!S.cfg.big);}
 function bookHTML(){
-  const subs=[['story','📖 Story'],['wish','🌠 Wishes'],['charms','🎴 Charms'],['warp','⏳ Time Warp'],['guests','🎭 Guests'],['ach','🏆 Trophies'],['cross','🌀 Crossovers'],['cfg','⚙️ Settings']].map(s=>`<button class="stab ${bsub===s[0]?'on':''}" onclick="setBsub('${s[0]}')">${s[1]}</button>`).join('');
+  if(tab==='story')return storyTabHTML();
+  if(bsub==='menu')return hubHTML();
   let body='';
   if(bsub==='story')body=storyTabHTML();
+  else if(bsub==='help')body=helpHTML();
   else if(bsub==='wish')body=wishTabHTML();
   else if(bsub==='charms')body=charmTabHTML();
   else if(bsub==='warp')body=warpTabHTML();
@@ -11221,6 +11294,8 @@ function bookHTML(){
     }).join('');
   }else{
     body=`<div class="pres">
+      <button class="btn" style="font-size:15px;padding:13px 14px" onclick="toggleBig()">Bigger text: ${S.cfg.big?'ON':'OFF'}</button><br>
+      <button class="btn" style="font-size:15px;padding:13px 14px" onclick="toggleTips()">Helpful tips: ${S.cfg.tips===false?'OFF':'ON'}</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleSound()">Sound: ${S.cfg.sound?'ON 🔊':'OFF 🔇'}</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleVib()">Vibration: ${S.cfg.vib?'ON 📳':'OFF'}</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleNote()">Numbers: ${NOTE==='letters'?'Letters (aa, ab...)':'Scientific (1.23e45)'}</button><br>
@@ -11228,9 +11303,26 @@ function bookHTML(){
       <p style="margin-top:14px">Plot twists survived: ${S.twists} · Guests caught: ${S.guestCount}<br>Endings lived: ${S.resets} · Sequels: ${S.sequels}</p>
       <button class="link" onclick="hardReset()">Hard reset (erase all)</button></div>`;
   }
-  return `<div class="stabs">${subs}</div>`+body;
+  return `<button class="backbtn" onclick="setBsub('menu')">← Back to Goodies</button>`+body;
 }
+let coachAct='';
+function coachHint(){
+  if(S.cfg.tips===false||tab!=='shop'||$('modal').firstChild)return null;
+  const R=S.realms[realm];
+  if(!R.biz.some(b=>b.n>0))return ['👇','Tap the gold <b>Buy</b> button on the first shop to open it!',''];
+  if(S.stat.collects<4&&R.biz.some(b=>b.n>0&&!b.mgr))return ['👆','Tap the <b>picture of the shop</b> to put it to work. Money arrives when the bar fills up!',''];
+  if(S.stat.hires<1&&R.biz.some((b,i)=>b.n>0&&!b.mgr&&R.cash>=B(realm,i).mgr))return ['🧑‍💼','You can hire a <b>Manager</b>! Tap here, then tap Hire. Managers work for you, even when you are away.',"setTab('mgr')"];
+  if(S.stat.buys>=15&&S.stat.ups<1)return ['⚡','<b>Upgrades</b> make a shop earn a lot more. Tap here to see them.',"setTab('up')"];
+  if(dailyReady())return ['🎁','Your <b>free daily gift</b> is ready. Tap here to get it!',"goBook('wish')"];
+  if(wishCharges()>0&&wishLeft()<=0)return ['🌠','You have a free <b>wish</b>! Tap here to boost your money for an hour.',"goBook('wish')"];
+  if(unreadCh()>0&&S.stat.chapReads<3)return ['📖','A new <b>story</b> is ready. It is short and sweet. Tap here to read.',"setTab('story')"];
+  if(realm===0&&S.resets<1&&gainPt(0)>=1)return ['👠','Ready for a fresh start with a big bonus? Tap here to see <b>Ever After</b>.',"setTab('pres')"];
+  return null;
+}
+function coachGo(){if(coachAct)eval(coachAct);}
+function updateCoach(){const el=$('coach');if(!el)return;const h=coachHint(),k=h?h[0]+h[1]:'';if(el.dataset.k===k)return;el.dataset.k=k;coachAct=h?h[2]:'';el.innerHTML=h?`<div class="ci">${h[0]}</div><div>${h[1]}</div>`:'';}
 function updateLive(force){
+  updateCoach();
   const R=S.realms[realm],RD=REALMS[realm];
   const ps=realmPS(realm);
   const qa=quickNext(),qb=$('qnext');if(qb){qb.disabled=!qa;qb.innerHTML=qa?`⚡ ${qa.label}<small>${RD.sym} ${fmt(qa.c)}</small>`:'⚡ Nothing affordable<small>Keep earning!</small>';$('qall').disabled=!qa;}
@@ -11287,11 +11379,11 @@ function updateLive(force){
     }
   }else if(tab==='ev'){
     const sig='ev'+S.ev.key+'|'+EVC.stamps+'|'+EVC.gold+'|'+S.evShift+'|'+evTier()+'|'+realm+'|'+fmt(laOf(EV_RT))+'|'+fmt(gainPt(EV_RT))+'|'+Math.floor(Date.now()/20000);
-    if(sigs.ev!==sig){sigs.ev=sig;const L=$('list');if(L)L.innerHTML=evTabHTML();}
+    if(sigs.ev!==sig){sigs.ev=sig;const L=$('list');if(L)L.innerHTML='<button class="backbtn" onclick="setTab(\'book\')">← Back to Goodies</button>'+evTabHTML();}
     const E=S.realms[EV_RT],t=evTier(),bar=$('evbar'),tx=$('evtxt');if(false){
     }
-  }else if(tab==='book'){
-    const sig=['b',bsub,S.warp.sand,JSON.stringify(S.warp.inv),Math.floor(realmPS(realm)/1+0),packCharges(),charmCount(),S.stat.packs||0,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,Object.keys(S.story.seen).length,storyShowRead,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
+  }else if(tab==='book'||tab==='story'){
+    const sig=['b',tab,bsub,S.warp.sand,JSON.stringify(S.warp.inv),Math.floor(realmPS(realm)/1+0),packCharges(),charmCount(),S.stat.packs||0,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,Object.keys(S.story.seen).length,storyShowRead,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
     if(sigs.book!==sig){sigs.book=sig;const L=$('list');if(L)L.innerHTML=bookHTML();}
   }else if(tab==='pres'){
     const sig=['p',realm,Array.from({length:NPERM},(_,r)=>S.realms[r].unlocked?fmt(gainPt(r))+'/'+fmt(ptOf(r)):'-').join(','),S.resets,fmt(gainQuill()),S.quills,S.sequels,QP.map(p=>perk(p.id)).join('.')].join('|');
@@ -11527,12 +11619,12 @@ function readChapter(i){
   const c=STORY[i];if(!c||!S.story.seen[c.id])return;
   if(!S.story.read[c.id]){S.story.read[c.id]=1;S.stat.chapReads++;addSand(1);}
   const bk=BOOKS[c.bi];
-  showModal(`<div class="mtag">${bk.title.split(':')[0].toUpperCase()} · ${c.lab.toUpperCase()}</div><h3>${c.t}</h3><div class="sbody">${fmtBody(c.body)}</div>${c.id.split('~')[0]==='ar7'?'<button onclick="shareGame()">💌 Pass it on</button> ':''}<button onclick="closeStory()">Close the Book</button>`,'story');
+  showModal(`<div class="mtag">${bk.title.split(':')[0].toUpperCase()} · ${c.lab.toUpperCase()}</div><h3>${c.t}</h3><div class="sbody">${fmtBody(c.body)}</div>${c.id.split('~')[0]==='ar7'?'<button onclick="shareGame()">💌 Pass it on</button> ':''}<button onclick="storyNext(${i})">Keep reading ▶</button><button class="alt" onclick="closeStory()">Close the Book</button>`,'story');
   const m=$('modal').querySelector('.mcard');if(m)m.scrollTop=0;
   sigs={};
 }
 function closeStory(){closeModal();cat('chapterread',1,0);sigs={};updateLive(true);}
-function goBook(s){bsub=s;tab='book';sigs={};render();window.scrollTo(0,0);}
+function goBook(s){if(s==='story'){tab='story';}else{bsub=s;tab='book';}sigs={};render();window.scrollTo(0,0);}
 
 // Pills under the header: things worth tapping
 function pillsHTML(){
@@ -11548,11 +11640,18 @@ function pillsHTML(){
   return p.join('');
 }
 let storyShowRead=false;
+function readNextStory(){const j=STORY.findIndex(c=>S.story.seen[c.id]&&!S.story.read[c.id]);if(j>=0)readChapter(j);}
+function storyNext(i){
+  checkStory();const bi=STORY[i].bi;
+  for(let j=i+1;j<STORY.length&&STORY[j].bi===bi;j++){if(S.story.seen[STORY[j].id]){readChapter(j);return;}}
+  closeStory();toast('That is all for now in this book. More unlocks as you play!',4000);
+}
 function toggleStoryRead(){storyShowRead=!storyShowRead;sigs={};render();}
 function bookInfo(bi){const bk=BOOKS[bi];if(bk.w>=0)return {icon:REALMS[bk.w].icon,color:REALMS[bk.w].color};return {icon:bk.icon,color:bk.color};}
 function storyTabHTML(){
   const rd=Object.keys(S.story.read).length,seenN=Object.keys(S.story.seen).length;
-  let out=`<div class="empty" style="padding:4px 6px 10px">“Happily Ever After, Inc.” — a library of <b>${BOOKS.length-1} books</b>: one for every world, plus one master tale that connects them, narrated by the Cat. ${STORY.length} installments in all. New ones unlock as you play. Read <b>${rd}/${STORY.length}</b>.</div>`;
+  let out=`<div class="empty" style="padding:4px 6px 10px">“Happily Ever After, Inc.” — a library of <b>${BOOKS.length-1} books</b>: one for every world, plus one master tale that connects them, narrated by the Cat. ${STORY.length} short installments, about a minute each. New ones unlock as you play. Read <b>${rd}/${STORY.length}</b>.</div>`;
+  if(unreadCh()>0)out+=`<button class="readnext" onclick="readNextStory()">📖 Read the next story (${unreadCh()} waiting)</button>`;
   const hid=STORY.filter(c=>S.story.read[c.id]).length;
   if(hid>0)out+=`<div style="text-align:center;margin:0 0 10px"><button onclick="toggleStoryRead()">${storyShowRead?'Hide':'Show'} ${hid} already-read installment${hid>1?'s':''}</button></div>`;
   BOOKS.forEach((bk,bi)=>{
@@ -11566,8 +11665,8 @@ function storyTabHTML(){
       if(read&&!storyShowRead)return;
       if(!seen){if(lockedShown>=(seenB?1:1)){return;}lockedShown++;
         out+=`<div class="item" style="--rc:${bs.color};opacity:.62"><div class="ic">🔒</div><div class="tx"><b>${c.lab}: ???</b><em>${STORY_NEED[i]}</em></div></div>`;return;}
-      const words=Math.round(c.body.split(/\s+/).length/100)/10;
-      out+=`<div class="item" style="--rc:${bs.color}"><div class="ic">${read?'📗':'📘'}</div><div class="tx"><b>${c.lab}: ${c.t}${read?'':' <span class="tag on">NEW</span>'}</b><em>${c.s}</em><br><em>~${words}k words</em></div><button onclick="readChapter(${i})">${read?'Reread':'Read'}</button></div>`;
+      const words=Math.max(1,Math.round(c.body.split(/\s+/).length/170));
+      out+=`<div class="item" style="--rc:${bs.color}"><div class="ic">${read?'📗':'📘'}</div><div class="tx"><b>${c.lab}: ${c.t}${read?'':' <span class="tag on">NEW</span>'}</b><em>${c.s}</em><br><em>⏱ about ${words} min</em></div><button onclick="readChapter(${i})">${read?'Reread':'Read'}</button></div>`;
     });
   });
   return out;

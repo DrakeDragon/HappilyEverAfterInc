@@ -406,3 +406,14 @@ When a managed shop finishes a cycle in under 1 second (its speed has doubled en
 **Story:** 83 new installments in 6 new books. *The Master Tale: The House With Sixteen Doors* is the overall arc, one nostalgia chapter per world plus seven arc chapters. Books Twelve to Sixteen tell each new world's own story. The last arc chapter has a "Pass it on" button that shares the game link.
 
 **Fixes:** background particles (floating emoji) were reading the wrong theme fields and now work in every world. Four new trophies. Crossovers have new top tiers for 13 and 16 worlds.
+
+---
+
+## Version 16: Easier for everyone
+
+- **New menu:** Shops, Managers, Upgrades, Ever After, **Goodies** and **Stories**. Goodies is a big-button hub (Wishes & Daily Gift, Time Warp, Lucky Charms, Weekly Event, Guest Book, Trophies, Crossovers, How to Play, Settings). Cards show READY when something is waiting.
+- **"What to do next" helper** at the top of Shops, in plain words (turn off in Settings > Helpful tips).
+- **Tap anywhere on a shop** (picture, name or bar) to put it to work.
+- **Popups look different:** parchment cards with a purple border and big, dark text, so they stand out from the dark game screen.
+- **Bigger text** option in Settings.
+- **Stories are now short:** about a minute each (794 installments), with a "Keep reading" button and a "Read the next story" button.
