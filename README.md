@@ -21,7 +21,7 @@
 12. [Trophies](#trophies)
 13. [The Cheshire Cat](#the-cheshire-cat)
 14. [Longevity systems (no ads)](#longevity-systems-no-ads)
-15. [The Novel: 14 chapters](#the-novel-14-chapters)
+15. [The Story: twelve books, one per world](#the-story-twelve-books-one-per-world)
 16. [Numbers and notation](#numbers-and-notation)
 17. [Saving, offline earnings and resets](#saving-offline-earnings-and-resets)
 18. [Controls and one-handed play](#controls-and-one-handed-play)
@@ -43,10 +43,10 @@ What makes it different:
 - **Per-world resets** (every world has its own, so resetting one never touches the others), a Sequel layer on top, **Plot Twists** (over 120 risky random scenarios where you choose) and **Crossovers** (cross-world synergy bonuses).
 - **A 52-week event calendar** with a different festival world every week of the year, and rewards that help the whole game.
 - **A narrator who knows he is in a game.** The Cheshire Cat comments on your progress, the news, the characters, and you.
-- **A real story.** Fourteen novel-length chapters (about 27,000 words) unlock as you progress.
+- **A real story.** 99 story installments in twelve books, one per world (about 62,000 words), unlock as you play.
 - **Long-term hooks without ads:** Wishing Well, Daily Gift streak, Daily Quests and Flash Days.
 
-Theme: cyan and magenta on a dark background, tuned for phones.
+Theme: "Gilded Midnight" (and a different look for every world: its own backdrop, pattern, floating particles and shop-panel colours), a deep midnight-indigo base with antique gold, serif titles, and a jewel-toned accent colour for each world, tuned for phones.
 
 ## Play it / host it
 
@@ -77,22 +77,22 @@ Goal: open every shop, grow your empire, collect Glass Slippers and Golden Quill
 
 ## The eleven worlds
 
-Worlds are meant to take a long time to open. Each world asks for three things in the **previous** world: a big pile of its cash (which is spent), a number of its reset points, and a number of completed resets there.
+Worlds are meant to take a long time to open, but **there is no reset-count requirement any more.** Each world asks for just two things in the **previous** world: a pile of its cash (which is spent), and a number of its reset points (which you keep). The reset points are the real gate, and they grow slowly, so each new world arrives a few days after the last, and the gap between worlds does not shrink as you go.
 
-| # | World | Currency | Shops | Reset point | Needs from the previous world |
-|---|-------|----------|-------|-------------|-------------------------------|
-| 1 | **Storybook Forest** | Gold Coins | 50 | Glass Slipper | Start |
-| 2 | **Wonderland** | Teacups | 50 | Unbirthday Candle | 1T Gold Coins, 5 Slippers, 3 resets |
-| 3 | **Arabian Bazaar** | Dinars | 50 | Genie Lamp | 1Qa Teacups, 25 Candles, 6 resets |
-| 4 | **Camelot & Sherwood** | Crowns | 30 | Holy Grail | 10Qi Dinars, 100 Lamps, 10 resets |
-| 5 | **Olympus Mall** | Drachmas | 30 | Golden Laurel | 1Sp Crowns, 400 Grails, 14 resets |
-| 6 | **Frostbite Kingdom** | Snowflakes | 30 | Snow Globe | 1e30 Drachmas, 1,500 Laurels, 18 resets |
-| 7 | **Neverland** | Pixie Dust | 30 | Pixie Wing | 1e37 Snowflakes, 6,000 Globes, 22 resets |
-| 8 | **Land of Oz** | Emeralds | 30 | Emerald Key | 1e45 Pixie Dust, 25,000 Wings, 26 resets |
-| 9 | **Mermaid Lagoon** | Pearls | 30 | Sea Shell | 1e54 Emeralds, 100,000 Keys, 30 resets |
-| 10 | **Sugarplum Sweetland** | Sugar Cubes | 30 | Sugar Plum | 1e64 Pearls, 400,000 Shells, 34 resets |
-| 11 | **Dragonspine Peaks** | Embers | 30 | Dragon Scale | 1e75 Sugar Cubes, 1.5M Plums, 38 resets |
-| 12 | **The Weekly Event World** | Event Tickets | 8 | Festival Favor | Always open, changes every week |
+| # | World | Currency | Reset point | What it takes to open it (from the previous world) |
+|---|-------|----------|-------------|-----------------------------------------------------|
+| 1 | **Storybook Forest** | Gold Coins | Glass Slippers | Start |
+| 2 | **Wonderland** | Teacups | Unbirthday Candles | Spend 8.1e7 Gold Coins, and own 3 Glass Slippers |
+| 3 | **Arabian Bazaar** | Dinars | Genie Lamps | Spend 3.2e8 Teacups, and own 6 Unbirthday Candles |
+| 4 | **Camelot & Sherwood** | Crowns | Holy Grails | Spend 9e8 Dinars, and own 10 Genie Lamps |
+| 5 | **Olympus Mall** | Drachmas | Golden Laurels | Spend 2.3e11 Crowns, and own 16 Holy Grails |
+| 6 | **Frostbite Kingdom** | Snowflakes | Snow Globes | Spend 1.8e14 Drachmas, and own 45 Golden Laurels |
+| 7 | **Neverland** | Pixie Dust | Pixie Wings | Spend 2e17 Snowflakes, and own 150 Snow Globes |
+| 8 | **Land of Oz** | Emeralds | Emerald Keys | Spend 2.2e20 Pixie Dust, and own 500 Pixie Wings |
+| 9 | **Mermaid Lagoon** | Pearls | Sea Shells | Spend 2.3e23 Emeralds, and own 1,600 Emerald Keys |
+| 10 | **Sugarplum Sweetland** | Sugar Cubes | Sugar Plums | Spend 2.2e26 Pearls, and own 5,000 Sea Shells |
+| 11 | **Dragonspine Peaks** | Embers | Dragon Scales | Spend 2e29 Sugar Cubes, and own 15,000 Sugar Plums |
+| 12 | **The Weekly Event World** | Event Tickets | Festival Favor | Always open, changes every week |
 
 Tap a locked world in the top bar and a window shows exactly what it needs and how close you are.
 
@@ -185,7 +185,7 @@ The current week is chosen from the date, so the calendar rolls on its own.
 
 ## Trophies
 
-**70 trophies** track milestones across every system: shops owned, money earned, worlds opened, world resets, guests met, slippers, quills, twists survived, chapters read, streak days, and more. Each has a funny description and adds a small permanent profit bonus.
+**76 trophies** track milestones across every system: shops owned, money earned, worlds opened, world resets, guests met, slippers, quills, twists survived, chapters read, streak days, and more. Each has a funny description and adds a small permanent profit bonus.
 
 ## The Cheshire Cat
 
@@ -214,6 +214,18 @@ The game never shows ads and never asks you to watch one. Instead, it has four f
 - Your streak adds **+2% profit per day**, up to **20 days** (+40%).
 - **One missed day is forgiven.**
 
+### 🎴 Charm Album and Story Packs
+
+A second reason to come back, besides wishes. You start with no packs. A **story pack** arrives every **8 hours** (you can hold 3), and every third day of a Daily Gift streak adds one more. Each pack holds one **charm** from a world you have already opened. There are **66 charms**: six per world (four common, one rare at about 14%, one legendary at about 3%), all with silly names like *Sword Not Quite in the Stone* and *A Shadow That Stayed*.
+
+- Every charm adds permanent profit to its world, and duplicates **level it up** (to level 5).
+- A **full set of six** gives that world another ×1.25. A **full album** gives ×1.3 in every world.
+- Every 12th pack is at least Rare, and a 7-day streak adds a pack that is guaranteed Rare or better.
+- A maxed charm turns into 30 minutes of ×1.5 profit instead of being wasted.
+- In my simulation, finishing a single world's six charms takes about 32 packs even when it is the only world open, and the packs spread across every world you have opened, so the whole album is a months-long collection.
+
+Charms survive every reset, ending and sequel.
+
 ### 📋 Daily Quests
 - Three new quests every day (for example, "Tap shops to work 50 times", "Make 3 wishes at the well", "Buy 6 upgrades").
 - Rewards: a free wish, 15 minutes of instant income, or a 30-minute boost.
@@ -224,32 +236,41 @@ The game never shows ads and never asks you to watch one. Instead, it has four f
 
 These stack with the other multipliers, so check back often. If you ever find the game too fast, these constants in the source are the first to lower.
 
-## The Novel: 14 chapters
+## The Story: twelve books, one per world
 
-*The Last Page of Happily Ever After, Inc.* is a full-length story hidden in the **Storybook → Story** tab. The Cheshire Cat narrates in the first person, talking directly to you, the Founder, and to the reader holding the phone. Each chapter is roughly 1,500 to 2,400 words, with humor, heart and constant fourth-wall breaks.
+*Happily Ever After, Inc.* is a full-length story hidden in the **Storybook → Story** tab: **99 installments, about 62,000 words**, narrated in the first person by the Cheshire Cat. **Every world has its own book**, and a book opens when you open its world:
 
-The plot: your great-aunt Hester vanished and left you her company. A tall, pale Editor, **Dame Vellum Strike**, is about to run the **Press**, a machine that will print the *Last Page* and permanently finish every story in the Ever After, forever, with a tidy happy ending. The only things that can stop her are Glass Slippers, Golden Quills, a lot of unfinished business, and the Cheshire Cat's own guilty secret.
+| Book | World | Title |
+|------|-------|-------|
+| One | Storybook Forest | The Inheritance (the original opening chapters) |
+| Two | Wonderland | Down the Rabbit Hole, Slightly Late (the Hatter, the Hare and a Queen with paperwork) |
+| Three | Arabian Bazaar | One Thousand and One Nights of Cash Flow (a genie with terms, a Vizier with a spreadsheet) |
+| Four | Camelot & Sherwood | The Table That Was Round (an open mic, a cheap cup) |
+| Five | Olympus Mall | The Mall at the Top of the Mountain (Hermes, the Muses, a very long lease) |
+| Six | Frostbite Kingdom | The Girl Who Wrote Herself Out (the finale of the first story, *The Last Page*) |
+| Seven | Neverland | The Second Star on the Right (the Margin opens) |
+| Eight | Land of Oz | The Road That Goes in a Circle |
+| Nine | Mermaid Lagoon | Under the Sea (Terms Apply) |
+| Ten | Sugarplum Sweetland | The Kingdom That Never Stopped Eating |
+| Eleven | Dragonspine Peaks | The Mountain Made of Spines (with the epilogue) |
+| Twelve | The Weekly Event World | Fifty-Two Weeks of Trouble (a calendar, a mascot, a pumpkin) |
+| Appendix | (your play style) | The Cat's Appendix: short interludes unlocked by wishes, streaks, guests, twists, quills and trophies |
 
-Chapters unlock by playing:
+Each book is split into installments that unlock as you play (a milestone in that world, then more by keeping busy). The Story tab shows each book as a shelf with a progress bar, hides installments you have already read (with a button to show them), and tells you what unlocks the next one. A "New story" pill appears when something is ready. Old saves are converted automatically, so everything you had read stays read.
 
-| # | Title | Unlocks when you... |
-|---|-------|---------------------|
-| 1 | Inheritance | Start the game |
-| 2 | Three Little Pigs, One Large Lawsuit | Open 3 different shops |
-| 3 | The Gingerbread Audit | Earn 1 million total |
-| 4 | Down the Rabbit Hole, Slightly Late | Unlock Wonderland |
-| 5 | The Ending Business | Live Happily Ever After once |
-| 6 | One Thousand and One Nights of Cash Flow | Unlock the Arabian Bazaar |
-| 7 | The Press | Own 25 Glass Slippers |
-| 8 | Fifty-Two Weeks of Trouble | Earn 3 event stamps |
-| 9 | The Table That Was Round and the Forest That Was Not | Unlock Camelot & Sherwood |
-| 10 | Five Hundred Shoes | Own 500 Glass Slippers |
-| 11 | The Mall at the Top of the Mountain | Unlock Olympus Mall |
-| 12 | The Girl Who Wrote Herself Out | Unlock Frostbite Kingdom |
-| 13 | The Sequel Clause | Write your first Sequel |
-| 14 | The Last Page of Happily Ever After, Inc. | Open Frostbite Kingdom and earn 10 Golden Quills |
+## Why the numbers slow down (the math)
 
-A "New chapter" pill appears when one is ready, and the Cat announces it. The reader supports scrolling, italics, and remembers which chapters you have read.
+Idle games feel fast when two things grow together: **cost grows exponentially** (each shop costs about 7% more than the last), while **income grows only linearly** with how many you own. That alone is a nice, slow curve. The trouble starts when every upgrade and milestone *multiplies* income too. Ten multipliers of 4x make 1,000,000x, and cost cannot keep up, so you fly through the numbers.
+
+This version adds three brakes, all visible in the source:
+
+1. **Bounded multiplier ladders.** Shop upgrades, global upgrades and milestones now use small steps (1.5x up to 12x for shop upgrades) instead of huge ones.
+2. **Diminishing returns.** Your permanent multipliers are added up as normal until they reach 25x. Beyond that, only a fraction counts: roughly `25 × (M / 25)^0.55`. A 10,000x stack acts like about 700x. The constants are `DAMP_M0` and `DAMP_B`.
+3. **Saturation (per run).** The more you earn in one run of a world, the less each coin of profit is worth, with the effect `(lifetime / 1000)^-0.18` once you pass the reference. Resetting a world clears it, so resets still feel fast and rewarding. The constants are `SAT_REF` and `SAT_G`.
+
+On top of that, base income is 20% lower (`REVF = 0.20`) and reset points are a square-root of lifetime earnings, so each extra point costs more than the last. In my simulations, even a perfectly efficient player takes roughly nine minutes to reach 1 thousand lifetime earnings, a couple of hours to reach a million, and days to reach a billion, with every further jump taking longer than the one before.
+
+Sources for the approach: the Game Developer series on the math of idle games (cost curves with exponential growth, linear income, prestige by roots).
 
 ## Numbers and notation
 
@@ -263,7 +284,7 @@ Cash on screen **rolls with three decimal places** (for example `8.357 million`)
 
 ## Saving, offline earnings and resets
 
-- **Autosave** to `localStorage` under the key `haec2` (save version 7).
+- **Autosave** to `localStorage` under the key `haec2` (save version 8).
 - **Offline earnings:** shops with managers keep earning while you are away; Night Shift Elves raises it.
 - **What survives a world reset:** everything in the other worlds. Only the world you reset restarts.
 - **What survives a Sequel:** slippers are traded for quills; quills, perks, trophies, guests, story progress, wishes, streak, quests and stats are kept.
@@ -294,7 +315,8 @@ All numbers live in the source and are easy to adjust:
 - Per-realm feel: the `ECO_P` parameters (`s` scale, `ro` rate, `tm` time, `ce` cost exponent, `mg` milestone gain, `cs`, `rs`).
 - Slipper strength: `SLIP_BONUS` and the `potSlip` formula.
 - Global slowdown: `REVF` (all worlds) and `EVF` (events).
-- World gating: `UNLOCK_COST`, `UNLOCK_PT` and `UNLOCK_RS`, plus the `PT_REF0` table for how fast each world earns reset points.
+- World gating: `UNLOCK_COST` and `UNLOCK_PT` (there is no reset-count gate), plus the `PT_REF0` table for how fast each world earns reset points.
+- Dampening: `DAMP_M0`, `DAMP_B`, `SAT_REF`, `SAT_G`, and the `UP_MULT` and `GUP_MULT` ladders.
 - Optional boosts: `WISH_MAX`, `WISH_REGEN`, the wish multiplier, streak percentage, and the `flash()` function.
 - Event difficulty: the `EVTH` bronze, silver and gold thresholds.
 
