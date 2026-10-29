@@ -382,3 +382,7 @@ Each world already had its own prices, speeds and payouts. Now each also has its
 | Dragonspine | Brutal | Rare giant hoards |
 
 In a 3-hour test with the same bot, lifetime earnings (relative to each world's own scale) ranged from about 0.35× the Forest in the Brutal worlds to about 3× in the Easy ones. Existing saves keep their progress; the new numbers apply immediately.
+
+## Version 14 notes: striped "maxed" progress bars
+
+When a managed shop finishes a cycle in under 1 second (its speed has doubled enough), the progress bar stops racing back and forth. It fills to 100% and shows a diagonal striped pattern sliding across it, like a boosted bar at full power, and the label switches to income per second. This removes the jitter on phones. Earnings are unchanged. Respects the reduced-motion setting.
