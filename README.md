@@ -386,3 +386,23 @@ In a 3-hour test with the same bot, lifetime earnings (relative to each world's 
 ## Version 14 notes: striped "maxed" progress bars
 
 When a managed shop finishes a cycle in under 1 second (its speed has doubled enough), the progress bar stops racing back and forth. It fills to 100% and shows a diagonal striped pattern sliding across it, like a boosted bar at full power, and the label switches to income per second. This removes the jitter on phones. Earnings are unchanged. Respects the reduced-motion setting.
+
+---
+
+## Version 15: Part Three, "The Lost & Found"
+
+**Five new worlds (16 in all), each with its own economy, difficulty, reset currency, twists, charms and Cat lines:**
+
+| # | World | Currency | Reset points | Difficulty |
+|---|-------|----------|--------------|------------|
+| 12 | The Toybox Kingdom 🧸 | Wind-Up Keys | Puzzle Pieces ("Put Everything Back in the Box") | Easy |
+| 13 | The Treasure Seas 🗺️ | Doubloons | Map Fragments ("Bury the Treasure") | Normal |
+| 14 | Hollow Eve 🎃 | Treats | Jack-o'-Lanterns ("Blow Out the Candle") | Hard |
+| 15 | The Tall Tale Frontier 🌵 | Silver Dollars | Lucky Horseshoes ("Tell It Bigger") | Gentle |
+| 16 | The Nursery at the End of the Hall 🌙 | Bedtime Stars | Night-Lights ("Say Goodnight") | Hard |
+
+(The weekly Event world moved to slot 17. Old saves are migrated automatically.)
+
+**Story:** 83 new installments in 6 new books. *The Master Tale: The House With Sixteen Doors* is the overall arc, one nostalgia chapter per world plus seven arc chapters. Books Twelve to Sixteen tell each new world's own story. The last arc chapter has a "Pass it on" button that shares the game link.
+
+**Fixes:** background particles (floating emoji) were reading the wrong theme fields and now work in every world. Four new trophies. Crossovers have new top tiers for 13 and 16 worlds.
