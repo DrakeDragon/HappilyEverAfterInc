@@ -1,5 +1,36 @@
 # Changelog
 
+## v23 — Welcome to Your Empire
+
+### Added
+- 538 permanent-manager portraits, hired-team roster, and on-duty shop portrait badges.
+- 52 seasonal festival illustrations for heroes, calendar entries, active festival identity, and seasonal event-shop thumbnails.
+- Illustrated medal styling over the existing bronze/silver/gold goals.
+- Optional, skippable/replayable five-step introduction with no changed prices or new rewards.
+- Expandable next-world cash/reset-point goal card linked to the original requirement dialog.
+- Seventeen local procedural soundscape profiles with explicit per-page audio opt-in and separate ambience/effects volume controls.
+- Autosave reassurance, local file-export-request date, and optional inline weekly backup reminders.
+- Experience artwork manifest, expanded reference gallery, and detailed feature/QA documentation.
+
+### Usability and resource handling
+- Goals start compact; the tour suppresses duplicate legacy hints while active.
+- Audio/settings controls stay mounted during production updates.
+- Passive festival-panel rebuilds are throttled to at most once per second.
+- Audio uses deterministic local synthesis, stops when hidden/muted, and does not consume gameplay RNG.
+- Browser audio errors are isolated from game progress and can be retried via the audio control.
+- New settings use existing cfg/seen save containers; import validation supports the new numeric/boolean preferences. Save state version 8 and export format 1 remain.
+
+### Retained
+- Original manager names, jobs, quotes, hiring costs, and automation behavior.
+- All 52 festival names, event economies, medal thresholds, stamps, Encore rewards, and rollover rules.
+- Existing shops, prices, production speed, world gates, story, rewards, save key, and import/export features.
+
+### Validation and limits
+- 68 isolated checks pass, including prior saves/header/gameplay coverage, 8,070 economy values, all new mappings, event parity, first steps, goals, preference persistence, and mocked audio behavior.
+- New artwork inspected; images, manifests, asset paths, and ZIP checked.
+- No live audio listening, physical-phone UX/performance measurement, or browser layout/file-picker verification completed.
+- Festival businesses share their current festival environment; festival managers retain the generic manager emblem. Audio is procedural, not prerecorded studio tracks.
+
 ## v22 — Animated Storybook Header
 
 ### Rebuilt

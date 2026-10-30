@@ -2,7 +2,7 @@
 
 A funny, mobile-first idle tycoon where fairy-tale businesses become an empire and the Cheshire Cat narrates your adventures.
 
-**v22 · Animated Storybook Header** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
+**v23 · Welcome to Your Empire** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
 
 ## Contents
 
@@ -22,7 +22,41 @@ A funny, mobile-first idle tycoon where fairy-tale businesses become an empire a
 
 ## Release overview
 
-### New in v22: animated storybook header
+### New in v23: Welcome to Your Empire
+
+A cumulative upgrade combining the manager/festival art pass, optional first-player guidance, clearer world goals, local audio ambience, and save reassurance. Existing progression, prices, stories, manager behavior, event economies, and reward thresholds are retained.
+
+**People and festivals**
+
+- **538 individually mapped permanent-manager portraits** across nineteen realm-themed sheets. Hiring cards now show the manager, a hired-team roster remains available after hiring, and automated shops show a small manager portrait badge.
+- **52 unique seasonal festival environments** across three sheets. These appear in the festival hero, calendar, active festival identity, and event-shop thumbnails. The bronze/silver/gold track receives illustrated medal styling; thresholds, Encore rules, stamps, and rewards are unchanged.
+- `assets/experience-manifest.json` maps every new portrait and festival illustration. The optional artwork gallery now includes the new collection.
+
+**A welcoming start and clearer destination**
+
+- A new player can start or skip a five-step Cat-guided introduction. It responds to opening a shop, receiving its first income, exploring Managers and Upgrades, and inspecting the next-world requirements.
+- It is a short orientation, not a timed challenge or a promise to afford every upgrade within five minutes. Viewing the relevant screens completes the educational steps; no extra cash, free managers, changed prices, or artificial rewards are granted.
+- Settings can replay the introduction. The older Helpful tips card is suppressed while the new tour is active to avoid duplicate guidance.
+- A compact, expandable next-chapter card shows the actual cash and reset-point requirements for the first unopened permanent world. Cash and points have separate gauges; the card explains that cash is spent and reset points are kept. Its action opens the original world requirement flow.
+
+**Realm soundscapes**
+
+- Seventeen local procedural soundscape profiles cover the sixteen permanent worlds and the festival. They evoke woods, water, winter glass, toybox bells, frontier air, bedtime hush, and other realm themes using filtered noise, gentle drones, and sparse synthesized motifs.
+- These are procedural ambience, not recorded nature tracks or a composed studio soundtrack. No audio files, streaming service, external requests, or music downloads are required.
+- Open **Goodies → Settings → Your realm, in sound**, then explicitly enable ambience. Ambience requires a fresh tap after loading, even if its preference was saved.
+- Ambience and game effects have separate 0–100% controls. The existing Sound switch is relabeled Game effects to make its scope clear. Defaults are 25% ambience and 70% effects when their respective audio is enabled.
+- Ambience rethemes when the active realm changes, stops when the page is hidden or its volume reaches zero, and uses its own deterministic noise source rather than the game's random generator.
+
+**Save reassurance and usability**
+
+- A small autosave indicator shows the most recent successful local save and reports storage failures. Selecting it opens Save & Backups.
+- A local date records the most recent **file export request**. The browser cannot prove that the player kept the downloaded file, so this is not represented as cloud backup or guaranteed file storage.
+- Optional weekly backup reminders are OFF by default. Enable them in Settings; they are inline game reminders, not operating-system notifications. Dismissal lasts until the next local game day.
+- Expanded goals, audio sliders, and save JSON inputs remain mounted while production updates. Festival panel rebuilding is limited to once per second during passive updates; explicit actions can refresh immediately. The new goal card starts compact to limit phone scrolling. Audio is gesture-gated and stopped when hidden.
+
+**Validation:** 68 isolated checks pass, including all prior save/header/game checks, 8,070 unchanged economy values, all new mappings, 52 unchanged event economies and medal thresholds, first-step/goal behavior, preference round trips, save failure feedback, and mocked Web Audio opt-in/realm-change/hidden-page/mute behavior. Artwork was inspected. **Actual speaker/headphone playback, browser geometry, physical-phone usability, and performance measurements remain unverified.** These implemented responsive/resource refinements are not a completed real-device usability audit.
+
+### Previous release: v22 animated storybook header
 
 The header is rebuilt as a title stage, world atlas, and empire dashboard. The original game systems, artwork collection, save tools, story, and economy remain included.
 
@@ -119,7 +153,7 @@ This is a presentation release. It intentionally retains the original economy fo
 1. Download and extract the release ZIP locally. The ZIP contains the site files directly at its root.
 2. Back up your current repository or create a commit before replacing files. Close other open game tabs so an older tab cannot write over newer progress.
 3. In the folder your existing Pages deployment publishes, replace `index.html` and `README.md` with this release's versions. Add the complete `assets` and `docs` folders, `CHANGELOG.md`, and `.nojekyll`. Keep your repository's existing license and any custom domain `CNAME` file. This package includes the original LICENSE when present in the supplied project.
-4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, `cat-expressions.webp`, `title-panorama.webp`, `title-book-sprite.webp`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
+4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, `cat-expressions.webp`, `title-panorama.webp`, `title-book-sprite.webp`, all `managers-*.webp` and `festivals-*.webp`, `experience-manifest.json`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
 5. Commit the files. Continue using your existing Pages deployment configuration. If you publish from a `/docs` folder, place **all site files** in that publishing folder; this package's `docs/` directory contains documentation, not the deployment root.
 6. Wait for your repository's Pages deployment to complete. Open your existing game URL and refresh. If the old appearance remains, use a hard refresh or close and reopen the tab.
 7. Confirm that the animated title, Cat expressions, bottom navigation icons, world tiles, and current-world signet show illustrations. The old separate realm banner is hidden by design. Open Goodies → Save & Backups and download a backup file before importing anything. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
@@ -151,6 +185,9 @@ assets/cheshire-cat.png          Original transparent narrator portrait
 assets/cat-expressions.webp      Four-expression Cat atlas
 assets/title-panorama.webp       Cinematic title backdrop
 assets/title-book-sprite.webp    Eight-frame title book/crown sprite
+assets/managers-*.webp           19 permanent-manager portrait sheets
+assets/festivals-*.webp          3 seasonal environment sheets
+assets/experience-manifest.json  Manager/festival names, cells, and image dimensions
 assets/shops-*.webp               19 permanent-shop art sheets
 assets/guests-*.webp              4 guest portrait sheets
 assets/charms-*.webp              6 collectible charm sheets
@@ -165,6 +202,8 @@ docs/ARTWORK-v20.md              v20 inventory, mapping, and prompts
 docs/ARTWORK-v21.md              Cat expressions, mapping, and production prompt
 docs/ARTWORK-v22.md              Animated title assets, frame mapping, and prompts
 docs/HEADER-v22.md               Header layout, decimal behavior, and verification
+docs/ARTWORK-v23.md              Manager/festival artwork inventory and prompts
+docs/EXPERIENCE-v23.md           Onboarding, goals, audio, save feedback, and QA guide
 docs/SAVE-GUIDE.md               Export/import, backup restoration, and compatibility
 docs/VALIDATION-v21.md           Verification scope and remaining manual checks
 .nojekyll                       Static-site publishing marker
@@ -279,19 +318,19 @@ Artwork was created using built-in image generation, then bundled locally. Art d
 
 ## Validation and limitations
 
-48 isolated checks pass. The prior save validation, round-trip, backup restoration, storage-failure, action-parity, reduced-motion, simulated boot, and confirmed-import refresh checks continue to pass. All 8,070 sampled price/cycle/profit values remain equal to the earlier game. New checks cover eight-decimal formatting, rounded suffix boundaries, scientific notation, seventeen original world destinations, retained treasury statistics, and display interpolation without modifying money.
+68 isolated checks pass. These retain save round trips, backup/write-failure behavior, action parity, eight-decimal formatting, header destinations, and simulated startup/import. The new checks cover 538 manager mappings, 52 festival mappings, unchanged event data and economies, next-world gate accuracy, first-step/skip behavior with no extra rewards, hired-roster content, new preference export/import, audio volume validation, save failure detection, export timestamps, distinct soundscape profiles, stable settings inputs, and mocked audio opt-in/realm changes/visibility/mute.
 
-Both new header assets were visually inspected. Production images, original game action functions, relative asset references, save compatibility, and ZIP integrity are checked. Generated PNG masters are retained locally; delivery assets use high-quality WebP.
+All 8,070 sampled price/cycle/profit values remain equal to the original game. Production images, local references, manifest mappings, original game-action definitions, and ZIP integrity are checked. New image sheets were visually inspected and delivered as quality-94 WebP without resolution changes. Generated PNG masters stay local and are omitted from the production ZIP where a WebP version exists.
 
-These are source/isolated DOM tests, not live browser or physical-phone verification. The final rendered header, sprite timing, narrow-screen text fit, scrolling, and reduced-motion behavior still need review on the published site. See [docs/HEADER-v22.md](docs/HEADER-v22.md) for the manual checks. The previous save file-picker/download verification limit also remains.
+This is not a live browser, real-audio listening, physical-phone, accessibility, or measured performance audit. Browser file picking/downloading and actual audio/animation/layout behavior still need device testing. Follow the manual checklist in [docs/EXPERIENCE-v23.md](docs/EXPERIENCE-v23.md). Audio checks use a simulated Web Audio API and do not establish audible quality or browser autoplay behavior.
 
-The animated title uses an eight-frame painted sprite with separate CSS motion layers. It is not full 3D animation or video. The money display uses actual game values and settles without earnings; eight fractional digits cannot exceed JavaScript's underlying numerical precision. No economy, progression, unlock, or reward changes are introduced.
+Permanent managers receive individual portraits; festival staff retain the generic illustrated manager emblem. Each festival has one environment image reused for its eight event businesses, not 416 individually painted event-shop scenes. Ambience is synthesized locally, not recorded music or nature audio. The first-steps tour is optional and untimed; progression remains as paced by the original economy. No new currency or gameplay reward is introduced.
 
 ## Development and future releases
 
 For every major update, distribute a complete, versioned ZIP with an updated README and CHANGELOG. Document new features, changed files, installation steps, save compatibility, validation, limitations, and rollback. Keep game files and required assets together so each release can be deployed independently.
 
-Possible next art passes: individual manager portraits, richer character animation, themed event shop art, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
+Possible next art passes: richer character animation, individual event shop/staff art, recorded music or ambience, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
 
 The original v16 README is preserved in [docs/README-v16-original.md](docs/README-v16-original.md). Its older counts, unlock tables, single-file instructions, and validation statements describe historical versions and should not override this current guide or the game itself.
 
