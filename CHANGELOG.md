@@ -1,5 +1,41 @@
 # Changelog
 
+## v20 — Illustrated World Collection
+
+### Artwork
+- 538 individually mapped permanent-shop illustrations across 19 realm-specific sheets.
+- 80 guest portraits across 4 sheets, used for passing guests and discovered Guest Book entries.
+- 96 charm illustrations across 6 sheets, used in the album and pack reveals.
+- One twenty-cell currency sheet for realm currency and secondary resources.
+- Managers and shop upgrades display the associated business art.
+- Large secondary feature symbols now reuse existing illustrated UI art.
+- Optional art-gallery.html and a complete assets/art-manifest.json mapping.
+
+### UI and UX
+- Fixed duplicate treasury currency: removed the old emoji prefix and replaced the generic decoration with realm-specific currency art.
+- Replaced currency emoji in shop prices and progress labels with illustrated symbols.
+- Phone shop layout separates identity, progress, and purchase rows; manager/upgrade buttons use a separate row.
+- Tighter phone treasury and scene layout; two-column desktop shops.
+- Passing guest buttons have accessible names and a stationary, expiring reduced-motion variant.
+- Mystery shops and unowned charms retain their concealed presentation.
+
+### Game compatibility
+- Existing game data and save key retained.
+- Prices, cycle times, and profits match v19 for all 538 shops at five ownership levels (8,070 checked values).
+- Shop, guest, charm, and prestige data unchanged, including guest reward definitions.
+- Presentation adapters replace image markup; gameplay actions, progression, story content, and economy formulas are retained.
+- No player-save reset or new migration introduced.
+
+### Validation
+- Syntax, atlas mappings, concealed/revealed states, legacy coin removal, local asset references, images, and ZIP integrity checked.
+- Original game-action functions compared for unintended edits.
+- Generated atlases inspected for grid layout and subject coverage.
+- Live browser and physical-phone visual testing remain outstanding; no complete end-to-end gameplay audit claimed.
+
+### Remaining scope
+- Unique manager portraits, event-specific shop art, Cat/guest character animations, sound design, and remaining decorative/text emoji.
+- Event businesses use a shared illustrated festival icon; managers/upgrades use their associated shop's illustration.
+
 ## v19 — Illustrated Identity Edition
 
 ### Added

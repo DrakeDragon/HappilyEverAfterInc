@@ -368,6 +368,20 @@ nav{padding:4px 8px calc(4px + env(safe-area-inset-bottom));border-radius:20px 2
 @media(max-width:480px){header{padding:9px 12px 12px}.brand{gap:10px;padding:0 0 12px}.crest.crest-illustrated{width:100px;height:76px;flex-basis:100px}h1 .t1{font-size:clamp(16px,4.4vw,21px);letter-spacing:.025em;white-space:normal;max-width:240px}.bt .tagline{font-size:7px;letter-spacing:.16em;line-height:1.5}.bt{align-items:flex-start}h1 .t2{font-size:12px;margin-top:5px}.cashrow{padding:10px 11px}.cash{font-size:28px;padding-left:37px}.cash:before{width:44px;height:44px;left:-8px}.cash small{font-size:8px}.right{font-size:10px}.realm{flex-basis:82px!important;font-size:10px;min-height:76px}.realm-scene .scene-copy{left:18px;bottom:18px}.scene-copy h2{font-size:27px}.scene-copy p{font-size:11px}.scene-copy small{font-size:8px;letter-spacing:1.5px}#cat{gap:9px;padding:10px 13px 10px 9px;min-height:92px;margin-bottom:10px}.cat-portrait.face{width:65px!important;height:65px!important;flex-basis:65px!important}.cat-portrait img{width:73px;height:73px}#cat .say{font-size:13px;line-height:1.5;padding-top:18px}#cat .say:before{font-size:8px;letter-spacing:1.5px;top:11px}.section-art{width:49px;height:49px}.section-identity{gap:8px}.screen-heading{margin-top:8px}.screen-heading h2{font-size:24px}.screen-heading p{font-size:11px}.edition-mark{display:none}.hubcard{padding:16px 13px;gap:10px}.hubcard .hi{width:61px;height:65px;flex-basis:61px}.hub-art{width:69px;height:69px}.hubcard b{font-size:19px}.hubcard span.hd{font-size:12px}.mcard{padding:22px 18px!important}.mcard:before{width:58px;height:58px}nav{gap:2px;padding-left:5px;padding-right:5px}nav .nav-art{width:39px;height:39px}nav .nav-label{font-size:9px}.quick{padding-left:9px;padding-right:9px;gap:7px}.quick button{font-size:12px}.quick button.side{flex-basis:19%}.quick button small{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.crest.crest-illustrated{animation:none}.hubcard:hover .ui-art{transform:none}}
 
+
+/* v20: content illustration and mobile readability */
+.game-art{display:inline-block;width:72px;height:72px;background-repeat:no-repeat;border-radius:13px;vertical-align:middle;flex:0 0 auto;box-shadow:inset 0 0 0 1px #eadbb43a,0 4px 10px #0003;pointer-events:none;contain:paint}
+.shop-illustration.ic{width:82px;height:82px;padding:0!important;overflow:visible;border-radius:16px;background:#152738!important;box-shadow:0 4px 14px #0004;border:1px solid #eed8ab4d;flex:0 0 82px}.shop-illustration .game-art{display:block;width:80px;height:80px;border-radius:15px}.shop-illustration>span[id^=em]{display:block;width:80px;height:80px}.shop-illustration .cnt{z-index:1;bottom:-5px!important;right:-5px!important;min-width:27px;padding:3px 6px!important;font-size:11px!important;border:2px solid #142539}
+.biz{grid-template-columns:82px minmax(0,1fr);gap:15px;padding:16px;align-items:start}.biz .nm{font-size:17px;line-height:1.3;min-height:24px;color:#fff2d5}.biz .bar{height:23px;margin:9px 0}.biz .bar span{font-size:11px;font-weight:600;text-shadow:0 1px 3px #000}.biz .brow{gap:9px;align-items:center}.biz .buy{min-height:46px;font-size:14px;padding:8px 12px}.biz .buy small{font-size:11px;line-height:1.4}.biz .meta{font-size:10px!important;min-width:80px;line-height:1.5}.item .tx{overflow-wrap:anywhere}.item:has(.shop-illustration){align-items:center;gap:15px}.item:has(.shop-illustration) .tx b{font-size:16px}.item:has(.shop-illustration) .tx em{font-size:12px}.item button{flex-shrink:0}.guest-portrait.ic{padding:0;background:none!important;width:72px;flex:0 0 72px}.guest-portrait .game-art{border-radius:50%;border:2px solid #e8d0a4;box-shadow:0 4px 12px #0004}.guest{font-size:0;padding:0;width:80px;height:80px;border-radius:50%;border:2px solid #f2d99c;background:#17283b;box-shadow:0 6px 24px #0006,0 0 15px #d7b2ff66;filter:none;animation-name:gcross;touch-action:manipulation}.guest .game-art{width:76px;height:76px;border-radius:50%;box-shadow:none}.guest:focus-visible{outline:3px solid #fff4d0;outline-offset:4px}.guest:after{content:'+';position:absolute;bottom:-2px;right:-2px;background:#f0d699;color:#253647;font-size:18px;line-height:24px;width:24px;height:24px;border-radius:50%;font-weight:700;border:2px solid #182b3e}.chem .game-art{width:72px;height:72px;border-radius:12px;margin-bottom:8px}.chbig .game-art{width:120px;height:120px;border-radius:20px}.chreveal{width:138px;height:138px}.chtile{padding:12px 6px}.chtile .chem{font-size:0;filter:none}.chtile small{font-size:11px;line-height:1.35;min-height:38px}.chtile .chlv{font-size:9px}.chtile.empty .chem{font-size:32px;min-height:72px;display:grid;place-items:center}.feature-art.ui-art,.feature-art.game-art{width:90px;height:90px}.prestige-emblem .feature-art{width:66px;height:66px}.pres .big{margin-bottom:8px}.cash:before{background-image:url('assets/currencies.webp');background-size:400% 500%;background-position:var(--cash-art-x,0%) var(--cash-art-y,0%);border-radius:50%;box-shadow:0 2px 6px #0003;width:38px;height:38px;top:3px;left:0;filter:none}.cash{padding-left:51px;font-variant-numeric:tabular-nums;font-size:30px;line-height:1.2;min-width:0;overflow-wrap:anywhere}.cash small{margin-top:7px;line-height:1.3}.cashrow{gap:14px}.cashrow .right{flex-shrink:0;font-size:11px;line-height:1.5}#main .item button{max-width:140px}#cat{cursor:pointer}#cat:focus-visible{outline:3px solid #f6dfa8;outline-offset:3px}.mystery-mark{display:grid;place-items:center;width:80px;height:80px;background:radial-gradient(circle,#40556b,#172638);font:36px Georgia,serif;color:#e2d4af;border-radius:15px}.item button:disabled,.buy:disabled{opacity:.85}.realms{overscroll-behavior-x:contain;scroll-padding:8px}
+@media(min-width:900px){#main:has(>.biz){display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;row-gap:0}#main>.coach,#main>.diffb,#main>.evb{grid-column:1/-1}#main .biz{padding:15px;gap:12px}.biz .nm{font-size:16px}.biz .meta{min-width:66px;font-size:9px!important}}
+@media(max-width:600px){.item:has(.shop-illustration){display:grid;grid-template-columns:68px minmax(0,1fr);gap:10px 13px;padding:14px}.item:has(.shop-illustration) .shop-illustration{grid-row:1/3;width:68px;height:68px;flex-basis:68px}.item:has(.shop-illustration) .shop-illustration .game-art{width:66px;height:66px;border-radius:13px}.item:has(.shop-illustration) button{grid-column:2;width:100%;max-width:none!important;text-align:center;min-height:44px}.item:has(.shop-illustration) .tx b{font-size:15px;line-height:1.3}.item:has(.shop-illustration) .tx em{font-size:11px;line-height:1.45}.biz{display:grid!important;grid-template-columns:76px minmax(0,1fr);gap:12px;padding:14px!important}.biz .shop-illustration{width:76px;height:76px}.biz .shop-illustration .game-art,.biz .shop-illustration>span[id^=em]{width:74px;height:74px}.biz>div:last-child{display:contents}.biz .nm{grid-column:2;font-size:16px;min-height:unset;align-self:center;padding-right:2px}.biz .shop-illustration{grid-row:1/2}.biz .bar{grid-column:1/-1;margin:1px 0;height:25px}.biz .brow{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(75px,34%);gap:10px;margin-top:1px}.biz .buy{min-height:47px;padding:8px 12px}.biz .meta{font-size:10px!important;min-width:0}.biz .bar span{font-size:11px}.cashrow{align-items:center;padding:13px 12px}.cash{font-size:27px;padding-left:45px;flex:1}.cash:before{width:34px;height:34px;left:0;top:1px}.cash small{font-size:8px;letter-spacing:.9px}.cashrow .right{font-size:10px;max-width:42%}.realm-scene{height:190px!important;margin-top:12px;margin-bottom:12px}.scene-copy h2{font-size:25px}.scene-copy p{max-width:310px}.screen-heading{padding-bottom:12px}.screen-heading h2{font-size:24px}.edition-mark{display:none}.chgrid{gap:7px}.chem .game-art{width:64px;height:64px}.chtile small{font-size:10px}.guest{width:72px;height:72px}.guest .game-art{width:68px;height:68px}.guest-portrait.ic{width:62px;flex-basis:62px}.guest-portrait .game-art{width:62px;height:62px}}
+@media(max-width:350px){.cashrow{gap:7px;padding:11px 8px}.cash{font-size:23px;padding-left:37px}.cash:before{width:29px;height:29px}.cashrow .right{font-size:9px}.biz .nm{font-size:15px}.chem .game-art{width:54px;height:54px}.hubcard b{font-size:17px}}
+@media(prefers-reduced-motion:reduce){.guest{animation:none!important;left:auto;right:14px}}
+
+
+.inline-currency.game-art{width:17px;height:17px;vertical-align:-4px;border-radius:50%;box-shadow:none;margin-right:2px}.bar span:before{content:'';display:inline-block;width:15px;height:15px;margin-right:5px;border-radius:50%;background-image:url('assets/currencies.webp');background-size:400% 500%;background-position:var(--cash-art-x,0%) var(--cash-art-y,0%)}
+
+.shop-illustration .ui-art{width:76px;height:76px}
 </style>
 </head>
 <body>
@@ -10446,7 +10460,7 @@ function evTabHTML(){
   const idx=evIdx(),ev=EVENTS[idx],R=S.realms[EV_RT],g=gainPt(EV_RT);
   const perks=EV_PERK.map((p,k)=>`<div style="margin:3px 0">${EVC.stamps>=EV_PERK_AT[k]?'✅':'🔒'} <b>${EV_PERK_AT[k]} stamps:</b> ${p}</div>`).join('');
   const cal=EVENTS.map((e,k)=>`<div class="evcell ${k===idx?'now':''}"><span>${e[1]}</span><small>${k+1}. ${e[0]}</small><span>${stampStr(S.evDone[k]||0)}</span></div>`).join('');
-  return `<div class="pres" style="margin-bottom:10px"><div class="big">${ev[1]}</div><h2>${ev[0]}</h2>
+  return `<div class="pres" style="margin-bottom:10px"><div class="big">${uiArt('ev','feature-art')}</div><h2>${ev[0]}</h2>
     <p>${ev[3]}</p>
     <p>Week ${idx+1} of 52 · ends in <b>${dur(evLeft()/1000)}</b>${S.evShift?` <span style="color:#c9b8ff">(test: ${S.evShift>0?'+':''}${S.evShift} wk)</span>`:''}</p>
     ${evGoalsHTML()}
@@ -10475,12 +10489,12 @@ function presHTML(){
   order.forEach(r=>{
     if(!S.realms[r].unlocked)return;
     const P=PT[r],RD=REALMS[r],g=gainPt(r),own=ptOf(r),who=r===0?'every world':RD.short;
-    cards+=`<div class="pres" style="margin-bottom:12px;border-color:${RD.color}"><div style="display:flex;align-items:center;gap:12px;text-align:left"><div style="font-size:38px">${P.e}</div><div><b style="color:${RD.color}">${RD.icon} ${RD.name}</b><br><span style="font-size:13px">${P.act}</span></div></div>
+    cards+=`<div class="pres" style="margin-bottom:12px;border-color:${RD.color}"><div style="display:flex;align-items:center;gap:12px;text-align:left"><div class="prestige-emblem">${uiArt('pres','feature-art')}</div><div><b style="color:${RD.color}">${RD.icon} ${RD.name}</b><br><span style="font-size:13px">${P.act}</span></div></div>
     <p style="margin:8px 0">${P.pl}: <b>${fmt(own)}</b> (+${fmt(own*P.bonus*100)}% profit in ${who})<br>Reset now for: <b>+${fmt(g)}</b> ${P.e} · Times reset: ${r===0?S.resets:(S.realms[r].rs||0)}<br><span style="font-size:11px;color:var(--mut)">Resets only ${RD.short}. Your other worlds keep everything.</span></p>
     <button class="btn" ${g<1?'disabled':''} onclick="doReset(${r})">${g<1?'Earn more first...':P.act+' (+'+fmt(g)+' '+P.e+')'}</button></div>`;
   });
   return `<div style="margin:0 2px 8px;font-weight:800;color:var(--gold)">🌍 World Resets <span style="font-weight:500;color:var(--mut);font-size:12px">· world mastery ×${fmt(masteryMult())}</span></div>${cards}
-    <div class="pres" style="margin-bottom:12px"><div class="big">🪶</div><h2>Turn the Page</h2>
+    <div class="pres" style="margin-bottom:12px"><div class="big">${currencyArt(17,'feature-art')}</div><h2>Turn the Page</h2>
     <p>Write a <b>Sequel</b>: <b>every</b> world restarts (including all world points and Glass Slippers) in exchange for <b>Golden Quills</b>. Each quill is <b>+25%</b> profit forever, and quills buy permanent perks.</p>
     <p>Quills: <b>${fmt(S.quills)}</b> unspent · ${fmt(S.quillTotal)} earned (×${fmt(quillMult())})<br>Quills you'd earn now: <b>${fmt(q)}</b><br>Sequels written: ${S.sequels}</p>
     <button class="btn" ${q<1?'disabled':''} onclick="doSequel()">${S.slip<1000?'Needs 1,000 👠 Glass Slippers':'Turn the Page (+'+fmt(q)+' 🪶)'}</button></div>
@@ -11086,8 +11100,9 @@ function spawnGuest(){
   const unmet=GUESTS.filter(g=>!S.guests[g.id]);
   const pool=(unmet.length&&Math.random()<0.5)?unmet:GUESTS;
   const g=pool[Math.floor(Math.random()*pool.length)];
-  const el=document.createElement('button');el.className='guest';el.textContent=g.e;el.style.top=(22+Math.random()*45)+'vh';
+  const el=document.createElement('button');el.className='guest';el.innerHTML=guestArt(g.id);el.setAttribute('aria-label','Meet '+g.n);el.style.top=(22+Math.random()*45)+'vh';
   el.onclick=()=>catchGuest(g);
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)setTimeout(()=>{if(guestEl===el){el.remove();guestEl=null;cat('guestmiss',1,0);}},11000);
   el.addEventListener('animationend',()=>{if(guestEl===el){el.remove();guestEl=null;cat('guestmiss',1,0);}});
   document.body.appendChild(el);guestEl=el;cat('guest',1,0);sfx('guest');
 }
@@ -11252,6 +11267,36 @@ function uiArt(key,extra=''){
  return `<span class="ui-art ${extra}" aria-hidden="true" style="--ui-x:${(i%4)*100/3}%;--ui-y:${Math.floor(i/4)*100/3}%"></span>`;
 }
 
+
+// v20: presentation-only atlas adapters; IDs and original game data remain unchanged.
+const ATLAS_RATIOS={"shops-0-0.webp":1.0,"shops-0-1.webp":1.49946524,"shops-1-0.webp":1.49946524,"shops-1-1.webp":1.0,"shops-2-0.webp":1.49946524,"shops-2-1.webp":1.0,"shops-3-0.webp":1.49946524,"shops-4-0.webp":1.31309425,"shops-5-0.webp":1.49946524,"shops-6-0.webp":1.49946524,"shops-7-0.webp":1.49946524,"shops-8-0.webp":1.33310924,"shops-9-0.webp":1.49946524,"shops-10-0.webp":1.49946524,"shops-11-0.webp":1.8,"shops-12-0.webp":1.49946524,"shops-13-0.webp":1.44,"shops-14-0.webp":1.49946524,"shops-15-0.webp":1.0,"guests-0.webp":1.00035663,"guests-1.webp":1.00035663,"guests-2.webp":1.00035663,"guests-3.webp":1.00035663,"charms-0.webp":1.24955437,"charms-1.webp":1.33333333,"charms-2.webp":1.2,"charms-3.webp":1.24955437,"charms-4.webp":1.33333333,"charms-5.webp":1.24955437,"currencies.webp":1.00035663};
+const SHOP_ART_COUNTS=[50, 50, 50, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 29, 29];
+const GUEST_ART_IDS=["gingerbread", "redhood", "humpty", "rabbit", "hatter", "pinocchio", "puss", "rumpel", "cinderella", "pigs", "jack", "alice", "queen", "goldilocks", "wolf", "aladdin", "genie", "sinbad", "scheherazade", "robin", "arthur", "piper", "snowwhite", "hansel", "frog", "mermaid", "dragon", "tortoise", "nutcracker", "peter", "thumbelina", "ugly", "snowqueen", "mockturtle", "dormouse", "tweedle", "merlin", "hercules", "fairygm", "genie2", "merlin2", "peterpan", "tinker", "hook", "beauty", "beast", "rapunzel", "sleeping", "seawitch", "gretel", "jackfrost", "sandman", "zeus", "hermes", "medusa", "midas", "scheh2", "wolf2", "queenb", "editor", "tin", "matchgirl", "bluebeard", "ali", "toto", "dorothy", "ariel", "kraken", "sugarplum", "porridge", "bremen", "flute", "emperor", "baba", "icicle", "crackerjack", "mulan", "lamp2", "wicked", "narrator"];
+function artSpec(kind,a,b=0){
+ if(kind==='shop'){if(a<0||a>=SHOP_ART_COUNTS.length||b<0||b>=SHOP_ART_COUNTS[a])return null;return {file:'shops-'+a+'-'+Math.floor(b/30)+'.webp',cell:b%30,cols:5,rows:6};}
+ if(kind==='guest'){const i=GUEST_ART_IDS.indexOf(a);return i<0?null:{file:'guests-'+Math.floor(i/20)+'.webp',cell:i%20,cols:4,rows:5};}
+ if(kind==='charm'){const i=a*6+b;return a<0||a>=16||b<0||b>=6?null:{file:'charms-'+Math.floor(i/16)+'.webp',cell:i%16,cols:4,rows:4};}
+ if(kind==='currency')return a<0||a>=20?null:{file:'currencies.webp',cell:a,cols:4,rows:5};
+ return null;
+}
+function artStyle(spec){
+ const ratio=ATLAS_RATIOS[spec.file]||1,sx=Math.max(1,ratio),sy=Math.max(1,1/ratio);
+ const w=spec.cols*sx,h=spec.rows*sy;
+ const x=((spec.cell%spec.cols+.5)*sx-.5)/(w-1)*100;
+ const y=((Math.floor(spec.cell/spec.cols)+.5)*sy-.5)/(h-1)*100;
+ return `background-image:url('assets/${spec.file}');background-size:${w*100}% ${h*100}%;background-position:${x}% ${y}%;`;
+}
+function gameArt(kind,a,b=0,extra=''){
+ const spec=artSpec(kind,a,b);return spec?`<span class="game-art ${extra}" aria-hidden="true" style="${artStyle(spec)}"></span>`:uiArt(kind==='shop'?'ev':'charms',extra);
+}
+function paintShopArt(el,r,i,locked){
+ const key=locked?'locked':r+'_'+i;if(el.dataset.artKey===key)return;
+ el.dataset.artKey=key;el.innerHTML=locked?'<span class="mystery-mark" aria-hidden="true">?</span>':gameArt('shop',r,i);
+}
+function currencyArt(r,extra=''){return gameArt('currency',r,0,extra);}
+function guestArt(id,extra=''){return gameArt('guest',id,0,extra);}
+function charmArt(r,k,extra=''){return gameArt('charm',r,k,extra);}
+
 function renderHeader(){
   $('realms').innerHTML=REALMS.map((R,r)=>{
     const un=S.realms[r].unlocked;
@@ -11296,6 +11341,8 @@ function decorateInterface(){
  const titles={shop:['Your enterprises','Build a little magic. Grow something extraordinary.'],mgr:['Meet your managers','Put your storybook businesses in capable hands.'],up:['A touch of magic','Give your growing empire its next great advantage.'],pres:['Ever after','Every ending is the beginning of a bigger story.'],book:['The cabinet of wonders','Gifts, discoveries, and a little everyday enchantment.'],story:['The story so far','Open a book. Find out what happens next.'],ev:['The festival grounds','A new celebration, a fresh opportunity.']};
  const v=titles[tab]||[tab==='man'?'Meet your managers':tab==='up'?'A touch of magic':'Your next chapter',REALMS[realm].name];
  const subTitles={wish:['The wishing well','Make a wish. A little luck goes a long way.'],warp:['A moment of magic','Turn the hourglass and bring tomorrow a little closer.'],charms:['The charm collection','Small treasures with extraordinary possibilities.'],guests:['Distinguished visitors','Every visitor brings a new story.'],ach:['Your trophy room','Celebrate the milestones of a growing empire.'],cross:['Extraordinary partnerships','Bring the realms together and let ideas grow.'],help:['Your storybook guide','A few friendly pointers for the road ahead.'],cfg:['Make yourself at home','Set the game to suit the way you play.']};
+ document.documentElement.style.setProperty('--cash-art-x',(realm%4)*100/3+'%');
+ document.documentElement.style.setProperty('--cash-art-y',Math.floor(realm/4)*100/4+'%');
  const activeKey=tab==='book'&&bsub!=='menu'?bsub:tab;
  const heading=tab==='book'&&subTitles[bsub]?subTitles[bsub]:v;
  h.innerHTML='<div class="section-identity">'+uiArt(activeKey,'section-art')+'<div><h2>'+heading[0]+'</h2><p>'+heading[1]+'</p></div></div><span class="edition-mark">Illustrated Edition</span>';
@@ -11308,7 +11355,7 @@ function render(){
   if(tab==='shop'){
     m.innerHTML='<div class="coach" id="coach" onclick="coachGo()"></div>'+(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
       <div class="biz" id="biz${i}" onclick="bizTap(${i},event)">
-        <div class="ic"><span id="em${i}">${d[1]}</span><span class="cnt" id="cnt${i}">0</span></div>
+        <div class="ic shop-illustration"><span id="em${i}">${gameArt('shop',realm,i)}</span><span class="cnt" id="cnt${i}">0</span></div>
         <div>
           <div class="nm" id="nm${i}">${d[0]}</div>
           <div class="bar"><i id="bar${i}"></i><span id="rev${i}"></span></div>
@@ -11361,7 +11408,7 @@ function bookHTML(){
   else if(bsub==='guests'){
     const met=Object.keys(S.guests).length;
     body=`<div class="empty" style="padding:4px 6px 12px">Guest stars wander across the screen now and then. Tap them! Met <b>${met}/${GUESTS.length}</b></div><div class="pres" style="margin-bottom:10px;text-align:left;font-size:12px"><b style="color:var(--gold)">📕 Guest Book rewards</b><br>${GB_STEPS.map(n=>(S.gms[n]?'✅':'⬜')+' '+n+' guests: '+(n===GUESTS.length?'<b>profit ×1.5 forever</b> + 10 wishes':'wishes and a boost')).join('<br>')}</div>`+GUESTS.map(g=>S.guests[g.id]
-      ?`<div class="item"><div class="ic">${g.e}</div><div class="tx"><b>${g.n}</b><em>“${g.l}”</em><br><em>Met ${S.guests[g.id]}×</em></div></div>`
+      ?`<div class="item"><div class="ic guest-portrait">${guestArt(g.id)}</div><div class="tx"><b>${g.n}</b><em>“${g.l}”</em><br><em>Met ${S.guests[g.id]}×</em></div></div>`
       :`<div class="item" style="opacity:.55"><div class="ic">❔</div><div class="tx"><b>???</b><em>Keep watching the screen for visitors.</em></div></div>`).join('');
   }else if(bsub==='ach'){
     const n=Object.keys(S.ach).length;
@@ -11407,7 +11454,7 @@ function updateLive(force){
   updateCoach();
   const R=S.realms[realm],RD=REALMS[realm];
   const ps=realmPS(realm);
-  const qa=quickNext(),qb=$('qnext');if(qb){qb.disabled=!qa;qb.innerHTML=qa?`⚡ ${qa.label}<small>${RD.sym} ${fmt(qa.c)}</small>`:'⚡ Nothing affordable<small>Keep earning!</small>';$('qall').disabled=!qa;}
+  const qa=quickNext(),qb=$('qnext');if(qb){qb.disabled=!qa;qb.innerHTML=qa?`⚡ ${qa.label}<small>${currencyArt(realm,'inline-currency')} ${fmt(qa.c)}</small>`:'⚡ Nothing affordable<small>Keep earning!</small>';$('qall').disabled=!qa;}
   const ph=pillsHTML();if(sigs.pills!==ph){sigs.pills=ph;const pe=$('pills');if(pe)pe.innerHTML=ph;}
   const bl=Math.ceil((S.buff.until-Date.now())/1000);
   $('stats').innerHTML=`${fmtC(ps)}/sec<br>👠 ${fmt(S.slip)} (+${fmt(S.slip*slipBonus()*100)}%)${(realm>0&&realm<NPERM)?`<br>${PT[realm].e} ${fmt(ptOf(realm))} (+${fmt(ptOf(realm)*PT[realm].bonus*100)}%)`:''}${realm===EV_RT?`<br>🎊 ${fmt(R.pt||0)} (×${fmt(evFav())})`:''}${S.quillTotal>0?`<br>🪶 ${fmt(S.quillTotal)}`:''}${bl>0?`<br><span style="color:#c9b8ff">🎭 ×${S.buff.m} ${bl}s</span>`:''}`;
@@ -11418,7 +11465,7 @@ function updateLive(force){
       cnt.textContent=b.n;
       const locked=isLocked(realm,i);
       $('nm'+i).textContent=locked?'🔒 ??? Mystery Shop':RD.biz[i][0];
-      $('em'+i).textContent=locked?'❔':RD.biz[i][1];
+      paintShopArt($('em'+i),realm,i,locked);
       if(locked){$('bar'+i).style.width='0%';$('rev'+i).textContent='Unlocks at '+fmt(ptReq(realm,i))+' '+PT[realm].e+' '+PT[realm].pl;const lb=$('buy'+i);lb.innerHTML='Locked<small>'+PT[realm].act+' to earn '+PT[realm].e+'</small>';lb.disabled=true;$('meta'+i).innerHTML='???';return;}
       const T=cyc(realm,i),pr=profit(realm,i);
       const bar=$('bar'+i);
@@ -11426,10 +11473,10 @@ function updateLive(force){
       bar.style.width=(b.n<1?0:(fastB?100:Math.min(100,b.prog*100)))+'%';
       if(bar._f!==fastB){bar._f=fastB;bar.classList.toggle('fast',fastB);}
       const rev=$('rev'+i);
-      rev.textContent=b.n<1?'Buy one to open for business!':fastB?RD.sym+' '+fmt(pr/T)+'/sec':(b.mgr||b.run?'':'TAP TO WORK · ')+RD.sym+' '+fmt(pr);
+      rev.textContent=b.n<1?'Buy one to open for business!':fastB?fmt(pr/T)+'/sec':(b.mgr||b.run?'':'TAP TO WORK · ')+fmt(pr);
       const n=buyAmt(realm,i),c=costN(realm,i,n);
       const btn=$('buy'+i);
-      btn.innerHTML=`${b.n<1?'Open':'Buy'} ×${n}<small>${RD.sym} ${fmt(c)}</small>`;
+      btn.innerHTML=`${b.n<1?'Open':'Buy'} ×${n}<small>${currencyArt(realm,'inline-currency')} ${fmt(c)}</small>`;
       btn.disabled=R.cash<c-1e-9;
       const nm=nextMile(b.n),ns=nextSpd(b.n),sm=spdMult(b.n);
       const nxt=(ns&&(!nm||ns<=nm[0]))?'Next ⚡×2 speed @ '+ns:(nm?'Next ×'+nm[1]+' @ '+nm[0]:'MAX milestone');
@@ -11452,11 +11499,11 @@ function updateLive(force){
       const L=$('list');if(!L)return;
       if(!items.length){L.innerHTML=`<div class="empty">${tab==='mgr'?'Everyone here is hired! The paperwork alone is a fairytale.':'Every upgrade bought. Fully upgraded!'}</div>`;return;}
       L.innerHTML=items.map(x=>{
-        if(x.g){const u=GUP[realm][x.k];return `<div class="item"><div class="ic illustrated-item">${uiArt('up')}</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>ALL ${RD.short} profit ×${fmt(GUP_MULT[x.k])}</em></div><button ${x.can?'':'disabled'} onclick="buyGUp(${x.k})">Buy<br>${RD.sym} ${fmt(x.cost)}</button></div>`;}
+        if(x.g){const u=GUP[realm][x.k];return `<div class="item"><div class="ic illustrated-item">${uiArt('up')}</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>ALL ${RD.short} profit ×${fmt(GUP_MULT[x.k])}</em></div><button ${x.can?'':'disabled'} onclick="buyGUp(${x.k})">Buy<br>${currencyArt(realm,'inline-currency')} ${fmt(x.cost)}</button></div>`;}
         const d=RD.biz[x.i];
-        if(x.k<0)return `<div class="item"><div class="ic">${d[1]}</div><div class="tx"><b>${d[3]}</b><em>${d[4]}</em><br><em>Runs ${d[2]} automatically</em></div><button ${x.can?'':'disabled'} onclick="hire(${x.i})">Hire<br>${RD.sym} ${fmt(x.cost)}</button></div>`;
+        if(x.k<0)return `<div class="item"><div class="ic shop-illustration">${gameArt('shop',realm,x.i)}</div><div class="tx"><b>${d[3]}</b><em>${d[4]}</em><br><em>Runs ${d[2]} automatically</em></div><button ${x.can?'':'disabled'} onclick="hire(${x.i})">Hire<br>${currencyArt(realm,'inline-currency')} ${fmt(x.cost)}</button></div>`;
         const u=getUp(realm,x.i,x.k);
-        return `<div class="item"><div class="ic">${d[1]}</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>${d[2]} profit ×${fmt(UP_MULT[x.k])}${R.biz[x.i].n<1?' (open this shop first)':''}</em></div><button ${x.can?'':'disabled'} onclick="buyUp(${x.i},${x.k})">Buy<br>${RD.sym} ${fmt(x.cost)}</button></div>`;
+        return `<div class="item"><div class="ic shop-illustration">${gameArt('shop',realm,x.i)}</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>${d[2]} profit ×${fmt(UP_MULT[x.k])}${R.biz[x.i].n<1?' (open this shop first)':''}</em></div><button ${x.can?'':'disabled'} onclick="buyUp(${x.i},${x.k})">Buy<br>${currencyArt(realm,'inline-currency')} ${fmt(x.cost)}</button></div>`;
       }).join('');
     }
   }else if(tab==='ev'){
@@ -11531,7 +11578,7 @@ function openPack(){
   const bonus=Math.round((charmMult(r)-1)*100);
   sfx(rar==='legendary'?'big':'ach');vibe(rar==='legendary'?60:25);
   showModal(`<div class="mtag">${RAR_NAME[rar].toUpperCase()} CHARM</div>
-    <div class="chreveal" style="--cc:${RAR_COL[rar]}"><div class="chbig">${c[0]}</div></div>
+    <div class="chreveal" style="--cc:${RAR_COL[rar]}"><div class="chbig">${charmArt(r,k)}</div></div>
     <h3>${c[1]}</h3><p style="color:var(--mut);font-size:12px">${REALMS[r].icon} ${REALMS[r].name}</p>
     <p>${note}${setDone?'<br><b>Set complete!</b> All six '+REALMS[r].short+' charms: bonus ×1.25 more.':''}</p>
     <p style="font-size:12px;color:var(--mut)">${REALMS[r].short} charm bonus is now <b>+${bonus}%</b> profit.</p>
@@ -11541,7 +11588,7 @@ function openPack(){
 function chCountWorld(r){let n=0;for(let k=0;k<6;k++)if(chOwned(r,k))n++;return n;}
 function charmTabHTML(){
   const pc=packCharges(),nx=packNextMs(),cc=charmCount(),tot=NPERM*6;
-  let h=`<div class="pres" style="margin-bottom:10px"><div class="big">🎴</div><h2>Charm Album</h2>
+  let h=`<div class="pres" style="margin-bottom:10px"><div class="big">${uiArt('charms','feature-art')}</div><h2>Charm Album</h2>
    <p>Every pack holds one charm from a world you have opened. Each charm adds <b>permanent profit</b> to its world. Duplicates level a charm up (to ${CH_LV}); a full set of six gives that world <b>×1.25</b>, and a full album <b>×1.3 everywhere</b>. A new pack arrives every 8 hours, and you can hold ${PACK_MAX}. Every 12th pack is at least Rare, and every 3rd day of a Daily Gift streak adds a pack.</p>
    <p style="font-size:22px;letter-spacing:3px">${Array.from({length:PACK_MAX},(_,i)=>i<pc?'🎴':'⚫').join(' ')}</p>
    <button class="btn" ${pc<1?'disabled':''} onclick="openPack()">${pc<1?'Next pack in '+dur(nx/1000):'Open a pack ('+pc+')'}</button>
@@ -11551,7 +11598,7 @@ function charmTabHTML(){
     h+=`<div class="item" style="--rc:${R.color};display:block"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><b style="font-family:var(--serif)">${un?R.icon:'🔒'} ${R.name}</b><span class="tag ${worldSet(r)?'on':'off'}">${n}/6 · +${Math.round((charmMult(r)-1)*100)}%</span></div><div class="chgrid">`;
     for(let k=0;k<6;k++){
       const o=chOwned(r,k),c=CHARMS[r][k],rar=CH_RAR[k];
-      h+=o?`<div class="chtile" style="--cc:${RAR_COL[rar]}"><div class="chem">${c[0]}</div><small>${c[1]}</small><div class="chlv">${'●'.repeat(Math.min(o,CH_LV))}${'○'.repeat(CH_LV-Math.min(o,CH_LV))}</div></div>`
+      h+=o?`<div class="chtile" style="--cc:${RAR_COL[rar]}"><div class="chem">${charmArt(r,k)}</div><small>${c[1]}</small><div class="chlv">${'●'.repeat(Math.min(o,CH_LV))}${'○'.repeat(CH_LV-Math.min(o,CH_LV))}</div></div>`
         :`<div class="chtile empty" style="--cc:#3a3a60"><div class="chem">❔</div><small>${RAR_NAME[rar]}${un?'':' · world locked'}</small></div>`;
     }
     h+='</div></div>';
@@ -11592,9 +11639,9 @@ function warpTabHTML(){
   const W=S.warp,ps=realmPS(realm),RD=REALMS[realm];
   const cards=WARPS.map((w,i)=>{
     const have=W.inv[i]||0,g=ps*w[0]*3600;
-    return `<div class="item"><div class="ic">${w[1]}</div><div class="tx"><b>${w[2]} · ${w[0]} hour${w[0]>1?'s':''}</b><em>${ps>0?`≈ +${RD.sym} ${fmt(g)} in ${RD.short}`:'Open a shop to see the payout'}</em><em>Owned: <b>${have}</b> / ${WARP_INV_MAX}</em></div><div style="display:flex;flex-direction:column;gap:5px;min-width:92px"><button ${have<1?'disabled':''} onclick="warpUse(${i})">Use${have?' ('+have+')':''}</button><button class="alt" ${W.sand<w[3]||have>=WARP_INV_MAX?'disabled':''} onclick="warpBuy(${i})" style="background:#27245a;color:#ffe3a1;border:1px solid #9b7bff88">⏳ ${w[3]}</button></div></div>`;
+    return `<div class="item"><div class="ic illustrated-item">${uiArt('warp')}</div><div class="tx"><b>${w[2]} · ${w[0]} hour${w[0]>1?'s':''}</b><em>${ps>0?`≈ +${currencyArt(realm,'inline-currency')} ${fmt(g)} in ${RD.short}`:'Open a shop to see the payout'}</em><em>Owned: <b>${have}</b> / ${WARP_INV_MAX}</em></div><div style="display:flex;flex-direction:column;gap:5px;min-width:92px"><button ${have<1?'disabled':''} onclick="warpUse(${i})">Use${have?' ('+have+')':''}</button><button class="alt" ${W.sand<w[3]||have>=WARP_INV_MAX?'disabled':''} onclick="warpBuy(${i})" style="background:#27245a;color:#ffe3a1;border:1px solid #9b7bff88">⏳ ${w[3]}</button></div></div>`;
   }).join('');
-  return `<div class="pres" style="margin-bottom:10px"><div class="big">⏳</div><h2>Time Warps</h2>
+  return `<div class="pres" style="margin-bottom:10px"><div class="big">${uiArt('warp','feature-art')}</div><h2>Time Warps</h2>
     <p>Skip ahead and instantly collect hours of earnings from the world you are in. No ads, no real money. You pay in <b>Hourglass Sand</b>, which you earn by playing.</p>
     <p style="font-size:22px;color:var(--gold);font-family:var(--serif)"><b>${fmt(W.sand)}</b> ⏳ Sand</p>
     <p style="font-size:12px">Earn sand from: the Daily Gift, quests, guest stars, trophies, reading story installments, Little Fortunes, and every Happily Ever After.<br>Warps apply to the world you are currently in (not Festival worlds).</p></div>${cards}`;
@@ -11758,12 +11805,12 @@ function wishTabHTML(){
   const nx=wishNextMs(),st=streakN(),f=flash();
   const quests=S.dq.items.map((q,n)=>{const pr=dqProg(q),ok=pr>=q.g;
     return `<div class="item"><div class="ic">📜</div><div class="tx"><b>${dqText(q)}</b><em>Reward: ${DQ_REWARD[q.r]}</em><div class="bar2"><i style="width:${Math.round(pr/q.g*100)}%"></i></div><em>${fmt(pr)} / ${fmt(q.g)}</em></div><button ${q.done||!ok?'disabled':''} onclick="dqClaim(${n})">${q.done?'Done ✓':'Claim'}</button></div>`;}).join('');
-  return `<div class="pres" style="margin-bottom:10px"><div class="big">🌠</div><h2>The Wishing Well</h2>
+  return `<div class="pres" style="margin-bottom:10px"><div class="big">${uiArt('wish','feature-art')}</div><h2>The Wishing Well</h2>
     <p>Toss a coin, make a wish: <b>all profit ×1.5 for 1 hour</b>. Free. No ads, ever. You hold up to ${WISH_MAX} wishes and get a new one every 3 hours. Boost time stacks up to 12 hours.</p>
     <p style="font-size:20px;letter-spacing:3px">${pips}</p>
     <p>${wishLeft()>0?`Boost active: <b>${dur(wishLeft()/1000)}</b> left`:'No boost active.'}${nx>0?`<br>Next wish in <b>${dur(nx/1000)}</b>`:'<br>Wishes are full! Use one so they keep refilling.'}</p>
     <button class="btn" ${ch<1?'disabled':''} onclick="castWish()">${ch<1?'Out of wishes':'Make a wish'}</button></div>
-    <div class="pres" style="margin-bottom:10px"><div class="big">🎁</div><h2>Daily Gift</h2>
+    <div class="pres" style="margin-bottom:10px"><div class="big">${uiArt('book','feature-art')}</div><h2>Daily Gift</h2>
     <p>Streak: <b>${st} day${st===1?'':'s'}</b> · all profit ×${fmt(1+0.02*Math.min(st,20))}<br><span style="font-size:11px">Each day in a row adds +2% (up to 20 days). One missed day is forgiven.</span></p>
     <button class="btn" ${dailyReady()?'':'disabled'} onclick="claimDaily()">${dailyReady()?'Collect today\'s gift':'Come back tomorrow'}</button></div>
     <div class="pres" style="margin-bottom:10px;text-align:left"><b style="color:var(--gold)">⚡ ${f.n}</b><p style="margin:6px 0 0">${f.t}</p></div>
@@ -11777,7 +11824,7 @@ function frame(now){
   const R=S.realms[realm];
   if(dispRealm!==realm){dispRealm=realm;dispCash=R.cash;}
   if(R.cash<=dispCash||R.cash-dispCash<1e-9)dispCash=R.cash;else dispCash+=(R.cash-dispCash)*Math.min(1,dt*10);
-  const el=$('cash');if(el&&el.firstChild)el.firstChild.nodeValue=REALMS[realm].sym+' '+fmtC(dispCash)+' ';
+  const el=$('cash');if(el&&el.firstChild)el.firstChild.nodeValue=fmtC(dispCash)+' ';
   requestAnimationFrame(frame);
 }
 if(window.requestAnimationFrame)requestAnimationFrame(frame);else setInterval(()=>frame(Date.now()),100);
