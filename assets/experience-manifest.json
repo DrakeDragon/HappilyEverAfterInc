@@ -1,0 +1,4862 @@
+{
+  "managers": [
+    [
+      {
+        "name": "Brick-Layer Bernard",
+        "shop": "Three Little Pigs Construction",
+        "file": "managers-0-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Granny (Retired From Being Eaten)",
+        "shop": "Red Hood Basket Delivery",
+        "file": "managers-0-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sir Crumbsalot",
+        "shop": "Gingerbread Express Sneakers",
+        "file": "managers-0-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Giant's Cranky Intern",
+        "shop": "Jack's Beanstalk Elevators",
+        "file": "managers-0-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Papa Bear (Reluctantly)",
+        "shop": "Goldilocks Bed & Bear-fast",
+        "file": "managers-0-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Guess-My-Name Gary",
+        "shop": "Rumpelstiltskin Straw-to-Gold LLC",
+        "file": "managers-0-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Midnight Mike",
+        "shop": "Cinderella Pumpkin Rideshare",
+        "file": "managers-0-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lawyer Pig",
+        "shop": "Big Bad Wolf Huff & Puff Insurance",
+        "file": "managers-0-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tower Receptionist (No Stairs)",
+        "shop": "Rapunzel Hair-Extension Salon",
+        "file": "managers-0-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Troll Under the Bridge",
+        "shop": "Three Billy Goats Bridge Tolls",
+        "file": "managers-0-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Acorn Adjuster",
+        "shop": "Chicken Little Sky Insurance",
+        "file": "managers-0-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Suspicious Traveler",
+        "shop": "Stone Soup Catering",
+        "file": "managers-0-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Hen Who Did It All",
+        "shop": "Little Red Hen Bakery (Nobody Helped)",
+        "file": "managers-0-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Slow-and-Steady Steward",
+        "shop": "Tortoise & Hare Racing League",
+        "file": "managers-0-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Skeptical Villager",
+        "shop": "Boy-Who-Cried-Wolf Alert Systems",
+        "file": "managers-0-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Responsible Ant",
+        "shop": "Ant & Grasshopper Retirement Planning",
+        "file": "managers-0-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiny Unionized Elf",
+        "shop": "Elves & the Shoemaker Night Shift",
+        "file": "managers-0-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Flounder in a Suit",
+        "shop": "Fisherman & His Wife Wish Bank",
+        "file": "managers-0-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Goose (Filing Taxes)",
+        "shop": "Golden Goose Egg Farms",
+        "file": "managers-0-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fly Exterminator Intern",
+        "shop": "Brave Little Tailor Seven-At-One-Blow Co.",
+        "file": "managers-0-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rooster on Drums",
+        "shop": "Bremen Town Musicians Touring",
+        "file": "managers-0-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wife Who Wished Wrong",
+        "shop": "Three Wishes Sausage Co.",
+        "file": "managers-0-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Nose Measurer",
+        "shop": "Pinocchio Honest Truth Lie Detectors",
+        "file": "managers-0-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiny Maid With a Huge Mop",
+        "shop": "Giant’s Castle Housekeeping",
+        "file": "managers-0-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wand Intern (Wandless)",
+        "shop": "Fairy Godmother Franchises",
+        "file": "managers-0-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Unicorn Accountant (Horn Calculator)",
+        "shop": "Kingdom Zoo of Mythical Beasts",
+        "file": "managers-0-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wolf in Sheep’s Suit (Trader)",
+        "shop": "Fairytale Forest Stock Exchange",
+        "file": "managers-0-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Last Page Librarian",
+        "shop": "The Happily Ever After Archive",
+        "file": "managers-0-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gretel's Oven Operator",
+        "shop": "Hansel & Gretel Breadcrumb Logistics",
+        "file": "managers-0-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Grumpy (Head of HR)",
+        "shop": "Snow White Mine & Dwarf Staffing",
+        "file": "managers-0-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Spinning Wheel (In Storage)",
+        "shop": "Sleeping Beauty Snooze Hotel",
+        "file": "managers-0-1.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Flute Intern (Off-Key)",
+        "shop": "Pied Piper Pest Control",
+        "file": "managers-0-1.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lily Pad Receptionist",
+        "shop": "Frog Prince Pond Real Estate",
+        "file": "managers-0-1.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Official Pea Inspector",
+        "shop": "Princess & the Pea Mattress Labs",
+        "file": "managers-0-1.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "A Pair of Legs (Used)",
+        "shop": "Sea Witch Voice Exchange",
+        "file": "managers-0-1.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Invisible Seamstress",
+        "shop": "Emperor's New Clothes Tailors",
+        "file": "managers-0-1.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Awkward Teen Swan",
+        "shop": "Ugly Duckling Swan Rebranding",
+        "file": "managers-0-1.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Worn-Out Shoe Cobbler",
+        "shop": "Twelve Dancing Princesses Night Club",
+        "file": "managers-0-1.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fashionable Boots (Empty)",
+        "shop": "Puss in Boots Talent Agency",
+        "file": "managers-0-1.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Narrator (Underpaid)",
+        "shop": "Once Upon a Time Time-Share",
+        "file": "managers-0-1.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Midnight Clerk",
+        "shop": "Cinderella Glass Slipper Returns Dept.",
+        "file": "managers-0-1.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Just-Right Scientist",
+        "shop": "Goldilocks Porridge Temperature Labs",
+        "file": "managers-0-1.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Giant-Server Admin",
+        "shop": "Beanstalk Cloud Computing",
+        "file": "managers-0-1.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Careful Matchkeeper",
+        "shop": "Little Match Girl Fire Safety",
+        "file": "managers-0-1.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Night-Shift Elf Foreman",
+        "shop": "Shoemaker’s Elves Overnight Shipping",
+        "file": "managers-0-1.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fairest Critic",
+        "shop": "Magic Mirror Review Site",
+        "file": "managers-0-1.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Careful Fairy Notary",
+        "shop": "Three Wishes Escrow",
+        "file": "managers-0-1.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Suspiciously Cheerful Farmer",
+        "shop": "Poison Apple Orchards",
+        "file": "managers-0-1.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fleece Fitter",
+        "shop": "Wolf in Sheep’s Clothing Outfitters",
+        "file": "managers-0-1.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Narrator’s Cousin",
+        "shop": "Fairytale Forest Grand Syndicate",
+        "file": "managers-0-1.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Dormouse Timekeeper",
+        "shop": "White Rabbit Late-Fee Services",
+        "file": "managers-1-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "March Hare, Assistant to Everyone",
+        "shop": "Mad Hatter Tea & Hat Emporium",
+        "file": "managers-1-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "A Floating Grin (No Cat Attached)",
+        "shop": "Cheshire Cat Grin Insurance",
+        "file": "managers-1-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Butterfly Brenda",
+        "shop": "Caterpillar Wellness Spa",
+        "file": "managers-1-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Teapot Receptionist",
+        "shop": "Dormouse Mattress Mega-Mart",
+        "file": "managers-1-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tweedle-Paralegal",
+        "shop": "Tweedledum & Tweedledee Law Firm",
+        "file": "managers-1-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Painted Roses (Red, Obviously)",
+        "shop": "Queen of Hearts HR",
+        "file": "managers-1-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bandersnatch Dispatcher",
+        "shop": "Jabberwock Dragon Delivery",
+        "file": "managers-1-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Drink-Me Bottle (Label Peeling)",
+        "shop": "Alice’s Growth-Spurt Pharmacy",
+        "file": "managers-1-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Dodo (Extinct, Still Manages)",
+        "shop": "Dodo Caucus Race Organizers",
+        "file": "managers-1-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Treacle Well Dormouse",
+        "shop": "Bread-and-Butterfly Bakery",
+        "file": "managers-1-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Weepy Lifeguard",
+        "shop": "Pool of Tears Water Park",
+        "file": "managers-1-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Harvest Hatter (Sizing Up)",
+        "shop": "Caterpillar Mushroom Farms",
+        "file": "managers-1-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hedgehog Ball (Rolling Away)",
+        "shop": "Flamingo Croquet Equipment",
+        "file": "managers-1-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Painter Card (Two of Spades)",
+        "shop": "Rose Garden Red-Paint Supply",
+        "file": "managers-1-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pin-Pricking Aide",
+        "shop": "White Queen Pre-Screaming Insurance",
+        "file": "managers-1-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Beamish Boy (Retail Clerk)",
+        "shop": "Jabberwock Hunting Gear Outfitters",
+        "file": "managers-1-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cloud Coordinator",
+        "shop": "Smoke Signals Ltd.",
+        "file": "managers-1-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Falling Supervisor (Still Falling)",
+        "shop": "The Great Rabbit Hole Excavators",
+        "file": "managers-1-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lobster in Dancing Shoes",
+        "shop": "Lobster Quadrille Dance Studio",
+        "file": "managers-1-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Eagle-Lion Dispatcher",
+        "shop": "Gryphon Express Courier",
+        "file": "managers-1-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Distributed Grin",
+        "shop": "Cheshire Cat Cloud Storage",
+        "file": "managers-1-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Perpetual Table Setter",
+        "shop": "Mad Tea Party Catering Network",
+        "file": "managers-1-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Jury of Twelve Confused Animals",
+        "shop": "Wonderland Court Case Law Library",
+        "file": "managers-1-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lost Guest Rescue Team",
+        "shop": "Queen’s Garden Maze Theme Park",
+        "file": "managers-1-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Borogove Zookeeper",
+        "shop": "Mome Rath & Slithy Tove Zoo",
+        "file": "managers-1-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rabbit With a Calculator (Late)",
+        "shop": "Wonderland Reserve Bank",
+        "file": "managers-1-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Other You (Better at Managing)",
+        "shop": "The Looking-Glass Multiverse Holdings",
+        "file": "managers-1-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Talking Hedge",
+        "shop": "Tulgey Wood Landscaping",
+        "file": "managers-1-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Weeping Ladle",
+        "shop": "Mock Turtle Soup Co.",
+        "file": "managers-1-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cook With a Pepper Shaker (Sneezing)",
+        "shop": "Duchess Pepper & Baby Co.",
+        "file": "managers-1-1.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Very Honest Knave",
+        "shop": "Knave of Hearts Tart Security",
+        "file": "managers-1-1.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "A Very Hungry Oyster",
+        "shop": "Walrus & Carpenter Seaside Bakery",
+        "file": "managers-1-1.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Unstable Ladder",
+        "shop": "Bill the Lizard Chimney Services",
+        "file": "managers-1-1.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Backward Butler (Rewinding)",
+        "shop": "Looking-Glass Mirror Emporium",
+        "file": "managers-1-1.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sleeping Monarch (Do Not Wake)",
+        "shop": "Red King's Dream Real Estate",
+        "file": "managers-1-1.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "All the King's Men (Contractors)",
+        "shop": "Humpty Dumpty Fall-Prevention Co.",
+        "file": "managers-1-1.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Stopped Clock (6 PM)",
+        "shop": "Wonderland Time Bank (Tea Time Forever)",
+        "file": "managers-1-1.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "A Floating Gate",
+        "shop": "Cheshire Disappearing Real Estate",
+        "file": "managers-1-1.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frabjous Editor",
+        "shop": "Jabberwocky Epic Poem Publishing",
+        "file": "managers-1-1.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gift-Tag Hare",
+        "shop": "Unbirthday Present Wrapping",
+        "file": "managers-1-1.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bubble-Blowing Blue",
+        "shop": "Caterpillar Hookah Hygiene",
+        "file": "managers-1-1.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Red-Handed Gardener",
+        "shop": "Queen’s Painted Roses Nursery",
+        "file": "managers-1-1.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Floating Orthodontist",
+        "shop": "Cheshire Smile Dental",
+        "file": "managers-1-1.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Over-Alarmed Alarmist",
+        "shop": "Wonderland Smoke Detectors",
+        "file": "managers-1-1.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hurried Horologist",
+        "shop": "White Rabbit Pocket Watch Repair",
+        "file": "managers-1-1.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Size-Changing Chemist",
+        "shop": "Drink-Me Bottle Co.",
+        "file": "managers-1-1.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Growth-Spurt Baker",
+        "shop": "Eat-Me Cake Shop",
+        "file": "managers-1-1.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Official Unofficial Clerk",
+        "shop": "Wonderland Nonsense Authority",
+        "file": "managers-1-1.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Time (Officially Redacted)",
+        "shop": "Eternal Tea Time Holdings",
+        "file": "managers-1-1.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Spitty McGee",
+        "shop": "Camel Rental Co.",
+        "file": "managers-2-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Forty Thieves HR Dept.",
+        "shop": "Ali Baba Cave Storage",
+        "file": "managers-2-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Captain Queasy",
+        "shop": "Sinbad Seasick Cruises",
+        "file": "managers-2-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frazzled Flight Attendant",
+        "shop": "Flying Carpet Airlines",
+        "file": "managers-2-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Intern Genie (Unpaid)",
+        "shop": "Genie Wish Consulting",
+        "file": "managers-2-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cliffhanger Carl",
+        "shop": "Scheherazade Streaming",
+        "file": "managers-2-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Abu the Money Monkey",
+        "shop": "Aladdin's Lamp Polishing",
+        "file": "managers-2-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Vizier Jaffar-ish",
+        "shop": "Sultan's Tax Department",
+        "file": "managers-2-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Monkey Instructor",
+        "shop": "Aladdin’s Street Parkour Academy",
+        "file": "managers-2-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Camel Who Smells Cheese",
+        "shop": "Ali Baba’s Goat Cheese Caravans",
+        "file": "managers-2-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Leaky Spout",
+        "shop": "Genie Lamp Plumbing",
+        "file": "managers-2-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fluffy Overseer",
+        "shop": "Roc Feather Pillow Factory",
+        "file": "managers-2-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mechanic Peg",
+        "shop": "Ebony Horse Aviation",
+        "file": "managers-2-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whale Disguised as Island",
+        "shop": "Sinbad’s Island Hopping Tours",
+        "file": "managers-2-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ethical Bandit",
+        "shop": "Forty Robbers Charity Auction",
+        "file": "managers-2-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Telescope Operator",
+        "shop": "Caliph’s Tower Observation Deck",
+        "file": "managers-2-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fog Whisperer",
+        "shop": "Djinn Smoke Machines Ltd.",
+        "file": "managers-2-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Threadbare Weaver",
+        "shop": "Magic Carpet Weaving Looms",
+        "file": "managers-2-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Editor Who Reads Everything",
+        "shop": "Tale-of-Tales Publishing Empire",
+        "file": "managers-2-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Odds Camel",
+        "shop": "Camel Racing Betting Parlor",
+        "file": "managers-2-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Heartburn Dragon",
+        "shop": "Spice Dragon Sauce Co.",
+        "file": "managers-2-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Concierge Camel",
+        "shop": "Desert Oasis Hotel & Mirage Resort",
+        "file": "managers-2-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gem Counter (Counting Slowly)",
+        "shop": "Sultan’s Royal Jewelry Vault",
+        "file": "managers-2-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Moon Haggler",
+        "shop": "Moon Caravan Night Market",
+        "file": "managers-2-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ashes Adjuster",
+        "shop": "Phoenix Rebirth Insurance",
+        "file": "managers-2-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rub-to-Power Operator",
+        "shop": "The Thousand Lamps Energy Grid",
+        "file": "managers-2-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Alchemist Intern",
+        "shop": "Royal Mint of Magical Coins",
+        "file": "managers-2-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Scheherazade’s Great-Great-Granddaughter",
+        "shop": "The Arabian Nights Infinity Bazaar",
+        "file": "managers-2-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brave Souffle Guard",
+        "shop": "Roc Egg Omelette Emporium",
+        "file": "managers-2-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Reformed Thief (Mostly)",
+        "shop": "Forty Thieves Neighborhood Watch",
+        "file": "managers-2-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Kiosk Genie (Part-Time)",
+        "shop": "Magic Lamp Rental Kiosk",
+        "file": "managers-2-1.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Saffron Stan",
+        "shop": "Ali Baba Spice Trading Co.",
+        "file": "managers-2-1.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Vacuum Djinn",
+        "shop": "Flying Carpet Cleaning Service",
+        "file": "managers-2-1.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Kraken-Whisperer Karl",
+        "shop": "Sinbad's Sea Monster Wrangling",
+        "file": "managers-2-1.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Head Mop (Royal)",
+        "shop": "Caliph's Palace Cleaning Crew",
+        "file": "managers-2-1.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Shimmering Agent",
+        "shop": "Desert Mirage Real Estate",
+        "file": "managers-2-1.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sleepy Vizier",
+        "shop": "Hundred-and-One-Nights Sleep Lab",
+        "file": "managers-2-1.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lightweight Ostrich Manager",
+        "shop": "Flying Elephant Cargo Service",
+        "file": "managers-2-1.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hooded Figure (Unlicensed)",
+        "shop": "Grand Vizier Conspiracy Consulting",
+        "file": "managers-2-1.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Haggler Supreme",
+        "shop": "Eternal Bazaar Management Authority",
+        "file": "managers-2-1.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Smoke-Damage Adjuster",
+        "shop": "Magic Lamp Insurance",
+        "file": "managers-2-1.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wind-Swept Stylist",
+        "shop": "Sandstorm Hairdressers",
+        "file": "managers-2-1.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mirage Lifeguard",
+        "shop": "Desert Oasis Water Parks",
+        "file": "managers-2-1.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Soggy Janitor",
+        "shop": "Camel Spit Cleaning Services",
+        "file": "managers-2-1.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tomb Valet",
+        "shop": "Pharaoh Pyramid Parking",
+        "file": "managers-2-1.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Final-Offer Master",
+        "shop": "Bazaar Haggling Academy",
+        "file": "managers-2-1.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sweet-Handed Courier",
+        "shop": "Date Palm Delivery Network",
+        "file": "managers-2-1.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Abacus Union Rep",
+        "shop": "Sultan’s Accountancy Harem",
+        "file": "managers-2-1.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Weaver of Plot",
+        "shop": "Tapestry of Tales Archive",
+        "file": "managers-2-1.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Thousand-and-Second Manager",
+        "shop": "Arabian Nights Grand Syndicate",
+        "file": "managers-2-1.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Wizard Intern (Merlin's Nephew)",
+        "shop": "Excalibur Sword-in-Stone Gift Shop",
+        "file": "managers-3-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Knight With a Tape Measure",
+        "shop": "Round Table Furniture Co.",
+        "file": "managers-3-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Little John (Accountant)",
+        "shop": "Robin Hood Wealth Redistribution",
+        "file": "managers-3-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brother Barrel",
+        "shop": "Friar Tuck Brewery",
+        "file": "managers-3-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Deputy Sheriff of Tiny Fines",
+        "shop": "Sheriff of Nottingham Tax Services",
+        "file": "managers-3-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Squire With a Rose",
+        "shop": "Lancelot Dating Coach",
+        "file": "managers-3-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Knight Who Found It",
+        "shop": "Holy Grail Cup Rentals",
+        "file": "managers-3-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mortar Merlin",
+        "shop": "Camelot Castle Wall Repair",
+        "file": "managers-3-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Apprentice Who Reads the Label",
+        "shop": "Merlin's Spell Retail",
+        "file": "managers-3-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Head Reattachment Specialist",
+        "shop": "Green Knight Axe Insurance",
+        "file": "managers-3-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wet-Hand Receptionist",
+        "shop": "Lady of the Lake Pool Services",
+        "file": "managers-3-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Arrow Counter",
+        "shop": "Maid Marian Archery Academy",
+        "file": "managers-3-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Merry Man #7",
+        "shop": "Merry Men Catering",
+        "file": "managers-3-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Peasant Auditor",
+        "shop": "King Arthur Round Table Mortgage Co.",
+        "file": "managers-3-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Retired Slayer (Bad Knee)",
+        "shop": "Dragon Slayer Staffing Agency",
+        "file": "managers-3-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Enchanted Mirror (Honest)",
+        "shop": "Morgan le Fay Beauty Spells",
+        "file": "managers-3-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bored Squire",
+        "shop": "Quest Marketplace Bulletin Board",
+        "file": "managers-3-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Knight #13 (Unlucky)",
+        "shop": "Knights of the Square-ish Table Ltd.",
+        "file": "managers-3-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mist Concierge",
+        "shop": "Avalon Island Retreat",
+        "file": "managers-3-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Once and Future Manager",
+        "shop": "Camelot Eternal Kingdom Holdings",
+        "file": "managers-3-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Horse Parker",
+        "shop": "Round Table Valet Parking",
+        "file": "managers-3-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pedantic Metallurgist",
+        "shop": "Excalibur Authentication Services",
+        "file": "managers-3-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sandwich Squire",
+        "shop": "Knights of the Square Lunch Table",
+        "file": "managers-3-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Backwards Wizard",
+        "shop": "Merlin’s Time-Travel Agency",
+        "file": "managers-3-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Printing Squire",
+        "shop": "Guinevere’s Gossip Gazette",
+        "file": "managers-3-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bullseye Barker",
+        "shop": "Sherwood Merry Archery Range",
+        "file": "managers-3-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sheriff’s Sad Clerk",
+        "shop": "Nottingham Tax Refund Counter",
+        "file": "managers-3-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Charred Underwriter",
+        "shop": "Camelot Dragon Insurance",
+        "file": "managers-3-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Registry Knight",
+        "shop": "Holy Grail Gift Registry",
+        "file": "managers-3-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Once and Future Chair",
+        "shop": "Camelot Grand Syndicate",
+        "file": "managers-3-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Intern With a Rubber Glove",
+        "shop": "Zeus Lightning Rod Sales",
+        "file": "managers-4-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Winged Sandal Dispatcher",
+        "shop": "Hermes Express Delivery",
+        "file": "managers-4-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wise Owl (Overqualified)",
+        "shop": "Athena Owl Tutoring",
+        "file": "managers-4-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Surly Squid Waiter",
+        "shop": "Poseidon Seafood Palace",
+        "file": "managers-4-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Three-Headed Receptionist",
+        "shop": "Hades Underworld Storage",
+        "file": "managers-4-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Horse #3 (Tired)",
+        "shop": "Apollo Sun Chariot Taxi",
+        "file": "managers-4-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Grape-Stomping Intern",
+        "shop": "Dionysus Wine Co.",
+        "file": "managers-4-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cupid (Union Rep)",
+        "shop": "Aphrodite Love Potion Labs",
+        "file": "managers-4-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Eyes-Closed Guide",
+        "shop": "Medusa Statue Garden",
+        "file": "managers-4-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ball-of-Thread Technician",
+        "shop": "Minotaur Maze Escape Rooms",
+        "file": "managers-4-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hope (The Last Item In Stock)",
+        "shop": "Pandora's Box Returns Dept.",
+        "file": "managers-4-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Twelve Labors Coach",
+        "shop": "Hercules Gym Franchise",
+        "file": "managers-4-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cyclops GPS (One Eye)",
+        "shop": "Odysseus Navigation Services",
+        "file": "managers-4-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Torch Courier",
+        "shop": "Prometheus Fire Subscription",
+        "file": "managers-4-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Glove Wearing Janitor",
+        "shop": "Midas Gold Touch Cleaning",
+        "file": "managers-4-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cloud Flight Attendant",
+        "shop": "Pegasus Airlines",
+        "file": "managers-4-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Atlas (Shoulder Pain)",
+        "shop": "Titan Heavy Lifting",
+        "file": "managers-4-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Nine-Person Committee",
+        "shop": "Muses Entertainment Group",
+        "file": "managers-4-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Snipping Sister",
+        "shop": "Fates Thread Insurance",
+        "file": "managers-4-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Zeus’s Executive Assistant",
+        "shop": "Mount Olympus Holdings",
+        "file": "managers-4-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tidal Realtor",
+        "shop": "Poseidon Beachfront Property",
+        "file": "managers-4-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Peacock Counselor",
+        "shop": "Hera Marriage Counseling",
+        "file": "managers-4-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "War Merchant",
+        "shop": "Ares Sporting Goods",
+        "file": "managers-4-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Moonlit Ranger",
+        "shop": "Artemis Hunting Lodge",
+        "file": "managers-4-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Harvest Hostess",
+        "shop": "Demeter Seasonal Produce",
+        "file": "managers-4-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Limp-Footed Smith",
+        "shop": "Hephaestus Smithy & Repair",
+        "file": "managers-4-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Six-Seeds Saleswoman",
+        "shop": "Persephone Pomegranate Co.",
+        "file": "managers-4-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hangover Planner",
+        "shop": "Dionysus Festival Planning",
+        "file": "managers-4-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Thunder-Server Admin",
+        "shop": "Mount Olympus Cloud Storage",
+        "file": "managers-4-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Zeus’s Other Assistant",
+        "shop": "Olympus Grand Syndicate",
+        "file": "managers-4-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Cold-Shoulder Concierge",
+        "shop": "Snow Queen Ice Sculptures",
+        "file": "managers-5-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Soldier With a Drill",
+        "shop": "Nutcracker Dental Clinic",
+        "file": "managers-5-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brave Little Reindeer",
+        "shop": "Gerda's Rescue Sleighs",
+        "file": "managers-5-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frosty Freelancer",
+        "shop": "Jack Frost Window Art",
+        "file": "managers-5-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Months Committee",
+        "shop": "Twelve Months Calendar Co.",
+        "file": "managers-5-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rudolph-ish (Nose Not Included)",
+        "shop": "Reindeer Rides Ltd.",
+        "file": "managers-5-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Carrot-Nosed Supervisor",
+        "shop": "Snowman Staffing Agency",
+        "file": "managers-5-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Seven-Headed Accountant",
+        "shop": "Mouse King Cheese Cartel",
+        "file": "managers-5-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Drip Adjuster",
+        "shop": "Icicle Insurance",
+        "file": "managers-5-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Marshmallow Manager",
+        "shop": "Hot Cocoa Hydration Network",
+        "file": "managers-5-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Zamboni Wizard",
+        "shop": "Frozen Lake Skating Rink",
+        "file": "managers-5-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wardrobe Worrier",
+        "shop": "Fur Coat Rental & Returns",
+        "file": "managers-5-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whistling Courier",
+        "shop": "North Wind Delivery",
+        "file": "managers-5-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sticky Foreman",
+        "shop": "Candy Cane Quarry",
+        "file": "managers-5-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Icing Architect",
+        "shop": "Gingerbread Skyscrapers",
+        "file": "managers-5-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Aurora Operator (Colour-Blind)",
+        "shop": "Aurora Light Shows",
+        "file": "managers-5-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Abominable Receptionist",
+        "shop": "Yeti Security",
+        "file": "managers-5-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Thaw Appraiser",
+        "shop": "Ice Palace Realty",
+        "file": "managers-5-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Weathered Trader",
+        "shop": "Blizzard Futures Exchange",
+        "file": "managers-5-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frozen Executive (Solid)",
+        "shop": "Eternal Winter Holdings",
+        "file": "managers-5-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Shake-Tester",
+        "shop": "Snow Globe Manufacturing",
+        "file": "managers-5-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ice-Pawed Driver",
+        "shop": "Polar Bear Taxi",
+        "file": "managers-5-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Waddle Wrangler",
+        "shop": "Penguin Parade Productions",
+        "file": "managers-5-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Identical-Snowflake Skeptic",
+        "shop": "Snowflake Patent Office",
+        "file": "managers-5-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brain-Freeze Brewer",
+        "shop": "Frozen Treats Distillery",
+        "file": "managers-5-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frostbitten Photographer",
+        "shop": "Northern Lights Photography",
+        "file": "managers-5-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Dog-With-A-Barrel",
+        "shop": "Avalanche Rescue Corps",
+        "file": "managers-5-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Heavy-Lifter",
+        "shop": "Frost Giant Moving Company",
+        "file": "managers-5-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Block-Stacking Broker",
+        "shop": "Igloo Condominiums",
+        "file": "managers-5-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Chief Frost Officer",
+        "shop": "Frostbite Grand Syndicate",
+        "file": "managers-5-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Lead Lost Boy (Found, Twice)",
+        "shop": "Lost Boys Day Care",
+        "file": "managers-6-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fairy Packer (Wing Tired)",
+        "shop": "Tinker Bell Pixie Dust Co.",
+        "file": "managers-6-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Crocodile’s Dentist",
+        "shop": "Hook’s Hand Prosthetics",
+        "file": "managers-6-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tick-Tock Technician",
+        "shop": "Crocodile Clock Repair",
+        "file": "managers-6-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Needle-Handed Wendy",
+        "shop": "Shadow Stitching Studio",
+        "file": "managers-6-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Moody Mermaid",
+        "shop": "Mermaid Lagoon Spa",
+        "file": "managers-6-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Smee (Assistant to Everything)",
+        "shop": "Pirate Ship Rental",
+        "file": "managers-6-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Egg-Sitting Intern",
+        "shop": "Never Bird Nest Co.",
+        "file": "managers-6-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gravity Skeptic",
+        "shop": "Flying Lessons Academy",
+        "file": "managers-6-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Star-Gazing Gary",
+        "shop": "Second Star Navigation",
+        "file": "managers-6-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mother Figure #1",
+        "shop": "Wendy’s Bedtime Story Hour",
+        "file": "managers-6-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Peace Pipe Procurer",
+        "shop": "Tiger Lily Trading Post",
+        "file": "managers-6-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Smee, Again",
+        "shop": "Captain Hook Ransom Services",
+        "file": "managers-6-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tree-Hole Broker",
+        "shop": "Lost Boys Treehouse Realty",
+        "file": "managers-6-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Glowing Foreman",
+        "shop": "Fairy Lantern Lighting",
+        "file": "managers-6-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cartographer (Lost)",
+        "shop": "Neverland Mapping Bureau",
+        "file": "managers-6-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Piper Who Won’t Age",
+        "shop": "Pan Pipe Concert Hall",
+        "file": "managers-6-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tide Monitor",
+        "shop": "Skull Rock Escape Games",
+        "file": "managers-6-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Floss Handler",
+        "shop": "Crocodile Dental Plan",
+        "file": "managers-6-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Adult In The Room (Lost)",
+        "shop": "Peter’s Eternal Childhood Foundation",
+        "file": "managers-6-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pirate Cashier",
+        "shop": "Jolly Roger Gift Shop",
+        "file": "managers-6-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tweezer Tinker",
+        "shop": "Fairy Wing Repair",
+        "file": "managers-6-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pearl Broker (Slippery)",
+        "shop": "Mermaid Pearl Exchange",
+        "file": "managers-6-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "X-Marks-The-Spot Artist",
+        "shop": "Pirate Treasure Map Prints",
+        "file": "managers-6-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cloud Herder",
+        "shop": "Neverland Weather Control",
+        "file": "managers-6-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Finder-Keeper",
+        "shop": "Lost Property Office",
+        "file": "managers-6-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Night-Light Postman",
+        "shop": "Dream Delivery Service",
+        "file": "managers-6-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fairy Queen’s Secretary",
+        "shop": "Pixie Hollow Holdings",
+        "file": "managers-6-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gravity-Optional Pilot",
+        "shop": "Neverland Airlines",
+        "file": "managers-6-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Boy Who Won’t Grow Up (CEO)",
+        "shop": "Peter Pan Eternal Holdings",
+        "file": "managers-6-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Munchkin Foreman",
+        "shop": "Yellow Brick Road Paving",
+        "file": "managers-7-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Straw-Handed Surgeon",
+        "shop": "Scarecrow Brain Surgery",
+        "file": "managers-7-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Squeaky Apprentice",
+        "shop": "Tin Man Oil Services",
+        "file": "managers-7-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mildly Brave Trainer",
+        "shop": "Lion Courage Coaching",
+        "file": "managers-7-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Green-Tinted Optician",
+        "shop": "Emerald City Spectacles",
+        "file": "managers-7-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Man Behind the Curtain",
+        "shop": "Wizard of Oz Smoke & Mirrors",
+        "file": "managers-7-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Winged Postmaster",
+        "shop": "Flying Monkey Air Freight",
+        "file": "managers-7-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Click-Clack Cashier",
+        "shop": "Ruby Slipper Outlet",
+        "file": "managers-7-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Green Broom Tester",
+        "shop": "Wicked Witch Broom Co.",
+        "file": "managers-7-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Basket Dispatcher",
+        "shop": "Toto Dog Training",
+        "file": "managers-7-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cellar Adjuster",
+        "shop": "Tornado Insurance",
+        "file": "managers-7-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lollipop Guild Rep",
+        "shop": "Munchkinland Candy Works",
+        "file": "managers-7-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Dozy Doorman",
+        "shop": "Poppy Field Napping Lounge",
+        "file": "managers-7-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sparkly Chauffeur",
+        "shop": "Glinda Bubble Transport",
+        "file": "managers-7-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Oh-Ee-Oh Guard",
+        "shop": "Winkie Guard Security",
+        "file": "managers-7-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fragile Foreman",
+        "shop": "China Country Pottery",
+        "file": "managers-7-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hill-Hopping Guide",
+        "shop": "Quadling Country Tours",
+        "file": "managers-7-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Kansas Contractor",
+        "shop": "Dorothy Home Improvement",
+        "file": "managers-7-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Color-Coded Cartographer",
+        "shop": "Oz Cartography Dept.",
+        "file": "managers-7-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Appraiser Who Remembers",
+        "shop": "Silver Shoes Antiques",
+        "file": "managers-7-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Humbug Pilot",
+        "shop": "Hot Air Balloon Co.",
+        "file": "managers-7-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Convincing Intern",
+        "shop": "Wizard’s Humbug Consulting",
+        "file": "managers-7-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Small-Pants Specialist",
+        "shop": "Winged Monkey Uniform Tailors",
+        "file": "managers-7-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Reluctant Spotter",
+        "shop": "Cowardly Lion Gym",
+        "file": "managers-7-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Field Trader",
+        "shop": "Scarecrow Corn Futures",
+        "file": "managers-7-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Green Plumber",
+        "shop": "Emerald Sewer Authority",
+        "file": "managers-7-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Prismatic Landlord",
+        "shop": "Oz Rainbow Rentals",
+        "file": "managers-7-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Small But Mighty Rep",
+        "shop": "Munchkin Union Local #3",
+        "file": "managers-7-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Windswept Reporter",
+        "shop": "Oz Tornado Chasers Network",
+        "file": "managers-7-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Wizard (Probably)",
+        "shop": "Emerald City Holdings",
+        "file": "managers-7-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Hermit Crab Operator",
+        "shop": "Seashell Phone Co.",
+        "file": "managers-8-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Eight-Handed Attorney",
+        "shop": "Madame Brinewick Contract Law",
+        "file": "managers-8-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Crab Maître d’",
+        "shop": "Clement Calypso Catering",
+        "file": "managers-8-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Nervous Flounder",
+        "shop": "Flounder Anxiety Therapy",
+        "file": "managers-8-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Anemone Landlord",
+        "shop": "Coral Reef Condos",
+        "file": "managers-8-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Seaweed Sous-Chef",
+        "shop": "Kelp Forest Salads",
+        "file": "managers-8-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rusty Diver",
+        "shop": "Shipwreck Salvage Ltd.",
+        "file": "managers-8-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Barnacle Bell-Ringer",
+        "shop": "Pearl Diving Bell Service",
+        "file": "managers-8-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cauldron Clerk",
+        "shop": "Sea Witch Potion Shop",
+        "file": "managers-8-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sparkle Squid",
+        "shop": "Triton Trident Polishing",
+        "file": "managers-8-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stylist With Seven Brushes",
+        "shop": "Mermaid Hair Salon",
+        "file": "managers-8-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Glow-Head Foreman",
+        "shop": "Anglerfish Lighting Co.",
+        "file": "managers-8-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Starting-Line Sprat",
+        "shop": "Seahorse Racing League",
+        "file": "managers-8-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Baritone Beluga",
+        "shop": "Whale Song Studios",
+        "file": "managers-8-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tentacled Adjuster",
+        "shop": "Jellyfish Sting Insurance",
+        "file": "managers-8-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Five-Point Agent",
+        "shop": "Starfish Talent Agency",
+        "file": "managers-8-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Eight-Armed Gardener",
+        "shop": "Octopus Garden Landscaping",
+        "file": "managers-8-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Clam Keyholder",
+        "shop": "Treasure Chest Locksmiths",
+        "file": "managers-8-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Squawk Coach",
+        "shop": "Seagull Heckler Hire",
+        "file": "managers-8-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pop Specialist",
+        "shop": "Bubble Wrap Factory",
+        "file": "managers-8-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Soggy Agent",
+        "shop": "Sunken City Real Estate",
+        "file": "managers-8-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gnarly Instructor",
+        "shop": "Tidal Wave Surf School",
+        "file": "managers-8-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Periscope Pete",
+        "shop": "Deep Sea Submarine Tours",
+        "file": "managers-8-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lonely Lamplighter",
+        "shop": "Lighthouse Keeper Services",
+        "file": "managers-8-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sandy Teller",
+        "shop": "Sand Dollar Currency Exchange",
+        "file": "managers-8-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Blender Barnacle",
+        "shop": "Seaweed Smoothie Co.",
+        "file": "managers-8-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tentacle Spotter",
+        "shop": "Kraken Gym & Rec",
+        "file": "managers-8-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Anchor Admiral",
+        "shop": "Atlantic Shipping Lines",
+        "file": "managers-8-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Seashell-Top Producer",
+        "shop": "Mermaid Pop Records",
+        "file": "managers-8-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lost City CEO (Damp)",
+        "shop": "Atlantis Holdings",
+        "file": "managers-8-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Chewy Foreman",
+        "shop": "Gumdrop Gravel Quarry",
+        "file": "managers-9-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sticky Engineer",
+        "shop": "Licorice Rope Bridges",
+        "file": "managers-9-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Peppermint Logger",
+        "shop": "Candy Cane Lumberjacks",
+        "file": "managers-9-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cocoa Captain",
+        "shop": "Chocolate River Barges",
+        "file": "managers-9-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fluffy Foreman",
+        "shop": "Marshmallow Mattress Co.",
+        "file": "managers-9-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brick-Spice Foreman",
+        "shop": "Gingerbread Brick Co.",
+        "file": "managers-9-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Spinner Spider",
+        "shop": "Cotton Candy Cloud Weavers",
+        "file": "managers-9-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lick-Happy Guide",
+        "shop": "Lollipop Forest Tours",
+        "file": "managers-9-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pirouette Prima",
+        "shop": "Sugar Plum Fairy Ballet",
+        "file": "managers-9-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Flavor Auditor",
+        "shop": "Jellybean Bean Counters",
+        "file": "managers-9-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sticky Ranger",
+        "shop": "Caramel Waterfall Park",
+        "file": "managers-9-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Crystal Digger",
+        "shop": "Rock Candy Mining",
+        "file": "managers-9-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Precipitation Technician",
+        "shop": "Sprinkle Rain Machine",
+        "file": "managers-9-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Icing Handyman",
+        "shop": "Frosting Spackle Home Repair",
+        "file": "managers-9-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Minty Officer",
+        "shop": "Peppermint Patty Patrol",
+        "file": "managers-9-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stretchy Coach",
+        "shop": "Taffy Pull Gym",
+        "file": "managers-9-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Slow Fudge-Stirrer",
+        "shop": "Fudge Factory Tours",
+        "file": "managers-9-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Puckered Clerk",
+        "shop": "Sour Patch Complaint Dept.",
+        "file": "managers-9-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sticky Pilot",
+        "shop": "Candy Floss Cloud Airlines",
+        "file": "managers-9-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hansel’s Descendant",
+        "shop": "Cookie Crumb Trail Mapping",
+        "file": "managers-9-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sweet-Tooth Dentist",
+        "shop": "Witch’s Cottage Dental",
+        "file": "managers-9-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Snappy Foreman",
+        "shop": "Peanut Brittle Construction",
+        "file": "managers-9-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gooey Floor-Layer",
+        "shop": "Chewing Gum Floor Co.",
+        "file": "managers-9-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Marshmallow Masseuse",
+        "shop": "Hot Chocolate Spa",
+        "file": "managers-9-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Crinkle Collector",
+        "shop": "Candy Wrapper Recycling",
+        "file": "managers-9-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hyperactive Starter",
+        "shop": "Sugar Rush Racing League",
+        "file": "managers-9-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cookie Surgeon",
+        "shop": "Gingerbread Hospital Wing",
+        "file": "managers-9-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Licorice Conductor",
+        "shop": "Candyland Express Railway",
+        "file": "managers-9-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Savings Squirrel",
+        "shop": "Sweet Tooth Bank & Trust",
+        "file": "managers-9-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sugar Plum CEO (Overstimulated)",
+        "shop": "Sugarplum Holdings",
+        "file": "managers-9-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Warm-Handed Nanny",
+        "shop": "Dragon Egg Incubators",
+        "file": "managers-10-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gold-Counter Goblin",
+        "shop": "Hoard Management Services",
+        "file": "managers-10-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tin-Can Chef",
+        "shop": "Knight Armor Barbecue",
+        "file": "managers-10-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Charred Adjuster",
+        "shop": "Fire Insurance (Specifically Dragon)",
+        "file": "managers-10-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stalagmite Broker",
+        "shop": "Cave Real Estate",
+        "file": "managers-10-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Talon-Handed Courier",
+        "shop": "Wyvern Postal Service",
+        "file": "managers-10-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tower Operator",
+        "shop": "Princess Rescue Hotline",
+        "file": "managers-10-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Lava Lifeguard",
+        "shop": "Volcano Hot Tub Resorts",
+        "file": "managers-10-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Reptile Stylist",
+        "shop": "Dragon Scale Fashion",
+        "file": "managers-10-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whetstone Whisperer",
+        "shop": "Sword Sharpening Co.",
+        "file": "managers-10-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pyro-Printer",
+        "shop": "Spellbook Printing",
+        "file": "managers-10-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Feathered Fare-Taker",
+        "shop": "Griffin Taxi",
+        "file": "managers-10-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Troll Collector",
+        "shop": "Mountain Pass Toll Booth",
+        "file": "managers-10-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Scorched Lamplighter",
+        "shop": "Dragonfire Lighting Co.",
+        "file": "managers-10-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Echo Engineer",
+        "shop": "Cavern Echo Studios",
+        "file": "managers-10-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gold-Tooth Appraiser",
+        "shop": "Treasure Appraisal Guild",
+        "file": "managers-10-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Staircase Skeptic",
+        "shop": "Wizard Tower Elevators",
+        "file": "managers-10-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stone-Faced Chief",
+        "shop": "Gargoyle Security Detail",
+        "file": "managers-10-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fire-Drill Instructor",
+        "shop": "Dragon Training Academy",
+        "file": "managers-10-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Singed Innkeeper",
+        "shop": "Mountain Pass Hostels",
+        "file": "managers-10-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ash Trader",
+        "shop": "Ember Coal Futures",
+        "file": "managers-10-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Vertigo-Free Foreman",
+        "shop": "Cliffside Castle Contractors",
+        "file": "managers-10-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Reborn Receptionist",
+        "shop": "Phoenix Rebirth Clinic",
+        "file": "managers-10-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Guilty Short-Order Cook",
+        "shop": "Dragon Egg Omelet Diner",
+        "file": "managers-10-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Puff Operator",
+        "shop": "Smoke Signal Telecom",
+        "file": "managers-10-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Saddle-Sore Stablehand",
+        "shop": "Dragon Rider Stables",
+        "file": "managers-10-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Heat-Proof Plumber",
+        "shop": "Magma Plumbing",
+        "file": "managers-10-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ore-Obsessed Dwarf",
+        "shop": "Dragonspine Mining Co.",
+        "file": "managers-10-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frazzled Controller",
+        "shop": "Skyfire Air Traffic Control",
+        "file": "managers-10-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Ancient One (Sleeps 20 hr/day)",
+        "shop": "Ancient Wyrm Holdings",
+        "file": "managers-10-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Pillow-Wall Foreman",
+        "shop": "Blanket Fort Construction",
+        "file": "managers-11-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wobbly-Sign Painter",
+        "shop": "Lemonade Stand (Sugar Optional)",
+        "file": "managers-11-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Duct-Tape Captain",
+        "shop": "Cardboard Box Rocket Yard",
+        "file": "managers-11-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hopscotch Broker",
+        "shop": "Sidewalk Chalk Realty",
+        "file": "managers-11-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Steadfast Sergeant",
+        "shop": "Tin Soldier Staffing",
+        "file": "managers-11-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Spring-Loaded Specialist",
+        "shop": "Jack-in-the-Box Surprise Services",
+        "file": "managers-11-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gallop-Free Jockey",
+        "shop": "Rocking Horse Racing League",
+        "file": "managers-11-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stuffing-Stitched Manager",
+        "shop": "Teddy Bear Hug Co.",
+        "file": "managers-11-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Walk-the-Dog Advisor",
+        "shop": "Yo-Yo Up-and-Down Consulting",
+        "file": "managers-11-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cat’s-Eye Teller",
+        "shop": "Marble Bank & Trust",
+        "file": "managers-11-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Gusty Trader",
+        "shop": "Kite & String Futures Exchange",
+        "file": "managers-11-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiny Landlady",
+        "shop": "Dollhouse Property Management",
+        "file": "managers-11-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Under-the-Couch Investigator",
+        "shop": "Puzzle Piece Recovery Agency",
+        "file": "managers-11-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wax-Stained Chemist",
+        "shop": "Crayon Melting & Recycling",
+        "file": "managers-11-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiny Conductor",
+        "shop": "Toy Train Commuter Line",
+        "file": "managers-11-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Left-Hand Director",
+        "shop": "Sock Puppet Theater Company",
+        "file": "managers-11-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bounce-Reliant Dispatcher",
+        "shop": "Pogo Stick Transport Authority",
+        "file": "managers-11-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wooden-Jawed Captain",
+        "shop": "Nutcracker Security Services",
+        "file": "managers-11-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Well-Loved Examiner",
+        "shop": "Velveteen Rabbit Authenticity Bureau",
+        "file": "managers-11-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Long-Nosed Auditor",
+        "shop": "Pinocchio Honesty Audits",
+        "file": "managers-11-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiptoe Instructor",
+        "shop": "Music Box Ballerina Academy",
+        "file": "managers-11-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Admiral Squeaks",
+        "shop": "Rubber Duck Bath-Time Navy",
+        "file": "managers-11-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "High-Flying Marshal",
+        "shop": "Trampoline Cloud Parks",
+        "file": "managers-11-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stacked Superintendent",
+        "shop": "Building Block Skyscraper Developers",
+        "file": "managers-11-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pair-Seeking Clerk",
+        "shop": "Lost Mitten Reunification Bureau",
+        "file": "managers-11-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bathtub Boatswain",
+        "shop": "Toy Chest Pirate Ship Yards",
+        "file": "managers-11-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Shake-Forecast Meteorologist",
+        "shop": "Snow Globe Weather Service",
+        "file": "managers-11-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bucket-Handed Foreman",
+        "shop": "Sandbox Excavation & Mining",
+        "file": "managers-11-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Overwound Plant Manager",
+        "shop": "Wind-Up Key Manufacturing Plant",
+        "file": "managers-11-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Toy Queen (Slightly Chewed)",
+        "shop": "The Toybox Kingdom Grand Playroom Authority",
+        "file": "managers-11-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Cork-Capped Postmaster",
+        "shop": "Message-in-a-Bottle Postal Service",
+        "file": "managers-12-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bucket-Brigade Foreman",
+        "shop": "Sandcastle Sea Wall Contractors",
+        "file": "managers-12-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Beak-Scarred Bodyguard",
+        "shop": "Seagull Snack Protection Services",
+        "file": "managers-12-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Salt-Faced Carpenter",
+        "shop": "Driftwood Furniture Outlet",
+        "file": "managers-12-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Off-Key Bosun",
+        "shop": "Shanty Songwriting Collective",
+        "file": "managers-12-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Feather-Duster Interpreter",
+        "shop": "Parrot Translation Bureau",
+        "file": "managers-12-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "North-Seeking Technician",
+        "shop": "Compass Calibration Clinic",
+        "file": "managers-12-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "X-Marks-The-Spot Printer",
+        "shop": "Treasure Map Printing Co.",
+        "file": "managers-12-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Powder-Smudged Cook",
+        "shop": "Cannonball Catering",
+        "file": "managers-12-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Vertigo-Proof Broker",
+        "shop": "Crow’s Nest Real Estate",
+        "file": "managers-12-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Heavy-Handed Clerk",
+        "shop": "Anchor & Chain Hardware",
+        "file": "managers-12-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cautious Quartermaster",
+        "shop": "Plank-Walking Safety Council",
+        "file": "managers-12-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fizzy Cooper",
+        "shop": "Rum Barrel (Root Beer) Distillery",
+        "file": "managers-12-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Stitch-Happy Seamstress",
+        "shop": "Jolly Roger Flag Company",
+        "file": "managers-12-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Lonely Lamp-Lighter",
+        "shop": "Lighthouse Keepers, Ltd.",
+        "file": "managers-12-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Anxious Actuary",
+        "shop": "Buried Treasure Insurance",
+        "file": "managers-12-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tiny Taskmaster",
+        "shop": "Cabin Boy Training Academy",
+        "file": "managers-12-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "One-Eyed Optician",
+        "shop": "Spyglass & Telescope Optometry",
+        "file": "managers-12-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pearl-Handed Packer",
+        "shop": "Mermaid Mail Order Catalog",
+        "file": "managers-12-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Splash-Soaked Guide",
+        "shop": "Whale-Watching Cruise Line",
+        "file": "managers-12-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Transparent Foreman",
+        "shop": "The Flying Dutchman Dry Dock",
+        "file": "managers-12-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Barnacle-Eared DJ",
+        "shop": "Sea Shanty Streaming Service",
+        "file": "managers-12-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pegleg Prospector",
+        "shop": "Long John’s Silver Mining Co.",
+        "file": "managers-12-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sunburned Concierge",
+        "shop": "Marooned Island Resorts",
+        "file": "managers-12-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Brave-Faced Diver",
+        "shop": "Kraken-Free Deep Sea Salvage",
+        "file": "managers-12-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ink-Stained Scribe",
+        "shop": "Captain’s Log Publishing",
+        "file": "managers-12-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Porthole Polisher",
+        "shop": "Nautilus Submarine Cruises",
+        "file": "managers-12-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hook-Handed Broker",
+        "shop": "Pirate Cove Stock Exchange",
+        "file": "managers-12-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Admiral of Everything",
+        "shop": "The High Seas Treasure Authority",
+        "file": "managers-12-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Keeper at the End of the Light",
+        "shop": "The Last Lighthouse Holdings",
+        "file": "managers-12-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Seed-Spattered Carver",
+        "shop": "Pumpkin Patch Carving Co.",
+        "file": "managers-13-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sequin-Covered Clerk",
+        "shop": "Costume Rental Closet",
+        "file": "managers-13-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pillowcase Purveyor",
+        "shop": "Trick-or-Treat Bag Outfitters",
+        "file": "managers-13-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Eight-Legged Designer",
+        "shop": "Cobweb Decorating Services",
+        "file": "managers-13-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bleach-Pale Foreman",
+        "shop": "Ghost Sheet Laundry",
+        "file": "managers-13-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Creaky-Voiced Broker",
+        "shop": "Haunted House Realty",
+        "file": "managers-13-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whiskered Crossing Guard",
+        "shop": "Black Cat Crossing Authority",
+        "file": "managers-13-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Upside-Down Innkeeper",
+        "shop": "Bat Belfry Bed & Breakfast",
+        "file": "managers-13-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Triple-Colored Trader",
+        "shop": "Candy Corn Futures",
+        "file": "managers-13-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rattling Hygienist",
+        "shop": "Skeleton Dental",
+        "file": "managers-13-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Frayed-Hat Mechanic",
+        "shop": "Witch’s Broomstick Repair",
+        "file": "managers-13-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bubbling Chef",
+        "shop": "Cauldron Catering",
+        "file": "managers-13-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Straw-Filled Recruiter",
+        "shop": "Scarecrow Staffing Agency",
+        "file": "managers-13-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Flashlight-Under-Chin Narrator",
+        "shop": "Campfire Ghost Story Ltd.",
+        "file": "managers-13-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Pitchfork-Wielding Driver",
+        "shop": "Haunted Hayride Transit Authority",
+        "file": "managers-13-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Head-Under-His-Arm Courier",
+        "shop": "Headless Horseman Express Delivery",
+        "file": "managers-13-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Split-Shift Supervisor",
+        "shop": "Jekyll & Hyde Personnel Services",
+        "file": "managers-13-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bolt-Necked Stockroom Chief",
+        "shop": "Frankenstein’s Spare Parts Warehouse",
+        "file": "managers-13-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Bandaged Gift Wrapper",
+        "shop": "Mummy Gift-Wrapping Boutique",
+        "file": "managers-13-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Caped Barista",
+        "shop": "Count Von Pun’s Orange Juice Bar",
+        "file": "managers-13-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Full-Moon Stylist",
+        "shop": "Werewolf Grooming Salon",
+        "file": "managers-13-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Night-Owl Coordinator",
+        "shop": "Graveyard Shift Staffing",
+        "file": "managers-13-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Nevermore-Delivering Courier",
+        "shop": "Quoth the Raven Mail Service",
+        "file": "managers-13-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Masked Stage Manager",
+        "shop": "The Phantom Opera House Productions",
+        "file": "managers-13-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Shuffling Treasurer",
+        "shop": "Zombie Walk-A-Thon Charities",
+        "file": "managers-13-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Quill-Wielding Editor",
+        "shop": "Ghost Story Publishing House",
+        "file": "managers-13-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Candelabra Host",
+        "shop": "Moonlit Costume Gala Planners",
+        "file": "managers-13-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Midnight Timekeeper",
+        "shop": "Witching Hour Time Share",
+        "file": "managers-13-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Pumpkin King (Carved, Smiling)",
+        "shop": "Grand Jack-o’-Lantern Holdings",
+        "file": "managers-13-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Keeper of Every Porch",
+        "shop": "The Porch Light Council",
+        "file": "managers-13-0.webp",
+        "cell": 29,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Creaky-Chair Landlord",
+        "shop": "Front Porch Rocking Chair Rentals",
+        "file": "managers-14-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Apron-Wearing Gran",
+        "shop": "Windowsill Pie Cooling Co.",
+        "file": "managers-14-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Squeaky-Wheel Mechanic",
+        "shop": "Covered Wagon Wheel Repair",
+        "file": "managers-14-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Smoky Trail Cook",
+        "shop": "Campfire Beans Catering",
+        "file": "managers-14-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Loop-Twirling Clerk",
+        "shop": "Lasso & Rope Outfitters",
+        "file": "managers-14-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Antler-Brushing Keeper",
+        "shop": "Jackalope Petting Zoo",
+        "file": "managers-14-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Rolling Collector",
+        "shop": "Tumbleweed Collection Service",
+        "file": "managers-14-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Counter-Leaning Proprietor",
+        "shop": "General Store (Everything Is a Nickel)",
+        "file": "managers-14-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Mail-Sack Rider",
+        "shop": "Pony Express Overnight",
+        "file": "managers-14-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hammer-Armed Foreman",
+        "shop": "John Henry Steel & Hammer Works",
+        "file": "managers-14-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Barefoot Orchardist",
+        "shop": "Johnny Appleseed Orchard Franchise",
+        "file": "managers-14-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hat-Tipping Pianist",
+        "shop": "Out-of-Tune Saloon Piano Entertainment",
+        "file": "managers-14-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Hands-Spread-Wide Captain",
+        "shop": "Tall Tale Fishing Charters",
+        "file": "managers-14-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Ox-Whispering Foreman",
+        "shop": "Paul Bunyan Lumber & Ox Co.",
+        "file": "managers-14-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Tornado-Riding Announcer",
+        "shop": "Pecos Bill Rodeo Productions",
+        "file": "managers-14-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sieve-Eyed Prospector",
+        "shop": "Gold Rush Pan Rental",
+        "file": "managers-14-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whitewash-Splattered Contractor",
+        "shop": "Tom Sawyer’s Fence-Painting Outsourcing",
+        "file": "managers-14-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whistle-Blowing Skipper",
+        "shop": "Steamboat Paddlewheel Cruises",
+        "file": "managers-14-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Conductor in a Tall Hat",
+        "shop": "Golden Spike Railroad Company",
+        "file": "managers-14-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Twine-Wrapped Curator",
+        "shop": "World’s Biggest Ball of Twine, Ltd.",
+        "file": "managers-14-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Popcorn-Faced Projectionist",
+        "shop": "Drive-In Movie Theater",
+        "file": "managers-14-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Order-Calling Waitress",
+        "shop": "Route 66 Diner & Pie Palace",
+        "file": "managers-14-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Backseat Negotiator",
+        "shop": "Family Road Trip Snack Depot",
+        "file": "managers-14-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Well-Rested Salesman",
+        "shop": "Rip Van Winkle Mattress Co.",
+        "file": "managers-14-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Heart-on-His-Sleeve Announcer",
+        "shop": "Casey at the Bat Sports Radio",
+        "file": "managers-14-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Round-and-Round Operator",
+        "shop": "County Fair Ferris Wheel Co.",
+        "file": "managers-14-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Blurry-Eyed Photographer",
+        "shop": "Sasquatch Photo Bureau",
+        "file": "managers-14-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Official Exaggerator",
+        "shop": "The Great American Tall Tale Authority",
+        "file": "managers-14-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Grandpa (Sunset Edition)",
+        "shop": "Grandpa’s Front Porch Storytelling Holdings",
+        "file": "managers-14-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      }
+    ],
+    [
+      {
+        "name": "Soft-Glow Technician",
+        "shop": "Night-Light Bulb Replacement",
+        "file": "managers-15-0.webp",
+        "cell": 0,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Barefoot Hall Runner",
+        "shop": "Glass of Water (Requested at 9:03 PM)",
+        "file": "managers-15-0.webp",
+        "cell": 1,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cloud-Handed Fluffer",
+        "shop": "Pillow Fluffing Services",
+        "file": "managers-15-0.webp",
+        "cell": 2,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whispering Librarian",
+        "shop": "Bedtime Story Lending Library",
+        "file": "managers-15-0.webp",
+        "cell": 3,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Off-Key Hummer",
+        "shop": "Lullaby Humming Collective",
+        "file": "managers-15-0.webp",
+        "cell": 4,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Fuzzy Floor Manager",
+        "shop": "Closet Monster Management (Friendly Division)",
+        "file": "managers-15-0.webp",
+        "cell": 5,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Dust-Bunny Broker",
+        "shop": "Under-the-Bed Real Estate",
+        "file": "managers-15-0.webp",
+        "cell": 6,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Glitter-Winged Notary",
+        "shop": "Tooth Fairy Escrow Services",
+        "file": "managers-15-0.webp",
+        "cell": 7,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Feather-Fingered Mender",
+        "shop": "Dream Catcher Repair",
+        "file": "managers-15-0.webp",
+        "cell": 8,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Sleepy-Eyed Courier",
+        "shop": "Sandman’s Sand Dispatch",
+        "file": "managers-15-0.webp",
+        "cell": 9,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Feather-Quilled Editor",
+        "shop": "Mother Goose Nursery Rhyme Publishing",
+        "file": "managers-15-0.webp",
+        "cell": 10,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "King’s Horseman (Reassigned)",
+        "shop": "Humpty Dumpty Egg Repair",
+        "file": "managers-15-0.webp",
+        "cell": 11,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Crook-Holding Shepherdess",
+        "shop": "Little Bo Peep Sheep Retrieval",
+        "file": "managers-15-0.webp",
+        "cell": 12,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Cow-Over-The-Moon Pilot",
+        "shop": "Hey Diddle Diddle Dish & Spoon Elopements",
+        "file": "managers-15-0.webp",
+        "cell": 13,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wooden-Shoe Skipper",
+        "shop": "Wynken, Blynken & Nod Dream Fishing Fleet",
+        "file": "managers-15-0.webp",
+        "cell": 14,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Silver-Handed Collector",
+        "shop": "Moonbeam Collection Service",
+        "file": "managers-15-0.webp",
+        "cell": 15,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Needle-Fingered Grandmother",
+        "shop": "Quilt Patchwork Heritage Co.",
+        "file": "managers-15-0.webp",
+        "cell": 16,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Slow-Swaying Foreman",
+        "shop": "Rocking Chair Lullaby Union",
+        "file": "managers-15-0.webp",
+        "cell": 17,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Paper-Cut Engineer",
+        "shop": "Pop-Up Book Construction",
+        "file": "managers-15-0.webp",
+        "cell": 18,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Letter-Stacking Teacher",
+        "shop": "Alphabet Block Academy",
+        "file": "managers-15-0.webp",
+        "cell": 19,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Five-More-Minutes Negotiator",
+        "shop": "Bedtime Negotiation Bureau",
+        "file": "managers-15-0.webp",
+        "cell": 20,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Loom-Humming Weaver",
+        "shop": "Dream Weaving Factory",
+        "file": "managers-15-0.webp",
+        "cell": 21,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Yawning Accountant",
+        "shop": "Counting Sheep Accounting Firm",
+        "file": "managers-15-0.webp",
+        "cell": 22,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Wise Wide-Eyed Guard",
+        "shop": "Night Watch Owl Security",
+        "file": "managers-15-0.webp",
+        "cell": 23,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Glow-in-the-Dark Installer",
+        "shop": "Stars-on-the-Ceiling Glow Co.",
+        "file": "managers-15-0.webp",
+        "cell": 24,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Friendly Printer",
+        "shop": "The Last Page Press (Non-Hostile)",
+        "file": "managers-15-0.webp",
+        "cell": 25,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Lap (Open To All)",
+        "shop": "The Reading Chair Holdings",
+        "file": "managers-15-0.webp",
+        "cell": 26,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "The Hum That Started Everything",
+        "shop": "The Lullaby Authority",
+        "file": "managers-15-0.webp",
+        "cell": 27,
+        "cols": 5,
+        "rows": 6
+      },
+      {
+        "name": "Whoever Left the Door Open a Crack",
+        "shop": "The Nursery at the End of the Hall Holdings",
+        "file": "managers-15-0.webp",
+        "cell": 28,
+        "cols": 5,
+        "rows": 6
+      }
+    ]
+  ],
+  "festivals": [
+    {
+      "name": "New Year's Fable-Fest",
+      "file": "festivals-0.webp",
+      "cell": 0,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Snow Queen's Frostival",
+      "file": "festivals-0.webp",
+      "cell": 1,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Dwarf Mining Rush",
+      "file": "festivals-0.webp",
+      "cell": 2,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Gingerbread Baking Bonanza",
+      "file": "festivals-0.webp",
+      "cell": 3,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "The Beast's Banquet",
+      "file": "festivals-0.webp",
+      "cell": 4,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Glass Slipper Valentine Ball",
+      "file": "festivals-0.webp",
+      "cell": 5,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Sleeping Beauty's Hundred-Year Nap",
+      "file": "festivals-0.webp",
+      "cell": 6,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Mad Hatter's Winter Tea",
+      "file": "festivals-0.webp",
+      "cell": 7,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Thumbelina's Tiny Market",
+      "file": "festivals-0.webp",
+      "cell": 8,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Leprechaun Gold Rush",
+      "file": "festivals-0.webp",
+      "cell": 9,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Jack's Beanstalk Planting Week",
+      "file": "festivals-0.webp",
+      "cell": 10,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "The White Rabbit's Egg Hunt",
+      "file": "festivals-0.webp",
+      "cell": 11,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Frog Prince Pond Party",
+      "file": "festivals-0.webp",
+      "cell": 12,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Alice's Croquet Open",
+      "file": "festivals-0.webp",
+      "cell": 13,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Pied Piper's Spring Parade",
+      "file": "festivals-0.webp",
+      "cell": 14,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Cheshire Grin-a-Thon",
+      "file": "festivals-0.webp",
+      "cell": 15,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Three Bears Porridge Cook-Off",
+      "file": "festivals-0.webp",
+      "cell": 16,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Rapunzel's Long Hair Weekend",
+      "file": "festivals-0.webp",
+      "cell": 17,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Mermaid Lagoon Regatta",
+      "file": "festivals-0.webp",
+      "cell": 18,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Sinbad's Seven Seas Week",
+      "file": "festivals-0.webp",
+      "cell": 19,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Giant's Picnic Panic",
+      "file": "festivals-1.webp",
+      "cell": 0,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Dormouse Dream Fest",
+      "file": "festivals-1.webp",
+      "cell": 1,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Tortoise & Hare Summer Games",
+      "file": "festivals-1.webp",
+      "cell": 2,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Mock Turtle Beach Day",
+      "file": "festivals-1.webp",
+      "cell": 3,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Peter Piper's Pickle Week",
+      "file": "festivals-1.webp",
+      "cell": 4,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Queen of Hearts Tart Festival",
+      "file": "festivals-1.webp",
+      "cell": 5,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Fairy Godmother Fireworks",
+      "file": "festivals-1.webp",
+      "cell": 6,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Aladdin's Midsummer Bazaar",
+      "file": "festivals-1.webp",
+      "cell": 7,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Elves & the Shoemaker Workshop Week",
+      "file": "festivals-1.webp",
+      "cell": 8,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Ugly Duckling Talent Show",
+      "file": "festivals-1.webp",
+      "cell": 9,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Twelve Dancing Princesses Gala",
+      "file": "festivals-1.webp",
+      "cell": 10,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Tweedledum & Tweedledee Rematch",
+      "file": "festivals-1.webp",
+      "cell": 11,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Jabberwocky Gala",
+      "file": "festivals-1.webp",
+      "cell": 12,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Looking-Glass Chess Tournament",
+      "file": "festivals-1.webp",
+      "cell": 13,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Goldilocks Back-to-School",
+      "file": "festivals-1.webp",
+      "cell": 14,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Red Riding Hood Harvest",
+      "file": "festivals-1.webp",
+      "cell": 15,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Snow White Apple Harvest",
+      "file": "festivals-1.webp",
+      "cell": 16,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Pinocchio Honest Week",
+      "file": "festivals-1.webp",
+      "cell": 17,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Rumpelstiltskin Gold Spin",
+      "file": "festivals-1.webp",
+      "cell": 18,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Big Bad Wolf Costume Contest",
+      "file": "festivals-1.webp",
+      "cell": 19,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Hansel & Gretel Candy Craze",
+      "file": "festivals-2.webp",
+      "cell": 0,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Haunted Gingerbread Manor",
+      "file": "festivals-2.webp",
+      "cell": 1,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Witch's Cauldron Week",
+      "file": "festivals-2.webp",
+      "cell": 2,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Sleepy Hollow Pumpkin Patch",
+      "file": "festivals-2.webp",
+      "cell": 3,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Wonderland Unbirthday Spectacular",
+      "file": "festivals-2.webp",
+      "cell": 4,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Golden Goose Feast",
+      "file": "festivals-2.webp",
+      "cell": 5,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Cinderella's Midnight Rush",
+      "file": "festivals-2.webp",
+      "cell": 6,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Nutcracker Toy Soldier March",
+      "file": "festivals-2.webp",
+      "cell": 7,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Snowman Workshop",
+      "file": "festivals-2.webp",
+      "cell": 8,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Christmas Elf Overtime",
+      "file": "festivals-2.webp",
+      "cell": 9,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "Winter Solstice Lantern Night",
+      "file": "festivals-2.webp",
+      "cell": 10,
+      "cols": 4,
+      "rows": 5
+    },
+    {
+      "name": "The Happily Ever After Finale",
+      "file": "festivals-2.webp",
+      "cell": 11,
+      "cols": 4,
+      "rows": 5
+    }
+  ],
+  "atlases": {
+    "managers-0-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-0-1.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-1-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-1-1.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-2-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-2-1.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-3-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-4-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-5-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-6-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-7-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-8-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-9-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-10-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-11-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-12-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-13-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-14-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "managers-15-0.webp": {
+      "width": 1145,
+      "height": 1374,
+      "columns": 5,
+      "rows": 6,
+      "cellAspectRatio": 1.0
+    },
+    "festivals-0.webp": {
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "cellAspectRatio": 1.00035663
+    },
+    "festivals-1.webp": {
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "cellAspectRatio": 1.00035663
+    },
+    "festivals-2.webp": {
+      "width": 1122,
+      "height": 1402,
+      "columns": 4,
+      "rows": 5,
+      "cellAspectRatio": 1.00035663
+    }
+  }
+}
