@@ -394,24 +394,40 @@ html[data-living-motion=off] .biz .game-art,html[data-living-motion=off] .biz .s
 @media(max-width:600px){.save-tools{padding:18px 15px}.save-tools-head{gap:10px}.save-tools-head .ui-art{width:54px;height:54px}.save-tools h2{font-size:24px}.save-actions{grid-template-columns:1fr}.save-actions .btn{min-height:48px}.cat-expression{width:73px;height:73px}.biz .nm:after{font-size:9px;margin-top:6px}#living-celebration{padding:13px 46px 13px 12px;gap:10px}#living-celebration strong{font-size:20px}.celebration-art{width:47px;height:47px}}
 @media(prefers-reduced-motion:reduce){.cat-portrait.face,.cat-expression,.biz .game-art,.biz .shop-illustration:after,.purchase-pulse{animation:none!important}.biz .shop-illustration:after,.living-coin{display:none!important}#living-celebration{transition:none!important}}
 
+
+/* v22: cinematic title and empire dashboard */
+#game-header{position:relative!important;isolation:isolate;max-width:1080px;margin:0 auto 18px;padding:0 0 12px!important;background:linear-gradient(150deg,#142a36,#111e31 65%,#1d2139);border:1px solid #e5cf9b38;border-top:0;border-radius:0 0 26px 26px;box-shadow:0 12px 42px #0005;overflow:hidden}#game-header:before,#game-header:after{display:none}.title-stage{height:185px;position:relative;display:flex;align-items:center;padding:20px 30px;isolation:isolate;overflow:hidden;background:#102638}.title-atmosphere{position:absolute;inset:0;z-index:-2;background:url('assets/title-panorama.webp') center 52%/cover no-repeat;transform:scale(1.025);animation:title-atmosphere 18s ease-in-out infinite alternate}.title-stage:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#0c1b30c9,#0e263d80 48%,#122b3c05),linear-gradient(0deg,#142a36,transparent 45%)}.title-stage:after{content:'';position:absolute;left:24px;right:24px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,#eccf8e8c,transparent)}.title-identity{display:flex;align-items:center;gap:20px;position:relative;z-index:1}.title-emblem{position:relative;width:130px;height:130px;flex:0 0 130px}.logo-static{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 7px 16px #0005)}.logo-sprite{display:none;position:absolute;inset:0;background:url('assets/title-book-sprite.webp') 0 0/400% 200% no-repeat;filter:drop-shadow(0 6px 10px #0004);animation:storybook-pages 8s steps(1,end) infinite,logo-hover 6s ease-in-out infinite}.header-sprite-ready .logo-sprite{display:block}.header-sprite-ready .logo-static{visibility:hidden}.logo-star{position:absolute;width:7px;height:7px;background:#fff1bb;clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);filter:drop-shadow(0 0 7px #ffd584);animation:title-star 3.7s ease-in-out infinite}.star-one{top:17px;left:10px}.star-two{right:8px;bottom:30px;animation-delay:1.6s}.title-eyebrow{font:600 9px 'Segoe UI',sans-serif;letter-spacing:3px;text-transform:uppercase;color:#cde4df;display:block;margin-bottom:9px}.title-wordmark h1{display:block;font-family:var(--serif);font-size:clamp(25px,3.5vw,40px);font-weight:600;line-height:1.02;letter-spacing:-.7px;text-transform:none;text-align:left;background:linear-gradient(#fffbea,#f4d697);background-clip:text;-webkit-background-clip:text;color:transparent;filter:drop-shadow(0 2px 5px #071022aa);margin:0;text-shadow:none}.title-inc{display:block;font-family:'Segoe UI',sans-serif;font-size:11px;font-weight:500;letter-spacing:7px;color:#f5d99d;margin:10px 0 0 3px;-webkit-text-fill-color:#f5d99d}.title-subline{display:flex;gap:8px;align-items:center;font-family:var(--serif);font-style:italic;font-size:12px;color:#d7d6b8;margin-top:10px}.title-subline span{width:18px;height:1px;background:#e9ce926b}.title-edition{position:absolute;right:23px;bottom:17px;font:8px 'Segoe UI',sans-serif;letter-spacing:2px;color:#d7e1d1;opacity:.8}.world-browser{padding:17px 22px 0}.world-browser-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.header-kicker{font:600 9px/1.3 'Segoe UI',sans-serif;letter-spacing:1.8px;color:#d4c49d}.world-count{font-size:10px;color:#a5bfc7;margin-left:13px}.world-arrows{display:flex;gap:6px}.world-arrows button{background:#ffffff08;border:1px solid #dbc99f35;color:#eed9a8;border-radius:8px;width:36px;height:30px;font:24px/1 Georgia,serif;padding:0}.realms#realms{gap:10px;padding:3px 2px 13px;margin:0;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#c8b17b55 transparent;position:relative}.realms#realms .realm{display:flex;flex-direction:column;justify-content:flex-end;position:relative;isolation:isolate;flex:0 0 144px!important;min-height:122px;max-width:144px;padding:12px 11px 10px;text-align:left;white-space:normal;border-radius:13px;border:1px solid #dec99845;color:#fff6df;background:#203649;opacity:1;outline:0;box-shadow:0 4px 12px #0003;overflow:hidden;text-shadow:0 1px 5px #0009;scroll-snap-align:center}.realms#realms .realm:before{inset:0;background:linear-gradient(0deg,#081322fa 8%,#08132270 65%,#08132205);z-index:-1}.realms#realms .realm:after{display:none}.world-tile-art{position:absolute;inset:0;z-index:-2;background-size:400% 400%;background-repeat:no-repeat;transition:transform .3s,filter .3s}.world-tile-number{font-size:7px;font-weight:600;letter-spacing:1.5px;color:#f8dc96;margin-bottom:14px}.world-tile-name{font-family:var(--serif);font-size:16px;font-weight:600;line-height:1.1;min-height:34px;display:flex;align-items:flex-end}.world-tile-status{font-size:7px;letter-spacing:.3px;color:#bed2d6;margin-top:5px;line-height:1.3}.realms#realms .realm.lock .world-tile-art{filter:saturate(.45) brightness(.65)}.realms#realms .realm.on{border:1px solid #ffe7b3;box-shadow:0 0 0 2px #e9cb8330,0 5px 20px #0003}.realm.on .world-tile-status{color:#f5d794}.realms#realms .realm:hover .world-tile-art{transform:scale(1.04)}.realms#realms .realm:focus-visible{outline:3px solid #fff3c2;outline-offset:2px}.festival-realm .world-tile-art{background:radial-gradient(circle at 60% 20%,#c08bdd,#285d71)}.festival-realm .world-tile-art .ui-art{position:absolute;width:84px;height:84px;right:6px;top:-7px}
+.treasury-panel{margin:0 22px;border:1px solid #e8d09b44;border-radius:18px;overflow:hidden;background:radial-gradient(ellipse at 100% 20%,color-mix(in srgb,var(--rc) 12%,transparent),transparent 70%),linear-gradient(120deg,#1b3342,#132537 65%,#1b2940);box-shadow:inset 0 1px #ffffff0c,0 6px 22px #0002}.treasury-world{display:flex;align-items:center;gap:10px;padding:13px 17px;border-bottom:1px solid #dfcfaa16}.world-signet{width:38px;height:38px;border-radius:10px;flex:0 0 38px;border:1px solid #e9d29e69;background-size:400% 400%;background-repeat:no-repeat}.world-signet .ui-art{width:36px;height:36px}.treasury-world h2{margin:4px 0 0;font:600 18px/1.1 var(--serif);color:#f7edd2}.treasury-world .header-kicker{font-size:7px;letter-spacing:1.5px;color:#a8c3c9}.treasury-state{margin-left:auto;font-size:7px;letter-spacing:1px;color:#aec1c8;background:#ffffff07;border:1px solid #d9ceaa22;border-radius:20px;padding:6px 9px;white-space:nowrap}.treasury-state.is-earning{color:#a7edcc;border-color:#7de2b62b;background:#65cc9a0b}.treasury-main{display:flex;align-items:center;gap:17px;padding:20px 21px 18px}.treasury-symbol{width:65px;height:65px;flex:0 0 65px}.treasury-symbol .game-art{width:65px;height:65px;border-radius:50%;border:1px solid #ead29b66;box-shadow:0 5px 18px #0004}.treasury-balance{min-width:0;flex:1}.balance-label{font-size:8px;letter-spacing:1.7px;color:#b9ccce;text-transform:uppercase}.cash#cash{display:block;font-family:Consolas,'SFMono-Regular',Menlo,monospace;font-size:clamp(26px,4.5vw,44px);font-weight:500;font-variant-numeric:tabular-nums;font-feature-settings:'tnum';letter-spacing:-1px;line-height:1.3;color:#ffedb5;padding:0!important;margin-top:4px;min-width:0;text-shadow:0 2px 10px #f5d58b10;overflow-wrap:normal;white-space:nowrap}.cash#cash:before{display:none!important}.income-line{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin-top:5px;font:10px/1.4 'Segoe UI',sans-serif;color:#a8c9c5}.income-line #income-rate{font-family:Consolas,monospace;font-variant-numeric:tabular-nums;color:#b9e3cd}.income-dot{width:5px;height:5px;border-radius:50%;background:#8dd3af;box-shadow:0 0 8px #8dd3af44}.treasury-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #ead7ab1e;background:#07172225}.treasury-metric{display:flex;align-items:center;gap:8px;padding:13px 14px;border-right:1px solid #e0cea517;min-width:0}.treasury-metric:last-child{border-right:0}.treasury-metric>.ui-art,.treasury-metric>.game-art{width:32px;height:32px;flex:0 0 32px}.treasury-metric>.game-art{border-radius:50%;box-shadow:none}.treasury-metric>div{min-width:0}.treasury-metric div>span{display:block;font-size:7px;letter-spacing:.6px;line-height:1.3;color:#b3c4ca}.treasury-metric strong{display:block;font:500 17px/1.4 Consolas,monospace;color:#f1deb6;overflow-wrap:anywhere}.treasury-metric small{display:block;font-size:8px;line-height:1.4;color:#8ca9b6}.treasury-boost{grid-column:1/-1;border-top:1px solid #ddc8e820;padding:7px 14px;display:flex;align-items:center;gap:7px;color:#e2c5ff;font-size:10px;background:#9e73d609}.treasury-boost .ui-art{width:24px;height:24px}.purchase-console{display:flex;align-items:center;gap:18px;margin:13px 22px 0}.purchase-console>.header-kicker{font-size:8px;white-space:nowrap}.purchase-console .modes{flex:1;margin:0;background:#07172470;border:1px solid #d6c39b29;padding:3px;border-radius:11px;gap:3px}.purchase-console .modes button{min-height:35px;font-size:12px;border:0;border-radius:7px;background:transparent}.purchase-console .modes button.on{background:linear-gradient(135deg,#f7e4af,#d2ad64);color:#263445;box-shadow:0 2px 6px #0003}.header-notices{margin:12px 22px 0}.header-notices>summary{display:flex;justify-content:space-between;align-items:center;list-style:none;cursor:pointer;color:#a9bfc7;font-size:10px;padding:7px 0}.header-notices>summary::-webkit-details-marker{display:none}.header-notices>summary span{color:#e4cd94}.header-notices #pills{padding-bottom:3px}.header-notices .pill{font-size:10px!important;padding:6px 9px!important}.realm-scene{display:none!important}
+@keyframes storybook-pages{0%,80%,100%{background-position:0 0}82.5%{background-position:33.333333% 0}85%{background-position:66.666667% 0}87.5%{background-position:100% 0}90%{background-position:0 100%}92.5%{background-position:33.333333% 100%}95%{background-position:66.666667% 100%}97.5%{background-position:100% 100%}}@keyframes logo-hover{50%{transform:translateY(-2px) rotate(-.6deg)}}@keyframes title-atmosphere{to{transform:scale(1.07) translateX(-.5%)}}@keyframes title-star{0%,100%{opacity:.3;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+html[data-living-motion=off] .logo-sprite,html[data-living-motion=off] .title-atmosphere,html[data-living-motion=off] .logo-star{animation:none!important}html[data-living-motion=off] .world-tile-art{transition:none}
+@media(min-width:900px){.title-stage{height:200px;padding-left:37px}.title-emblem{width:145px;height:145px;flex-basis:145px}.treasury-panel{display:grid;grid-template-columns:1.15fr 1fr}.treasury-world{grid-column:1/-1}.treasury-metrics{grid-template-columns:1fr;border-top:0;border-left:1px solid #ead7ab1e}.treasury-metric{padding:9px 18px;border-right:0;border-bottom:1px solid #e0cea514}.treasury-metric strong{display:inline;font-size:16px}.treasury-metric small{display:inline;margin-left:9px}.treasury-metric div>span{margin-bottom:2px}.treasury-main{padding:22px 24px}.treasury-boost{padding:6px 15px}.cash#cash{font-size:38px}}
+@media(max-width:600px){#game-header{border-radius:0 0 20px 20px;margin-bottom:13px}.title-stage{height:145px;padding:12px 15px}.title-identity{gap:8px}.title-emblem{width:92px;height:101px;flex-basis:92px}.title-wordmark h1{font-size:28px;max-width:235px;letter-spacing:-.7px;line-height:.98}.title-inc{font-size:8px;letter-spacing:5px;margin-top:8px}.title-eyebrow{font-size:6px;letter-spacing:2.1px;margin-bottom:8px}.title-subline{font-size:9px;margin-top:8px;gap:5px}.title-subline span{width:10px}.title-edition{display:none}.world-browser{padding:12px 12px 0}.header-kicker{font-size:8px;letter-spacing:1.2px}.world-count{font-size:8px;margin-left:7px}.world-arrows button{width:32px;height:30px}.realms#realms{gap:8px;padding-bottom:11px}.realms#realms .realm{flex-basis:118px!important;max-width:118px;min-height:110px;padding:9px}.world-tile-name{font-size:14px;min-height:31px;line-height:1.1}.world-tile-number{font-size:6px;margin-bottom:11px}.world-tile-status{font-size:6px;line-height:1.4}.treasury-panel{margin:0 12px;border-radius:15px}.treasury-world{padding:11px 12px;gap:8px}.world-signet{width:31px;height:31px;flex-basis:31px;border-radius:8px}.world-signet .ui-art{width:29px;height:29px}.treasury-world h2{font-size:16px;line-height:1.1}.treasury-world .header-kicker{font-size:6px;letter-spacing:.9px}.treasury-state{font-size:6px;padding:5px 7px;letter-spacing:.5px}.treasury-main{gap:12px;padding:15px 13px}.treasury-symbol,.treasury-symbol .game-art{width:45px;height:45px;flex-basis:45px}.balance-label{font-size:7px;letter-spacing:1px}.cash#cash{font-size:clamp(22px,6.5vw,30px);letter-spacing:-.65px;line-height:1.3}.income-line{font-size:8px;gap:4px;margin-top:3px}.treasury-metric{padding:10px 8px;gap:5px;align-items:flex-start}.treasury-metric>.ui-art,.treasury-metric>.game-art{width:22px;height:22px;flex-basis:22px}.treasury-metric div>span{font-size:6px;letter-spacing:.2px}.treasury-metric strong{font-size:13px;line-height:1.5}.treasury-metric small{font-size:7px;line-height:1.3}.purchase-console{gap:10px;margin:11px 12px 0}.purchase-console>.header-kicker{font-size:7px;letter-spacing:.7px}.purchase-console .modes button{min-height:34px;font-size:11px}.header-notices{margin:8px 13px 0}.header-notices>summary{font-size:9px;padding:6px 0}}
+@media(max-width:350px){.title-stage{height:133px;padding-left:10px}.title-emblem{width:78px;flex-basis:78px;height:88px}.title-wordmark h1{font-size:25px}.title-subline{font-size:8px}.title-subline span{display:none}.cash#cash{font-size:22px}.treasury-main{gap:8px;padding:13px 10px}.treasury-symbol,.treasury-symbol .game-art{width:37px;height:37px;flex-basis:37px}.treasury-state{display:none}.world-count{display:block;margin:4px 0 0}.treasury-metric>.ui-art,.treasury-metric>.game-art{display:none}.treasury-metric strong{font-size:12px}.treasury-metric small{font-size:6px}}
+@media(prefers-reduced-motion:reduce){.logo-sprite,.title-atmosphere,.logo-star{animation:none!important}.world-tile-art{transition:none!important}}
+
+.world-arrows button{min-width:44px;min-height:44px}
 </style>
 </head>
 <body>
-<header>
-  <div class="brand">
-    <img class="crest crest-illustrated" src="assets/title-crest.png" alt="An open storybook, a fairytale castle, and a golden crown" width="112" height="112" fetchpriority="high">
-    <div class="bt">
-      <h1><span class="t1">Happily Ever After</span><span class="t2"><i></i>Inc.<i></i></span></h1>
-      <div class="tagline">A Chronicle of Sixteen Worlds</div>
-    </div>
-  </div>
+<header id="game-header" aria-label="Empire overview">
+ <div class="title-stage">
+  <div class="title-atmosphere" aria-hidden="true"></div>
+  <div class="title-identity"><div class="title-emblem" aria-hidden="true"><img class="logo-static" src="assets/title-crest.png" alt="" width="130" height="100"><span class="logo-sprite"></span><i class="logo-star star-one"></i><i class="logo-star star-two"></i></div>
+  <div class="title-wordmark"><span class="title-eyebrow">Your story. Your empire.</span><h1>Happily Ever After<span class="title-inc">INC.</span></h1><div class="title-subline"><span></span>A world of happily ever afters<span></span></div></div></div>
+  <span class="title-edition">THE LIVING STORYBOOK</span>
+  <img src="assets/title-book-sprite.webp" alt="" hidden onload="document.documentElement.classList.add('header-sprite-ready')">
+ </div>
+ <section class="world-browser" aria-label="Choose a world">
+  <div class="world-browser-top"><div><span class="header-kicker">THE STORYBOOK ATLAS</span><span id="world-count" class="world-count"></span></div><div class="world-arrows"><button aria-label="Scroll worlds left" onclick="scrollWorldRail(-1)">‹</button><button aria-label="Scroll worlds right" onclick="scrollWorldRail(1)">›</button></div></div>
   <div class="realms" id="realms"></div>
-  <div class="cashrow">
-    <div class="cash" id="cash">0<small id="cur"></small></div>
-    <div class="right" id="stats"></div>
-  </div>
-  <div class="modes" id="modes"></div>
-  <div id="pills"></div>
+ </section>
+ <section class="treasury-panel" aria-label="Current world treasury">
+  <div class="treasury-world"><div class="world-signet" id="world-signet" aria-hidden="true"></div><div><span class="header-kicker" id="world-chapter">YOUR CURRENT WORLD</span><h2 id="header-world-name"></h2></div><span class="treasury-state" id="earning-state">AT REST</span></div>
+  <div class="treasury-main"><div class="treasury-symbol" id="treasury-symbol" aria-hidden="true"></div><div class="treasury-balance"><span class="balance-label">AVAILABLE <span id="cur"></span></span><div class="cash" id="cash"><span id="cash-value">0.00000000</span></div><div class="income-line"><span class="income-dot" aria-hidden="true"></span><span id="income-rate">0.00000000</span><span>per second</span></div></div></div>
+  <div id="stats" class="treasury-metrics"></div>
+ </section>
+ <div class="purchase-console"><span class="header-kicker">PURCHASE SIZE</span><div class="modes" id="modes"></div></div>
+ <details class="header-notices"><summary>Bonuses &amp; discoveries<span aria-hidden="true">＋</span></summary><div id="pills"></div></details>
 </header>
 <div id="cat" role="button" tabindex="0" aria-label="Chat with the Cheshire Cat" onclick="catTap()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();catTap();}"><div class="face cat-portrait"><span class="cat-expression" role="img" aria-label="The Cheshire Cat, calm"></span></div><div class="say" id="catsay">…</div></div>
 <div id="main"></div>
@@ -10616,12 +10632,11 @@ function fmt(n){
 }
 // Header cash: always 3 decimals so the digits keep rolling (8.357M -> 8.358M ...)
 function fmtC(n){
-  if(!isFinite(n))return '∞';
-  if(n<1000)return n.toFixed(2);
-  if(NOTE==='sci')return n.toExponential(3).replace('e+','e');
-  let e=Math.floor(Math.log10(n)/3),v=n/Math.pow(1000,e),t=v.toFixed(3);
-  if(parseFloat(t)>=1000){e++;v/=1000;t=v.toFixed(3);}
-  return t+suffix(e);
+ if(!Number.isFinite(n))return '∞';n=Math.max(0,n);
+ if(n<1000){const small=n.toFixed(8);if(Number(small)<1000)return small;}
+ if(NOTE==='sci')return n.toExponential(8).replace('e+','e');
+ let e=Math.floor(Math.log10(n)/3),v=n/Math.pow(1000,e),t=v.toFixed(8);
+ if(Number(t)>=1000){e++;v/=1000;t=v.toFixed(8);}return t+suffix(e);
 }
 function toggleNote(){NOTE=NOTE==='letters'?'sci':'letters';S.seen.note=1;try{localStorage.setItem('haec_note',NOTE);}catch(e){}sigs={};updateLive(true);}
 function mileMult(n){let m=1;for(const x of MILE){if(n>=x[0])m*=x[1];else break;}return m;}
@@ -11311,15 +11326,45 @@ function currencyArt(r,extra=''){return gameArt('currency',r,0,extra);}
 function guestArt(id,extra=''){return gameArt('guest',id,0,extra);}
 function charmArt(r,k,extra=''){return gameArt('charm',r,k,extra);}
 
+
+// v22: header presentation adapters, using the original world selection and economy.
+let headerCenteredRealm=-1;
+function scrollWorldRail(direction){const rail=$('realms');if(rail&&rail.scrollBy)rail.scrollBy({left:direction*Math.max(200,rail.clientWidth*.65),behavior:livingMotionOK()?'smooth':'auto'});}
+function updateHeaderIdentity(){
+ const RD=REALMS[realm],r=illustratedNames.indexOf(RD.name);
+ $('header-world-name').textContent=RD.name;$('world-chapter').textContent=realm===EV_RT?'THE WEEKLY FESTIVAL':'CHAPTER '+String(realm+1).padStart(2,'0')+' / SIXTEEN WORLDS';
+ $('world-count').textContent=S.realms.slice(0,NPERM).filter(x=>x.unlocked).length+' / '+NPERM+' worlds open';
+ $('treasury-symbol').innerHTML=currencyArt(realm);
+ document.querySelectorAll('#realms .realm').forEach((el,i)=>{
+  const a=illustratedNames.indexOf(REALMS[i].name),tile=el.querySelector('.world-tile-art');
+  if(tile){if(a>=0){tile.style.backgroundImage="url('assets/realm-atlas.png')";tile.style.backgroundPosition=(a%4)*100/3+'% '+Math.floor(a/4)*100/3+'%';}else tile.innerHTML=uiArt('ev');}
+ });
+ const signet=$('world-signet');if(r>=0){signet.style.backgroundImage="url('assets/realm-atlas.png')";signet.style.backgroundPosition=(r%4)*100/3+'% '+Math.floor(r/4)*100/3+'%';signet.innerHTML='';}else{signet.style.backgroundImage='none';signet.innerHTML=uiArt('ev');}
+ if(headerCenteredRealm!==realm){headerCenteredRealm=realm;const rail=$('realms'),active=rail.querySelector('.realm.on');if(active&&rail.scrollTo)rail.scrollTo({left:Math.max(0,active.offsetLeft-rail.clientWidth/2+active.offsetWidth/2),behavior:'auto'});}
+}
+function headerMetric(label,value,detail,icon){return `<div class="treasury-metric">${icon}<div><span>${label}</span><strong>${value}</strong><small>${detail}</small></div></div>`;}
+function renderTreasuryStats(ps,seconds){
+ $('income-rate').textContent=fmtC(ps);$('earning-state').textContent=ps>0?'EMPIRE EARNING':'AT REST';$('earning-state').classList.toggle('is-earning',ps>0);
+ let html=headerMetric('GLASS SLIPPERS',fmt(S.slip),'+'+fmt(S.slip*slipBonus()*100)+'% across the worlds',uiArt('pres'));
+ if(realm>0&&realm<NPERM)html+=headerMetric(PT[realm].pl.toUpperCase(),fmt(ptOf(realm)),'+'+fmt(ptOf(realm)*PT[realm].bonus*100)+'% in this world',uiArt('charms'));
+ else if(realm===EV_RT)html+=headerMetric('FESTIVAL FAVORS',fmt(S.realms[realm].pt||0),'×'+fmt(evFav())+' festival profit',uiArt('ev'));
+ else html+=headerMetric('OPEN BUSINESSES',S.realms[realm].biz.filter(b=>b.n>0).length+' / '+REALMS[realm].biz.length,'Build your storybook empire',uiArt('shop'));
+ html+=headerMetric('GOLDEN QUILLS',fmt(S.quillTotal),'Permanent sequel rewards',currencyArt(17));
+ if(seconds>0)html+=`<div class="treasury-boost">${uiArt('up')}<span>Profit boost ×${fmt(S.buff.m)} · ${dur(seconds)} remaining</span></div>`;
+ const e=$('stats');if(e.innerHTML!==html)e.innerHTML=html;
+}
+
 function renderHeader(){
-  $('realms').innerHTML=REALMS.map((R,r)=>{
-    const un=S.realms[r].unlocked;
-    return `<div class="realm ${r===realm?'on':''} ${un?'':'lock'}" style="--rc:${R.color}" onclick="selectRealm(${r})">${un?R.icon:'🔒'}<br>${R.short}${un?'':`<br><span style="font-size:9px">${fmt(UNLOCK_COST[r])} ${REALMS[r-1].sym}</span>`}</div>`;
-  }).join('');
-  $('modes').innerHTML=[1,10,100,'max'].map(m=>`<button class="${m===mode?'on':''}" onclick="setMode('${m}')">${m==='max'?'MAX':'×'+m}</button>`).join('');
+  const rail=$('realms'),previousScroll=rail.scrollLeft||0;
+  rail.innerHTML=REALMS.map((R,r)=>{
+   const unlocked=S.realms[r].unlocked,owned=S.realms[r].biz.filter(b=>b.n>0).length;
+   return `<button type="button" class="realm ${r===realm?'on':''} ${unlocked?'':'lock'} ${r===EV_RT?'festival-realm':''}" style="--rc:${R.color}" aria-label="${R.name}${unlocked?'':', locked; view requirements'}" aria-pressed="${r===realm}" onclick="selectRealm(${r})"><span class="world-tile-art" aria-hidden="true"></span><span class="world-tile-number">${r===EV_RT?'FESTIVAL':'WORLD '+String(r+1).padStart(2,'0')}</span><span class="world-tile-name">${R.name}</span><span class="world-tile-status">${unlocked?(r===realm?'EXPLORING NOW':owned+' businesses open'):'View unlock requirements'}</span></button>`;
+  }).join('');rail.scrollLeft=previousScroll;
+  $('modes').innerHTML=[1,10,100,'max'].map(m=>`<button class="${m===mode?'on':''}" aria-pressed="${m===mode}" onclick="setMode('${m}')">${m==='max'?'MAX':'×'+m}</button>`).join('');
   $('nav').innerHTML=[['shop','🏰','Shops'],['mgr','🧑‍💼','Managers'],['up','⚡','Upgrades'],['pres','👠','Ever After'],['book','🎁','Goodies'],['story','📖','Stories']].map(t=>
     `<button class="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'on':''}" aria-label="${t[2]}" aria-current="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'page':'false'}" onclick="setTab('${t[0]}')">${uiArt(t[0],'nav-art')}<span class="nav-label">${t[2]}</span></button>`).join('');
   $('cur').textContent=REALMS[realm].cur;
+  updateHeaderIdentity();
   decorateInterface();
 }
 function setMode(m){mode=m==='max'?'max':+m;renderHeader();}
@@ -11344,12 +11389,6 @@ function updateRealmIllustration(){
 
 
 function decorateInterface(){
- document.querySelectorAll('#realms .realm').forEach((el,r)=>{
-  const i=illustratedNames.indexOf(REALMS[r].name);
-  if(i>=0){el.style.backgroundImage="url('assets/realm-atlas.png')";el.style.backgroundSize='400% 400%';el.style.backgroundPosition=(i%4)*100/3+'% '+Math.floor(i/4)*100/3+'%';}
-  el.setAttribute('role','button');el.tabIndex=0;el.setAttribute('aria-label',REALMS[r].name);el.setAttribute('aria-pressed',String(r===realm));
-  el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}};
- });
  let h=document.getElementById('screen-heading');
  if(!h){h=document.createElement('div');h.id='screen-heading';h.className='screen-heading';document.getElementById('main').before(h);}
  const titles={shop:['Your enterprises','Build a little magic. Grow something extraordinary.'],mgr:['Meet your managers','Put your storybook businesses in capable hands.'],up:['A touch of magic','Give your growing empire its next great advantage.'],pres:['Ever after','Every ending is the beginning of a bigger story.'],book:['The cabinet of wonders','Gifts, discoveries, and a little everyday enchantment.'],story:['The story so far','Open a book. Find out what happens next.'],ev:['The festival grounds','A new celebration, a fresh opportunity.']};
@@ -11477,7 +11516,7 @@ function updateLive(force){
   const qa=quickNext(),qb=$('qnext');if(qb){qb.disabled=!qa;qb.innerHTML=qa?`⚡ ${qa.label}<small>${currencyArt(realm,'inline-currency')} ${fmt(qa.c)}</small>`:'⚡ Nothing affordable<small>Keep earning!</small>';$('qall').disabled=!qa;}
   const ph=pillsHTML();if(sigs.pills!==ph){sigs.pills=ph;const pe=$('pills');if(pe)pe.innerHTML=ph;}
   const bl=Math.ceil((S.buff.until-Date.now())/1000);
-  $('stats').innerHTML=`${fmtC(ps)}/sec<br>👠 ${fmt(S.slip)} (+${fmt(S.slip*slipBonus()*100)}%)${(realm>0&&realm<NPERM)?`<br>${PT[realm].e} ${fmt(ptOf(realm))} (+${fmt(ptOf(realm)*PT[realm].bonus*100)}%)`:''}${realm===EV_RT?`<br>🎊 ${fmt(R.pt||0)} (×${fmt(evFav())})`:''}${S.quillTotal>0?`<br>🪶 ${fmt(S.quillTotal)}`:''}${bl>0?`<br><span style="color:#c9b8ff">🎭 ×${S.buff.m} ${bl}s</span>`:''}`;
+  renderTreasuryStats(ps,bl);
   if(tab==='shop'){
     if(realm===EV_RT){const eb=$('evb');if(eb){const ev=EVENTS[evIdx()];const h=`<div style="display:flex;justify-content:space-between;gap:8px"><span>${ev[1]} <b>${ev[0]}</b></span><span>ends in ${dur(evLeft()/1000)}</span></div>`+evGoalsHTML()+`<div style="margin-top:6px;font-size:12px">🎊 Favors ${fmt(R.pt||0)} · <a href="#" onclick="setTab('ev');return false" style="color:var(--rc)">Encore +${fmt(gainPt(EV_RT))}</a></div>`;if(sigs.evb!==h){sigs.evb=h;eb.innerHTML=h;}}}
     R.biz.forEach((b,i)=>{
@@ -11846,7 +11885,7 @@ function frame(now){
   const R=S.realms[realm];
   if(dispRealm!==realm){dispRealm=realm;dispCash=R.cash;}
   if(R.cash<=dispCash||R.cash-dispCash<1e-9)dispCash=R.cash;else dispCash+=(R.cash-dispCash)*Math.min(1,dt*10);
-  const el=$('cash');if(el&&el.firstChild)el.firstChild.nodeValue=fmtC(dispCash)+' ';
+  const el=$('cash-value'),text=fmtC(dispCash);if(el&&el.textContent!==text)el.textContent=text;
   requestAnimationFrame(frame);
 }
 if(window.requestAnimationFrame)requestAnimationFrame(frame);else setInterval(()=>frame(Date.now()),100);
@@ -11908,7 +11947,7 @@ const SAVE_BACKUP_KEY='haec2_before_import',SAVE_FILE_LIMIT=2*1024*1024;
 let pendingSaveImport=null,saveFileBusy=false;
 function saveChecksum(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0');}
 function saveEnvelope(state=S,notation=NOTE,now=Date.now()){
- const copy=JSON.parse(JSON.stringify(state));return {game:'happily-ever-after-inc',formatVersion:1,release:'21',exportedAt:new Date(now).toISOString(),notation,state:copy,checksum:saveChecksum(JSON.stringify(copy))};
+ const copy=JSON.parse(JSON.stringify(state));return {game:'happily-ever-after-inc',formatVersion:1,release:'22',exportedAt:new Date(now).toISOString(),notation,state:copy,checksum:saveChecksum(JSON.stringify(copy))};
 }
 function validateImportTree(value,depth=0,budget={n:0}){
  if(++budget.n>60000||depth>24)throw Error('The save is too complex.');
@@ -11923,7 +11962,7 @@ function importNumber(v,label,min=0,max=1e300,integer=false){if(typeof v!=='numb
 function importFlag(v,label){if(typeof v!=='boolean')throw Error(label+' is invalid.');return v;}
 function importMap(v,label,max=1e300){importObject(v,label);const out={};for(const [k,n] of Object.entries(v)){if(!/^[A-Za-z0-9_~.:-]{1,128}$/.test(k))throw Error(label+' contains an invalid identifier.');out[k]=typeof n==='boolean'?n:importNumber(n,label,0,max);}return out;}
 function normalizeSaveState(d){
- importObject(d,'Game state');if(d.ver!==8)throw Error('This file uses an unsupported game-save version. Use a v19–v21 save or a v21 export.');
+ importObject(d,'Game state');if(d.ver!==8)throw Error('This file uses an unsupported game-save version. Use a compatible v19–v22 save or export.');
  validateImportTree(d);const f=freshState(),out=f;
  if(!Array.isArray(d.realms)||d.realms.length!==REALMS.length)throw Error('The save does not contain the expected seventeen realms.');
  out.realms=d.realms.map((raw,r)=>{
@@ -11998,7 +12037,7 @@ function cancelSaveImport(){pendingSaveImport=null;closeModal();const e=$('save-
 function applySaveImport(){
  if(!pendingSaveImport)return;try{commitSaveImport(pendingSaveImport);}catch(e){const el=$('import-error');if(el)el.textContent='Import was not applied. Current progress is unchanged. Your browser could not store the backup and save. Free space or export a file first.';return;}
  pendingSaveImport=null;closeModal();hideLivingCelebration();catPending=null;catHoldUntil=0;$('living-fx').innerHTML='';livingCoinCount=0;if(guestEl){guestEl.remove();guestEl=null;}twistOpen=false;lfOpen=false;$('twist').innerHTML='';$('lf').innerHTML='';
- _cmV++;_cmC={};_softT=0;_flC=null;recalcEV();ACHN=Object.keys(S.ach).length;realm=0;tab='book';bsub='cfg';lastT=Date.now();dispRealm=-1;sigs={};livingUnlocked=null;livingLastCash=null;
+ _cmV++;_cmC={};_softT=0;_flC=null;recalcEV();ACHN=Object.keys(S.ach).length;realm=0;tab='book';bsub='cfg';lastT=Date.now();dispRealm=-1;sigs={};livingUnlocked=null;livingLastCash=null;headerCenteredRealm=-1;
  setEventRealm();checkEvent();dqCheck();render();toast('Save imported. Your previous progress is available under Automatic Backup.',5000);
 }
 async function readSaveFile(input){const file=input.files&&input.files[0];input.value='';if(!file||saveFileBusy)return;if(file.size>SAVE_FILE_LIMIT){saveStatus('Choose a JSON save smaller than 2 MB.');return;}saveFileBusy=true;try{previewSaveText(await file.text(),file.name);}catch{saveStatus('The selected file could not be read.');}finally{saveFileBusy=false;}}

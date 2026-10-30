@@ -1,5 +1,29 @@
 # Changelog
 
+## v22 — Animated Storybook Header
+
+### Rebuilt
+- Complete header layout: cinematic title stage, illustrated world atlas, current-world treasury, prestige/resource metrics, quantity console, and expandable bonus notices.
+- Full-name, native-button navigation for all seventeen existing destinations, selected/locked states, rail controls, and selected-card centering.
+- A single treasury currency symbol and distinct eight-decimal balance/income readouts.
+- Old separate realm scene hidden; its art remains in world tiles and current-world identity.
+
+### Added
+- Generated panoramic title background and an eight-frame transparent emerald book/crown page-turn sprite.
+- Layered floating, twinkling, and atmosphere motion, with static fallback and motion-preference handling.
+- Header artwork/behavior documentation and updated installation notes.
+
+### Precision
+- fmtC uses eight fractional digits in small, compact, and scientific notation, with normalized rounding boundaries.
+- Display interpolation remains tied to actual cash; price formatting and economy math are unchanged.
+- An inactive balance settles; no fake earnings or decimal ticker is introduced.
+
+### Retained and verified
+- Game actions, economy, original save key/schema, save import/export format, backup restoration, progression, and all prior artwork remain.
+- 48 isolated checks pass, including all prior save tests, 8,070 economy values, action parity, simulated startup/import, and new header/formatting checks.
+- New artwork inspected; package images and ZIP integrity checked.
+- Live browser/phone layout and animation verification remain outstanding.
+
 ## v21 — Living Storybook Edition
 
 ### Added

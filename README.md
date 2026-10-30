@@ -2,7 +2,7 @@
 
 A funny, mobile-first idle tycoon where fairy-tale businesses become an empire and the Cheshire Cat narrates your adventures.
 
-**v21 · Living Storybook Edition** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
+**v22 · Animated Storybook Header** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
 
 ## Contents
 
@@ -22,7 +22,23 @@ A funny, mobile-first idle tycoon where fairy-tale businesses become an empire a
 
 ## Release overview
 
-### New in v21: Living Storybook
+### New in v22: animated storybook header
+
+The header is rebuilt as a title stage, world atlas, and empire dashboard. The original game systems, artwork collection, save tools, story, and economy remain included.
+
+- **Animated title:** a new cinematic fantasy panorama, live gold title typography, an eight-frame emerald book/crown page-turn sprite, subtle floating motion, and twinkling accents. The book rests between page-turn sequences. The existing crest remains the fallback until the new sprite loads.
+- **World atlas:** seventeen illustrated destination buttons (sixteen permanent worlds plus the festival), full world names, chapter labels, selected-world styling, locked-world requirement links, horizontal scrolling, and left/right controls. Original world selection and unlock logic are retained.
+- **Treasury:** a dedicated current-world identity line, a single illustrated currency symbol, a large balance, a separate income-per-second line, Glass Slippers and their global bonus, local reset points or business count, Golden Quills, and active profit boosts.
+- **Eight decimal places:** balance and income now use eight fractional digits in regular, compact-suffix, and scientific notation. Suffix boundaries are normalized after rounding. Purchases still decrease the displayed balance immediately; incoming money uses the existing smooth interpolation.
+- **Focused controls:** purchase quantity has its own labeled strip, and bonus/discovery pills are grouped in an expandable section.
+- **Less repetition:** the separate large realm scene below the header is hidden. Its artwork remains used in the destination tiles and the current-world signet.
+- **Motion preferences:** new title animation follows Storybook motion, page visibility, and device reduced-motion preferences. A stationary header remains fully usable.
+
+The counter shows actual money; it is not a decorative random ticker. With eight fractional digits, incoming changes become visible at finer display increments. The balance settles when no income arrives. Very tiny changes can still be below display or JavaScript floating-point precision, especially with huge compact values. No extra income is invented to keep digits moving.
+
+**Verification:** all 40 previous isolated checks still pass, plus eight new header checks (48 total). These include decimal formatting, rounding boundaries, scientific notation, all world destinations, retained treasury information, and interpolation without changing the actual balance. The new artwork was visually inspected. Live browser/phone animation and layout verification remain outstanding; simulated DOM tests do not establish final rendered appearance.
+
+### Previous release: v21 Living Storybook
 
 This cumulative update adds life and feedback to the illustrated game, plus portable save backups. It retains the existing economy, story, world unlocks, production calculations, purchases, managers, upgrades, and rewards.
 
@@ -103,10 +119,10 @@ This is a presentation release. It intentionally retains the original economy fo
 1. Download and extract the release ZIP locally. The ZIP contains the site files directly at its root.
 2. Back up your current repository or create a commit before replacing files. Close other open game tabs so an older tab cannot write over newer progress.
 3. In the folder your existing Pages deployment publishes, replace `index.html` and `README.md` with this release's versions. Add the complete `assets` and `docs` folders, `CHANGELOG.md`, and `.nojekyll`. Keep your repository's existing license and any custom domain `CNAME` file. This package includes the original LICENSE when present in the supplied project.
-4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, `cat-expressions.webp`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
+4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, `cat-expressions.webp`, `title-panorama.webp`, `title-book-sprite.webp`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
 5. Commit the files. Continue using your existing Pages deployment configuration. If you publish from a `/docs` folder, place **all site files** in that publishing folder; this package's `docs/` directory contains documentation, not the deployment root.
 6. Wait for your repository's Pages deployment to complete. Open your existing game URL and refresh. If the old appearance remains, use a hard refresh or close and reopen the tab.
-7. Confirm that the crest, Cat expressions, bottom navigation icons, realm banner, and realm tiles show illustrations. Open Goodies → Save & Backups and download a backup file before importing anything. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
+7. Confirm that the animated title, Cat expressions, bottom navigation icons, world tiles, and current-world signet show illustrations. The old separate realm banner is hidden by design. Open Goodies → Save & Backups and download a backup file before importing anything. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
 
 Relative asset paths support both a repository project URL and a custom-domain root. No repository name or username needs to be edited into the source. This package does not change your Pages settings or publish anything automatically.
 
@@ -132,7 +148,9 @@ assets/realm-atlas.png           Illustrated 4 × 4 realm environment atlas
 assets/title-crest.png           Transparent title crest and dialog ornament
 assets/ui-icons.png              Transparent 4 × 4 interface icon atlas
 assets/cheshire-cat.png          Original transparent narrator portrait
-assets/cat-expressions.webp      Four-expression Cat atlas used by v21
+assets/cat-expressions.webp      Four-expression Cat atlas
+assets/title-panorama.webp       Cinematic title backdrop
+assets/title-book-sprite.webp    Eight-frame title book/crown sprite
 assets/shops-*.webp               19 permanent-shop art sheets
 assets/guests-*.webp              4 guest portrait sheets
 assets/charms-*.webp              6 collectible charm sheets
@@ -145,6 +163,8 @@ docs/README-v16-original.md      Unmodified original README, for historical refe
 docs/ARTWORK.md                  v19 artwork inventory and prompts
 docs/ARTWORK-v20.md              v20 inventory, mapping, and prompts
 docs/ARTWORK-v21.md              Cat expressions, mapping, and production prompt
+docs/ARTWORK-v22.md              Animated title assets, frame mapping, and prompts
+docs/HEADER-v22.md               Header layout, decimal behavior, and verification
 docs/SAVE-GUIDE.md               Export/import, backup restoration, and compatibility
 docs/VALIDATION-v21.md           Verification scope and remaining manual checks
 .nojekyll                       Static-site publishing marker
@@ -239,7 +259,7 @@ The game uses compact large-number notation, with a scientific notation option i
 
 ## Technical details
 
-Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. The presentation additions are marked `Illustrated storybook edition`, `v18: Storybook interface system`, and `v19: illustrated identity and modern storybook surfaces`, and `v20: content illustration and mobile readability`, and `v21: Living Storybook` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
+Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. v22 replaces header markup, world-tile rendering, treasury presentation, and the cash display target. `fmtC()` uses eight decimal places; the general price formatter `fmt()` and economy formulas remain unchanged. The presentation additions are marked `Illustrated storybook edition`, `v18: Storybook interface system`, and `v19: illustrated identity and modern storybook surfaces`, and `v20: content illustration and mobile readability`, and `v21: Living Storybook` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
 
 The PNG is a 4 × 4 atlas. `illustratedNames` maps its cells to realm names. CSS background positioning selects the relevant cell. Reordering the atlas requires updating this mapping. The original game's `data-w` world themes and realm accent colors continue to drive interface colors.
 
@@ -259,13 +279,13 @@ Artwork was created using built-in image generation, then bundled locally. Art d
 
 ## Validation and limitations
 
-See [docs/VALIDATION-v21.md](docs/VALIDATION-v21.md) for the complete scope. JavaScript syntax passes. Forty isolated checks pass, including save round trips, malformed and incompatible file rejection, preview/cancel, backup and active-write failures, restoring the previous backup, newer-tab revisions, reduced-motion behavior, and preserving the save input while income updates. Direct purchases, hiring, upgrades, quick purchases, and Buy All match v20; 8,070 price/cycle/profit values also match.
+48 isolated checks pass. The prior save validation, round-trip, backup restoration, storage-failure, action-parity, reduced-motion, simulated boot, and confirmed-import refresh checks continue to pass. All 8,070 sampled price/cycle/profit values remain equal to the earlier game. New checks cover eight-decimal formatting, rounded suffix boundaries, scientific notation, seventeen original world destinations, retained treasury statistics, and display interpolation without modifying money.
 
-The expression sheet was visually inspected. Production assets and ZIP contents are checked, and the new image is delivered as quality-96 WebP at its original resolution with transparency.
+Both new header assets were visually inspected. Production images, original game action functions, relative asset references, save compatibility, and ZIP integrity are checked. Generated PNG masters are retained locally; delivery assets use high-quality WebP.
 
-The preview browser could not connect to the local development server. These tests therefore do **not** verify an actual browser file picker, browser download, animation rendering, phone layout, screen reader, or a full end-to-end playthrough. Test these on your published site using the manual steps in the validation guide. The copy/paste JSON option provides a fallback if your browser does not download files normally.
+These are source/isolated DOM tests, not live browser or physical-phone verification. The final rendered header, sprite timing, narrow-screen text fit, scrolling, and reduced-motion behavior still need review on the published site. See [docs/HEADER-v22.md](docs/HEADER-v22.md) for the manual checks. The previous save file-picker/download verification limit also remains.
 
-The new Cat art uses expression swaps and subtle motion; shop movement is a light treatment over existing illustrations. There are no new gameplay rewards, full character rigs, separate manager portraits, event-specific shop illustrations, new sound assets, or cloud synchronization. Earlier artwork and game systems remain included. Some decorative and in-text emoji remain.
+The animated title uses an eight-frame painted sprite with separate CSS motion layers. It is not full 3D animation or video. The money display uses actual game values and settles without earnings; eight fractional digits cannot exceed JavaScript's underlying numerical precision. No economy, progression, unlock, or reward changes are introduced.
 
 ## Development and future releases
 
