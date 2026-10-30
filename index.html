@@ -315,6 +315,41 @@ nav button b{font-size:23px!important}
 html.big{zoom:1.12}
 html.big h1 .t1{font-size:clamp(14px,4.2vw,21px)!important;letter-spacing:.07em!important}
 html.big h1 .t2{letter-spacing:.2em!important;font-size:12px!important}
+
+/* Illustrated storybook edition */
+.realm-art{background-image:url('assets/realm-atlas.png');background-size:400% 400%;background-position:var(--art-x) var(--art-y)}
+.realm-scene{position:relative;height:260px;margin:16px 10px 12px;border-radius:24px;overflow:hidden;border:1px solid #f8db9399;box-shadow:0 16px 44px #0005;isolation:isolate}
+.realm-scene:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#10182bea,transparent 75%);z-index:-1}
+.realm-scene .scene-copy{position:absolute;bottom:22px;left:24px;right:24px}
+.scene-copy small{font-size:10px;letter-spacing:3px;color:#ffe9ab;text-transform:uppercase}
+.scene-copy h2{font-family:var(--serif);font-size:32px;color:#fff9e8;margin:5px 0;text-shadow:0 2px 12px #0008}
+.scene-copy p{font-size:12px;color:#f8efd8;margin:0;line-height:1.5}
+.biz{border-left-width:2px;padding:14px;gap:14px;border-radius:20px;background:linear-gradient(120deg,color-mix(in srgb,var(--rc) 14%,#18283b),#111c30);box-shadow:0 5px 18px #0003}
+.biz .nm{font-size:16px;line-height:1.3}.biz .ic{width:64px;height:72px;border-radius:16px}.biz{grid-template-columns:64px 1fr}
+.buy{min-height:43px;border-radius:12px}.bar{height:18px;margin:9px 0}.realm{min-height:53px}
+header{background:linear-gradient(135deg,#162636f5,#171d37f5);backdrop-filter:blur(18px)}
+#cat{border-radius:18px;background:linear-gradient(110deg,#263544,#272447);padding:12px 16px}
+#main{padding-bottom:12px}.realms{gap:8px}nav button{min-height:58px}nav button.on{background:#f2c75c12;border-radius:12px}
+@media(min-width:760px){header,#cat,#main,.realm-scene{max-width:1040px;margin-left:auto;margin-right:auto}header{padding-left:24px;padding-right:24px}.realm-scene{height:350px;margin-top:24px}#main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}#main>.coach,#main>.evb,#main>#list,#main>#presbox{grid-column:1/-1}.biz{margin-bottom:0}.quick,nav{max-width:1040px;margin:auto}.scene-copy h2{font-size:42px}}
+@media(prefers-reduced-motion:reduce){.realm-scene{animation:none}}
+
+
+/* v18: Storybook interface system */
+:root{--ui-panel:#162739;--ui-edge:#d9c89a35;--mut:#bdcbd5;--txt:#f7f5eb}
+html,body{font-family:'Segoe UI',system-ui,sans-serif;line-height:1.45}button{font-family:inherit;cursor:pointer;transition:filter .18s,transform .18s,box-shadow .18s}button:hover:enabled{filter:brightness(1.12)}button:active:enabled{transform:translateY(1px)}button:focus-visible,[role=button]:focus-visible{outline:3px solid #ffe0a0;outline-offset:4px}button:disabled{cursor:default}
+header{position:relative!important;border-radius:0 0 24px 24px;padding:18px 16px 14px;box-shadow:0 10px 36px #0004}.brand{padding:2px 0 15px}.bt .tagline{letter-spacing:.16em;color:#c5d3d8}.cashrow{background:#07152070;border:1px solid var(--ui-edge);padding:13px 16px;border-radius:16px;margin:12px 0 8px}.cash{font-size:30px;text-shadow:none}.cash small{letter-spacing:1px;font-family:'Segoe UI',sans-serif;margin-top:2px}.right{font-size:12px;line-height:1.7}
+.realms{padding:4px 0 10px;gap:8px;scroll-snap-type:x proximity}.realm{position:relative;flex:0 0 85px!important;border-radius:14px;min-height:78px;padding:12px 5px 8px;color:#f6edda;text-shadow:0 2px 5px #000;background-color:#162739;isolation:isolate;overflow:hidden;scroll-snap-align:start}.realm:before{content:'';position:absolute;inset:0;background:linear-gradient(0deg,#081320f5,#08132020);z-index:-1}.realm.on{outline:2px solid #ffe3a4;outline-offset:-2px;box-shadow:0 4px 18px #0004}.realm.lock{opacity:.68}.realm::after{height:2px;margin-top:5px}
+.modes{gap:8px}.modes button{min-height:40px;border-radius:10px;background:#ffffff09;border:1px solid var(--ui-edge)}#pills{display:flex;flex-wrap:wrap;gap:6px}.pill{font-size:11px!important;padding:7px 10px!important;border-radius:9px;margin:7px 0 0!important;box-shadow:none}
+#cat{margin-top:14px;margin-bottom:18px;border-color:var(--ui-edge);box-shadow:0 5px 20px #0002}#cat .face{background:#ffffff0b;border:1px solid var(--ui-edge);border-radius:50%;width:48px;height:48px;display:grid;place-items:center;flex:none}#cat .say{font-size:15px;line-height:1.55}
+.screen-heading{max-width:1040px;margin-left:auto;margin-right:auto;padding:0 10px;grid-column:1/-1;display:flex;align-items:end;justify-content:space-between;gap:12px;margin:10px 0 16px}.screen-heading h2{font-family:var(--serif);font-size:28px;color:#fff1ce;margin:0}.screen-heading p{font-size:12px;color:var(--mut);margin:4px 0 0}.edition-mark{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#dcc28d}
+.item,.pres,.evb,.bkhead,.hubcard{border:1px solid var(--ui-edge);border-radius:18px;background:linear-gradient(130deg,color-mix(in srgb,var(--rc) 9%,#192b3c),#142033);box-shadow:0 5px 20px #0002}.item{padding:16px;gap:14px;margin-bottom:12px;border-left:2px solid var(--rc)}.item .tx{font-size:14px;min-width:0}.item .tx b{font-size:17px;line-height:1.35}.item .tx em{font-family:inherit;font-size:12px;line-height:1.5;color:#bdcbd5}.item .ic{width:46px;min-width:46px;text-align:center;background:#ffffff08;border-radius:12px;padding:7px 2px}.item button{min-height:44px;min-width:86px;border-radius:11px;padding:10px;font-size:12px}.pres{padding:24px}.pres h2{font-size:27px}.pres p{font-size:14px;line-height:1.65}.pres .btn{min-height:46px}.pres .link{color:#c7b9dd;min-height:44px}.empty{font-size:14px;line-height:1.65;color:#bdcbd5}
+.stabs{gap:8px;margin:4px 0 16px}.stab{min-height:44px;border:1px solid var(--ui-edge);border-radius:12px;padding:10px 15px}.hubcard{padding:19px 16px;margin-bottom:12px;min-height:105px}.hubcard .hi{width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#ffffff0a;border:1px solid var(--ui-edge)}.hubcard b{font-size:20px;padding-right:45px}.hubcard span.hd{color:#bdcbd5;font-size:13px;line-height:1.5}.hubcard .bdg{font-size:9px;letter-spacing:1px;border-radius:6px;animation:none}.backbtn{min-height:46px;text-align:left;background:#ffffff09;border-color:var(--ui-edge)}.coach{border-width:1px;box-shadow:none;border-color:#e9cc82;padding:14px 16px;font-size:15px;border-radius:16px}.diffb{border-color:var(--ui-edge);background:#ffffff05;padding:10px 13px;margin-bottom:14px;flex-wrap:wrap}.bkhead{padding:17px}.bktx b{font-size:19px}.bktx em{font-size:12px;line-height:1.5}.bkic{width:56px;height:64px}.chtile{padding:12px 7px;border-radius:15px;background:linear-gradient(145deg,#23394b,#152132);box-shadow:inset 0 1px #ffffff15}.chtile small{font-size:12px;line-height:1.4;min-height:34px}.chgrid{gap:10px}.goal{border-radius:12px;padding:12px 5px;font-size:12px}.evcell{padding:12px;background:#ffffff08;border-radius:12px}.evcell small{font-size:12px}.bar2{height:10px}
+.mbg{background:#07101bd9!important;backdrop-filter:blur(10px);padding:20px}.mcard{border:1px solid #dfc387!important;background:linear-gradient(140deg,#fffdf2,#f2e5c4)!important;box-shadow:0 26px 90px #0008!important;border-radius:24px!important;padding:28px 24px!important;max-height:85dvh;overflow-y:auto}.mcard h3{font-size:25px!important;color:#342a49!important}.mcard p{font-size:16px!important}.mcard button{background:linear-gradient(135deg,#6956a9,#473776)!important;border-radius:12px!important;box-shadow:0 3px 10px #30224125!important;font-family:'Segoe UI',sans-serif;font-size:15px!important}.mcard button.alt{background:#fffaf0!important;border:1px solid #bfa979!important;color:#473776!important}.mcard .helpstep div{color:#3b3044}.lfcard{border:1px solid #dfc387!important;border-radius:20px;box-shadow:0 16px 50px #0006!important}#toast{border:1px solid #dfc387!important;border-radius:14px!important;font-family:'Segoe UI',sans-serif;font-size:13px!important;box-shadow:0 8px 25px #0005!important}
+.quick{padding:10px 12px;gap:9px;background:linear-gradient(transparent,#0b1829 25%)}.quick button{border-radius:14px;min-height:54px;font-size:14px;box-shadow:0 4px 14px #0003}.quick button.side{background:#24384a;border:1px solid var(--ui-edge);color:#f7e5b4}.quick button small{font-size:10px;letter-spacing:.4px}nav{background:#101e30f5;backdrop-filter:blur(16px);border-color:var(--ui-edge);padding:5px 8px env(safe-area-inset-bottom);gap:3px}nav button{font-size:10px!important;border-radius:12px;color:#aabcca;min-height:58px}nav button b{font-size:21px!important}nav button.on{color:#ffe1a0;background:linear-gradient(#f4d28c21,#f4d28c0b);box-shadow:inset 0 1px #f4d28c35;text-shadow:none}.readnext{border-radius:14px;box-shadow:0 4px 12px #0003;font-size:16px}.biz .nm{color:#fff0ca}.biz .cnt{box-shadow:0 2px 6px #0004}.biz .meta{font-size:11px}.biz .buy:disabled,.item button:disabled{color:#a9b6c5;background:#2b3a4d}
+@media(min-width:760px){#main{display:block}#main .biz{margin-bottom:12px}.realm-scene{height:300px}header{padding:20px 24px}.realms .realm{flex-basis:96px!important}.cashrow{margin-top:12px}#list:has(>.hubcard){display:grid;grid-template-columns:1fr 1fr;gap:12px}#list>.hubcard{margin:0}#list>.empty{grid-column:1/-1}.quick{padding-left:18px;padding-right:18px}}
+@media(max-width:420px){header{padding:12px 10px}.crest{width:32px;height:32px;flex-basis:32px}.brand{gap:7px}h1 .t1{font-size:clamp(13px,4.3vw,18px);letter-spacing:.08em}.bt .tagline{font-size:8px}.realm-scene{height:210px}.scene-copy h2{font-size:27px}.biz{grid-template-columns:50px minmax(0,1fr);gap:10px;padding:12px}.biz .ic{width:50px;height:64px}.biz .nm{font-size:15px}.meta{min-width:64px;font-size:9px!important}.brow{gap:5px}.item{padding:12px;gap:9px}.item .tx b{font-size:15px}.item button{min-width:72px}.hubcard b{font-size:18px}.screen-heading h2{font-size:25px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body>
@@ -11220,8 +11255,41 @@ function setMode(m){mode=m==='max'?'max':+m;renderHeader();}
 function setTab(t){tab=t;if(t==='book')bsub='menu';sigs={};render();if(t==='book'||t==='ev'||t==='story')cat('tab',0.4);window.scrollTo(0,0);}
 function setBsub(s){bsub=s;sigs={};render();}
 
+
+const illustratedNames=["Storybook Forest", "Wonderland", "Arabian Bazaar", "Neverland", "Land of Oz", "Mermaid Lagoon", "Sugarplum Sweetland", "Dragonspine Peaks", "The Toybox Kingdom", "The Treasure Seas", "Hollow Eve", "The Tall Tale Frontier", "The Nursery at the End of the Hall", "Camelot & Sherwood", "Olympus Mall", "Frostbite Kingdom"];
+const illustratedLines=["Where every little venture begins a grand tale.", "A little curiosity. A world of impossible possibilities.", "Golden opportunities beneath jewel-bright skies.", "Follow the pixie dust beyond the horizon.", "Every golden road leads to something extraordinary.", "An ocean of possibility, a treasury of pearls.", "Sweet dreams become delicious enterprises.", "Forge your fortune where the mountains glow.", "Small wonders. Limitless imagination.", "Set sail for a brighter kind of treasure.", "A little mischief, a little magic, a lot of treats.", "Big skies, tall tales, and golden opportunities.", "Build a dream beneath a thousand bedtime stars.", "Noble dreams take root in enchanted woods.", "Legendary ambitions above the clouds.", "A sparkling new chapter in a kingdom of snow."];
+function updateRealmIllustration(){
+ let scene=document.getElementById('realm-scene');
+ if(!scene){scene=document.createElement('section');scene.id='realm-scene';scene.className='realm-scene realm-art';document.getElementById('cat').before(scene);}
+ const name=REALMS[realm].name;
+ const i=illustratedNames.indexOf(name);
+ scene.hidden=i<0;
+ if(i<0)return;
+ scene.style.setProperty('--art-x',(i%4)*100/3+'%');
+ scene.style.setProperty('--art-y',Math.floor(i/4)*100/3+'%');
+ scene.setAttribute('aria-label',name+' illustrated landscape');
+ scene.innerHTML='<div class="scene-copy"><small>Happily Ever After, Inc. / Realm '+String(i+1).padStart(2,'0')+'</small><h2>'+name+'</h2><p>'+illustratedLines[i]+'</p></div>';
+}
+
+
+function decorateInterface(){
+ document.querySelectorAll('#realms .realm').forEach((el,r)=>{
+  const i=illustratedNames.indexOf(REALMS[r].name);
+  if(i>=0){el.style.backgroundImage="url('assets/realm-atlas.png')";el.style.backgroundSize='400% 400%';el.style.backgroundPosition=(i%4)*100/3+'% '+Math.floor(i/4)*100/3+'%';}
+  el.setAttribute('role','button');el.tabIndex=0;el.setAttribute('aria-label',REALMS[r].name);el.setAttribute('aria-pressed',String(r===realm));
+  el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}};
+ });
+ let h=document.getElementById('screen-heading');
+ if(!h){h=document.createElement('div');h.id='screen-heading';h.className='screen-heading';document.getElementById('main').before(h);}
+ const titles={shop:['Your enterprises','Build a little magic. Grow something extraordinary.'],mgr:['Meet your managers','Put your storybook businesses in capable hands.'],up:['A touch of magic','Give your growing empire its next great advantage.'],pres:['Ever after','Every ending is the beginning of a bigger story.'],book:['The cabinet of wonders','Gifts, discoveries, and a little everyday enchantment.'],story:['The story so far','Open a book. Find out what happens next.'],ev:['The festival grounds','A new celebration, a fresh opportunity.']};
+ const v=titles[tab]||[tab==='man'?'Meet your managers':tab==='up'?'A touch of magic':'Your next chapter',REALMS[realm].name];
+ h.innerHTML='<div><h2>'+v[0]+'</h2><p>'+v[1]+'</p></div><span class="edition-mark">Storybook Edition</span>';
+}
+
 function render(){
+  updateRealmIllustration();
   applyBig();setTheme();renderHeader();
+  decorateInterface();
   const m=$('main');
   if(tab==='shop'){
     m.innerHTML='<div class="coach" id="coach" onclick="coachGo()"></div>'+(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
