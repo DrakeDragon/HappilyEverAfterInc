@@ -2,7 +2,7 @@
 
 A funny, mobile-first idle tycoon where fairy-tale businesses become an empire and the Cheshire Cat narrates your adventures.
 
-**v18 · Storybook Interface Edition** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
+**v19 · Illustrated Identity Edition** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
 
 ## Contents
 
@@ -21,6 +21,21 @@ A funny, mobile-first idle tycoon where fairy-tale businesses become an empire a
 - [License](#license)
 
 ## Release overview
+
+### New in v19: illustrated identity
+
+- **Generated title crest:** an open emerald storybook, fairytale castle, golden crown, and jeweled flourishes replace the original SVG crest. It appears in the header and dialog decoration, and is also the site favicon.
+- **Generated interface artwork:** sixteen matching icons supply six bottom navigation destinations, nine Goodies features, contextual screen headings, currency decoration, trophy cards, crossover cards, and global upgrade cards.
+- **Generated Cheshire Cat:** a violet-and-turquoise portrait replaces the narrator emoji. The Cat retains its tap interaction and now supports Enter/Space activation.
+- **Polished visual system:** coordinated gold trim, emerald and violet accents, cleaner title proportions, a framed treasury, refined business surfaces, parchment dialogs, and updated quick-action and navigation spacing.
+- **Contextual headings:** Goodies subpages now show feature-specific titles and illustrations.
+- **READY badge fix:** Wishes, Time Warp, and Charms cards show their existing readiness signals correctly. The original card array used the wrong field for its badge.
+- **Realm tile fix:** illustrated tiles retain their decoration after changing purchase quantity, which refreshes the header without rerendering the full game.
+- **Accessibility:** navigation labels and active-page semantics accompany decorative artwork. Text remains selectable by assistive technology; image assets do not contain UI labels.
+
+This is a complete cumulative release: it includes the previous realm artwork, UI improvements, original game, and all new assets. **Upload all four PNG files in assets/ with the new index.html.** See [the artwork guide](docs/ARTWORK.md) for the full generation prompts and atlas mapping.
+
+### Foundation retained from v18
 
 This release builds on the original v16 game and the first illustrated environment update (called v17 in this release history). The theme is bright, vivid, whimsical storybook fantasy with elegant typography, jewel-toned surfaces, restrained gold trim, and a modern interface.
 
@@ -43,17 +58,17 @@ Each permanent realm receives its own illustration, selected by realm name so th
 - Bottom navigation and quick actions: clearer active states and consistent button shapes.
 - Accessibility: visible keyboard focus for buttons and realm tiles; reduced-motion preference suppresses interface animations.
 
-This is a presentation release. It intentionally retains the original economy formulas, unlock rules, story content, rewards, save key, and reset behavior. Custom business illustrations, character portraits, and animation are still future work; existing emoji remain in those areas.
+This is a presentation release. It intentionally retains the original economy formulas, unlock rules, story content, rewards, save key, and reset behavior. Individual business illustrations, manager portraits, roaming guest artwork, and character animation remain future work. The main narrator now has a custom static portrait; individual game entries retain their emoji.
 
 ## Upgrade an existing GitHub Pages repository
 
 1. Download and extract the release ZIP locally. The ZIP contains the site files directly at its root.
 2. Back up your current repository or create a commit before replacing files. Close other open game tabs so an older tab cannot write over newer progress.
 3. In the folder your existing Pages deployment publishes, replace `index.html` and `README.md` with this release's versions. Add the complete `assets` and `docs` folders, `CHANGELOG.md`, and `.nojekyll`. Keep your repository's existing license and any custom domain `CNAME` file. This package includes the original LICENSE when present in the supplied project.
-4. Keep `assets/realm-atlas.png` exactly at that relative path beside the new `index.html`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
+4. Keep the entire `assets/` folder beside the new `index.html`, including `realm-atlas.png`, `title-crest.png`, `ui-icons.png`, and `cheshire-cat.png`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
 5. Commit the files. Continue using your existing Pages deployment configuration. If you publish from a `/docs` folder, place **all site files** in that publishing folder; this package's `docs/` directory contains documentation, not the deployment root.
 6. Wait for your repository's Pages deployment to complete. Open your existing game URL and refresh. If the old appearance remains, use a hard refresh or close and reopen the tab.
-7. Confirm that the realm banner and realm tiles show illustrations. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
+7. Confirm that the crest, Cat portrait, bottom navigation icons, realm banner, and realm tiles show illustrations. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
 
 Relative asset paths support both a repository project URL and a custom-domain root. No repository name or username needs to be edited into the source. This package does not change your Pages settings or publish anything automatically.
 
@@ -76,9 +91,13 @@ To preview locally, keep the folder structure intact and open `index.html`. A lo
 ```text
 index.html                      Complete game, styles, and interface logic
 assets/realm-atlas.png           Illustrated 4 × 4 realm environment atlas
+assets/title-crest.png           Transparent title crest and dialog ornament
+assets/ui-icons.png              Transparent 4 × 4 interface icon atlas
+assets/cheshire-cat.png          Transparent narrator portrait
 README.md                       Current installation and game guide
 CHANGELOG.md                    Changes and scope by release
 docs/README-v16-original.md      Unmodified original README, for historical reference
+docs/ARTWORK.md                  Artwork inventory, atlas mapping, and full prompts
 .nojekyll                       Static-site publishing marker
 LICENSE                         Original project license, when supplied
 ```
@@ -169,17 +188,17 @@ The game uses compact large-number notation, with a scientific notation option i
 
 ## Technical details
 
-Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. The presentation additions are marked `Illustrated storybook edition` and `v18: Storybook interface system` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
+Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. The presentation additions are marked `Illustrated storybook edition`, `v18: Storybook interface system`, and `v19: illustrated identity and modern storybook surfaces` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
 
 The PNG is a 4 × 4 atlas. `illustratedNames` maps its cells to realm names. CSS background positioning selects the relevant cell. Reordering the atlas requires updating this mapping. The original game's `data-w` world themes and realm accent colors continue to drive interface colors.
 
-Artwork was created using built-in image generation, then bundled locally. Art direction: a regular sixteen-panel atlas of bright, vivid, elegant storybook environments with dimensional painted scenery, luminous light, readable landmarks, and no embedded interface text. Existing business and character emoji are retained.
+Artwork was created using built-in image generation, then bundled locally. Art direction: a regular sixteen-panel atlas of bright, vivid, elegant storybook environments with dimensional painted scenery, luminous light, readable landmarks, and no embedded interface text. Individual businesses, managers, and roaming guests retain their original emoji; global interface icons and the main Cat portrait now use generated artwork.
 
 ## Troubleshooting
 
 | Symptom | Check |
 |---|---|
-| Scene artwork is missing | Confirm `assets/realm-atlas.png` exists in the publishing folder and its spelling and case match. |
+| Artwork is missing | Confirm all four PNG files in `assets/` were uploaded with matching spelling and case. Check `docs/ARTWORK.md` for the inventory. |
 | Old UI after an upgrade | Confirm the deployment completed, then hard-refresh the page. Avoid clearing site storage. |
 | Site shows a README or a 404 | Confirm Pages publishes the folder containing `index.html`, not the release ZIP or an extra parent folder. |
 | Save seems absent | Check the browser profile, domain, and private browsing status. A local preview uses different storage from the live game. |
@@ -189,15 +208,20 @@ Artwork was created using built-in image generation, then bundled locally. Art d
 
 ## Validation and limitations
 
-The release script passes JavaScript syntax validation. Packaging checks confirm relative artwork references, the original save key, and the required release files. The preview browser could not connect to the local server, so visual and interactive checks remain outstanding. Details are recorded in `CHANGELOG.md`; no claim is made that every late-game progression path has been tested.
+- JavaScript syntax validation passes.
+- Focused rendering checks pass for all sixteen icon keys, six navigation buttons, active selection including the event page, nine Goodies cards, and READY badge on/off states.
+- Header redecoration is checked so quantity changes preserve realm art.
+- All four PNG files are inspected for readable dimensions; the three new assets contain alpha transparency.
+- Package checks verify every local image reference, the original save key, preserved original game-action functions, required documentation, and ZIP integrity.
+- These are source and isolated rendering checks. A live browser visual check and full interaction/end-to-end gameplay test were not completed for v19. Layout at device sizes and late-game progression still need real-browser review.
 
-This is a major UI styling pass, not a finished AAA production. Business icons and characters still use the original emoji. No new character animation, sound design, cloud save, or custom event artwork is included. Long-term economy balance is inherited from v16 and has not been re-simulated.
+This release adds a professional illustrated identity and a substantial UI styling pass. It is not a claim of finished AAA production. The Cat portrait is static. Individual businesses, managers, collectibles, and roaming guests retain emoji identities. No new sound design, cloud save, or event-specific landscape is included. Economy balance is inherited from v16 and has not been re-simulated.
 
 ## Development and future releases
 
 For every major update, distribute a complete, versioned ZIP with an updated README and CHANGELOG. Document new features, changed files, installation steps, save compatibility, validation, limitations, and rollback. Keep game files and required assets together so each release can be deployed independently.
 
-Possible next art passes: individual business illustrations, a custom Cheshire Cat portrait and expressions, a coordinated icon set, themed event art, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
+Possible next art passes: individual business illustrations, additional Cheshire Cat expressions and animation, individual character portraits, themed event art, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
 
 The original v16 README is preserved in [docs/README-v16-original.md](docs/README-v16-original.md). Its older counts, unlock tables, single-file instructions, and validation statements describe historical versions and should not override this current guide or the game itself.
 

@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#090a1c">
 <title>Happily Ever After, Inc.</title>
+<link rel="icon" type="image/png" href="assets/title-crest.png">
 <style>
 :root{--bg:#090a1c;--card:#11122b;--card2:#1e1d42;--gold:#f2c75c;--mg:#9b7bff;--txt:#f7f1e3;--mut:#aaa6c8;--acc:#f2c75c;--grad:linear-gradient(135deg,#f8e08e,#e0a93f 55%,#c18a2c)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
@@ -350,27 +351,29 @@ header{position:relative!important;border-radius:0 0 24px 24px;padding:18px 16px
 @media(max-width:420px){header{padding:12px 10px}.crest{width:32px;height:32px;flex-basis:32px}.brand{gap:7px}h1 .t1{font-size:clamp(13px,4.3vw,18px);letter-spacing:.08em}.bt .tagline{font-size:8px}.realm-scene{height:210px}.scene-copy h2{font-size:27px}.biz{grid-template-columns:50px minmax(0,1fr);gap:10px;padding:12px}.biz .ic{width:50px;height:64px}.biz .nm{font-size:15px}.meta{min-width:64px;font-size:9px!important}.brow{gap:5px}.item{padding:12px;gap:9px}.item .tx b{font-size:15px}.item button{min-width:72px}.hubcard b{font-size:18px}.screen-heading h2{font-size:25px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 
+
+/* v19: illustrated identity and modern storybook surfaces */
+:root{--ui-gold:#eed49a;--ui-ink:#101e2e;--ui-soft:#b9cbd3}
+.ui-art{display:inline-block;width:52px;height:52px;flex:0 0 auto;background-image:url('assets/ui-icons.png');background-size:400% 400%;background-position:var(--ui-x) var(--ui-y);background-repeat:no-repeat;vertical-align:middle;filter:drop-shadow(0 3px 4px #0003);pointer-events:none}
+.brand{gap:16px;padding:8px 0 20px;justify-content:center}.crest.crest-illustrated{width:144px;height:100px;flex:0 0 144px;object-fit:contain;filter:drop-shadow(0 6px 12px #0004);animation:crest-float 6s ease-in-out infinite}.bt{align-items:flex-start}header h1{align-items:flex-start}h1 .t1{font-size:clamp(18px,3.1vw,31px);letter-spacing:.065em;text-transform:none;background:linear-gradient(#fff8df,#ffe3a2 65%,#c99952);background-clip:text;-webkit-background-clip:text;filter:none}h1 .t2{font-size:17px;margin-top:7px;letter-spacing:.25em}.bt .tagline{margin-top:9px;font-family:'Segoe UI',sans-serif;font-size:9px;letter-spacing:.22em;color:#c4d5d5}header{background:radial-gradient(ellipse at 20% 0%,color-mix(in srgb,var(--rc) 24%,#182938),transparent 65%),linear-gradient(125deg,#142c38,#20293e 70%,#302b44);border:1px solid #eddaa92b;border-top:0;box-shadow:0 12px 36px #0004}header:before{opacity:.2;animation:none}.cashrow{background:linear-gradient(115deg,#07172295,#13263880);box-shadow:inset 0 1px #fff1;border:1px solid #e2d09c38;position:relative;overflow:hidden}.cash{padding-left:46px;position:relative;font-size:32px}.cash:before{content:'';position:absolute;left:-8px;top:1px;width:52px;height:52px;background:url('assets/ui-icons.png') 100% 100%/400% 400% no-repeat;filter:drop-shadow(0 3px 4px #0004)}.cash small{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#c2d1d5}.right{color:#bacdd3}
+.realm-scene{border:1px solid #f3dfb66b;box-shadow:0 15px 50px #0004,inset 0 0 0 5px #fff1;border-radius:22px}.realm-scene .scene-copy{left:26px;bottom:24px}.scene-copy small{font-size:9px;letter-spacing:2.5px}.scene-copy h2{font-weight:600;letter-spacing:-.5px}.scene-copy p{font-size:13px;max-width:480px}.realm.on{outline:2px solid #ffe5a9;outline-offset:-3px}.realms{gap:10px}.realm{box-shadow:0 5px 10px #0003;border:1px solid #e7d8b94d}.realm.lock{opacity:.6}.modes{background:#09182465;border:1px solid #fff1;border-radius:12px;padding:4px;gap:4px}.modes button{border:0;min-height:35px;background:transparent}.modes button.on{border-radius:8px;background:linear-gradient(135deg,#f8e3af,#d8b66f);box-shadow:0 2px 7px #0003}
+#cat{position:relative;padding:13px 20px 13px 14px;background:linear-gradient(110deg,#26394b,#282c45);border:1px solid #d8bfec3d;box-shadow:0 5px 22px #0003;min-height:104px;gap:16px;overflow:visible}.cat-portrait.face{width:84px!important;height:84px!important;flex:0 0 84px!important;background:radial-gradient(circle,#a899e52a,transparent 68%)!important;border:0!important;animation:none!important;overflow:visible}.cat-portrait img{display:block;width:92px;height:92px;object-fit:contain;max-width:none;filter:drop-shadow(0 5px 7px #0004)}#cat .say{font-size:15px;line-height:1.6;font-style:normal;padding-top:19px}#cat .say:before{content:'THE CHESHIRE CAT';position:absolute;top:13px;color:#d1baf2;font-family:'Segoe UI',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px}#cat:after{content:'✦';position:absolute;right:14px;top:11px;color:#e1d09c;font-size:12px}
+.section-identity{display:flex;align-items:center;gap:13px;min-width:0}.section-art{width:64px;height:64px;filter:drop-shadow(0 4px 8px #0004)}.screen-heading{padding-top:6px;padding-bottom:8px;border-bottom:1px solid #e9d7a51c;margin-bottom:18px;align-items:center}.screen-heading h2{font-size:28px;line-height:1.15;letter-spacing:-.4px}.screen-heading p{line-height:1.5;max-width:500px}.edition-mark{border:1px solid #e7d2a633;padding:7px 10px;border-radius:20px;font-size:8px;white-space:nowrap}
+.hubcard{position:relative;overflow:hidden;isolation:isolate;padding:22px 18px;min-height:116px;background:radial-gradient(ellipse at 0% 50%,color-mix(in srgb,var(--rc) 17%,#273e50),transparent 65%),linear-gradient(120deg,#1b3043,#192337);border-color:#dfcca43d;box-shadow:inset 0 1px #ffffff0b,0 7px 22px #0002}.hubcard:after{content:'›';font-family:Georgia,serif;position:absolute;right:14px;bottom:14px;color:#d7c08c;font-size:26px;opacity:.75}.hubcard .hi{width:72px;height:72px;background:radial-gradient(circle,#efd9ab15,transparent 70%);border:0;overflow:visible;flex:0 0 72px}.hub-art{width:80px;height:80px}.hubcard b{font-size:20px;letter-spacing:-.25px;padding-right:35px}.hubcard .hd{padding-right:12px}.hubcard .bdg{top:9px;right:10px;font-size:8px;padding:3px 6px}.hubcard:hover{border-color:#eddbab90;box-shadow:inset 0 1px #ffffff16,0 9px 26px #0003;filter:none}.hubcard:hover .ui-art{transform:translateY(-2px);transition:transform .2s}
+.item,.biz,.pres,.bkhead{box-shadow:inset 0 1px #ffffff0a,0 6px 20px #0002;border-color:#dccda13b}.item .ic.illustrated-item{background:transparent;border:0;padding:0}.illustrated-item .ui-art{width:52px;height:52px}.pres{background:radial-gradient(ellipse at 50% 0%,color-mix(in srgb,var(--rc) 16%,#273748),transparent 60%),linear-gradient(145deg,#192d40,#172337)}.pres h2{font-size:29px}.bkhead{background:linear-gradient(120deg,color-mix(in srgb,var(--rc) 15%,#20374a),#172438)}.bkic{box-shadow:inset 0 1px #fff1;background:#ffffff08}.bkhead.lockedbk{filter:saturate(.65)}.biz .ic{background:radial-gradient(ellipse at 45% 30%,color-mix(in srgb,var(--rc) 30%,#284357),#152538);box-shadow:inset 0 1px #fff2,0 4px 12px #0003;border-color:#ddcc9c4d}.buy{box-shadow:inset 0 1px #fff5,0 3px 9px #0003}.buy:disabled{box-shadow:inset 0 1px #fff1}.bar{height:19px;box-shadow:inset 0 2px 4px #0004,0 0 0 1px #ffffff0b}.bar span{font-size:11px;letter-spacing:0}.bar i{box-shadow:inset 0 1px #fff4}.coach{background:linear-gradient(120deg,#fff6dc,#eddaa8);color:#433323;font-size:14px;font-family:'Segoe UI',sans-serif;border-color:#d6bc79}.diffb{font-family:'Segoe UI',sans-serif;font-size:11px}.tag{padding:4px 8px;font-size:10px;border-radius:6px}.chtile{box-shadow:inset 0 1px #fff1,0 4px 14px #0002}
+.mcard{background:radial-gradient(ellipse at 100% 0%,#f1e0b8,transparent 55%),linear-gradient(140deg,#fffcf1,#f5eace)!important;border:1px solid #d9bf82!important;box-shadow:0 0 0 5px #fff2,0 30px 90px #0008!important}.mcard:before{content:'';display:block;width:72px;height:72px;margin:-8px auto 8px;background:url('assets/title-crest.png') center/contain no-repeat;filter:drop-shadow(0 3px 4px #62412520)}.mcard.story{max-width:640px}.mcard h3{font-size:26px!important;line-height:1.2}.mcard .sbody p{font-size:17px!important}.mcard .mtag{font-size:10px!important;letter-spacing:2.5px!important}.mcard button{font-weight:600!important;box-shadow:inset 0 1px #fff2,0 3px 10px #34205a22!important}.lfcard{background:linear-gradient(130deg,#fffae9,#eee0b9)!important}.backbtn{border-color:#dbc89b3b;color:#efdfb8;box-shadow:inset 0 1px #fff1}.readnext{background:linear-gradient(135deg,#f9e5b1,#daba78);font-weight:700;letter-spacing:.2px}
+nav{padding:4px 8px calc(4px + env(safe-area-inset-bottom));border-radius:20px 20px 0 0;border:1px solid #dccb9b3d;border-bottom:0;background:linear-gradient(180deg,#223349f7,#142235fa);box-shadow:0 -8px 30px #0003;gap:4px}nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;min-height:68px;padding:2px!important;border-radius:13px;position:relative;overflow:visible;line-height:1.2}nav .nav-art{width:43px;height:43px;filter:drop-shadow(0 3px 3px #0004)}nav .nav-label{font-size:10px;font-weight:600;letter-spacing:.1px;padding-bottom:3px}nav button.on{background:linear-gradient(180deg,#f5d79923,#f5d79908);box-shadow:inset 0 1px #f8e0a54d}nav button.on:after{content:'';position:absolute;width:17px;height:2px;bottom:0;background:#f3d493;border-radius:2px;box-shadow:0 0 8px #f3d49370}.quick{bottom:calc(79px + env(safe-area-inset-bottom));padding-top:9px;padding-bottom:8px;background:linear-gradient(transparent,#102033 35%)}.quick button{min-height:54px;box-shadow:inset 0 1px #fff3,0 4px 12px #0004}.quick button.side{background:linear-gradient(145deg,#33455a,#23364b)}body{padding-bottom:calc(162px + env(safe-area-inset-bottom))!important}#toast{bottom:calc(172px + env(safe-area-inset-bottom))}#lf{bottom:calc(170px + env(safe-area-inset-bottom))}
+@keyframes crest-float{50%{transform:translateY(-3px)}}
+@media(min-width:760px){header{padding:14px 28px 18px}.brand{padding-bottom:14px}.crest.crest-illustrated{width:168px;height:112px;flex-basis:168px}.bt .tagline{font-size:10px}.cashrow{margin-top:8px}.realm-scene{height:320px}.realm{flex-basis:104px!important}.screen-heading{margin-top:20px}#cat{padding:12px 24px}.hubcard .hi{margin-right:7px}nav{max-width:1040px}.quick{max-width:1040px}#main .biz{padding:17px}.biz .ic{height:76px}.hubcard{min-height:124px}}
+@media(max-width:480px){header{padding:9px 12px 12px}.brand{gap:10px;padding:0 0 12px}.crest.crest-illustrated{width:100px;height:76px;flex-basis:100px}h1 .t1{font-size:clamp(16px,4.4vw,21px);letter-spacing:.025em;white-space:normal;max-width:240px}.bt .tagline{font-size:7px;letter-spacing:.16em;line-height:1.5}.bt{align-items:flex-start}h1 .t2{font-size:12px;margin-top:5px}.cashrow{padding:10px 11px}.cash{font-size:28px;padding-left:37px}.cash:before{width:44px;height:44px;left:-8px}.cash small{font-size:8px}.right{font-size:10px}.realm{flex-basis:82px!important;font-size:10px;min-height:76px}.realm-scene .scene-copy{left:18px;bottom:18px}.scene-copy h2{font-size:27px}.scene-copy p{font-size:11px}.scene-copy small{font-size:8px;letter-spacing:1.5px}#cat{gap:9px;padding:10px 13px 10px 9px;min-height:92px;margin-bottom:10px}.cat-portrait.face{width:65px!important;height:65px!important;flex-basis:65px!important}.cat-portrait img{width:73px;height:73px}#cat .say{font-size:13px;line-height:1.5;padding-top:18px}#cat .say:before{font-size:8px;letter-spacing:1.5px;top:11px}.section-art{width:49px;height:49px}.section-identity{gap:8px}.screen-heading{margin-top:8px}.screen-heading h2{font-size:24px}.screen-heading p{font-size:11px}.edition-mark{display:none}.hubcard{padding:16px 13px;gap:10px}.hubcard .hi{width:61px;height:65px;flex-basis:61px}.hub-art{width:69px;height:69px}.hubcard b{font-size:19px}.hubcard span.hd{font-size:12px}.mcard{padding:22px 18px!important}.mcard:before{width:58px;height:58px}nav{gap:2px;padding-left:5px;padding-right:5px}nav .nav-art{width:39px;height:39px}nav .nav-label{font-size:9px}.quick{padding-left:9px;padding-right:9px;gap:7px}.quick button{font-size:12px}.quick button.side{flex-basis:19%}.quick button small{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.crest.crest-illustrated{animation:none}.hubcard:hover .ui-art{transform:none}}
+
 </style>
 </head>
 <body>
 <header>
   <div class="brand">
-    <svg class="crest" viewBox="0 0 64 64" aria-hidden="true">
-      <defs>
-        <linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff4c4"/><stop offset=".55" stop-color="#f2c75c"/><stop offset="1" stop-color="#b9822f"/></linearGradient>
-        <radialGradient id="gb" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#3a2f78"/><stop offset="1" stop-color="#14153a"/></radialGradient>
-      </defs>
-      <circle class="spin" cx="32" cy="32" r="30.5" fill="none" stroke="url(#gg)" stroke-width="1" stroke-dasharray="1.5 4.5" stroke-linecap="round"/>
-      <circle cx="32" cy="32" r="26" fill="url(#gb)" stroke="url(#gg)" stroke-width="2"/>
-      <path d="M32 44 C26 40 18 40 13 42 L13 28 C18 26 26 26 32 30 C38 26 46 26 51 28 L51 42 C46 40 38 40 32 44 Z" fill="#f7f1e3" stroke="url(#gg)" stroke-width="1.3" stroke-linejoin="round"/>
-      <path d="M32 30 L32 44" stroke="#b9822f" stroke-width="1"/>
-      <path d="M17 31 C21 30 25 31 29 33 M17 35 C21 34 25 35 29 37 M35 33 C39 31 43 30 47 31 M35 37 C39 35 43 34 47 35" stroke="#b9822f66" stroke-width=".8" fill="none"/>
-      <path d="M21 25 L23 15 L28 21 L32 12 L36 21 L41 15 L43 25 Z" fill="url(#gg)" stroke="#8a5b1c" stroke-width=".8" stroke-linejoin="round"/>
-      <circle cx="23" cy="15" r="1.5" fill="#ffe08a"/><circle cx="32" cy="12" r="1.7" fill="#ffe08a"/><circle cx="41" cy="15" r="1.5" fill="#ffe08a"/>
-      <path class="tw" d="M10 14 L11 17 L14 18 L11 19 L10 22 L9 19 L6 18 L9 17Z" fill="#ffe08a"/>
-      <path class="tw t2" d="M54 20 L55 22.5 L57.5 23.5 L55 24.5 L54 27 L53 24.5 L50.5 23.5 L53 22.5Z" fill="#ffe08a"/>
-      <path class="tw t3" d="M52 48 L52.8 50 L55 50.8 L52.8 51.6 L52 54 L51.2 51.6 L49 50.8 L51.2 50Z" fill="#ffe08a"/>
-    </svg>
+    <img class="crest crest-illustrated" src="assets/title-crest.png" alt="An open storybook, a fairytale castle, and a golden crown" width="112" height="112" fetchpriority="high">
     <div class="bt">
       <h1><span class="t1">Happily Ever After</span><span class="t2"><i></i>Inc.<i></i></span></h1>
       <div class="tagline">A Chronicle of Sixteen Worlds</div>
@@ -384,7 +387,7 @@ header{position:relative!important;border-radius:0 0 24px 24px;padding:18px 16px
   <div class="modes" id="modes"></div>
   <div id="pills"></div>
 </header>
-<div id="cat" onclick="catTap()"><div class="face">😸</div><div class="say" id="catsay">…</div></div>
+<div id="cat" role="button" tabindex="0" aria-label="Chat with the Cheshire Cat" onclick="catTap()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();catTap();}"><div class="face cat-portrait"><img src="assets/cheshire-cat.png" alt="The Cheshire Cat" width="80" height="80"></div><div class="say" id="catsay">…</div></div>
 <div id="main"></div>
 <div class="quick" id="quick"><button class="side" id="qwork" onclick="workAll()">👆<small>Work</small></button><button id="qnext" onclick="quickBuy(false)">⚡</button><button class="side" id="qall" onclick="quickBuy(true)">🛒<small>Buy All</small></button></div>
 <nav id="nav"></nav>
@@ -11241,6 +11244,14 @@ function setFx(w){
 }
 function setTheme(){const de=document.documentElement;de.style.setProperty('--rc',REALMS[realm].color);if(de.dataset.w!==String(realm)){de.dataset.w=realm;}if(_fxw!==realm){_fxw=realm;setFx(realm);}}
 
+
+// v19: generated interface artwork. Cell order is documented in docs/ARTWORK.md.
+const UI_ART={shop:0,mgr:1,up:2,pres:3,book:4,story:5,wish:6,warp:7,charms:8,ev:9,guests:10,ach:11,cross:12,help:13,cfg:14,cash:15};
+function uiArt(key,extra=''){
+ const i=UI_ART[key];if(i===undefined)return '';
+ return `<span class="ui-art ${extra}" aria-hidden="true" style="--ui-x:${(i%4)*100/3}%;--ui-y:${Math.floor(i/4)*100/3}%"></span>`;
+}
+
 function renderHeader(){
   $('realms').innerHTML=REALMS.map((R,r)=>{
     const un=S.realms[r].unlocked;
@@ -11248,8 +11259,9 @@ function renderHeader(){
   }).join('');
   $('modes').innerHTML=[1,10,100,'max'].map(m=>`<button class="${m===mode?'on':''}" onclick="setMode('${m}')">${m==='max'?'MAX':'×'+m}</button>`).join('');
   $('nav').innerHTML=[['shop','🏰','Shops'],['mgr','🧑‍💼','Managers'],['up','⚡','Upgrades'],['pres','👠','Ever After'],['book','🎁','Goodies'],['story','📖','Stories']].map(t=>
-    `<button class="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'on':''}" onclick="setTab('${t[0]}')"><b>${t[1]}</b>${t[2]}</button>`).join('');
+    `<button class="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'on':''}" aria-label="${t[2]}" aria-current="${(tab===t[0]||(tab==='ev'&&t[0]==='book'))?'page':'false'}" onclick="setTab('${t[0]}')">${uiArt(t[0],'nav-art')}<span class="nav-label">${t[2]}</span></button>`).join('');
   $('cur').textContent=REALMS[realm].cur;
+  decorateInterface();
 }
 function setMode(m){mode=m==='max'?'max':+m;renderHeader();}
 function setTab(t){tab=t;if(t==='book')bsub='menu';sigs={};render();if(t==='book'||t==='ev'||t==='story')cat('tab',0.4);window.scrollTo(0,0);}
@@ -11283,13 +11295,15 @@ function decorateInterface(){
  if(!h){h=document.createElement('div');h.id='screen-heading';h.className='screen-heading';document.getElementById('main').before(h);}
  const titles={shop:['Your enterprises','Build a little magic. Grow something extraordinary.'],mgr:['Meet your managers','Put your storybook businesses in capable hands.'],up:['A touch of magic','Give your growing empire its next great advantage.'],pres:['Ever after','Every ending is the beginning of a bigger story.'],book:['The cabinet of wonders','Gifts, discoveries, and a little everyday enchantment.'],story:['The story so far','Open a book. Find out what happens next.'],ev:['The festival grounds','A new celebration, a fresh opportunity.']};
  const v=titles[tab]||[tab==='man'?'Meet your managers':tab==='up'?'A touch of magic':'Your next chapter',REALMS[realm].name];
- h.innerHTML='<div><h2>'+v[0]+'</h2><p>'+v[1]+'</p></div><span class="edition-mark">Storybook Edition</span>';
+ const subTitles={wish:['The wishing well','Make a wish. A little luck goes a long way.'],warp:['A moment of magic','Turn the hourglass and bring tomorrow a little closer.'],charms:['The charm collection','Small treasures with extraordinary possibilities.'],guests:['Distinguished visitors','Every visitor brings a new story.'],ach:['Your trophy room','Celebrate the milestones of a growing empire.'],cross:['Extraordinary partnerships','Bring the realms together and let ideas grow.'],help:['Your storybook guide','A few friendly pointers for the road ahead.'],cfg:['Make yourself at home','Set the game to suit the way you play.']};
+ const activeKey=tab==='book'&&bsub!=='menu'?bsub:tab;
+ const heading=tab==='book'&&subTitles[bsub]?subTitles[bsub]:v;
+ h.innerHTML='<div class="section-identity">'+uiArt(activeKey,'section-art')+'<div><h2>'+heading[0]+'</h2><p>'+heading[1]+'</p></div></div><span class="edition-mark">Illustrated Edition</span>';
 }
 
 function render(){
   updateRealmIllustration();
   applyBig();setTheme();renderHeader();
-  decorateInterface();
   const m=$('main');
   if(tab==='shop'){
     m.innerHTML='<div class="coach" id="coach" onclick="coachGo()"></div>'+(realm===EV_RT?'<div class="evb" id="evb"></div>':diffBadge(realm))+REALMS[realm].biz.map((d,i)=>`
@@ -11326,7 +11340,7 @@ function hubHTML(){
    ['help','❓','How to Play','A quick guide in plain words. Start here if you are unsure!',''],
    ['cfg','⚙️','Settings','Bigger text, sound, tips and more.','']
   ];
-  return `<div class="empty" style="padding:2px 6px 12px;font-size:15px">Everything extra lives here. Tap any card to open it.</div>`+C.map(c=>`<button class="hubcard" onclick="${c[0]==='ev'?"setTab('ev')":`setBsub('${c[0]}')`}"><div class="hi">${c[1]}</div><div><b>${c[2]}</b><span class="hd">${c[3]}</span></div>${c[5]?`<span class="bdg">${c[5]}</span>`:''}</button>`).join('');
+  return `<div class="empty" style="padding:2px 6px 12px;font-size:15px">Everything extra lives here. Tap any card to open it.</div>`+C.map(c=>`<button class="hubcard" onclick="${c[0]==='ev'?"setTab('ev')":`setBsub('${c[0]}')`}"><div class="hi">${uiArt(c[0],'hub-art')}</div><div><b>${c[2]}</b><span class="hd">${c[3]}</span></div>${c[4]?`<span class="bdg">${c[4]}</span>`:''}</button>`).join('');
 }
 function helpHTML(){
   const st=[['👆','<b>Tap a shop</b> (its picture or the bar) to put it to work. When the bar fills, you get money.'],['🛒','Tap the gold <b>Buy</b> button to buy more of a shop. More shops means more money.'],['🧑‍💼','Open <b>Managers</b> and hire one. A manager runs the shop <b>by himself</b>, even when you close the game.'],['⚡','Open <b>Upgrades</b> to make your shops earn much more.'],['🌍','Tap the little <b>world pictures</b> at the top to travel to other worlds. New worlds open as you earn.'],['👠','<b>Ever After</b> lets you start over with a big bonus. Do it when the game feels slow. You never lose your stories or trophies.'],['🎁','<b>Goodies</b> has free gifts, wishes and time warps. They are all free. There are no ads and nothing to buy.'],['📖','<b>Stories</b> has short little tales, about a minute each. They unlock as you play.'],['😸','The Cat will chat with you at the top. Tap him if you like. He loves it.']];
@@ -11352,13 +11366,13 @@ function bookHTML(){
   }else if(bsub==='ach'){
     const n=Object.keys(S.ach).length;
     body=`<div class="empty" style="padding:4px 6px 12px"><b>${n}/${ACH.length}</b> trophies · profit ×${fmt(achMult())}</div>`+ACH.map(a=>S.ach[a[0]]
-      ?`<div class="item"><div class="ic">🏆</div><div class="tx"><b>${a[1]}</b><em>${a[2]}</em></div></div>`
+      ?`<div class="item"><div class="ic illustrated-item">${uiArt('ach')}</div><div class="tx"><b>${a[1]}</b><em>${a[2]}</em></div></div>`
       :`<div class="item" style="opacity:.55"><div class="ic">🔒</div><div class="tx"><b>${a[1]}</b><em>${a[2]}</em></div></div>`).join('');
   }else if(bsub==='cross'){
     body=`<div class="empty" style="padding:4px 6px 12px">Own 25+ of the same shop in two or more permanent worlds for ×2 (×4 at 3, ×8 at 4, ×12 at 5+; bigger for deeper shops). The merged mega-venture boosts that shop in every world.</div>`+CROSS.map((c,i)=>{
       const k=crossK(i),m=crossMult(i);
       const counts=REALMS.slice(0,NPERM).map((RD,r)=>{const R=S.realms[r];return !R.unlocked?'🔒':i<R.biz.length?`${RD.icon} ${Math.min(R.biz[i].n,25)}/25`:`${RD.icon} —`;}).join(' · ');
-      return `<div class="item cross"><div class="ic">🌀</div><div class="tx"><b>${c[0]}</b><em>${c[1]}</em><br><em>${c[2]}</em><br><em>${counts}</em><br><span class="tag ${m>1?'on':'off'}">${m>1?'×'+fmt(m)+' ACTIVE':'Not yet merged'}</span></div></div>`;
+      return `<div class="item cross"><div class="ic illustrated-item">${uiArt('cross')}</div><div class="tx"><b>${c[0]}</b><em>${c[1]}</em><br><em>${c[2]}</em><br><em>${counts}</em><br><span class="tag ${m>1?'on':'off'}">${m>1?'×'+fmt(m)+' ACTIVE':'Not yet merged'}</span></div></div>`;
     }).join('');
   }else{
     body=`<div class="pres">
@@ -11438,7 +11452,7 @@ function updateLive(force){
       const L=$('list');if(!L)return;
       if(!items.length){L.innerHTML=`<div class="empty">${tab==='mgr'?'Everyone here is hired! The paperwork alone is a fairytale.':'Every upgrade bought. Fully upgraded!'}</div>`;return;}
       L.innerHTML=items.map(x=>{
-        if(x.g){const u=GUP[realm][x.k];return `<div class="item"><div class="ic">🌟</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>ALL ${RD.short} profit ×${fmt(GUP_MULT[x.k])}</em></div><button ${x.can?'':'disabled'} onclick="buyGUp(${x.k})">Buy<br>${RD.sym} ${fmt(x.cost)}</button></div>`;}
+        if(x.g){const u=GUP[realm][x.k];return `<div class="item"><div class="ic illustrated-item">${uiArt('up')}</div><div class="tx"><b>${u[0]}</b><em>${u[1]}</em><br><em>ALL ${RD.short} profit ×${fmt(GUP_MULT[x.k])}</em></div><button ${x.can?'':'disabled'} onclick="buyGUp(${x.k})">Buy<br>${RD.sym} ${fmt(x.cost)}</button></div>`;}
         const d=RD.biz[x.i];
         if(x.k<0)return `<div class="item"><div class="ic">${d[1]}</div><div class="tx"><b>${d[3]}</b><em>${d[4]}</em><br><em>Runs ${d[2]} automatically</em></div><button ${x.can?'':'disabled'} onclick="hire(${x.i})">Hire<br>${RD.sym} ${fmt(x.cost)}</button></div>`;
         const u=getUp(realm,x.i,x.k);
