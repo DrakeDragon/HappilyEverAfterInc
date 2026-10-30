@@ -382,6 +382,18 @@ nav{padding:4px 8px calc(4px + env(safe-area-inset-bottom));border-radius:20px 2
 .inline-currency.game-art{width:17px;height:17px;vertical-align:-4px;border-radius:50%;box-shadow:none;margin-right:2px}.bar span:before{content:'';display:inline-block;width:15px;height:15px;margin-right:5px;border-radius:50%;background-image:url('assets/currencies.webp');background-size:400% 500%;background-position:var(--cash-art-x,0%) var(--cash-art-y,0%)}
 
 .shop-illustration .ui-art{width:76px;height:76px}
+
+/* v21: Living Storybook — subtle motion, readable rewards, portable saves */
+.cat-expression{display:block;width:92px;height:92px;background:url('assets/cat-expressions.webp') 0% 0%/200% 200% no-repeat;filter:drop-shadow(0 5px 8px #0003);transform-origin:50% 85%}.cat-speaking{animation:cat-chat 1.1s ease-in-out}.cat-portrait.face{animation:cat-breathe 6s ease-in-out infinite!important}
+.biz .nm:after{content:attr(data-activity);display:block;font-family:'Segoe UI',sans-serif;font-size:9px;letter-spacing:.6px;color:#adc6cb;font-weight:500;margin-top:4px;line-height:1.3}.biz.shop-automated .nm:after{color:#8fe0bd}.biz .shop-illustration{overflow:hidden!important;position:relative}.biz .cnt{position:absolute!important;bottom:1px!important;right:1px!important;border-radius:10px 0 12px 0;box-shadow:none;border:0!important;z-index:3}.biz.shop-working.in-view .shop-illustration:after{content:'';position:absolute;inset:-60% -80%;background:linear-gradient(115deg,transparent 42%,#fff8ca22 49%,transparent 56%);animation:shop-light 5.5s ease-in-out infinite;pointer-events:none}.biz.shop-working.in-view .game-art{animation:shop-breathe 8s ease-in-out infinite;transform-origin:center}.biz.shop-automated .shop-illustration:before{content:'';position:absolute;top:7px;right:7px;width:7px;height:7px;background:#8bedb9;border:2px solid #14372a;border-radius:50%;box-shadow:0 0 9px #8bedb970;z-index:2}.biz.purchase-pulse{animation:purchase-light .5s ease-out}
+#living-fx{position:fixed;inset:0;pointer-events:none;z-index:18;overflow:hidden}.living-coin{position:fixed;width:24px;height:24px;pointer-events:none;animation:coin-to-treasury .95s cubic-bezier(.2,.6,.3,1) forwards}.living-coin .game-art{width:24px;height:24px;border-radius:50%;box-shadow:0 0 12px #ffe0a75c}
+#living-celebration{position:fixed;left:50%;bottom:calc(172px + env(safe-area-inset-bottom));width:min(430px,calc(100vw - 24px));transform:translate(-50%,18px);opacity:0;visibility:hidden;pointer-events:none;z-index:24;display:flex;align-items:center;gap:12px;padding:16px 50px 16px 14px;background:linear-gradient(115deg,#fff9e7,#eddfb8);border:1px solid #e3c785;border-radius:20px;box-shadow:0 10px 36px #0005;transition:opacity .25s,transform .25s,visibility .25s;color:#3b3044}#living-celebration.show{opacity:1;visibility:visible;transform:translate(-50%,0)}.celebration-art{width:57px;height:57px}#living-celebration strong{font:700 21px/1.2 var(--serif);display:block;color:#4b3563;margin-bottom:5px}#living-celebration span:not(.ui-art){font:12px/1.45 'Segoe UI',sans-serif;display:block}#living-celebration button{position:absolute;right:8px;top:8px;width:44px;height:44px;border:0;background:transparent;color:#66516a;font-size:24px;pointer-events:auto}.has-celebration #toast{bottom:calc(300px + env(safe-area-inset-bottom))}
+.save-tools{border:1px solid #e2cf9d40;background:linear-gradient(125deg,#213a4b,#1a283e);border-radius:20px;padding:24px;margin-bottom:16px}.save-tools-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}.save-tools-head .ui-art{width:68px;height:68px}.save-tools h2{font:27px/1.2 var(--serif);color:#f5e3b8;margin:0 0 6px}.save-tools p{font-size:13px;line-height:1.6;color:#c0d1d6;margin:6px 0 14px}.save-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}.save-actions .btn{border:1px solid #dcc490;background:linear-gradient(135deg,#f5e1ac,#d9b977);color:#243347;border-radius:12px;padding:13px 10px;min-height:48px;font:600 13px/1.3 'Segoe UI',sans-serif;cursor:pointer}.save-tools details{margin-top:16px;border-top:1px solid #e1d1ac24;padding-top:14px}.save-tools summary{color:#f3dfa9;cursor:pointer;font-size:14px;min-height:30px}.save-tools label{display:block;font-size:12px;color:#c4d4d9;margin-top:12px}.save-tools textarea{display:block;box-sizing:border-box;width:100%;max-width:100%;background:#0d1c2b;color:#eff4ed;border:1px solid #9caeba66;border-radius:10px;padding:12px;margin:8px 0;font:12px/1.5 Consolas,monospace;resize:vertical;user-select:text!important}.save-tools textarea:focus{outline:2px solid #eed49a;outline-offset:2px}.save-tools #save-status{min-height:22px;color:#f0deb6;font-weight:600}.save-tools .save-footnote{font-size:11px;margin-bottom:0}.save-summary{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0;text-align:left}.save-summary span{font:12px/1.5 'Segoe UI',sans-serif;background:#4d35670c;border:1px solid #7e698022;padding:10px;border-radius:10px;color:#645366}.save-summary b{display:block;font-size:18px;color:#392946}.mcard .save-explain{font:13px/1.6 'Segoe UI',sans-serif!important;text-align:left;color:#564658!important}.mcard #import-error{font:13px/1.5 'Segoe UI',sans-serif!important;color:#8c2741!important}.mcard.save-review h3{font-size:28px!important}
+@keyframes shop-light{0%,25%{transform:translateX(-35%);opacity:0}38%{opacity:1}58%,100%{transform:translateX(35%);opacity:0}}@keyframes shop-breathe{50%{transform:scale(1.025) translateY(-.5px)}}@keyframes purchase-light{0%{box-shadow:0 0 0 1px #ffe7ad,0 0 24px #f5d69355}100%{box-shadow:0 0 0 1px #ffffff0d,0 6px 20px #0002}}@keyframes cat-breathe{50%{transform:translateY(-2px) rotate(-.6deg)}}@keyframes cat-chat{35%{transform:translateY(-2px) rotate(1deg)}70%{transform:rotate(-1deg)}}@keyframes coin-to-treasury{0%{opacity:0;transform:translate(0,0) scale(.9)}15%{opacity:.9}85%{opacity:.8}100%{opacity:0;transform:translate(var(--fly-x),var(--fly-y)) scale(.45)}}
+html[data-living-motion=off] .biz .game-art,html[data-living-motion=off] .biz .shop-illustration:after,html[data-living-motion=off] .cat-portrait.face,html[data-living-motion=off] .cat-expression,html[data-living-motion=off] .purchase-pulse{animation:none!important}html[data-living-motion=off] .biz .shop-illustration:after{display:none}html[data-living-motion=off] .living-coin{display:none}html[data-living-motion=off] #living-celebration{transition:none}
+@media(max-width:600px){.save-tools{padding:18px 15px}.save-tools-head{gap:10px}.save-tools-head .ui-art{width:54px;height:54px}.save-tools h2{font-size:24px}.save-actions{grid-template-columns:1fr}.save-actions .btn{min-height:48px}.cat-expression{width:73px;height:73px}.biz .nm:after{font-size:9px;margin-top:6px}#living-celebration{padding:13px 46px 13px 12px;gap:10px}#living-celebration strong{font-size:20px}.celebration-art{width:47px;height:47px}}
+@media(prefers-reduced-motion:reduce){.cat-portrait.face,.cat-expression,.biz .game-art,.biz .shop-illustration:after,.purchase-pulse{animation:none!important}.biz .shop-illustration:after,.living-coin{display:none!important}#living-celebration{transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -401,7 +413,7 @@ nav{padding:4px 8px calc(4px + env(safe-area-inset-bottom));border-radius:20px 2
   <div class="modes" id="modes"></div>
   <div id="pills"></div>
 </header>
-<div id="cat" role="button" tabindex="0" aria-label="Chat with the Cheshire Cat" onclick="catTap()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();catTap();}"><div class="face cat-portrait"><img src="assets/cheshire-cat.png" alt="The Cheshire Cat" width="80" height="80"></div><div class="say" id="catsay">…</div></div>
+<div id="cat" role="button" tabindex="0" aria-label="Chat with the Cheshire Cat" onclick="catTap()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();catTap();}"><div class="face cat-portrait"><span class="cat-expression" role="img" aria-label="The Cheshire Cat, calm"></span></div><div class="say" id="catsay">…</div></div>
 <div id="main"></div>
 <div class="quick" id="quick"><button class="side" id="qwork" onclick="workAll()">👆<small>Work</small></button><button id="qnext" onclick="quickBuy(false)">⚡</button><button class="side" id="qall" onclick="quickBuy(true)">🛒<small>Buy All</small></button></div>
 <nav id="nav"></nav>
@@ -410,6 +422,8 @@ nav{padding:4px 8px calc(4px + env(safe-area-inset-bottom));border-radius:20px 2
 <div id="toast"></div>
 <div id="twist"></div>
 <div id="modal"></div>
+<div id="living-fx" aria-hidden="true"></div>
+<div id="living-celebration" role="status" aria-live="polite"></div>
 
 <script>
 // ---------- DATA ----------
@@ -11261,7 +11275,7 @@ function setTheme(){const de=document.documentElement;de.style.setProperty('--rc
 
 
 // v19: generated interface artwork. Cell order is documented in docs/ARTWORK.md.
-const UI_ART={shop:0,mgr:1,up:2,pres:3,book:4,story:5,wish:6,warp:7,charms:8,ev:9,guests:10,ach:11,cross:12,help:13,cfg:14,cash:15};
+const UI_ART={shop:0,mgr:1,up:2,pres:3,book:4,story:5,wish:6,warp:7,charms:8,ev:9,guests:10,ach:11,cross:12,help:13,cfg:14,cash:15,backup:5};
 function uiArt(key,extra=''){
  const i=UI_ART[key];if(i===undefined)return '';
  return `<span class="ui-art ${extra}" aria-hidden="true" style="--ui-x:${(i%4)*100/3}%;--ui-y:${Math.floor(i/4)*100/3}%"></span>`;
@@ -11340,7 +11354,7 @@ function decorateInterface(){
  if(!h){h=document.createElement('div');h.id='screen-heading';h.className='screen-heading';document.getElementById('main').before(h);}
  const titles={shop:['Your enterprises','Build a little magic. Grow something extraordinary.'],mgr:['Meet your managers','Put your storybook businesses in capable hands.'],up:['A touch of magic','Give your growing empire its next great advantage.'],pres:['Ever after','Every ending is the beginning of a bigger story.'],book:['The cabinet of wonders','Gifts, discoveries, and a little everyday enchantment.'],story:['The story so far','Open a book. Find out what happens next.'],ev:['The festival grounds','A new celebration, a fresh opportunity.']};
  const v=titles[tab]||[tab==='man'?'Meet your managers':tab==='up'?'A touch of magic':'Your next chapter',REALMS[realm].name];
- const subTitles={wish:['The wishing well','Make a wish. A little luck goes a long way.'],warp:['A moment of magic','Turn the hourglass and bring tomorrow a little closer.'],charms:['The charm collection','Small treasures with extraordinary possibilities.'],guests:['Distinguished visitors','Every visitor brings a new story.'],ach:['Your trophy room','Celebrate the milestones of a growing empire.'],cross:['Extraordinary partnerships','Bring the realms together and let ideas grow.'],help:['Your storybook guide','A few friendly pointers for the road ahead.'],cfg:['Make yourself at home','Set the game to suit the way you play.']};
+ const subTitles={backup:['Keep your story safe','Export, review, and restore your progress.'],wish:['The wishing well','Make a wish. A little luck goes a long way.'],warp:['A moment of magic','Turn the hourglass and bring tomorrow a little closer.'],charms:['The charm collection','Small treasures with extraordinary possibilities.'],guests:['Distinguished visitors','Every visitor brings a new story.'],ach:['Your trophy room','Celebrate the milestones of a growing empire.'],cross:['Extraordinary partnerships','Bring the realms together and let ideas grow.'],help:['Your storybook guide','A few friendly pointers for the road ahead.'],cfg:['Make yourself at home','Set the game to suit the way you play.']};
  document.documentElement.style.setProperty('--cash-art-x',(realm%4)*100/3+'%');
  document.documentElement.style.setProperty('--cash-art-y',Math.floor(realm/4)*100/4+'%');
  const activeKey=tab==='book'&&bsub!=='menu'?bsub:tab;
@@ -11385,7 +11399,8 @@ function hubHTML(){
    ['ach','🏆','Trophies','Little goals to reach. Every trophy makes you earn a bit more.',''],
    ['cross','🌀','Crossovers','Own the same shop in several worlds for a big bonus.',''],
    ['help','❓','How to Play','A quick guide in plain words. Start here if you are unsure!',''],
-   ['cfg','⚙️','Settings','Bigger text, sound, tips and more.','']
+   ['backup','📁','Save & Backups','Keep a copy of your story, or continue it on another device.',''],
+   ['cfg','⚙️','Settings','Bigger text, sound, motion, celebrations and more.','']
   ];
   return `<div class="empty" style="padding:2px 6px 12px;font-size:15px">Everything extra lives here. Tap any card to open it.</div>`+C.map(c=>`<button class="hubcard" onclick="${c[0]==='ev'?"setTab('ev')":`setBsub('${c[0]}')`}"><div class="hi">${uiArt(c[0],'hub-art')}</div><div><b>${c[2]}</b><span class="hd">${c[3]}</span></div>${c[4]?`<span class="bdg">${c[4]}</span>`:''}</button>`).join('');
 }
@@ -11401,6 +11416,7 @@ function bookHTML(){
   if(bsub==='menu')return hubHTML();
   let body='';
   if(bsub==='story')body=storyTabHTML();
+  else if(bsub==='backup')body=saveToolsHTML();
   else if(bsub==='help')body=helpHTML();
   else if(bsub==='wish')body=wishTabHTML();
   else if(bsub==='charms')body=charmTabHTML();
@@ -11428,6 +11444,10 @@ function bookHTML(){
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleSound()">Sound: ${S.cfg.sound?'ON 🔊':'OFF 🔇'}</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleVib()">Vibration: ${S.cfg.vib?'ON 📳':'OFF'}</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="toggleNote()">Numbers: ${NOTE==='letters'?'Letters (aa, ab...)':'Scientific (1.23e45)'}</button><br>
+      <button class="btn" aria-pressed="${S.cfg.motion!==false}" onclick="toggleLivingPreference('motion')">Storybook motion: ${S.cfg.motion===false?'OFF':'ON'}</button><br>
+      <button class="btn" aria-pressed="${S.cfg.celebrations!==false}" onclick="toggleLivingPreference('celebrations')">Celebration cards: ${S.cfg.celebrations===false?'OFF':'ON'}</button><br>
+      <p style="font-size:12px">Storybook motion controls new shop activity, Cat motion, and coin trails. Your device’s reduced-motion preference is always respected. Celebrations keep their readable text when motion is reduced.</p>
+      <button class="btn" onclick="setBsub('backup')">Save &amp; Backups</button><br>
       <button class="btn" style="font-size:13px;padding:11px 14px" onclick="replayIntro()">Meet the Cat again 😸</button><br>
       <p style="margin-top:14px">Plot twists survived: ${S.twists} · Guests caught: ${S.guestCount}<br>Endings lived: ${S.resets} · Sequels: ${S.sequels}</p>
       <button class="link" onclick="hardReset()">Hard reset (erase all)</button></div>`;
@@ -11512,6 +11532,8 @@ function updateLive(force){
     const E=S.realms[EV_RT],t=evTier(),bar=$('evbar'),tx=$('evtxt');if(false){
     }
   }else if(tab==='book'||tab==='story'){
+    // Save inputs stay mounted while the economy continues updating.
+    if(tab==='book'&&bsub==='backup'){if(!$('save-tools')){const L=$('list');if(L)L.innerHTML=bookHTML();}return;}
     const sig=['b',tab,bsub,S.warp.sand,JSON.stringify(S.warp.inv),Math.floor(realmPS(realm)/1+0),packCharges(),charmCount(),S.stat.packs||0,wishCharges(),S.stat.wishes,streakN(),dailyReady(),S.dq.day,S.dq.items.map(q=>dqProg(q)+(q.done?'d':'')).join(),Object.keys(S.story.read).length,Object.keys(S.story.seen).length,storyShowRead,unreadCh(),Math.floor(Date.now()/60000),S.guestCount,Object.keys(S.guests).length,ACHN,S.cfg.sound,S.cfg.vib,NOTE,S.resets,S.sequels,realm,bsub==='cross'?Array.from({length:40},(_,i)=>crossK(i)+'.'+Math.floor(crossMult(i))).join(''):''].join('|');
     if(sigs.book!==sig){sigs.book=sig;const L=$('list');if(L)L.innerHTML=bookHTML();}
   }else if(tab==='pres'){
@@ -11881,6 +11903,164 @@ catAdd('player',['You seem like someone who reads the fine print. Good. It is th
 catAdd('idle',['Still there? I will sit here. I am excellent at sitting.','No rush. The shops are running. The pigs are smug. All is well.','If you are taking a break, I will take a nap. The nap will be unsupervised and magnificent.','Tap whenever. I will be here, narrating the ceiling.','I am going to count the pixels. There are a lot. I will lose track. That is the charm.','Hm. It has gone quiet. Somewhere a pig is whispering.','Take your time. The Ever After does not have a clock. Calla Dar has a calendar. That is different.','I am practicing my yawn. It is going well. It is, I am told, "a bit much".']);
 const LF_CSS_DONE=1;
 
+// v21 — local save portability. This file is embedded in the release HTML.
+const SAVE_BACKUP_KEY='haec2_before_import',SAVE_FILE_LIMIT=2*1024*1024;
+let pendingSaveImport=null,saveFileBusy=false;
+function saveChecksum(text){let h=2166136261;for(let i=0;i<text.length;i++){h^=text.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(16).padStart(8,'0');}
+function saveEnvelope(state=S,notation=NOTE,now=Date.now()){
+ const copy=JSON.parse(JSON.stringify(state));return {game:'happily-ever-after-inc',formatVersion:1,release:'21',exportedAt:new Date(now).toISOString(),notation,state:copy,checksum:saveChecksum(JSON.stringify(copy))};
+}
+function validateImportTree(value,depth=0,budget={n:0}){
+ if(++budget.n>60000||depth>24)throw Error('The save is too complex.');
+ if(value===null||typeof value==='boolean')return;
+ if(typeof value==='number'){if(!Number.isFinite(value)||Math.abs(value)>1e300)throw Error('The save contains an invalid number.');return;}
+ if(typeof value==='string'){if(value.length>512)throw Error('The save contains an unsupported text value.');return;}
+ if(typeof value!=='object')throw Error('Unsupported save value.');
+ for(const k of Object.keys(value)){if(['__proto__','prototype','constructor'].includes(k))throw Error('The save contains an unsupported field.');validateImportTree(value[k],depth+1,budget);}
+}
+function importObject(v,label){if(!v||typeof v!=='object'||Array.isArray(v))throw Error(label+' is missing or invalid.');return v;}
+function importNumber(v,label,min=0,max=1e300,integer=false){if(typeof v!=='number'||!Number.isFinite(v)||v<min||v>max||(integer&&!Number.isSafeInteger(v)))throw Error(label+' is invalid.');return v;}
+function importFlag(v,label){if(typeof v!=='boolean')throw Error(label+' is invalid.');return v;}
+function importMap(v,label,max=1e300){importObject(v,label);const out={};for(const [k,n] of Object.entries(v)){if(!/^[A-Za-z0-9_~.:-]{1,128}$/.test(k))throw Error(label+' contains an invalid identifier.');out[k]=typeof n==='boolean'?n:importNumber(n,label,0,max);}return out;}
+function normalizeSaveState(d){
+ importObject(d,'Game state');if(d.ver!==8)throw Error('This file uses an unsupported game-save version. Use a v19–v21 save or a v21 export.');
+ validateImportTree(d);const f=freshState(),out=f;
+ if(!Array.isArray(d.realms)||d.realms.length!==REALMS.length)throw Error('The save does not contain the expected seventeen realms.');
+ out.realms=d.realms.map((raw,r)=>{
+  const R=importObject(raw,'Realm '+(r+1)),base=freshRealm(r),label='Realm '+(r+1);
+  for(const key of ['cash','life'])base[key]=importNumber(R[key],label+' '+key);
+  for(const key of ['pt','la','rs'])if(R[key]!==undefined)base[key]=importNumber(R[key],label+' '+key,0,1e300,key==='rs');
+  base.unlocked=importFlag(R.unlocked,label+' unlocked flag');
+  if(!Array.isArray(R.biz)||R.biz.length!==nShops(r))throw Error(label+' has an incompatible shop count.');
+  if(!Array.isArray(R.gup)||R.gup.length!==GUP_COST.length)throw Error(label+' has an incompatible upgrade count.');
+  base.gup=R.gup.map(x=>importFlag(x,label+' global upgrade'));
+  base.biz=R.biz.map((raw,i)=>{const b=importObject(raw,label+' shop '+i);if(!Array.isArray(b.up)||b.up.length!==UP_MULT.length)throw Error(label+' has incompatible shop upgrades.');return {n:importNumber(b.n,label+' ownership',0,Number.MAX_SAFE_INTEGER,true),prog:importNumber(b.prog,label+' progress',0,1),run:importFlag(b.run,label+' work flag'),mgr:importFlag(b.mgr,label+' manager'),up:b.up.map(x=>importFlag(x,label+' upgrade'))};});return base;
+ });
+ if(!out.realms[0].unlocked)throw Error('The starting realm must be open.');out.realms[EV_RT].unlocked=true;
+ for(const k of ['slip','lifeAll','last','resets','quills','quillTotal','sequels','twists','guestCount','opens','first'])if(d[k]!==undefined)out[k]=importNumber(d[k],k,0,1e300,['resets','sequels','twists','guestCount','opens'].includes(k));
+ importNumber(out.last,'Last saved time',0,8640000000000000);importNumber(out.first,'First played time',0,8640000000000000);
+ for(const k of ['qperk','ach','guests','evDone','seen','gms','charms'])if(d[k]!==undefined)out[k]=importMap(d[k],k,k==='charms'?CH_LV:1e300);
+ for(const [id,n] of Object.entries(out.qperk)){const p=QP.find(x=>x.id===id);if(!p||!Number.isSafeInteger(n)||n>p.max)throw Error('A Quill Perk level is incompatible.');}
+ if(d.guestAll!==undefined)out.guestAll=importFlag(d.guestAll,'Guest collection flag');
+ out.evShift=d.evShift===undefined?0:importNumber(d.evShift,'Event calendar offset',-5200,5200,true);
+ if(d.ev!==undefined){const ev=importObject(d.ev,'Event');out.ev={key:importNumber(ev.key,'Event key',0,99999999,true)};}
+ if(d.cfg!==undefined){importObject(d.cfg,'Settings');for(const k of ['sound','vib','big','tips','motion','celebrations'])if(d.cfg[k]!==undefined)out.cfg[k]=importFlag(d.cfg[k],'Setting '+k);}
+ if(d.stat!==undefined)out.stat={...out.stat,...importMap(d.stat,'Statistics')};
+ if(d.buff!==undefined){const b=importObject(d.buff,'Boost');out.buff={m:importNumber(b.m,'Boost multiplier'),until:importNumber(b.until,'Boost time',0,8640000000000000)};}
+ if(d.wish!==undefined){const w=importObject(d.wish,'Wishes');out.wish={ch:importNumber(w.ch,'Wish charges',0,WISH_MAX,true),t:importNumber(w.t,'Wish timer',0,8640000000000000),until:importNumber(w.until,'Wish boost timer',0,8640000000000000)};}
+ if(d.streak!==undefined){const st=importObject(d.streak,'Streak');out.streak={last:importNumber(st.last,'Streak day',-1,100000000,true),n:importNumber(st.n,'Streak count',0,Number.MAX_SAFE_INTEGER,true)};}
+ if(d.story!==undefined){const st=importObject(d.story,'Story');if(st.v!==4)throw Error('This story-save version is unsupported.');out.story={seen:importMap(st.seen,'Seen stories'),read:importMap(st.read,'Read stories'),v:4};if(st.v5!==undefined)out.story.v5=importNumber(st.v5,'Story marker',0,1,true);}
+ if(d.dq!==undefined){const q=importObject(d.dq,'Daily quests');if(!Array.isArray(q.items)||q.items.length>3)throw Error('Daily quests are invalid.');out.dq={day:importNumber(q.day,'Quest day',-1,100000000,true),items:q.items.map(raw=>{const x=importObject(raw,'Quest');if(!DQ_POOL.some(p=>p.k===x.k))throw Error('Unknown daily quest.');return {k:x.k,g:importNumber(x.g,'Quest goal',1,1e12),base:importNumber(x.base,'Quest progress'),done:importFlag(x.done,'Quest completion'),r:importNumber(x.r,'Quest reward',0,2,true)};})};}
+ if(d.pack!==undefined){const pk=importObject(d.pack,'Packs');out.pack={ch:importNumber(pk.ch,'Pack charges',0,PACK_MAX,true),t:importNumber(pk.t,'Pack timer',0,8640000000000000),n:importNumber(pk.n,'Packs opened',0,Number.MAX_SAFE_INTEGER,true),guar:pk.guar===true?1:pk.guar===false?0:importNumber(pk.guar,'Pack guarantee',0,1,true),v:2};if(pk.v!==2)throw Error('Unsupported charm pack version.');}
+ if(d.warp!==undefined){const w=importObject(d.warp,'Time Warps');out.warp={sand:importNumber(w.sand,'Hourglass Sand'),inv:importMap(w.inv,'Time Warp inventory',WARP_INV_MAX),tot:importNumber(w.tot,'Time Warps used')};for(const [k,n]of Object.entries(out.warp.inv))if(!/^\d+$/.test(k)||+k>=WARPS.length||!Number.isInteger(n))throw Error('Time Warp inventory is invalid.');}
+ out.ver=8;return out;
+}
+function prepareSaveImport(text){
+ if(typeof text!=='string'||text.length>SAVE_FILE_LIMIT)throw Error('Choose a JSON save smaller than 2 MB.');let file;
+ try{file=JSON.parse(text);}catch{throw Error('This is not a readable JSON save file.');}importObject(file,'Save file');validateImportTree(file);
+ let state=file,notation=NOTE,date=null,verified=false;
+ if(Object.prototype.hasOwnProperty.call(file,'formatVersion')||Object.prototype.hasOwnProperty.call(file,'game')){
+  if(file.game!=='happily-ever-after-inc'||file.formatVersion!==1)throw Error('This is not a supported Happily Ever After export.');
+  importObject(file.state,'Export game state');
+  if(typeof file.checksum!=='string'||file.checksum!==saveChecksum(JSON.stringify(file.state)))throw Error('The save checksum does not match. The file may be damaged or edited.');
+  if(typeof file.exportedAt!=='string'||!Number.isFinite(Date.parse(file.exportedAt)))throw Error('The export date is invalid.');
+  if(!['letters','sci'].includes(file.notation))throw Error('The number-format setting is invalid.');state=file.state;notation=file.notation;date=file.exportedAt;verified=true;
+ }
+ const normalized=normalizeSaveState(state);return {state:normalized,notation,exportedAt:date||new Date(normalized.last).toISOString(),verified};
+}
+function commitSaveImport(prepared){
+ const previousRaw=localStorage.getItem(SAVE_KEY);let stored=null;try{stored=previousRaw?JSON.parse(previousRaw):null;}catch{}
+ let backupState=S;if(stored&&Number.isSafeInteger(stored.rev)&&stored.rev>REV)backupState=normalizeSaveState(stored);
+ const previousBackup=localStorage.getItem(SAVE_BACKUP_KEY);
+ const backup=saveEnvelope(backupState,NOTE),next=JSON.parse(JSON.stringify(prepared.state));
+ const rev=Math.max(REV,stored&&Number.isSafeInteger(stored.rev)?stored.rev:0)+1;next.rev=rev;next.tabId=TAB_ID;next.last=Date.now();
+ // Both writes must succeed before the in-memory game changes. Backup failure aborts the import.
+ localStorage.setItem(SAVE_BACKUP_KEY,JSON.stringify(backup));
+ try{localStorage.setItem(SAVE_KEY,JSON.stringify(next));}catch(e){try{if(previousBackup===null)localStorage.removeItem(SAVE_BACKUP_KEY);else localStorage.setItem(SAVE_BACKUP_KEY,previousBackup);}catch{}throw e;}
+ S=next;REV=rev;NOTE=prepared.notation;try{localStorage.setItem('haec_note',NOTE);}catch{}
+ return {revision:rev};
+}
+function saveStatus(message){const e=$('save-status');if(e)e.textContent=message;}
+function downloadSaveData(envelope,prefix='happily-ever-after-save'){
+ const blob=new Blob([JSON.stringify(envelope,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download=prefix+'-'+new Date().toISOString().replace(/[:.]/g,'-')+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);
+}
+function exportSave(){try{save();downloadSaveData(saveEnvelope());saveStatus('Your save file is ready. Keep a copy somewhere safe.');}catch{saveStatus('The download could not start. Try another browser or use the JSON text option.');}}
+function showSaveText(){try{save();const e=$('save-json');if(e){e.value=JSON.stringify(saveEnvelope());e.focus();e.select();}saveStatus('Your current save is in the text box. Copy it into a text file to keep a backup.');}catch{saveStatus('Could not prepare save text.');}}
+function escapeSaveHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function previewSaveText(text,label='Pasted save'){
+ try{const prepared=prepareSaveImport(text);pendingSaveImport=prepared;const d=prepared.state,worlds=d.realms.slice(0,NPERM).filter(r=>r.unlocked).length,shops=d.realms.slice(0,NPERM).reduce((a,r)=>a+r.biz.filter(b=>b.n>0).length,0);
+  showModal(`<div class="mtag">REVIEW SAVE IMPORT</div><h3 id="import-title">Continue this story?</h3><p>${escapeSaveHTML(label)}</p><div class="save-summary"><span>Worlds open <b>${worlds} / ${NPERM}</b></span><span>Businesses open <b>${shops}</b></span><span>Glass Slippers <b>${fmt(d.slip)}</b></span><span>Golden Quills <b>${fmt(d.quillTotal)}</b></span><span>Story parts read <b>${Object.keys(d.story.read).length}</b></span></div><p class="save-explain">This replaces your current progress. An automatic backup of your current progress is stored first. Imported values resume now; importing does not grant catch-up earnings.</p><p class="save-explain">${prepared.verified?'Export checksum checked.':'Original raw save: structure checked; no export checksum.'} Close other open game tabs before replacing progress.</p><p id="import-error" role="alert"></p><button onclick="applySaveImport()">Replace progress with this save</button><button class="alt" onclick="cancelSaveImport()">Keep my current progress</button>`,'save-review');
+  const dialog=document.querySelector('.save-review');if(dialog){dialog.setAttribute('role','dialog');dialog.setAttribute('aria-modal','true');dialog.setAttribute('aria-labelledby','import-title');const cancel=dialog.querySelector('button.alt');if(cancel)cancel.focus();dialog.onkeydown=e=>{if(e.key==='Escape'){e.preventDefault();cancelSaveImport();return;}if(e.key==='Tab'){const buttons=Array.from(dialog.querySelectorAll('button:not([disabled])'));if(!buttons.length)return;const first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}};}
+ }catch(e){pendingSaveImport=null;saveStatus(e.message);}
+}
+function cancelSaveImport(){pendingSaveImport=null;closeModal();const e=$('save-import-button');if(e)e.focus();}
+function applySaveImport(){
+ if(!pendingSaveImport)return;try{commitSaveImport(pendingSaveImport);}catch(e){const el=$('import-error');if(el)el.textContent='Import was not applied. Current progress is unchanged. Your browser could not store the backup and save. Free space or export a file first.';return;}
+ pendingSaveImport=null;closeModal();hideLivingCelebration();catPending=null;catHoldUntil=0;$('living-fx').innerHTML='';livingCoinCount=0;if(guestEl){guestEl.remove();guestEl=null;}twistOpen=false;lfOpen=false;$('twist').innerHTML='';$('lf').innerHTML='';
+ _cmV++;_cmC={};_softT=0;_flC=null;recalcEV();ACHN=Object.keys(S.ach).length;realm=0;tab='book';bsub='cfg';lastT=Date.now();dispRealm=-1;sigs={};livingUnlocked=null;livingLastCash=null;
+ setEventRealm();checkEvent();dqCheck();render();toast('Save imported. Your previous progress is available under Automatic Backup.',5000);
+}
+async function readSaveFile(input){const file=input.files&&input.files[0];input.value='';if(!file||saveFileBusy)return;if(file.size>SAVE_FILE_LIMIT){saveStatus('Choose a JSON save smaller than 2 MB.');return;}saveFileBusy=true;try{previewSaveText(await file.text(),file.name);}catch{saveStatus('The selected file could not be read.');}finally{saveFileBusy=false;}}
+function previewPastedSave(){const e=$('save-json');previewSaveText(e?e.value:'');}
+function automaticBackup(action){try{const raw=localStorage.getItem(SAVE_BACKUP_KEY);if(!raw){saveStatus('No pre-import backup is stored in this browser yet.');return;}prepareSaveImport(raw);if(action==='download')downloadSaveData(JSON.parse(raw),'happily-ever-after-before-import');else previewSaveText(raw,'Automatic pre-import backup');}catch{saveStatus('The automatic backup is unavailable or damaged. Use an exported save file.');}}
+function saveToolsHTML(){return `<section class="save-tools" id="save-tools"><div class="save-tools-head">${uiArt('story')}<div><h2>Keep your story safe</h2><p>Download a save, move to another device, or restore a backup.</p></div></div><div class="save-actions"><button class="btn" onclick="exportSave()">Download save file</button><button class="btn" id="save-import-button" onclick="$('save-file').click()">Choose a save to import</button></div><input id="save-file" type="file" accept=".json,application/json,text/plain" onchange="readSaveFile(this)" hidden><details><summary>Copy or paste save JSON</summary><label for="save-json">Save JSON</label><textarea id="save-json" maxlength="2097152" rows="5" spellcheck="false" placeholder="Paste a save here, then select Review pasted save."></textarea><div class="save-actions"><button class="btn" onclick="showSaveText()">Show current save JSON</button><button class="btn" onclick="previewPastedSave()">Review pasted save</button></div></details><details><summary>Automatic backup before an import</summary><p>One previous save is kept in this browser. A successful import replaces this backup with the progress you are leaving. Export important saves to files too.</p><div class="save-actions"><button class="btn" onclick="automaticBackup('download')">Download automatic backup</button><button class="btn" onclick="automaticBackup('restore')">Review automatic backup</button></div></details><p id="save-status" role="status" aria-live="polite"></p><p class="save-footnote">Files stay on your device. No account or cloud upload. A downloaded file is a separate backup; browser storage can be cleared or become unavailable.</p></section>`;}
+
+// v21 — Living Storybook presentation. Original action functions remain the source of game changes.
+let livingUnlocked=null,livingLastCash=null,livingLastFX=0,livingCoinCount=0,livingFXSerial=0,livingObserver=null,livingCatTimer=0,livingCatUntil=0,livingCelebrationTimer=0;
+function livingMotionOK(){return S.cfg.motion!==false&&!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)&&!document.hidden;}
+function toggleLivingPreference(key){if(!['motion','celebrations'].includes(key))return;S.cfg[key]=S.cfg[key]===false;if(key==='celebrations'&&S.cfg[key]===false)hideLivingCelebration();save();sigs={};render();}
+function setCatExpression(mood='calm',duration=5000){
+ const p=document.querySelector('.cat-expression');if(!p)return;const cells={calm:0,happy:1,wink:2,sleepy:3},i=cells[mood]===undefined?0:cells[mood];
+ p.style.backgroundPosition=(i%2)*100+'% '+Math.floor(i/2)*100+'%';p.setAttribute('aria-label','The Cheshire Cat, '+mood);livingCatUntil=Date.now()+duration;
+ p.classList.toggle('cat-speaking',mood!=='sleepy'&&mood!=='calm'&&livingMotionOK());clearTimeout(livingCatTimer);livingCatTimer=setTimeout(()=>p.classList.remove('cat-speaking'),1200);
+}
+function hideLivingCelebration(){const e=$('living-celebration');if(e)e.classList.remove('show');document.documentElement.classList.remove('has-celebration');}
+function livingCelebrate(title,message,key='ach'){
+ if(S.cfg.celebrations===false)return;const e=$('living-celebration');if(!e)return;
+ e.innerHTML=uiArt(key,'celebration-art')+'<div><strong>'+escapeSaveHTML(title)+'</strong><span>'+escapeSaveHTML(message)+'</span></div><button aria-label="Dismiss celebration" onclick="hideLivingCelebration()">×</button>';
+ e.classList.add('show');document.documentElement.classList.add('has-celebration');clearTimeout(livingCelebrationTimer);livingCelebrationTimer=setTimeout(hideLivingCelebration,5500);setCatExpression('happy',6000);
+}
+function livingCoinTrail(source){
+ if(!livingMotionOK()||livingCoinCount>=4||!source)return;let target=$('cash');const layer=$('living-fx');if(!target||!layer)return;
+ const treasury=target.getBoundingClientRect();if(treasury.bottom<0||treasury.top>window.innerHeight)target=$('qnext')||target;
+ const a=source.getBoundingClientRect(),b=target.getBoundingClientRect();if(a.bottom<0||a.top>window.innerHeight-150||b.bottom<0||b.top>window.innerHeight)return;
+ const e=document.createElement('span');e.className='living-coin';e.innerHTML=currencyArt(realm);e.style.left=(a.left+a.width*.5-12)+'px';e.style.top=(a.top+Math.min(a.height*.5,65)-12)+'px';e.style.setProperty('--fly-x',(b.left+b.width*.35-a.left-a.width*.5)+'px');e.style.setProperty('--fly-y',(b.top+b.height*.4-a.top-Math.min(a.height*.5,65))+'px');
+ layer.appendChild(e);livingCoinCount++;let removed=false;const clear=()=>{if(removed)return;removed=true;e.remove();livingCoinCount=Math.max(0,livingCoinCount-1);};e.addEventListener('animationend',clear,{once:true});setTimeout(clear,1200);
+}
+function livingPurchase(before,after,i){
+ if(after<=before)return;const card=$('biz'+i);if(card&&livingMotionOK()){card.classList.remove('purchase-pulse');void card.offsetWidth;card.classList.add('purchase-pulse');setTimeout(()=>card.classList.remove('purchase-pulse'),600);}
+ const first=before===0;if(mileMult(after)>mileMult(before))livingCelebrate('Milestone reached',REALMS[realm].biz[i][0]+' · '+fmt(after)+' owned · profit ×'+fmt(mileMult(after)/mileMult(before)));
+ else if(first)livingCelebrate('Open for business',REALMS[realm].biz[i][0],'shop');
+ setCatExpression(first?'happy':'wink',first?5000:2500);
+}
+function setupLivingShops(){
+ if(livingObserver)livingObserver.disconnect();
+ if(window.IntersectionObserver){livingObserver=new IntersectionObserver(entries=>entries.forEach(x=>x.target.classList.toggle('in-view',x.isIntersecting)),{rootMargin:'20px'});document.querySelectorAll('.biz').forEach(el=>livingObserver.observe(el));}
+ else document.querySelectorAll('.biz').forEach(el=>el.classList.add('in-view'));
+ updateLivingStorybook();
+}
+function updateLivingStorybook(){
+ const motion=livingMotionOK();document.documentElement.dataset.livingMotion=motion?'on':'off';if(document.hidden)return;
+ const unlocked=S.realms.slice(0,NPERM).map(r=>r.unlocked);
+ if(livingUnlocked){const i=unlocked.findIndex((yes,r)=>yes&&!livingUnlocked[r]);if(i>=0)livingCelebrate('A new chapter opens',REALMS[i].name+' is ready to explore.','story');}livingUnlocked=unlocked;
+ if(tab==='shop')S.realms[realm].biz.forEach((b,i)=>{const el=$('biz'+i),nm=$('nm'+i);if(!el||!nm)return;const active=b.n>0&&(b.mgr||b.run);el.classList.toggle('shop-working',active);el.classList.toggle('shop-automated',b.n>0&&b.mgr);const label=isLocked(realm,i)?'A story yet to be discovered':b.n<1?'Ready for its first chapter':b.mgr?'Manager at work':b.run?'Working its magic':'Tap the shop to work';if(nm.dataset.activity!==label)nm.dataset.activity=label;});
+ const cash=S.realms[realm].cash;
+ if(livingLastCash&&livingLastCash.realm===realm&&cash>livingLastCash.value&&Date.now()-livingLastFX>2200&&motion&&tab==='shop'){
+  const active=Array.from(document.querySelectorAll('.biz.shop-working.in-view'));if(active.length){livingCoinTrail(active[livingFXSerial++%active.length]);livingLastFX=Date.now();}
+ }livingLastCash={realm,value:cash};
+ if(Date.now()>livingCatUntil)setCatExpression(Date.now()-lastAct>60000?'sleepy':'calm',2000);
+}
+// Wrap user actions only to observe successful changes, after the original action has completed.
+const livingBuy=buy;buy=function(i){const before=S.realms[realm].biz[i].n;livingBuy(i);livingPurchase(before,S.realms[realm].biz[i].n,i);updateLivingStorybook();};
+const livingQuickBuy=quickBuy;quickBuy=function(all){const before=S.realms[realm].biz.map(b=>b.n);const hires=S.stat.hires,ups=S.stat.ups;livingQuickBuy(all);const changed=S.realms[realm].biz.map((b,i)=>({i,before:before[i],after:b.n})).filter(x=>x.after>x.before);const best=changed.find(x=>mileMult(x.after)>mileMult(x.before))||changed[0];if(best)livingPurchase(best.before,best.after,best.i);else if(S.stat.hires>hires||S.stat.ups>ups)setCatExpression('happy',4000);updateLivingStorybook();};
+const livingHire=hire;hire=function(i){const before=S.realms[realm].biz[i].mgr;livingHire(i);if(!before&&S.realms[realm].biz[i].mgr){livingCelebrate('In capable hands',REALMS[realm].biz[i][3]+' is now managing '+REALMS[realm].biz[i][2]+'.','mgr');setCatExpression('happy');}updateLivingStorybook();};
+const livingBuyUp=buyUp;buyUp=function(i,k){const before=S.realms[realm].biz[i].up[k];livingBuyUp(i,k);if(!before&&S.realms[realm].biz[i].up[k])setCatExpression('happy',3500);};
+const livingBuyGUp=buyGUp;buyGUp=function(k){const before=S.realms[realm].gup[k];livingBuyGUp(k);if(!before&&S.realms[realm].gup[k])setCatExpression('happy',3500);};
+const livingCatSay=catSay;catSay=function(text){livingCatSay(text);setCatExpression('wink',4500);};
+const livingCatTap=catTap;catTap=function(){livingCatTap();setCatExpression('wink',4500);};
+const livingRender=render;render=function(){livingRender();setupLivingShops();};
+
 // ---------- BOOT ----------
 load();recalcEV();ACHN=Object.keys(S.ach).length;
 (function boot(){
@@ -11895,6 +12075,8 @@ load();recalcEV();ACHN=Object.keys(S.ach).length;
   if(away>5)offline(away);
   lastT=Date.now();
   setInterval(tick,100);
+  setInterval(updateLivingStorybook,600);
+  document.addEventListener('visibilitychange',updateLivingStorybook);
   setInterval(save,5000);
   setTimeout(catLoop,20000);setInterval(catPump,500);
   document.addEventListener('pointerdown',()=>{lastAct=Date.now();});

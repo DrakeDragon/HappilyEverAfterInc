@@ -1,5 +1,34 @@
 # Changelog
 
+## v21 — Living Storybook Edition
+
+### Added
+- Active shop light/breathing effects, automated status lights, and readable activity labels.
+- Successful purchase highlights and dismissible business-open, ownership-milestone, manager-hired, and realm-open celebration cards.
+- Throttled illustrative currency trails toward the visible treasury or quick-purchase controls; no new earnings or rewards.
+- Four generated Cat expressions (calm, delighted, wink, sleepy), reaction hooks, and subtle portrait motion.
+- Independent motion/celebration preferences, reduced-motion support, hidden-page/offscreen controls, and capped temporary effects.
+- Goodies → Save & Backups, linked from Settings: downloadable JSON exports, file import, manual JSON fallback, import preview/cancel, validation, and a pre-import backup with download/restore.
+- Export format 1 with game identifier and payload checksum; underlying state remains version 8.
+- Save portability guide, verification guide, and expression artwork prompt documentation.
+
+### Save behavior
+- Active save key remains haec2; local pre-import backup uses haec2_before_import.
+- Compatible raw v19/v20 states can be imported; incompatible states are rejected.
+- Both backup and active-save writes must succeed before replacing in-memory progress.
+- Revisions advance beyond the stored active revision; newer other-tab progress is chosen for the backup.
+- Imports resume at the current time without granting offline catch-up earnings. Normal offline code and calendar rollover rules remain.
+- Save text/file input stays mounted while the economy updates.
+
+### Retained
+- Existing shops, progression, story, calculations, action functions, prices, production speed, and rewards. Feedback wrappers run after successful original actions.
+- All prior production artwork, including the v20 shop, guest, charm, and currency collection.
+
+### Validation
+- 40 isolated checks pass, including 8,070 unchanged economy values, action parity, save round trips, adversarial validation, cancellation, quota/write failure handling, automatic restoration, revision handling, and motion preferences.
+- JavaScript syntax, expression artwork, assets, and ZIP integrity checked.
+- Local browser preview connection failed. File-picker/download behavior and physical-phone layout remain unverified; see docs/VALIDATION-v21.md.
+
 ## v20 — Illustrated World Collection
 
 ### Artwork

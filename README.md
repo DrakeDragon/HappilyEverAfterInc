@@ -2,7 +2,7 @@
 
 A funny, mobile-first idle tycoon where fairy-tale businesses become an empire and the Cheshire Cat narrates your adventures.
 
-**v20 · Illustrated World Collection** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
+**v21 · Living Storybook Edition** — sixteen illustrated permanent realms, a weekly event world, and a refreshed interface. No accounts, ads, tracking, paid purchases, frameworks, or build step. Game code lives in `index.html`; the realm artwork is a separate bundled asset.
 
 ## Contents
 
@@ -22,7 +22,27 @@ A funny, mobile-first idle tycoon where fairy-tale businesses become an empire a
 
 ## Release overview
 
-### New in v20: illustrated world collection
+### New in v21: Living Storybook
+
+This cumulative update adds life and feedback to the illustrated game, plus portable save backups. It retains the existing economy, story, world unlocks, production calculations, purchases, managers, upgrades, and rewards.
+
+**Presentation**
+
+- Active, visible shops receive restrained light sweeps and breathing motion. Automated shops have a small green status light; shop names show whether a manager is working, a manual cycle is running, or a tap is needed.
+- Successful purchases briefly highlight their shop. Opening a business, reaching a profit milestone, hiring a manager, and opening a realm can show a dismissible celebration card. Buy All produces one representative shop celebration rather than a flood of cards.
+- Illustrative currency trails respond to income increases. They travel toward the visible treasury, or toward the quick-purchase controls when the header is offscreen. These visuals do not grant money or represent additional payouts.
+- The Cheshire Cat has four matching generated expressions: calm, delighted, winking, and sleepy. Expressions react to purchases, speech, taps, and inactivity. Small portrait motion accompanies the artwork; it is not full skeletal character animation or lip sync.
+- Settings adds independent Storybook motion and Celebration cards controls. Device reduced-motion preferences override the new motion. Celebrations remain readable without animation. Hidden pages and offscreen shops avoid the new continuous animation.
+
+**Save & Backups**
+
+Open **Goodies → Save & Backups**, or use its shortcut in Settings. Download a JSON export, choose a save file, or use the copy/paste JSON fallback. Imports are validated and previewed before replacement. The game stores an automatic pre-import backup before writing the imported save. Read the [complete save guide](docs/SAVE-GUIDE.md) before moving progress between devices.
+
+The new export envelope is format 1; the underlying game save remains version 8. Compatible raw saves from our v19/v20 releases are accepted. Earlier incompatible economies, unexpected realm/shop structures, and future formats are rejected rather than silently migrated by the importer. Existing browser saves still use the original loader during an ordinary site upgrade.
+
+**Verification:** 40 isolated checks cover save validation, round trips, review/cancel behavior, storage failures, backup restoration, multi-tab revision handling, action equivalence, motion preferences, and 8,070 unchanged economy values. Generated expression artwork and package assets were inspected. The browser preview could not connect to the local server, so live file-picker/download behavior and physical-phone layout remain unverified.
+
+### Previous release: v20 illustrated world collection
 
 **This release rewires presentation while retaining the game.** It adds individually mapped artwork for **538 permanent shops, 80 guests, and 96 charms**. Original realm names, shop names, manager names, prices, upgrades, unlock requirements, rewards, story content, and save identifiers are retained.
 
@@ -83,10 +103,10 @@ This is a presentation release. It intentionally retains the original economy fo
 1. Download and extract the release ZIP locally. The ZIP contains the site files directly at its root.
 2. Back up your current repository or create a commit before replacing files. Close other open game tabs so an older tab cannot write over newer progress.
 3. In the folder your existing Pages deployment publishes, replace `index.html` and `README.md` with this release's versions. Add the complete `assets` and `docs` folders, `CHANGELOG.md`, and `.nojekyll`. Keep your repository's existing license and any custom domain `CNAME` file. This package includes the original LICENSE when present in the supplied project.
-4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
+4. Keep the entire `assets/` folder beside the new `index.html`, including the four previous PNGs, all `shops-*.webp`, `guests-*.webp`, `charms-*.webp`, `currencies.webp`, `cat-expressions.webp`, and `art-manifest.json`. Upload the actual extracted files and folders, not the ZIP itself. Do not add an extra enclosing release folder to the published site.
 5. Commit the files. Continue using your existing Pages deployment configuration. If you publish from a `/docs` folder, place **all site files** in that publishing folder; this package's `docs/` directory contains documentation, not the deployment root.
 6. Wait for your repository's Pages deployment to complete. Open your existing game URL and refresh. If the old appearance remains, use a hard refresh or close and reopen the tab.
-7. Confirm that the crest, Cat portrait, bottom navigation icons, realm banner, and realm tiles show illustrations. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
+7. Confirm that the crest, Cat expressions, bottom navigation icons, realm banner, and realm tiles show illustrations. Open Goodies → Save & Backups and download a backup file before importing anything. Open Managers, Upgrades, Ever After, Goodies, and Stories to confirm the new interface.
 
 Relative asset paths support both a repository project URL and a custom-domain root. No repository name or username needs to be edited into the source. This package does not change your Pages settings or publish anything automatically.
 
@@ -111,7 +131,8 @@ index.html                      Complete game, styles, and interface logic
 assets/realm-atlas.png           Illustrated 4 × 4 realm environment atlas
 assets/title-crest.png           Transparent title crest and dialog ornament
 assets/ui-icons.png              Transparent 4 × 4 interface icon atlas
-assets/cheshire-cat.png          Transparent narrator portrait
+assets/cheshire-cat.png          Original transparent narrator portrait
+assets/cat-expressions.webp      Four-expression Cat atlas used by v21
 assets/shops-*.webp               19 permanent-shop art sheets
 assets/guests-*.webp              4 guest portrait sheets
 assets/charms-*.webp              6 collectible charm sheets
@@ -123,6 +144,9 @@ CHANGELOG.md                    Changes and scope by release
 docs/README-v16-original.md      Unmodified original README, for historical reference
 docs/ARTWORK.md                  v19 artwork inventory and prompts
 docs/ARTWORK-v20.md              v20 inventory, mapping, and prompts
+docs/ARTWORK-v21.md              Cat expressions, mapping, and production prompt
+docs/SAVE-GUIDE.md               Export/import, backup restoration, and compatibility
+docs/VALIDATION-v21.md           Verification scope and remaining manual checks
 .nojekyll                       Static-site publishing marker
 LICENSE                         Original project license, when supplied
 ```
@@ -204,16 +228,18 @@ The game uses compact large-number notation, with a scientific notation option i
 
 - Save key: `haec2` in browser `localStorage`; unchanged by this release.
 - Autosaving and offline earnings use the existing game implementation.
-- Progress is local to the browser profile and site origin; there is no cloud synchronization.
+- Progress is local to the browser profile and site origin. v21 adds manual JSON export/import; there is no cloud synchronization.
 - Multiple game tabs can contend for the same save. The original revision guard remains; close older copies while upgrading.
 - Opening another repository on the same GitHub Pages hostname may share the same storage key, because browser storage is scoped by origin, not repository path. This release does not alter that existing behavior.
 - Keep the same published URL and browser when upgrading. Do not clear site storage as a cache-refresh step.
-- Site backups and ZIP releases do not contain a player's browser save.
+- Site backups and ZIP releases do not contain a player's browser save. Use Download save file to keep a separate progress backup.
+- Before a confirmed import, `haec2_before_import` stores the current progress as a local backup. This backup is separate from the active `haec2` save and can be downloaded or reviewed for restoration.
+- Importing restores saved values and resumes now; it does not grant offline catch-up earnings. Already dated boosts, quests, and weekly events continue to follow the current date. The ordinary offline earnings code is unchanged.
 - Existing reset and migration behavior remains in the game; this release adds no new reset or conversion.
 
 ## Technical details
 
-Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. The presentation additions are marked `Illustrated storybook edition`, `v18: Storybook interface system`, and `v19: illustrated identity and modern storybook surfaces`, and `v20: content illustration and mobile readability` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
+Plain HTML, CSS, and JavaScript. Static hosting only. The original game loop and signature-based content updates remain. The presentation additions are marked `Illustrated storybook edition`, `v18: Storybook interface system`, and `v19: illustrated identity and modern storybook surfaces`, and `v20: content illustration and mobile readability`, and `v21: Living Storybook` in the stylesheet. `updateRealmIllustration()` selects the environment art; `decorateInterface()` decorates realm navigation and primary screen headings.
 
 The PNG is a 4 × 4 atlas. `illustratedNames` maps its cells to realm names. CSS background positioning selects the relevant cell. Reordering the atlas requires updating this mapping. The original game's `data-w` world themes and realm accent colors continue to drive interface colors.
 
@@ -233,23 +259,19 @@ Artwork was created using built-in image generation, then bundled locally. Art d
 
 ## Validation and limitations
 
-- JavaScript syntax validation passes.
-- At five ownership levels for every permanent shop, 8,070 cost/cycle/profit values match v19 exactly. This checks the presentation changes did not alter these calculations.
-- Realm, guest, charm, and prestige data match v19, including names, counts, and guest reward definitions.
-- All 538 shop, 80 guest, and 96 charm mappings are checked against the manifest; hidden/visible shop artwork states are checked.
-- The animated treasury no longer adds its legacy currency emoji; only the illustrated current-realm currency is drawn beside the number.
-- Local asset references, image readability, cumulative package contents, and ZIP integrity are checked before delivery.
-- Live browser and physical-phone visual verification remain outstanding. These checks do not constitute a complete end-to-end gameplay or accessibility audit.
+See [docs/VALIDATION-v21.md](docs/VALIDATION-v21.md) for the complete scope. JavaScript syntax passes. Forty isolated checks pass, including save round trips, malformed and incompatible file rejection, preview/cancel, backup and active-write failures, restoring the previous backup, newer-tab revisions, reduced-motion behavior, and preserving the save input while income updates. Direct purchases, hiring, upgrades, quick purchases, and Buy All match v20; 8,070 price/cycle/profit values also match.
 
-Artwork uses generated sprite sheets: each entry selects its own cell. Illustrations are designed for compact game cards, not unrestricted enlargement. Assets are served locally with the game; the browser requests the sheets used by the displayed content. This expanded art collection increases download size compared with v19. The thirty new sheets use quality-94 WebP delivery encoding at their original resolution to reduce transfer size; the four earlier PNGs are unchanged.
+The expression sheet was visually inspected. Production assets and ZIP contents are checked, and the new image is delivered as quality-96 WebP at its original resolution with transparency.
 
-This is an extensive art and layout release, not a claim of finished AAA production. Guest portraits and the Cat are static. Managers use their shop's art instead of unique portraits. Weekly-event shops use a shared illustrated festival symbol. Some text and decorative emoji remain. No economy rebalance, new story content, cloud save, or new sound design is included.
+The preview browser could not connect to the local development server. These tests therefore do **not** verify an actual browser file picker, browser download, animation rendering, phone layout, screen reader, or a full end-to-end playthrough. Test these on your published site using the manual steps in the validation guide. The copy/paste JSON option provides a fallback if your browser does not download files normally.
+
+The new Cat art uses expression swaps and subtle motion; shop movement is a light treatment over existing illustrations. There are no new gameplay rewards, full character rigs, separate manager portraits, event-specific shop illustrations, new sound assets, or cloud synchronization. Earlier artwork and game systems remain included. Some decorative and in-text emoji remain.
 
 ## Development and future releases
 
 For every major update, distribute a complete, versioned ZIP with an updated README and CHANGELOG. Document new features, changed files, installation steps, save compatibility, validation, limitations, and rollback. Keep game files and required assets together so each release can be deployed independently.
 
-Possible next art passes: individual manager portraits, additional Cheshire Cat expressions and animation, themed event shop art, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
+Possible next art passes: individual manager portraits, richer character animation, themed event shop art, and carefully tuned reward effects. These are roadmap ideas, not implemented features.
 
 The original v16 README is preserved in [docs/README-v16-original.md](docs/README-v16-original.md). Its older counts, unlock tables, single-file instructions, and validation statements describe historical versions and should not override this current guide or the game itself.
 
